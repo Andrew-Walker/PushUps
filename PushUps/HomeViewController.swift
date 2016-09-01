@@ -14,14 +14,14 @@ class HomeViewController: UIViewController {
     
     // MARK: Private
     
-    @IBOutlet private weak var startButton: SessionButton!
-    @IBOutlet private weak var segmentedControl: SegmentedControl!
-    
-    private let titleView = NavigationBarView.instanceFromNib()
-    
     private var pageViewController: HomePageViewController?
     
     // MARK: Public
+    
+    @IBOutlet weak var segmentedControl: SegmentedControl!
+    @IBOutlet weak var startButton: SessionButton!
+    
+    let titleView = NavigationBarView.instanceFromNib()
     
     // MARK: Lifecycle -
     
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
         self.applyBackgroundGradient()
     }
     
-    private func configureUI() {
+    private func configureUI() {        
         self.titleView?.setTitleContent(withText: "Level 2")
         self.titleView?.setSubtitleContent(withText: "training level")
         self.navigationItem.titleView = titleView
@@ -74,28 +74,6 @@ class HomeViewController: UIViewController {
     @objc private func segmentedControlChanged() {
         let newIndex = self.segmentedControl.selectedIndex
         self.pageViewController?.setPage(withIndex: newIndex)
-    }
-    
-}
-
-extension HomeViewController: HomePageViewControllerDelegate {
-    
-    func pageDidChange(toIndex index: Int?) {
-        self.updateView(forPageIndex: index)
-    }
-    
-    private func updateView(forPageIndex index: Int?) {
-        guard let index = index, sessionType = SessionType(rawValue: index) else {
-            return
-        }
-        
-        self.view.backgroundColor = sessionType.backgroundColor()
-        self.startButton.backgroundColor = sessionType.backgroundColor()
-        self.startButton.setTitle(sessionType.title(), for: [])
-        self.segmentedControl.selectedIndex = index
-        self.segmentedControl.selectedLabelColor = sessionType.backgroundColor()
-        self.titleView?.setTitleContent(withText: sessionType.navigationBarTitle())
-        self.titleView?.setSubtitleContent(withText: sessionType.navigationBarSubtitle())
     }
     
 }

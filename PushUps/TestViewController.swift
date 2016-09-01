@@ -11,6 +11,7 @@ import HealthKit
 import WatchConnectivity
 
 class TestViewController: UIViewController {
+    
     @IBOutlet private weak var pushUpCounterLabel: UILabel!
     
     private let healthStore = HKHealthStore()
@@ -95,11 +96,13 @@ class TestViewController: UIViewController {
         self.pushUpCount += 1
         self.pushUpCounterLabel.text = String(self.pushUpCount)
     }
+    
 }
 
 // MARK: - WCSessionDelegate
 
 extension TestViewController: WCSessionDelegate {
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
         if activationState == .activated {
             if let activationCompletion = self.wcSessionActivationCompletion {
@@ -116,8 +119,11 @@ extension TestViewController: WCSessionDelegate {
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
+        
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
+        
     }
+    
 }

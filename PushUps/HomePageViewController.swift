@@ -18,8 +18,6 @@ class HomePageViewController: UIPageViewController {
     
     // MARK: Private
     
-    private var currentIndex: Int?
-    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.pageViewController(name: "Training"),
                 self.pageViewController(name: "Session")]
@@ -28,6 +26,7 @@ class HomePageViewController: UIPageViewController {
     // MARK: Public
     
     var pageDelegate: HomePageViewControllerDelegate?
+    var currentIndex: Int?
     
     // MARK: Lifecycle -
     
@@ -99,17 +98,6 @@ extension HomePageViewController: UIPageViewControllerDataSource {
         }
         
         return self.orderedViewControllers[nextIndex]
-    }
-    
-}
-
-extension HomePageViewController: UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if let firstViewController = self.viewControllers?.first, let index = self.orderedViewControllers.index(of: firstViewController) {
-            self.currentIndex = index
-            self.pageDelegate?.pageDidChange(toIndex: index)
-        }
     }
     
 }
