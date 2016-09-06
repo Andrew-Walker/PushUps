@@ -10,10 +10,12 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.styleUI()
+        self.configureTemporaryUser()
         
         return true
     }
@@ -43,5 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.applyGlobalNavigationBarStyle()
         UIBarButtonItem.applyGlobalBarButtonStyle()
     }
+    
+    private func configureTemporaryUser() {
+        let temporaryUser = PushUpUser(name: "Andrew Walker")
+        UserManager.sharedInstance.setUser(user: temporaryUser)
+    }
+    
 }
 

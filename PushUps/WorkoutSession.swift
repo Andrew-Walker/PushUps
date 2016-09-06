@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol Workout: Session {
-    var target: Int { get }
-}
+protocol Workout: Session {}
 
 struct WorkoutSession: Workout {
-    var target: Int
-    var date = NSDate()
+    var date: NSDate?
     var duration = 0
     var pushups = 0
-    
-    init(target: Int) {
-        self.target = target
+}
+
+extension WorkoutSession {
+    mutating func endWorkout(withCount count: Int) {
+        self.pushups = count
+        self.duration = self.getDuration()
     }
 }

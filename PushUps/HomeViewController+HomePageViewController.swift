@@ -19,7 +19,7 @@ extension HomeViewController: HomePageViewControllerDelegate {
         
         self.view.backgroundColor = sessionType.backgroundColor()
         self.startButton.backgroundColor = sessionType.backgroundColor()
-        self.startButton.setTitle(sessionType.title(), for: [])
+        self.startButton.setTitle("START \(sessionType.title())", for: [])
         self.segmentedControl.selectedIndex = index
         self.segmentedControl.selectedLabelColor = sessionType.backgroundColor()
         self.titleView?.setTitleContent(withText: sessionType.navigationBarTitle())

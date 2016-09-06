@@ -10,6 +10,7 @@ import UIKit
 
 /// View used within navigation bar in most views. Contains title and subtitle labels.
 class NavigationBarView: UIView {
+    
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var subtitleLabel: UILabel?
     
@@ -42,4 +43,5 @@ class NavigationBarView: UIView {
     func setSubtitleContent(withText text: String?) {
         self.subtitleLabel?.text = text
     }
+    
 }

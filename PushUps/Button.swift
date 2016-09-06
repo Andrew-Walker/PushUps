@@ -10,7 +10,7 @@ import UIKit
 
 /// General button style with highlighting customisation.
 class Button: UIButton {
-    // MARK:
+    
     // MARK: Properties -
     
     // MARK: Private
@@ -47,10 +47,12 @@ class Button: UIButton {
             self.layer.opacity = self.isEnabled ? 1.0 : 0.7
         }
     }
+    
 }
 
 /// Main button used in HomeViewController for starting new sessions.
 class SessionButton: Button {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -62,10 +64,11 @@ class SessionButton: Button {
             return
         }
         
-        super.setTitle("START \(title)", for: state)
+        super.setTitle(title, for: state)
         
         self.setTitleColor(UIColor.white(), for: [])
         self.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
         self.titleLabel?.text = self.titleLabel?.text?.uppercased()
     }
+    
 }

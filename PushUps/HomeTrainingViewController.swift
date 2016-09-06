@@ -32,5 +32,7 @@ class HomeTrainingViewController: UIViewController {
     }
     
     private func configureUI() {
+        
     }
+    
 }

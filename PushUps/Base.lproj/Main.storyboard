@@ -294,7 +294,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="zGc-Y4-tJP" id="ARJ-B2-1ib"/>
                         <outlet property="countdownLabel" destination="yoT-OW-tAI" id="vPr-zI-d29"/>
-                        <segue destination="2xG-8s-t5k" kind="presentation" identifier="SessionViewController" animates="NO" id="Sd7-Vn-rAE"/>
+                        <segue destination="Aq5-S0-JgY" kind="presentation" identifier="SessionViewController" modalTransitionStyle="crossDissolve" id="U6p-MB-Ewl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wT-4T-q3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,12 +312,63 @@
                     <view key="view" contentMode="scaleToFill" id="6uI-EU-fnX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOL-JX-Qur" customClass="SessionButton" customModule="PushUps" customModuleProvider="target">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2q2-44-RQa"/>
+                                </constraints>
+                                <state key="normal" title="End Button"/>
+                                <connections>
+                                    <action selector="endButtonTapped:" destination="2xG-8s-t5k" eventType="touchUpInside" id="0P0-OW-SZW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnN-77-hRg">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pushups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEV-Ez-bok">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GEV-Ez-bok" firstAttribute="centerX" secondItem="6uI-EU-fnX" secondAttribute="centerX" id="IPo-nJ-vlt"/>
+                            <constraint firstItem="CnN-77-hRg" firstAttribute="centerX" secondItem="6uI-EU-fnX" secondAttribute="centerX" id="T4e-pq-OlW"/>
+                            <constraint firstItem="VOL-JX-Qur" firstAttribute="leading" secondItem="6uI-EU-fnX" secondAttribute="leading" constant="32" id="UUZ-EP-e87"/>
+                            <constraint firstItem="GEV-Ez-bok" firstAttribute="top" secondItem="CnN-77-hRg" secondAttribute="bottom" constant="-16" id="Ury-0R-QpB"/>
+                            <constraint firstItem="CnN-77-hRg" firstAttribute="top" secondItem="gB0-UO-9zI" secondAttribute="bottom" constant="105" id="dUS-gQ-rBz"/>
+                            <constraint firstItem="npI-uG-XwK" firstAttribute="top" secondItem="VOL-JX-Qur" secondAttribute="bottom" constant="32" id="iSW-Vs-XN6"/>
+                            <constraint firstAttribute="trailing" secondItem="VOL-JX-Qur" secondAttribute="trailing" constant="32" id="mY9-xr-cC6"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fw6-he-788"/>
+                    <connections>
+                        <outlet property="counterLabel" destination="CnN-77-hRg" id="XEm-fa-rc3"/>
+                        <outlet property="endButton" destination="VOL-JX-Qur" id="r74-Pr-XSb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yK-xR-7dy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4255" y="139"/>
+            <point key="canvasLocation" x="5039" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VeR-9v-VrK">
+            <objects>
+                <navigationController id="Aq5-S0-JgY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fyF-gi-C2O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2xG-8s-t5k" kind="relationship" relationship="rootViewController" id="2Y7-bV-7CH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qoi-mx-Eq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4224" y="139"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="bgV-oV-Kx7">
@@ -552,7 +603,7 @@
                                             <constraint firstItem="Wax-P6-WEg" firstAttribute="width" secondItem="khO-8u-Vwg" secondAttribute="width" id="zxW-tz-8R0"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-k6-OkY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upcoming sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6i-k6-OkY">
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

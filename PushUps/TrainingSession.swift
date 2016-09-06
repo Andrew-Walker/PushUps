@@ -14,11 +14,18 @@ protocol Training: Session {
 
 struct TrainingSession: Training {
     var sets: [SessionSet]
-    var date = NSDate()
+    var date: NSDate?
     var duration = 0
     var pushups = 0
     
     init(sets: [SessionSet]) {
         self.sets = sets
+    }
+}
+
+extension TrainingSession {
+    mutating func endWorkout(withCount count: Int) {
+        self.pushups = count
+        self.duration = self.getDuration()
     }
 }

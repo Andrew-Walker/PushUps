@@ -32,6 +32,7 @@ class HomeSessionViewController: UIViewController {
     }
     
     private func configureUI() {
+        
     }
     
 }

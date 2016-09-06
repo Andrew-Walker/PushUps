@@ -25,6 +25,9 @@
 		6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */; };
 		6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */; };
 		6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E593DCD1D5BCCD500C9C2CE /* Button.swift */; };
+		6E7D291D1D7E180B004CC25B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D291C1D7E180B004CC25B /* User.swift */; };
+		6E7D291F1D7E1E13004CC25B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D291E1D7E1E12004CC25B /* UserManager.swift */; };
+		6E7D29231D7E3097004CC25B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D29221D7E3097004CC25B /* UserController.swift */; };
 		6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709941D53DF6400999AB6 /* SegmentedControl.swift */; };
 		6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709971D53FB8000999AB6 /* UIView+Style.swift */; };
 		6E97099A1D53FDC800999AB6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709991D53FDC800999AB6 /* HomeViewController.swift */; };
@@ -32,6 +35,8 @@
 		6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099D1D56897B00999AB6 /* UIImage+Style.swift */; };
 		6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */; };
 		6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */; };
+		6ED448311D7E3D6100607ED6 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* WorkoutController.swift */; };
+		6ED448331D7E3F5400607ED6 /* SessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */; };
 		6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */; };
 		6EDD99F31D5BD63400E6BF19 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */; };
 		6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */; };
@@ -118,6 +123,9 @@
 		6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
 		6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		6E593DCD1D5BCCD500C9C2CE /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		6E7D291C1D7E180B004CC25B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6E7D291E1D7E1E12004CC25B /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		6E7D29221D7E3097004CC25B /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		6E9709941D53DF6400999AB6 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		6E9709971D53FB8000999AB6 /* UIView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
 		6E9709991D53FDC800999AB6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +133,8 @@
 		6E97099D1D56897B00999AB6 /* UIImage+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Style.swift"; sourceTree = "<group>"; };
 		6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Style.swift"; sourceTree = "<group>"; };
 		6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		6ED448301D7E3D6100607ED6 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
+		6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Adjustment.swift"; sourceTree = "<group>"; };
 		6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
@@ -245,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				6EDD99FE1D5D1F2900E6BF19 /* SessionViewController.swift */,
+				6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */,
 			);
 			name = SessionViewController;
 			sourceTree = "<group>";
@@ -285,10 +296,9 @@
 		6E3B9A591D78EE1400DF7C27 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */,
-				6E3B9A5C1D78F3F400DF7C27 /* SessionSet.swift */,
-				6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */,
-				6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */,
+				6ED448361D7E43DD00607ED6 /* User */,
+				6ED448351D7E43CB00607ED6 /* Controllers */,
+				6ED448341D7E43B100607ED6 /* Session */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,6 +309,13 @@
 				6E593DCD1D5BCCD500C9C2CE /* Button.swift */,
 			);
 			name = Button;
+			sourceTree = "<group>";
+		};
+		6E7ED39E1D7CCD5900ED3B43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6E97098F1D53DE5800999AB6 /* UI */ = {
@@ -383,6 +400,35 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
+		6ED448341D7E43B100607ED6 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */,
+				6E3B9A5C1D78F3F400DF7C27 /* SessionSet.swift */,
+				6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */,
+				6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
+		6ED448351D7E43CB00607ED6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E7D29221D7E3097004CC25B /* UserController.swift */,
+				6ED448301D7E3D6100607ED6 /* WorkoutController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6ED448361D7E43DD00607ED6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				6E7D291E1D7E1E12004CC25B /* UserManager.swift */,
+				6E7D291C1D7E180B004CC25B /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		6EE5BCBB1D344EC100C093CD = {
 			isa = PBXGroup;
 			children = (
@@ -408,8 +454,9 @@
 			isa = PBXGroup;
 			children = (
 				6EE5BCC71D344EC100C093CD /* AppDelegate.swift */,
-				6E3B9A591D78EE1400DF7C27 /* Model */,
 				6E9709931D53DEB000999AB6 /* Supporting Files */,
+				6E7ED39E1D7CCD5900ED3B43 /* Frameworks */,
+				6E3B9A591D78EE1400DF7C27 /* Model */,
 				6E97098F1D53DE5800999AB6 /* UI */,
 			);
 			path = PushUps;
@@ -586,15 +633,20 @@
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
 				6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */,
+				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
 				6EFD43361D5E7A98006D8E51 /* HomeSessionViewController.swift in Sources */,
 				6EDD99FD1D5BF1AE00E6BF19 /* TrainingListViewController.swift in Sources */,
 				6EDD99FF1D5D1F2900E6BF19 /* SessionViewController.swift in Sources */,
 				6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */,
+				6ED448331D7E3F5400607ED6 /* SessionViewControllerProxy.swift in Sources */,
+				6E7D29231D7E3097004CC25B /* UserController.swift in Sources */,
 				6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */,
 				6EE5BCCA1D344EC100C093CD /* TestViewController.swift in Sources */,
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */,
+				6ED448311D7E3D6100607ED6 /* WorkoutController.swift in Sources */,
 				6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */,
 				6E97099C1D56753F00999AB6 /* UIColor+Style.swift in Sources */,
+				6E7D291F1D7E1E13004CC25B /* UserManager.swift in Sources */,
 				6EDD9A031D5D2C2C00E6BF19 /* SessionType.swift in Sources */,
 				6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */,
 				6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */,
@@ -657,6 +709,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				IBSC_MODULE = PushUpsWatchApp_Extension;
 				INFOPLIST_FILE = PushUpsWatchApp/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps.watchkitapp;
@@ -674,6 +727,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				IBSC_MODULE = PushUpsWatchApp_Extension;
 				INFOPLIST_FILE = PushUpsWatchApp/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps.watchkitapp;
@@ -691,6 +745,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "PushUpsWatchApp Extension/PushUpsWatchApp Extension.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "PushUpsWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps.watchkitapp.watchkitextension;
@@ -708,6 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "PushUpsWatchApp Extension/PushUpsWatchApp Extension.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "PushUpsWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps.watchkitapp.watchkitextension;
@@ -812,6 +868,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushUps/PushUps.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PushUps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps;
@@ -825,6 +882,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushUps/PushUps.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PushUps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AndrewWalker.PushUps;

@@ -33,8 +33,6 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepare(for: segue, sender: sender)
-        
         if segue.identifier == String(HomePageViewController) {
             self.pageViewController = segue.destinationViewController as? HomePageViewController
             self.pageViewController?.pageDelegate = self
@@ -47,10 +45,10 @@ class HomeViewController: UIViewController {
         self.applyBackgroundGradient()
     }
     
-    private func configureUI() {        
+    private func configureUI() {
         self.titleView?.setTitleContent(withText: "Level 2")
         self.titleView?.setSubtitleContent(withText: "training level")
-        self.navigationItem.titleView = titleView
+        self.navigationItem.titleView = self.titleView
         
         let leftNavigationItem = UIBarButtonItem(image: UIImage(named: "profileIcon"), style: .plain, target: self, action: #selector(self.showProfileViewController))
         self.navigationItem.leftBarButtonItem = leftNavigationItem
