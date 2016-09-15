@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.styleUI()
         self.configureTemporaryUser()
+        self.loadSessions()
         
         return true
     }
@@ -49,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureTemporaryUser() {
         let temporaryUser = PushUpUser(name: "Andrew Walker")
         UserManager.sharedInstance.setUser(user: temporaryUser)
+    }
+    
+    private func loadSessions() {
+        SessionController.sharedInstance.loadAllLevels()
     }
     
 }

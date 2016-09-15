@@ -14,6 +14,7 @@ protocol User {
     var profileImage: NSData? { get set }
     var sessions: [Session] { get set }
     var record: Int { get set }
+    var lastSessionID: String? { get set }
 }
 
 struct PushUpUser: User {
@@ -22,6 +23,7 @@ struct PushUpUser: User {
     var profileImage: NSData? = nil
     var sessions: [Session] = []
     var record = 0
+    var lastSessionID: String?
     
     init(name: String) {
         self.name = name

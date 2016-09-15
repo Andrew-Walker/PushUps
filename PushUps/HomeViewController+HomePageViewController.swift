@@ -24,6 +24,7 @@ extension HomeViewController: HomePageViewControllerDelegate {
         self.segmentedControl.selectedLabelColor = sessionType.backgroundColor()
         self.titleView?.setTitleContent(withText: sessionType.navigationBarTitle())
         self.titleView?.setSubtitleContent(withText: sessionType.navigationBarSubtitle())
+        self.selectedSessionType = sessionType
     }
     
 }

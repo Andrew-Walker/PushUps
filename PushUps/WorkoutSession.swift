@@ -17,7 +17,7 @@ struct WorkoutSession: Workout {
 }
 
 extension WorkoutSession {
-    mutating func endWorkout(withCount count: Int) {
+    mutating func endSession(withCount count: Int) {
         self.pushups = count
         self.duration = self.getDuration()
     }

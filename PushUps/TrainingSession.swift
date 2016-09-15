@@ -9,23 +9,33 @@
 import Foundation
 
 protocol Training: Session {
-    var sets: [SessionSet] { get }
+    var stage: Stage { get }
+    var completed: Bool { get set }
+    var id: String { get }
 }
 
 struct TrainingSession: Training {
-    var sets: [SessionSet]
+    var stage: Stage
     var date: NSDate?
     var duration = 0
     var pushups = 0
+    var completed = false
+    var id: String
     
-    init(sets: [SessionSet]) {
-        self.sets = sets
+    init(stage: Stage, id: String) {
+        self.stage = stage
+        self.id = id
     }
 }
 
 extension TrainingSession {
-    mutating func endWorkout(withCount count: Int) {
+    mutating func endSession(withCount count: Int) {
         self.pushups = count
         self.duration = self.getDuration()
+        self.completed = self.isCompleted(count: count)
+    }
+    
+    private mutating func isCompleted(count: Int) -> Bool {
+        return self.stage.sets.flatMap({ $0.pushups }).reduce(0, combine: +) == count
     }
 }

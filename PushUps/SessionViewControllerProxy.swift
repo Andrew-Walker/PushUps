@@ -45,12 +45,12 @@ class SessionViewControllerProxy {
         return user.record
     }
     
-    func startWorkoutSession() {
-        
+    func startSession() {
+        SessionController.sharedInstance.startNewSession()
     }
     
-    func endWorkoutSession(withCount count: Int) {
-        
+    func endSession(withCount count: Int) {
+        SessionController.sharedInstance.endCurrentSession(withCount: count)
     }
     
 }

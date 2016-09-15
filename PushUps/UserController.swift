@@ -11,7 +11,7 @@ class UserController {
     // MARK: Lifecycle -
     
     /**
-     Restricts ability to create instance. Intended as singleton.
+     Restricts ability to create instance.
      */
     private init() {}
     

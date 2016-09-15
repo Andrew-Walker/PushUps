@@ -34,7 +34,7 @@ class SessionViewController: UIViewController, SessionViewControllerProxyDelegat
         self.configureProximitySensor()
         
         self.proxy = SessionViewControllerProxy(delegate: self)
-        self.proxy?.startWorkoutSession()
+        self.proxy?.startSession()
     }
     
     // MARK: UI -
@@ -80,7 +80,7 @@ class SessionViewController: UIViewController, SessionViewControllerProxyDelegat
     
     private func endSession() {
         let pushUpCount = self.pushUpCount
-        self.proxy?.endWorkoutSession(withCount: pushUpCount)
+        self.proxy?.endSession(withCount: pushUpCount)
         
         self.dismissView()
     }

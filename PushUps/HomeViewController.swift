@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     
     let titleView = NavigationBarView.instanceFromNib()
     
+    var selectedSessionType: SessionType = .Training
+    
     // MARK: Lifecycle -
     
     override func viewDidLoad() {
@@ -60,6 +62,11 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: Actions -
+    
+    @IBAction func startButtonTapped(_ sender: AnyObject) {
+        SessionController.sharedInstance.currentSessionType = self.selectedSessionType
+        self.performSegue(withIdentifier: String(CountdownViewController), sender: nil)
+    }
     
     @objc private func showProfileViewController() {
         self.performSegue(withIdentifier: String(ProfileViewController), sender: nil)

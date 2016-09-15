@@ -129,7 +129,7 @@
                                 </constraints>
                                 <state key="normal" title="Start Button"/>
                                 <connections>
-                                    <segue destination="Zfz-3u-oCC" kind="presentation" id="A0m-T0-EMs"/>
+                                    <action selector="startButtonTapped:" destination="dMI-hf-Pd7" eventType="touchUpInside" id="2kx-8l-ptj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,6 +155,7 @@
                         <outlet property="startButton" destination="oXs-aW-w3s" id="y8D-Ws-Z8J"/>
                         <segue destination="zyl-sR-0dj" kind="presentation" identifier="ProfileViewController" id="awM-M8-UUd"/>
                         <segue destination="462-7W-OwO" kind="presentation" identifier="TrainingListViewController" id="wYl-nW-dBI"/>
+                        <segue destination="Zfz-3u-oCC" kind="presentation" identifier="CountdownViewController" id="AP8-Pw-SNv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaW-z6-FYj" userLabel="First Responder" sceneMemberID="firstResponder"/>

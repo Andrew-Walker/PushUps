@@ -12,10 +12,13 @@ protocol Session {
     var date: NSDate? { get set }
     var duration: Int { get set }
     var pushups: Int { get set }
+    
+    mutating func endSession(withCount count: Int)
+    func getDuration() -> Int
 }
 
 extension Session {
-    mutating func startWorkout() {
+    mutating func startSession() {
         self.date = NSDate()
     }
     

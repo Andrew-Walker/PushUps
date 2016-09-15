@@ -21,7 +21,7 @@
 		6E3B9A561D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */; };
 		6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A571D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift */; };
 		6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */; };
-		6E3B9A5D1D78F3F400DF7C27 /* SessionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5C1D78F3F400DF7C27 /* SessionSet.swift */; };
+		6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5C1D78F3F400DF7C27 /* Set.swift */; };
 		6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */; };
 		6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */; };
 		6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E593DCD1D5BCCD500C9C2CE /* Button.swift */; };
@@ -35,7 +35,7 @@
 		6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099D1D56897B00999AB6 /* UIImage+Style.swift */; };
 		6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */; };
 		6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */; };
-		6ED448311D7E3D6100607ED6 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* WorkoutController.swift */; };
+		6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* SessionController.swift */; };
 		6ED448331D7E3F5400607ED6 /* SessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */; };
 		6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */; };
 		6EDD99F31D5BD63400E6BF19 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */; };
@@ -52,6 +52,10 @@
 		6EE5BCCD1D344EC100C093CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE5BCCB1D344EC100C093CD /* Main.storyboard */; };
 		6EE5BCCF1D344EC200C093CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EE5BCCE1D344EC200C093CD /* Assets.xcassets */; };
 		6EE5BCD21D344EC200C093CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE5BCD01D344EC200C093CD /* LaunchScreen.storyboard */; };
+		6EE7AA141D88BAAA009D11E5 /* TrainingSessions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EE7AA131D88BAAA009D11E5 /* TrainingSessions.plist */; };
+		6EE7AA181D88C0A5009D11E5 /* SessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0EA8391D875EA2009E0541 /* SessionFactory.swift */; };
+		6EEFC31E1D8B462700639ABB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31D1D8B462700639ABB /* Level.swift */; };
+		6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31F1D8B46C600639ABB /* Stage.swift */; };
 		6EFD43361D5E7A98006D8E51 /* HomeSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeSessionViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
 		6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */; };
@@ -101,6 +105,7 @@
 
 /* Begin PBXFileReference section */
 		6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Style.swift"; sourceTree = "<group>"; };
+		6E0EA8391D875EA2009E0541 /* SessionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionFactory.swift; sourceTree = "<group>"; };
 		6E1F3E571D3ADA4A002BDE9D /* PushUpsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushUpsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1F3E5A1D3ADA4A002BDE9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		6E1F3E5C1D3ADA4A002BDE9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,7 +124,7 @@
 		6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+HomePageViewController.swift"; sourceTree = "<group>"; };
 		6E3B9A571D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+UIPageViewController.swift"; sourceTree = "<group>"; };
 		6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		6E3B9A5C1D78F3F400DF7C27 /* SessionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSet.swift; sourceTree = "<group>"; };
+		6E3B9A5C1D78F3F400DF7C27 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
 		6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		6E593DCD1D5BCCD500C9C2CE /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -133,7 +138,7 @@
 		6E97099D1D56897B00999AB6 /* UIImage+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Style.swift"; sourceTree = "<group>"; };
 		6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Style.swift"; sourceTree = "<group>"; };
 		6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
-		6ED448301D7E3D6100607ED6 /* WorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
+		6ED448301D7E3D6100607ED6 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Adjustment.swift"; sourceTree = "<group>"; };
 		6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
@@ -152,6 +157,9 @@
 		6EE5BCCE1D344EC200C093CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EE5BCD11D344EC200C093CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EE5BCD31D344EC200C093CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EE7AA131D88BAAA009D11E5 /* TrainingSessions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainingSessions.plist; sourceTree = "<group>"; };
+		6EEFC31D1D8B462700639ABB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		6EEFC31F1D8B46C600639ABB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6EFD43351D5E7A98006D8E51 /* HomeSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSessionViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
 		6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -403,8 +411,11 @@
 		6ED448341D7E43B100607ED6 /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				6EEFC3211D8B576200639ABB /* Factories */,
+				6EEFC31D1D8B462700639ABB /* Level.swift */,
 				6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */,
-				6E3B9A5C1D78F3F400DF7C27 /* SessionSet.swift */,
+				6E3B9A5C1D78F3F400DF7C27 /* Set.swift */,
+				6EEFC31F1D8B46C600639ABB /* Stage.swift */,
 				6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */,
 				6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */,
 			);
@@ -415,7 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				6E7D29221D7E3097004CC25B /* UserController.swift */,
-				6ED448301D7E3D6100607ED6 /* WorkoutController.swift */,
+				6ED448301D7E3D6100607ED6 /* SessionController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -456,10 +467,27 @@
 				6EE5BCC71D344EC100C093CD /* AppDelegate.swift */,
 				6E9709931D53DEB000999AB6 /* Supporting Files */,
 				6E7ED39E1D7CCD5900ED3B43 /* Frameworks */,
+				6EE7AA151D88BAB5009D11E5 /* Data */,
 				6E3B9A591D78EE1400DF7C27 /* Model */,
 				6E97098F1D53DE5800999AB6 /* UI */,
 			);
 			path = PushUps;
+			sourceTree = "<group>";
+		};
+		6EE7AA151D88BAB5009D11E5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6EE7AA131D88BAAA009D11E5 /* TrainingSessions.plist */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		6EEFC3211D8B576200639ABB /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				6E0EA8391D875EA2009E0541 /* SessionFactory.swift */,
+			);
+			name = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,6 +633,7 @@
 				6EE5BCCF1D344EC200C093CD /* Assets.xcassets in Resources */,
 				6EDD99F31D5BD63400E6BF19 /* NavigationBarView.xib in Resources */,
 				6EE5BCCD1D344EC100C093CD /* Main.storyboard in Resources */,
+				6EE7AA141D88BAAA009D11E5 /* TrainingSessions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,12 +655,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E3B9A561D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift in Sources */,
+				6EE7AA181D88C0A5009D11E5 /* SessionFactory.swift in Sources */,
 				6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */,
-				6E3B9A5D1D78F3F400DF7C27 /* SessionSet.swift in Sources */,
+				6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */,
 				6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */,
 				6E97099A1D53FDC800999AB6 /* HomeViewController.swift in Sources */,
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
+				6EEFC31E1D8B462700639ABB /* Level.swift in Sources */,
 				6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */,
 				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
 				6EFD43361D5E7A98006D8E51 /* HomeSessionViewController.swift in Sources */,
@@ -643,7 +674,7 @@
 				6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */,
 				6EE5BCCA1D344EC100C093CD /* TestViewController.swift in Sources */,
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */,
-				6ED448311D7E3D6100607ED6 /* WorkoutController.swift in Sources */,
+				6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */,
 				6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */,
 				6E97099C1D56753F00999AB6 /* UIColor+Style.swift in Sources */,
 				6E7D291F1D7E1E13004CC25B /* UserManager.swift in Sources */,
@@ -653,6 +684,7 @@
 				6E048DE71D62843200678AFE /* UIBarButtonItem+Style.swift in Sources */,
 				6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */,
 				6EE5BCC81D344EC100C093CD /* AppDelegate.swift in Sources */,
+				6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */,
 				6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */,
 				6EDD99F71D5BE7CE00E6BF19 /* ProfileViewController.swift in Sources */,
 				6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */,
