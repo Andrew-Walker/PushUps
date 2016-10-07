@@ -38,7 +38,7 @@ class SessionViewControllerProxy {
      - returns: Int value representing pushup record.
      */
     func currentRecord() -> Int {
-        guard let user = UserController.currentPushUpUser() else {
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return 0
         }
         

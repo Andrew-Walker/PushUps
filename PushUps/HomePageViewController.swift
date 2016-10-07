@@ -26,7 +26,7 @@ class HomePageViewController: UIPageViewController {
     // MARK: Public
     
     var pageDelegate: HomePageViewControllerDelegate?
-    var currentIndex: Int?
+    var currentIndex = 0
     
     // MARK: Lifecycle -
     

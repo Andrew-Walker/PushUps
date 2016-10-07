@@ -37,7 +37,7 @@ class SessionFactory {
     static func loadAllLevels() -> [Level] {
         var levels = [Level]()
         
-        if let path = Bundle.main().pathForResource("TrainingSessions", ofType: "plist"), array = NSArray(contentsOfFile: path) {
+        if let path = Bundle.main.path(forResource: "TrainingSessions", ofType: "plist"), let array = NSArray(contentsOfFile: path) {
             levels = SessionFactory.createLevels(fromArray: array)
         }
         

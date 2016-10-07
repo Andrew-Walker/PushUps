@@ -17,5 +17,6 @@ extension UIView {
         let height = self.frame.height
         let useHeight = width > height
         self.layer.cornerRadius = (useHeight ? self.frame.height : self.frame.width) / 2
+        self.layer.masksToBounds = true
     }
 }

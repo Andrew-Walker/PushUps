@@ -16,7 +16,7 @@ class TestViewController: UIViewController {
     
     private let healthStore = HKHealthStore()
     
-    private var wcSessionActivationCompletion: ((WCSession) -> Void)?
+    fileprivate var wcSessionActivationCompletion: ((WCSession) -> Void)?
     private var pushUpCount = 0
     private var configuration: HKWorkoutConfiguration?
     
@@ -36,15 +36,15 @@ class TestViewController: UIViewController {
     }
     
     private func configureProximitySensor() {
-        let device = UIDevice.current()
+        let device = UIDevice.current
         device.isProximityMonitoringEnabled = true
         
         if device.isProximityMonitoringEnabled {
-            NotificationCenter.default().addObserver(self, selector: #selector(proximityChanged), name: "UIDeviceProximityStateDidChangeNotification", object: device)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.proximityChanged), name: Notification.Name(rawValue: "UIDeviceProximityStateDidChangeNotification"), object: device)
         }
     }
     
-    private func getActiveWCSession(completion: (WCSession) -> Void) {
+    private func getActiveWCSession(completion: @escaping (WCSession) -> Void) {
         guard WCSession.isSupported() else { return }
         
         let wcSession = WCSession.default()
@@ -103,7 +103,7 @@ class TestViewController: UIViewController {
 
 extension TestViewController: WCSessionDelegate {
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: NSError?) {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if activationState == .activated {
             if let activationCompletion = self.wcSessionActivationCompletion {
                 activationCompletion(session)
@@ -112,7 +112,7 @@ extension TestViewController: WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         if let state = message["State"] as? String {
             self.updateSessionState(state)
         }

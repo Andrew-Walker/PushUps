@@ -36,6 +36,6 @@ extension TrainingSession {
     }
     
     private mutating func isCompleted(count: Int) -> Bool {
-        return self.stage.sets.flatMap({ $0.pushups }).reduce(0, combine: +) == count
+        return self.stage.sets.flatMap({ $0.pushups }).reduce(0, +) == count
     }
 }

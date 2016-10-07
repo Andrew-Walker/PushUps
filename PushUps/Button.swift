@@ -66,7 +66,7 @@ class SessionButton: Button {
         
         super.setTitle(title, for: state)
         
-        self.setTitleColor(UIColor.white(), for: [])
+        self.setTitleColor(UIColor.white, for: [])
         self.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
         self.titleLabel?.text = self.titleLabel?.text?.uppercased()
     }

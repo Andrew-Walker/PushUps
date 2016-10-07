@@ -17,7 +17,7 @@ class SessionViewController: UIViewController, SessionViewControllerProxyDelegat
     @IBOutlet private weak var endButton: SessionButton!
     @IBOutlet private weak var counterLabel: UILabel!
     
-    private let device = UIDevice.current()
+    private let device = UIDevice.current
     
     private var pushUpCount = 0
     
@@ -69,7 +69,7 @@ class SessionViewController: UIViewController, SessionViewControllerProxyDelegat
         
         if self.device.isProximityMonitoringEnabled {
             let notificationName = NSNotification.Name.UIDeviceProximityStateDidChange
-            NotificationCenter.default().addObserver(self, selector: #selector(self.proximityChanged), name: notificationName, object: self.device)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.proximityChanged), name: notificationName, object: self.device)
         }
     }
     

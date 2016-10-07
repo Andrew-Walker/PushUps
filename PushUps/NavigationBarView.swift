@@ -15,15 +15,15 @@ class NavigationBarView: UIView {
     @IBOutlet private weak var subtitleLabel: UILabel?
     
     class func instanceFromNib() -> NavigationBarView? {
-        return Bundle.main().loadNibNamed("NavigationBarView", owner: nil, options: nil).first as? NavigationBarView
+        return Bundle.main.loadNibNamed("NavigationBarView", owner: nil, options: nil)?.first as? NavigationBarView
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
                 
-        self.backgroundColor = UIColor.clear()
-        self.titleLabel?.textColor = UIColor.white()
-        self.subtitleLabel?.textColor = UIColor.white().withAlphaComponent(0.5)
+        self.backgroundColor = UIColor.clear
+        self.titleLabel?.textColor = UIColor.white
+        self.subtitleLabel?.textColor = UIColor.white.withAlphaComponent(0.5)
     }
     
     /**

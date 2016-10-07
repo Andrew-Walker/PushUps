@@ -28,7 +28,7 @@ class HomeSessionViewController: UIViewController {
     // MARK: UI -
     
     private func styleUI() {
-        self.view.backgroundColor = UIColor.clear()
+        self.view.backgroundColor = UIColor.clear
     }
     
     private func configureUI() {

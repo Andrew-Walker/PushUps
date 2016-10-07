@@ -13,6 +13,6 @@ extension UIApplication {
      Applys global light status bar style.
      */
     static func applyGlobalStatusBarStyle() {
-        self.shared().statusBarStyle = .lightContent
+        self.shared.statusBarStyle = .lightContent
     }
 }

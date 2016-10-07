@@ -68,7 +68,7 @@ class CountdownViewController: UIViewController {
     
     private func continueToSession() {
         self.countdownTimer?.invalidate()
-        self.performSegue(withIdentifier: String(SessionViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: SessionViewController.self), sender: nil)
     }
     
 }

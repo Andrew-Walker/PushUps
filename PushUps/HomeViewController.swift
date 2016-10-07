@@ -34,9 +34,9 @@ class HomeViewController: UIViewController {
         self.configureUI()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == String(HomePageViewController) {
-            self.pageViewController = segue.destinationViewController as? HomePageViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: HomePageViewController.self) {
+            self.pageViewController = segue.destination as? HomePageViewController
             self.pageViewController?.pageDelegate = self
         }
     }
@@ -65,15 +65,15 @@ class HomeViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: AnyObject) {
         SessionController.sharedInstance.currentSessionType = self.selectedSessionType
-        self.performSegue(withIdentifier: String(CountdownViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
     
     @objc private func showProfileViewController() {
-        self.performSegue(withIdentifier: String(ProfileViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: ProfileViewController.self), sender: nil)
     }
     
     @objc private func showTrainingListViewController() {
-        self.performSegue(withIdentifier: String(TrainingListViewController), sender: nil)
+        self.performSegue(withIdentifier: String(describing: TrainingListViewController.self), sender: nil)
     }
     
     @objc private func segmentedControlChanged() {

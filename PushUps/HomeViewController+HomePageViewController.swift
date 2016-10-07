@@ -13,7 +13,7 @@ extension HomeViewController: HomePageViewControllerDelegate {
     }
     
     private func updateView(forPageIndex index: Int?) {
-        guard let index = index, sessionType = SessionType(rawValue: index) else {
+        guard let index = index, let sessionType = SessionType(rawValue: index) else {
             return
         }
         

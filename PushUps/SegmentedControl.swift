@@ -35,28 +35,28 @@ import UIKit
     }
     
     /// Color of currently selected segment label. Defaults to white.
-    @IBInspectable var selectedLabelColor = UIColor.white() {
+    @IBInspectable var selectedLabelColor = UIColor.white {
         didSet {
             self.setSelectedColors(toDefault: false)
         }
     }
     
     /// Color of unselected segment label. Defaults to black.
-    @IBInspectable var unselectedLabelColor = UIColor.black() {
+    @IBInspectable var unselectedLabelColor = UIColor.black {
         didSet {
             self.setSelectedColors(toDefault: true)
         }
     }
     
     /// Background color of thumb. Defaults to black.
-    @IBInspectable var thumbColor = UIColor.black() {
+    @IBInspectable var thumbColor = UIColor.black {
         didSet {
             self.setSelectedColors(toDefault: true)
         }
     }
     
     /// Color of border color. Defaults to clear.
-    @IBInspectable var borderColor = UIColor.clear() {
+    @IBInspectable var borderColor = UIColor.clear {
         didSet {
             self.layer.borderColor = borderColor.cgColor
         }

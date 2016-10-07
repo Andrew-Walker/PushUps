@@ -62,8 +62,48 @@ class SessionController {
     /**
      
      */
-    private func getNextTrainingSession() {
+    func getUpcomingTrainingStage() -> Stage? {
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return nil
+        }
         
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            return self.allLevels.first?.stages.first
+        }
+        
+        guard let currentLevelIndex = self.allLevels.index(where: { $0.id == currentSessionIDs.level }) else {
+            return nil
+        }
+        
+        let currentLevel = self.allLevels.object(at: currentLevelIndex)
+        
+        guard let currentStageIndex = currentLevel?.stages.index(where: { $0.id == currentSessionIDs.stage }) else {
+            return nil
+        }
+        
+        let nextStageIndex = currentStageIndex + 1
+        let nextLevelIndex = currentLevelIndex + 1
+        
+        guard let nextStage = currentLevel?.stages.object(at: nextStageIndex) else {
+            return self.allLevels.object(at: nextLevelIndex)?.stages.first
+        }
+        
+        return nextStage
+    }
+    
+    func getCurrentTrainingStage() -> Stage? {
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return nil
+        }
+        
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            return self.allLevels.first?.stages.first
+        }
+        
+        let level = self.allLevels.filter({ $0.id == currentSessionIDs.level }).first
+        let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
+        
+        return stage
     }
     
 }

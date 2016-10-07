@@ -14,6 +14,9 @@ class ProfileViewController: UIViewController {
     
     // MARK: Private
     
+    @IBOutlet private weak var profilePictureBackgroundView: UIView!
+    @IBOutlet private weak var profilePictureImageView: UIButton!
+    
     // MARK: Public
     
     // MARK: Lifecycle -
@@ -23,6 +26,13 @@ class ProfileViewController: UIViewController {
         
         self.styleUI()
         self.configureUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.profilePictureBackgroundView.applyRoundCorners()
+        self.profilePictureImageView.applyRoundCorners()
     }
     
     // MARK: UI -

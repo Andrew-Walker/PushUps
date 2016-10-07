@@ -49,11 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureTemporaryUser() {
         let temporaryUser = PushUpUser(name: "Andrew Walker")
-        UserManager.sharedInstance.setUser(user: temporaryUser)
+        UserController.sharedInstance.setUser(user: temporaryUser)
     }
     
     private func loadSessions() {
         SessionController.sharedInstance.loadAllLevels()
+        print(SessionController.sharedInstance.getUpcomingTrainingStage())
     }
     
 }
