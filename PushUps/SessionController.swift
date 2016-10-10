@@ -32,14 +32,14 @@ class SessionController {
     private init() {}
     
     /**
-     
+     Populates levels array by calling SessionFactory to load list of levels from local plist file.
      */
     func loadAllLevels() {
         self.allLevels = SessionFactory.loadAllLevels()
     }
     
     /**
-     
+     Starts new session after creation in SessionFactory.
      */
     func startNewSession() {
         self.currentSession = SessionFactory.createSession()
@@ -47,7 +47,9 @@ class SessionController {
     }
     
     /**
-     
+     Ends currently running session and sets to nil.
+     - parameters:
+        - count: Int value representing total push up count on session completion.
      */
     func endCurrentSession(withCount count: Int) {
         guard var currentSession = self.currentSession else {
@@ -60,9 +62,11 @@ class SessionController {
     }
     
     /**
-     
+     Gets next training stage using successor index to current stage. Failing this,
+     the next level (if available), is searched.
+     - returns: Instance conforming to Stage protocol.
      */
-    func getUpcomingTrainingStage() -> Stage? {
+    func getNextTrainingStage() -> Stage? {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
         }
@@ -91,19 +95,62 @@ class SessionController {
         return nextStage
     }
     
-    func getCurrentTrainingStage() -> Stage? {
+    /**
+     Gets current training level by filtering full list based on level ID.
+     - returns: Instance conforming to Level protocol.
+     */
+    func getCurrentTrainingLevel() -> Level? {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
         }
         
         guard let currentSessionIDs = user.currentSessionIDs else {
-            return self.allLevels.first?.stages.first
+            return self.allLevels.first
         }
         
-        let level = self.allLevels.filter({ $0.id == currentSessionIDs.level }).first
-        let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
+        return self.allLevels.filter({ $0.id == currentSessionIDs.level }).first
+    }
+    
+    /**
+     Gets current training stage by filtering stages based on stage ID.
+     - returns: Instance conforming to Stage protocol.
+     */
+    func getCurrentTrainingStage() -> Stage? {
+        let level = self.getCurrentTrainingLevel()
         
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return nil
+        }
+        
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            return level?.stages.first
+        }
+        
+        let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
         return stage
+    }
+    
+    /**
+     Gets number of stages in current training level.
+     - returns: Int value representing number of stages in current training level.
+     */
+    func getCurrentStageCount() -> Int {
+        let level = self.getCurrentTrainingLevel()
+        let stageCount = level?.stages.count ?? 0
+        
+        return stageCount
+    }
+    
+    /**
+     Gets index of current stage in training level.
+     - returns: Int value representing index of current stage in training level.
+     */
+    func getCurrentStageIndex() -> Int {
+        let level = self.getCurrentTrainingLevel()
+        let stage = self.getCurrentTrainingStage()
+        let index = level?.stages.index(where: { $0.id == stage?.id }) ?? 0
+        
+        return index + 1
     }
     
 }

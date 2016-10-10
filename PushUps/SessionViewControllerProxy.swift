@@ -25,7 +25,7 @@ class SessionViewControllerProxy {
     /**
      Designated initializer for SessionViewControllerProxy instance.
      - parameters:
-        - delegate: An instance that conforms to SessionViewControllerProxy protocol.
+        - delegate: An instance that conforms to SessionViewControllerProxyDelegate protocol.
      */
     init(delegate: SessionViewControllerProxyDelegate) {
         self.delegate = delegate

@@ -8,18 +8,25 @@
 
 import UIKit
 
-class HomeTrainingViewController: UIViewController {
+class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
     
     // MARK: Properties -
     
     // MARK: Private
     
+    @IBOutlet private weak var stageIndexLabel: UILabel!
+    @IBOutlet private weak var stageCountLabel: UILabel!
+    
     // MARK: Public
+    
+    var proxy: HomeTrainingViewControllerProxy?
     
     // MARK: Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.proxy = HomeTrainingViewControllerProxy(delegate: self)
         
         self.styleUI()
         self.configureUI()
@@ -32,7 +39,15 @@ class HomeTrainingViewController: UIViewController {
     }
     
     private func configureUI() {
+//        self.currentStageLabel.text = self.proxy?.currentStage()?.id
         
+        let stageCount = self.proxy?.currentStageCount() ?? 0
+        let stageCountLabelText = "of \(stageCount)"
+        self.stageCountLabel.text = stageCountLabelText
+        
+        let stageIndex = self.proxy?.currentStageIndex() ?? 0
+        let stageIndexLabelText = String(describing: stageIndex)
+        self.stageIndexLabel.text = stageIndexLabelText
     }
     
 }

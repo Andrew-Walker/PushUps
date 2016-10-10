@@ -30,11 +30,11 @@ class SessionViewController: UIViewController, SessionViewControllerProxyDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.styleUI()
-        self.configureProximitySensor()
-        
         self.proxy = SessionViewControllerProxy(delegate: self)
         self.proxy?.startSession()
+        
+        self.styleUI()
+        self.configureProximitySensor()
     }
     
     // MARK: UI -

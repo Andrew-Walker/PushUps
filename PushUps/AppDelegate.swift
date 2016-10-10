@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         self.styleUI()
         self.configureTemporaryUser()
         self.loadSessions()
@@ -48,13 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureTemporaryUser() {
-        let temporaryUser = PushUpUser(name: "Andrew Walker")
+        var temporaryUser = PushUpUser(name: "Andrew Walker")
+        temporaryUser.currentSessionIDs = ("e7baafb6-23b9-47f2-8eef-81beeef600b7", "ed5b2590-a284-4b3d-bf87-5b7848cb7b4c")
         UserController.sharedInstance.setUser(user: temporaryUser)
     }
     
     private func loadSessions() {
         SessionController.sharedInstance.loadAllLevels()
-        print(SessionController.sharedInstance.getUpcomingTrainingStage())
     }
     
 }
