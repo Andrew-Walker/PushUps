@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountdownViewController: UIViewController {
+class CountdownViewController: UIViewController, CountdownViewControllerProxyDelegate {
     
     // MARK: Properties -
     
@@ -26,10 +26,14 @@ class CountdownViewController: UIViewController {
     
     // MARK: Public
     
+    var proxy: CountdownViewControllerProxy?
+    
     // MARK: Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.proxy = CountdownViewControllerProxy(delegate: self)
         
         self.styleUI()
         self.configureUI()
@@ -68,7 +72,17 @@ class CountdownViewController: UIViewController {
     
     private func continueToSession() {
         self.countdownTimer?.invalidate()
-        self.performSegue(withIdentifier: String(describing: SessionViewController.self), sender: nil)
+        
+        guard let sessionType = self.proxy?.sessionType() else {
+            return
+        }
+        
+        switch sessionType {
+        case .Session:
+            self.performSegue(withIdentifier: String(describing: WorkoutSessionViewController.self), sender: nil)
+        case .Training:
+            self.performSegue(withIdentifier: String(describing: TrainingSessionViewController.self), sender: nil)
+        }
     }
     
 }

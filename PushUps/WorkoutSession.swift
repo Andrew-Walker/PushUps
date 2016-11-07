@@ -10,14 +10,12 @@ import Foundation
 
 protocol Workout: Session {}
 
-struct WorkoutSession: Workout {
-    var date: NSDate?
+class WorkoutSession: Workout {
+    var date: Date?
     var duration = 0
     var pushups = 0
-}
-
-extension WorkoutSession {
-    mutating func endSession(withCount count: Int) {
+    
+    func endSession(with count: Int) {
         self.pushups = count
         self.duration = self.getDuration()
     }

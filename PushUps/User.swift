@@ -17,7 +17,7 @@ protocol User {
     var currentSessionIDs: (level: String, stage: String)? { get set }
 }
 
-struct PushUpUser: User {
+class PushUpUser: User {
     var name: String
     var dateJoined: NSDate
     var profileImage: NSData? = nil
@@ -28,5 +28,17 @@ struct PushUpUser: User {
     init(name: String) {
         self.name = name
         self.dateJoined = NSDate()
+    }
+    
+    func set(levelID: String, stageID: String) {
+        self.currentSessionIDs = (level: levelID, stage: stageID)
+    }
+    
+    func add(session: Session) {
+        self.sessions.append(session)
+    }
+    
+    func getPreviousSession() -> Session? {
+        return self.sessions.last
     }
 }

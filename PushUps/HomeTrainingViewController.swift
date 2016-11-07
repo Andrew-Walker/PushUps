@@ -16,6 +16,7 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
     
     @IBOutlet private weak var stageIndexLabel: UILabel!
     @IBOutlet private weak var stageCountLabel: UILabel!
+    @IBOutlet private weak var setsStackView: UIStackView!
     
     // MARK: Public
     
@@ -39,8 +40,6 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
     }
     
     private func configureUI() {
-//        self.currentStageLabel.text = self.proxy?.currentStage()?.id
-        
         let stageCount = self.proxy?.currentStageCount() ?? 0
         let stageCountLabelText = "of \(stageCount)"
         self.stageCountLabel.text = stageCountLabelText
@@ -48,6 +47,34 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
         let stageIndex = self.proxy?.currentStageIndex() ?? 0
         let stageIndexLabelText = String(describing: stageIndex)
         self.stageIndexLabel.text = stageIndexLabelText
+        
+        self.configureSetsStackView()
+    }
+    
+    private func configureSetsStackView() {
+        let sets = self.proxy?.currentStageSets() ?? []
+        
+        for subview in self.setsStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        
+        for (index, set) in sets.enumerated() {
+            let setLabel = UILabel()
+            let setPushups = set.pushups ?? 0
+            let setLabelText = String(describing: setPushups)
+            setLabel.text = setLabelText
+            setLabel.applySetsStackViewStyle()
+            
+            self.setsStackView.addArrangedSubview(setLabel)
+            
+            if index != (sets.count - 1) {
+                let dividerLabel = UILabel()
+                dividerLabel.text = "-"
+                dividerLabel.applySetsStackViewStyle()
+                
+                self.setsStackView.addArrangedSubview(dividerLabel)
+            }
+        }
     }
     
 }

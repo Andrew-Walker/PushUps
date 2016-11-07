@@ -43,10 +43,14 @@ class HomeTrainingViewControllerProxy {
     
     /**
      Gets index of current stage in training level.
-     - returns: Int value representing index of uccrent stage in training level.
+     - returns: Int value representing index of current stage in training level.
      */
     func currentStageIndex() -> Int {
         return SessionController.sharedInstance.getCurrentStageIndex()
+    }
+    
+    func currentStageSets() -> [Set] {
+        return SessionController.sharedInstance.getCurrentStageSets()
     }
     
 }

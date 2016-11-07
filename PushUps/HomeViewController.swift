@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
     // MARK: Properties -
     
@@ -23,12 +23,15 @@ class HomeViewController: UIViewController {
     
     let titleView = NavigationBarView.instanceFromNib()
     
+    var proxy: HomeViewControllerProxy?
     var selectedSessionType: SessionType = .Training
     
     // MARK: Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.proxy = HomeViewControllerProxy(delegate: self)
         
         self.styleUI()
         self.configureUI()
@@ -48,7 +51,6 @@ class HomeViewController: UIViewController {
     }
     
     private func configureUI() {
-        self.titleView?.setTitleContent(withText: "Level 2")
         self.titleView?.setSubtitleContent(withText: "training level")
         self.navigationItem.titleView = self.titleView
         
@@ -64,7 +66,9 @@ class HomeViewController: UIViewController {
     // MARK: Actions -
     
     @IBAction func startButtonTapped(_ sender: AnyObject) {
-        SessionController.sharedInstance.currentSessionType = self.selectedSessionType
+        let sessionType = self.selectedSessionType
+        SessionController.sharedInstance.set(sessionType: sessionType)
+        
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
     

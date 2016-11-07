@@ -20,17 +20,6 @@ class SessionFactory {
     // MARK: - SessionFactory
     
     /**
-     
-     */
-    static func createSession(withStage stage: Stage? = nil) -> Session {
-        guard let sessionStage = stage else {
-            return WorkoutSession()
-        }
-        
-        return TrainingSession(stage: sessionStage, id: "")
-    }
-    
-    /**
      Retrieves data from TrainingSessions plist file and passes this array to factory function to create training levels.
      - returns: Array of instances conforming to Level protocol.
      */
@@ -105,8 +94,8 @@ class SessionFactory {
         var sets = [Set]()
         
         for setDictionary in array {
-            let pushups = setDictionary["pushups"] as? Int
-            let interval = setDictionary["interval"] as? Int
+            let pushups = setDictionary["pushups"] as? Int ?? 0
+            let interval = setDictionary["interval"] as? Int ?? 0
             
             let set = TrainingSet(pushups: pushups, interval: interval)
             sets.append(set)

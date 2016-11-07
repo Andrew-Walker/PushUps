@@ -16,13 +16,12 @@ class SessionController {
     
     static let sharedInstance = SessionController()
     
-    var currentSessionType: SessionType?
-    
     // MARK: Private
     
     private(set) var allLevels: [Level] = []
     
     private var currentSession: Session?
+    private var currentSessionType: SessionType?
     
     // MARK: Lifecycle -
     
@@ -32,6 +31,28 @@ class SessionController {
     private init() {}
     
     /**
+     Sets type of current session.
+     */
+    func set(sessionType: SessionType) {
+        self.currentSessionType = sessionType
+    }
+    
+    /**
+     Gets type of current session.
+     */
+    func getCurrentSessionType() -> SessionType? {
+        return self.currentSessionType
+    }
+    
+    /**
+     Gets session currently in progress.
+     - returns: Instance conforming to Session.
+     */
+    func getCurrentSession() -> Session? {
+        return self.currentSession
+    }
+    
+    /**
      Populates levels array by calling SessionFactory to load list of levels from local plist file.
      */
     func loadAllLevels() {
@@ -39,10 +60,10 @@ class SessionController {
     }
     
     /**
-     Starts new session after creation in SessionFactory.
+     Starts new workout session.
      */
-    func startNewSession() {
-        self.currentSession = SessionFactory.createSession()
+    func startNewWorkoutSession() {
+        self.currentSession = WorkoutSession()
         self.currentSession?.startSession()
     }
     
@@ -51,13 +72,14 @@ class SessionController {
      - parameters:
         - count: Int value representing total push up count on session completion.
      */
-    func endCurrentSession(withCount count: Int) {
-        guard var currentSession = self.currentSession else {
-            return
-        }
-        
-        currentSession.endSession(withCount: count)
-        
+    func endCurrentWorkoutSession(with count: Int) {
+        (self.currentSession as? WorkoutSession)?.endSession(with: count)
+    }
+    
+    /**
+     Sets current in-progress stored session to nil.
+     */
+    func clearCurrentSession() {
         self.currentSession = nil
     }
     
@@ -151,6 +173,28 @@ class SessionController {
         let index = level?.stages.index(where: { $0.id == stage?.id }) ?? 0
         
         return index + 1
+    }
+    
+    /**
+     Gets index of current training level.
+     - returns: Int value representing index of current training level.
+    */
+    func getCurrentLevelIndex() -> Int {
+        let level = self.getCurrentTrainingLevel()
+        let index = self.allLevels.index(where: { $0.id == level?.id }) ?? 0
+        
+        return index + 1
+    }
+    
+    /**
+     Gets sets in current stage.
+     - returns: Array of instances conforming to Set.
+     */
+    func getCurrentStageSets() -> [Set] {
+        let stage = self.getCurrentTrainingStage()
+        let sets = stage?.sets ?? []
+        
+        return sets
     }
     
 }

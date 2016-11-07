@@ -27,8 +27,15 @@
 		6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */; };
 		6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */; };
 		6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E593DCD1D5BCCD500C9C2CE /* Button.swift */; };
+		6E66791C1DC6AD5000E895D1 /* TrainingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66791B1DC6AD5000E895D1 /* TrainingSessionViewController.swift */; };
+		6E66791E1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66791D1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift */; };
+		6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66791F1DC6AE1900E895D1 /* CountdownViewControllerProxy.swift */; };
+		6E6679231DC6B3FC00E895D1 /* ProximityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6679221DC6B3FC00E895D1 /* ProximityController.swift */; };
+		6E69AF351DAB33470092A1E0 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */; };
+		6E69AF371DB57F090092A1E0 /* HomeViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */; };
 		6E7D291D1D7E180B004CC25B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D291C1D7E180B004CC25B /* User.swift */; };
 		6E7D291F1D7E1E13004CC25B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D291E1D7E1E12004CC25B /* UserController.swift */; };
+		6E9506A51DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9506A41DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift */; };
 		6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709941D53DF6400999AB6 /* SegmentedControl.swift */; };
 		6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709971D53FB8000999AB6 /* UIView+Style.swift */; };
 		6E97099A1D53FDC800999AB6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709991D53FDC800999AB6 /* HomeViewController.swift */; };
@@ -37,7 +44,7 @@
 		6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */; };
 		6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */; };
 		6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* SessionController.swift */; };
-		6ED448331D7E3F5400607ED6 /* SessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */; };
+		6ED448331D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */; };
 		6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */; };
 		6EDD99F31D5BD63400E6BF19 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */; };
 		6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */; };
@@ -45,7 +52,7 @@
 		6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */; };
 		6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99FA1D5BF18A00E6BF19 /* CountdownViewController.swift */; };
 		6EDD99FD1D5BF1AE00E6BF19 /* TrainingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99FC1D5BF1AE00E6BF19 /* TrainingListViewController.swift */; };
-		6EDD99FF1D5D1F2900E6BF19 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99FE1D5D1F2900E6BF19 /* SessionViewController.swift */; };
+		6EDD99FF1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99FE1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift */; };
 		6EDD9A011D5D246E00E6BF19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD9A001D5D246E00E6BF19 /* Localizable.strings */; };
 		6EDD9A031D5D2C2C00E6BF19 /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD9A021D5D2C2C00E6BF19 /* SessionType.swift */; };
 		6EE5BCC81D344EC100C093CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE5BCC71D344EC100C093CD /* AppDelegate.swift */; };
@@ -57,7 +64,7 @@
 		6EE7AA181D88C0A5009D11E5 /* SessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0EA8391D875EA2009E0541 /* SessionFactory.swift */; };
 		6EEFC31E1D8B462700639ABB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31D1D8B462700639ABB /* Level.swift */; };
 		6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31F1D8B46C600639ABB /* Stage.swift */; };
-		6EFD43361D5E7A98006D8E51 /* HomeSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeSessionViewController.swift */; };
+		6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
 		6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -131,8 +138,15 @@
 		6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
 		6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		6E593DCD1D5BCCD500C9C2CE /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		6E66791B1DC6AD5000E895D1 /* TrainingSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSessionViewController.swift; sourceTree = "<group>"; };
+		6E66791D1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSessionViewControllerProxy.swift; sourceTree = "<group>"; };
+		6E66791F1DC6AE1900E895D1 /* CountdownViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewControllerProxy.swift; sourceTree = "<group>"; };
+		6E6679221DC6B3FC00E895D1 /* ProximityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityController.swift; sourceTree = "<group>"; };
+		6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
+		6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E7D291C1D7E180B004CC25B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6E7D291E1D7E1E12004CC25B /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		6E9506A41DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E9709941D53DF6400999AB6 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		6E9709971D53FB8000999AB6 /* UIView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
 		6E9709991D53FDC800999AB6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +155,7 @@
 		6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Style.swift"; sourceTree = "<group>"; };
 		6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		6ED448301D7E3D6100607ED6 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
-		6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewControllerProxy.swift; sourceTree = "<group>"; };
+		6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Adjustment.swift"; sourceTree = "<group>"; };
 		6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
@@ -149,7 +163,7 @@
 		6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Style.swift"; sourceTree = "<group>"; };
 		6EDD99FA1D5BF18A00E6BF19 /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		6EDD99FC1D5BF1AE00E6BF19 /* TrainingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingListViewController.swift; sourceTree = "<group>"; };
-		6EDD99FE1D5D1F2900E6BF19 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		6EDD99FE1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewController.swift; sourceTree = "<group>"; };
 		6EDD9A001D5D246E00E6BF19 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6EDD9A021D5D2C2C00E6BF19 /* SessionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
 		6EE5BCC41D344EC100C093CD /* PushUps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushUps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +176,7 @@
 		6EE7AA131D88BAAA009D11E5 /* TrainingSessions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainingSessions.plist; sourceTree = "<group>"; };
 		6EEFC31D1D8B462700639ABB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		6EEFC31F1D8B46C600639ABB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
-		6EFD43351D5E7A98006D8E51 /* HomeSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSessionViewController.swift; sourceTree = "<group>"; };
+		6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
 		6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +255,7 @@
 			children = (
 				6E9709991D53FDC800999AB6 /* HomeViewController.swift */,
 				6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */,
+				6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */,
 			);
 			name = HomeViewController;
 			sourceTree = "<group>";
@@ -257,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				6EDD99FA1D5BF18A00E6BF19 /* CountdownViewController.swift */,
+				6E66791F1DC6AE1900E895D1 /* CountdownViewControllerProxy.swift */,
 			);
 			name = CountdownViewController;
 			sourceTree = "<group>";
@@ -269,21 +285,22 @@
 			name = TrainingListViewController;
 			sourceTree = "<group>";
 		};
-		6E3B9A501D78EC7400DF7C27 /* SessionViewController */ = {
+		6E3B9A501D78EC7400DF7C27 /* WorkoutSessionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6EDD99FE1D5D1F2900E6BF19 /* SessionViewController.swift */,
-				6ED448321D7E3F5400607ED6 /* SessionViewControllerProxy.swift */,
+				6EDD99FE1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift */,
+				6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */,
 			);
-			name = SessionViewController;
+			name = WorkoutSessionViewController;
 			sourceTree = "<group>";
 		};
-		6E3B9A511D78EC7A00DF7C27 /* HomeSessionViewController */ = {
+		6E3B9A511D78EC7A00DF7C27 /* HomeWorkoutViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6EFD43351D5E7A98006D8E51 /* HomeSessionViewController.swift */,
+				6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */,
+				6E9506A41DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift */,
 			);
-			name = HomeSessionViewController;
+			name = HomeWorkoutViewController;
 			sourceTree = "<group>";
 		};
 		6E3B9A521D78EC8100DF7C27 /* HomeTrainingViewController */ = {
@@ -329,6 +346,23 @@
 			name = Button;
 			sourceTree = "<group>";
 		};
+		6E66791A1DC6AD3600E895D1 /* TrainingSessionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E66791B1DC6AD5000E895D1 /* TrainingSessionViewController.swift */,
+				6E66791D1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift */,
+			);
+			name = TrainingSessionViewController;
+			sourceTree = "<group>";
+		};
+		6E6679211DC6B3DC00E895D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E6679221DC6B3FC00E895D1 /* ProximityController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		6E7ED39E1D7CCD5900ED3B43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,15 +386,16 @@
 		6E9709901D53DE6200999AB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E3B9A541D78EC9400DF7C27 /* TestViewController */,
+				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
+				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
+				6E3B9A511D78EC7A00DF7C27 /* HomeWorkoutViewController */,
+				6E3B9A521D78EC8100DF7C27 /* HomeTrainingViewController */,
 				6E3B9A4C1D78EC4100DF7C27 /* HomeViewController */,
 				6E3B9A4D1D78EC4A00DF7C27 /* ProfileViewController */,
-				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
+				6E3B9A541D78EC9400DF7C27 /* TestViewController */,
 				6E3B9A4F1D78EC6E00DF7C27 /* TrainingListViewController */,
-				6E3B9A501D78EC7400DF7C27 /* SessionViewController */,
-				6E3B9A511D78EC7A00DF7C27 /* HomeSessionViewController */,
-				6E3B9A521D78EC8100DF7C27 /* HomeTrainingViewController */,
-				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
+				6E66791A1DC6AD3600E895D1 /* TrainingSessionViewController */,
+				6E3B9A501D78EC7400DF7C27 /* WorkoutSessionViewController */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -405,6 +440,7 @@
 				6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */,
 				6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */,
 				6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */,
+				6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -469,6 +505,7 @@
 			children = (
 				6EE5BCC71D344EC100C093CD /* AppDelegate.swift */,
 				6E9709931D53DEB000999AB6 /* Supporting Files */,
+				6E6679211DC6B3DC00E895D1 /* Controllers */,
 				6E0A03191DA7FB28000FDD73 /* Extensions */,
 				6E7ED39E1D7CCD5900ED3B43 /* Frameworks */,
 				6EE7AA151D88BAB5009D11E5 /* Data */,
@@ -687,34 +724,41 @@
 				6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */,
 				6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */,
 				6E97099A1D53FDC800999AB6 /* HomeViewController.swift in Sources */,
+				6E69AF371DB57F090092A1E0 /* HomeViewControllerProxy.swift in Sources */,
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
 				6E0A031B1DA7FB76000FDD73 /* Array+PushUps.swift in Sources */,
 				6EEFC31E1D8B462700639ABB /* Level.swift in Sources */,
 				6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */,
 				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
-				6EFD43361D5E7A98006D8E51 /* HomeSessionViewController.swift in Sources */,
+				6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */,
 				6EDD99FD1D5BF1AE00E6BF19 /* TrainingListViewController.swift in Sources */,
-				6EDD99FF1D5D1F2900E6BF19 /* SessionViewController.swift in Sources */,
+				6EDD99FF1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift in Sources */,
 				6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */,
 				6E0A031D1DA7FFB1000FDD73 /* HomeTrainingViewControllerProxy.swift in Sources */,
-				6ED448331D7E3F5400607ED6 /* SessionViewControllerProxy.swift in Sources */,
+				6ED448331D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift in Sources */,
 				6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */,
 				6EE5BCCA1D344EC100C093CD /* TestViewController.swift in Sources */,
+				6E66791C1DC6AD5000E895D1 /* TrainingSessionViewController.swift in Sources */,
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */,
+				6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */,
 				6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */,
 				6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */,
 				6E97099C1D56753F00999AB6 /* UIColor+Style.swift in Sources */,
+				6E69AF351DAB33470092A1E0 /* UILabel+Style.swift in Sources */,
 				6E7D291F1D7E1E13004CC25B /* UserController.swift in Sources */,
 				6EDD9A031D5D2C2C00E6BF19 /* SessionType.swift in Sources */,
 				6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */,
 				6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */,
+				6E6679231DC6B3FC00E895D1 /* ProximityController.swift in Sources */,
 				6E048DE71D62843200678AFE /* UIBarButtonItem+Style.swift in Sources */,
+				6E66791E1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift in Sources */,
 				6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */,
 				6EE5BCC81D344EC100C093CD /* AppDelegate.swift in Sources */,
 				6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */,
 				6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */,
 				6EDD99F71D5BE7CE00E6BF19 /* ProfileViewController.swift in Sources */,
+				6E9506A51DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift in Sources */,
 				6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */,
 				6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */,
 				6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */,

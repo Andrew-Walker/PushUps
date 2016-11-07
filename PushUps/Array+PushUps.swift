@@ -7,7 +7,37 @@
 //
 
 extension Array {
+    
+    /**
+     Gets object at specified index.
+     - parameters:
+        - index: Index used to subscript array.
+     - returns: Element at index passed.
+     */
     func object(at index: Int) -> Element? {
-        return self[index]
+        let indexExists = self.indices.contains(index)
+        return indexExists ? self[index] : nil
     }
+    
+    /**
+     Gets last index.
+     - returns: Int value representing last index.
+    */
+    func lastIndex() -> Int? {
+        return self.indices.last
+    }
+    
+    /**
+     Gets second to last index if valid.
+     - returns: Int value representing second to last, or last index.
+    */
+    func lastValidIndexPredecessor() -> Int? {
+        guard let lastIndex = self.lastIndex() else {
+            return nil
+        }
+        
+        let previousIndex = lastIndex - 1
+        return self.indices.contains(previousIndex) ? previousIndex : 0
+    }
+    
 }

@@ -20,7 +20,7 @@ class HomePageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.pageViewController(name: "Training"),
-                self.pageViewController(name: "Session")]
+                self.pageViewController(name: "Workout")]
     }()
     
     // MARK: Public

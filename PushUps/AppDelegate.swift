@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureTemporaryUser() {
         var temporaryUser = PushUpUser(name: "Andrew Walker")
-        temporaryUser.currentSessionIDs = ("e7baafb6-23b9-47f2-8eef-81beeef600b7", "ed5b2590-a284-4b3d-bf87-5b7848cb7b4c")
+        temporaryUser.set(levelID: "9d01f269-0f00-4395-a868-c66fd76a2460", stageID: "1ca45734-01d4-497d-8f95-6c9f153ec3c5")
         UserController.sharedInstance.setUser(user: temporaryUser)
     }
     

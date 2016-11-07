@@ -9,21 +9,20 @@
 import Foundation
 
 protocol Session {
-    var date: NSDate? { get set }
+    var date: Date? { get set }
     var duration: Int { get set }
     var pushups: Int { get set }
     
-    mutating func endSession(withCount count: Int)
     func getDuration() -> Int
 }
 
 extension Session {
     mutating func startSession() {
-        self.date = NSDate()
+        self.date = Date()
     }
     
     func getDuration() -> Int {
-        // TODO: End timer and get duration.
+        let endDate = Date()
         
         return 0
     }

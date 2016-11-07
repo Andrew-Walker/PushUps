@@ -41,6 +41,22 @@ class UserController {
         self.user = nil
     }
     
+    /**
+     Adds session to current PushUpUser session array.
+     - parameters:
+        - session: Instance conforming to Session to add to array.
+     */
+    func add(session: Session) {
+        (self.user as? PushUpUser)?.add(session: session)
+    }
+    
+    /**
+     Gets most recent PushUpUser session.
+     - returns: Instance conforming to Session most recently completed.
+     */
+    func getPreviousSession() -> Session? {
+        return (self.user as? PushUpUser)?.getPreviousSession()
+    }
     
     /**
      Gets PushUpUser instance representing current user.
