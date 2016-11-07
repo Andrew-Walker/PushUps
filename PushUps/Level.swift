@@ -13,7 +13,9 @@ protocol Level {
 
 struct TrainingLevel: Level {
     
-    // MARK: Properties -
+    // MARK: - Properties -
+    
+    // MARK: Private
     
     // MARK: Internal
     

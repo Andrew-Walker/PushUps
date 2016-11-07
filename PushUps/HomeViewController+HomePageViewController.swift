@@ -8,9 +8,13 @@
 
 extension HomeViewController: HomePageViewControllerDelegate {
     
-    func pageDidChange(toIndex index: Int?) {
+    // MARK: - Internal -
+    
+    internal func pageDidChange(toIndex index: Int?) {
         self.updateView(forPageIndex: index)
     }
+    
+    // MARK: - Private -
     
     private func updateView(forPageIndex index: Int?) {
         guard let index = index, let sessionType = SessionType(rawValue: index) else {

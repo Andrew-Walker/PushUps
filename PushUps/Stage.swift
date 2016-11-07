@@ -13,7 +13,11 @@ protocol Stage {
 
 struct TrainingStage: Stage {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
     
     internal var id: String
     internal var sets: [Set]

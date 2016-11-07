@@ -10,16 +10,16 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     @IBOutlet private weak var profilePictureBackgroundView: UIView!
     @IBOutlet private weak var profilePictureImageView: UIButton!
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
         self.profilePictureImageView.applyRoundCorners()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.applyBackground()
@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightNavigationItem
     }
     
-    // MARK: Actions -
+    // MARK: - Private -
     
     @objc private func dismissViewController() {
         self.dismiss(animated: true)

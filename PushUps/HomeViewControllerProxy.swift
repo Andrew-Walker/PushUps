@@ -12,24 +12,26 @@ protocol HomeViewControllerProxyDelegate: class {
 
 class HomeViewControllerProxy {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private weak var delegate: HomeViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
         
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     /**
      Designated initializer for HomeViewControllerProxy instance.
      - parameters:
         - delegate: An instance that conforms to HomeViewControllerProxyDelegate protocol.
      */
-    init(delegate: HomeViewControllerProxyDelegate) {
+    internal init(delegate: HomeViewControllerProxyDelegate) {
         self.delegate = delegate
     }
+    
+    // MARK: - Internal -
     
     /**
      Gets title content for currently selected SessionType.
@@ -37,7 +39,7 @@ class HomeViewControllerProxy {
         - sessionType: A case value of SessionType.
      - returns: String value based on passed session type.
     */
-    func titleContent(sessionType: SessionType) -> String {
+    internal func titleContent(sessionType: SessionType) -> String {
         guard sessionType == .Session else {
             let levelIndex = SessionController.sharedInstance.getCurrentLevelIndex() 
             let levelIndexLabelText = "Level \(levelIndex)"

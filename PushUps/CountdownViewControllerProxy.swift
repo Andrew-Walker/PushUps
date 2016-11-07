@@ -12,30 +12,32 @@ protocol CountdownViewControllerProxyDelegate: class {
 
 class CountdownViewControllerProxy {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private weak var delegate: CountdownViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     /**
      Designated initializer for CountdownViewControllerProxy instance.
      - parameters:
-     - delegate: An instance that conforms to HomeViewControllerProxyDelegate protocol.
+        - delegate: An instance that conforms to HomeViewControllerProxyDelegate protocol.
      */
-    init(delegate: CountdownViewControllerProxyDelegate) {
+    internal init(delegate: CountdownViewControllerProxyDelegate) {
         self.delegate = delegate
     }
+    
+    // MARK: - Internal -
     
     /**
      Gets type of session to start at end of countdown.
      - returns: SessionType case of upcoming session.
     */
-    func sessionType() -> SessionType? {
+    internal func sessionType() -> SessionType? {
         return SessionController.sharedInstance.getCurrentSessionType()
     }
     

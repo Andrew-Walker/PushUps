@@ -12,11 +12,17 @@ protocol Workout: Session {}
 
 class WorkoutSession: Workout {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
     
     internal var date: Date?
     internal var duration = 0
     internal var pushups = 0
+    
+    // MARK: - Internal -
     
     internal func endSession(with count: Int) {
         self.pushups = count

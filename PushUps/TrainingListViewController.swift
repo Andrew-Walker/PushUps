@@ -10,22 +10,22 @@ import UIKit
 
 class TrainingListViewController: UIViewController {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.styleUI()
         self.configureUI()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         
@@ -36,7 +36,7 @@ class TrainingListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightNavigationItem
     }
     
-    // MARK: Actions -
+    // MARK: - Private -
     
     @objc private func dismissViewController() {
         self.dismiss(animated: true)

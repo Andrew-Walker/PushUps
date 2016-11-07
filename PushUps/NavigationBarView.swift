@@ -11,14 +11,18 @@ import UIKit
 /// View used within navigation bar in most views. Contains title and subtitle labels.
 class NavigationBarView: UIView {
     
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var subtitleLabel: UILabel?
     
-    class func instanceFromNib() -> NavigationBarView? {
-        return Bundle.main.loadNibNamed("NavigationBarView", owner: nil, options: nil)?.first as? NavigationBarView
-    }
+    // MARK: Internal
     
-    override func awakeFromNib() {
+    // MARK: - Lifecycle -
+    
+    internal override func awakeFromNib() {
         super.awakeFromNib()
                 
         self.backgroundColor = UIColor.clear
@@ -26,12 +30,18 @@ class NavigationBarView: UIView {
         self.subtitleLabel?.textColor = UIColor.white.withAlphaComponent(0.5)
     }
     
+    // MARK: - Internal -
+    
+    internal class func instanceFromNib() -> NavigationBarView? {
+        return Bundle.main.loadNibNamed("NavigationBarView", owner: nil, options: nil)?.first as? NavigationBarView
+    }
+    
     /**
      Sets navigation bar title text.
      - parameters:
         withText: Text for title label content.
      */
-    func setTitleContent(with text: String?) {
+    internal func setTitleContent(with text: String?) {
         self.titleLabel?.text = text
     }
     
@@ -40,7 +50,7 @@ class NavigationBarView: UIView {
      - parameters:
         withText: Text for subtitle label content.
      */
-    func setSubtitleContent(with text: String?) {
+    internal func setSubtitleContent(with text: String?) {
         self.subtitleLabel?.text = text
     }
     

@@ -8,36 +8,38 @@
 
 class UserController {
     
-    // MARK: Properties -
-    
-    // MARK: Public
-    
-    static let sharedInstance = UserController()
+    // MARK: - Properties -
     
     // MARK: Private
     
     private(set) var user: User?
     
-    // MARK: Lifecycle -
+    // MARK: Internal
+    
+    internal static let sharedInstance = UserController()
+    
+    // MARK: - Lifecycle -
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
     
+    // MARK: - Internal -
+    
     /**
      Sets current user.
      - parameters:
         - user: Instance conforming to User protocol representing new user.
      */
-    func setUser(user: User?) {
+    internal func setUser(user: User?) {
         self.user = user
     }
     
     /**
      Removes currently stored user.
      */
-    func removeCurrentUser() {
+    internal func removeCurrentUser() {
         self.user = nil
     }
     
@@ -46,7 +48,7 @@ class UserController {
      - parameters:
         - session: Instance conforming to Session to add to array.
      */
-    func add(session: Session) {
+    internal func add(session: Session) {
         (self.user as? PushUpUser)?.add(session: session)
     }
     
@@ -54,7 +56,7 @@ class UserController {
      Gets most recent PushUpUser session.
      - returns: Instance conforming to Session most recently completed.
      */
-    func getPreviousSession() -> Session? {
+    internal func getPreviousSession() -> Session? {
         return (self.user as? PushUpUser)?.getPreviousSession()
     }
     
@@ -62,7 +64,7 @@ class UserController {
      Gets PushUpUser instance representing current user.
      - returns: Instance conforming to PushUpUser representing current user.
      */
-    func currentPushUpUser() -> PushUpUser? {
+    internal func currentPushUpUser() -> PushUpUser? {
         guard let user = self.user as? PushUpUser else {
             return nil
         }

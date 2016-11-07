@@ -10,7 +10,7 @@ import UIKit
 
 class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
@@ -18,13 +18,13 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
     @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var setsStackView: UIStackView!
     
-    // MARK: Public
+    // MARK: Internal
     
-    var proxy: HomeTrainingViewControllerProxy?
+    internal var proxy: HomeTrainingViewControllerProxy?
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.proxy = HomeTrainingViewControllerProxy(delegate: self)
@@ -33,7 +33,7 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
         self.configureUI()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.view.backgroundColor = UIColor.clear
@@ -60,7 +60,7 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
         
         for (index, set) in sets.enumerated() {
             let setLabel = UILabel()
-            let setPushups = set.pushups ?? 0
+            let setPushups = set.pushups 
             let setLabelText = String(describing: setPushups)
             setLabel.text = setLabelText
             setLabel.applySetsStackViewStyle()

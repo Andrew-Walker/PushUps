@@ -18,27 +18,39 @@ protocol User {
 }
 
 class PushUpUser: User {
-    var name: String
-    var dateJoined: NSDate
-    var profileImage: NSData? = nil
-    var sessions: [Session] = []
-    var record = 0
-    var currentSessionIDs: (level: String, stage: String)?
     
-    init(name: String) {
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
+    
+    internal var name: String
+    internal var dateJoined: NSDate
+    internal var profileImage: NSData? = nil
+    internal var sessions: [Session] = []
+    internal var record = 0
+    internal var currentSessionIDs: (level: String, stage: String)?
+    
+    // MARK: - Lifecycle -
+    
+    internal init(name: String) {
         self.name = name
         self.dateJoined = NSDate()
     }
     
-    func set(levelID: String, stageID: String) {
+    // MARK: - Internal -
+    
+    internal func set(levelID: String, stageID: String) {
         self.currentSessionIDs = (level: levelID, stage: stageID)
     }
     
-    func add(session: Session) {
+    internal func add(session: Session) {
         self.sessions.append(session)
     }
     
-    func getPreviousSession() -> Session? {
+    internal func getPreviousSession() -> Session? {
         return self.sessions.last
     }
+    
 }

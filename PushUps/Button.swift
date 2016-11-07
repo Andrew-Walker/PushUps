@@ -11,7 +11,7 @@ import UIKit
 /// General button style with highlighting customisation.
 class Button: UIButton {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
@@ -22,17 +22,17 @@ class Button: UIButton {
         }
     }
     
-    // MARK: Public
+    // MARK: Internal
     
     /// Color of background.
-    @IBInspectable override var backgroundColor: UIColor? {
+    @IBInspectable internal override var backgroundColor: UIColor? {
         didSet {
             self.normalBackgroundColor = self.backgroundColor
         }
     }
     
     /// Indicates current highlight state of button. Defaults to false.
-    @IBInspectable override var isHighlighted: Bool {
+    @IBInspectable internal override var isHighlighted: Bool {
         didSet {
             super.backgroundColor = self.isHighlighted ? self.highlightedBackgroundColor : self.normalBackgroundColor
             self.titleLabel?.layer.opacity = self.isHighlighted ? 0.5 : 1.0
@@ -41,7 +41,7 @@ class Button: UIButton {
     }
     
     /// Indicates whether button is enabled. Defaults to true.
-    @IBInspectable override var isEnabled: Bool {
+    @IBInspectable internal override var isEnabled: Bool {
         didSet {
             self.backgroundColor = self.normalBackgroundColor
             self.layer.opacity = self.isEnabled ? 1.0 : 0.7
@@ -53,13 +53,15 @@ class Button: UIButton {
 /// Main button used in HomeViewController for starting new sessions.
 class SessionButton: Button {
     
-    override func layoutSubviews() {
+    // MARK: - Internal -
+    
+    internal override func layoutSubviews() {
         super.layoutSubviews()
         
         self.applyRoundCorners()
     }
     
-    override func setTitle(_ title: String?, for state: UIControlState) {
+    internal override func setTitle(_ title: String?, for state: UIControlState) {
         guard let title = title else {
             return
         }

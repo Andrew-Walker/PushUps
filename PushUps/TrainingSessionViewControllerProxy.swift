@@ -18,7 +18,7 @@ class TrainingSessionViewControllerProxy {
     
     private weak var delegate: TrainingSessionViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
     
     // MARK: Lifecycle -
     
@@ -27,7 +27,7 @@ class TrainingSessionViewControllerProxy {
      - parameters:
         - delegate: An instance that conforms to TrainingSessionViewControllerProxyDelegate protocol.
      */
-    init(delegate: TrainingSessionViewControllerProxyDelegate) {
+    internal init(delegate: TrainingSessionViewControllerProxyDelegate) {
         self.delegate = delegate
     }
     

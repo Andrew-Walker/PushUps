@@ -10,7 +10,7 @@ import UIKit
 
 class CountdownViewController: UIViewController, CountdownViewControllerProxyDelegate {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
@@ -28,9 +28,9 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
     
     internal var proxy: CountdownViewControllerProxy?
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.proxy = CountdownViewControllerProxy(delegate: self)
@@ -39,7 +39,7 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
         self.configureUI()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -53,14 +53,14 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
         self.cancelButton.setTitle("CANCEL", for: [])
     }
     
-    // MARK: Actions -
+    // MARK: - Actions -
     
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
         self.countdownTimer?.invalidate()
         self.dismiss(animated: true)
     }
     
-    // MARK: Private -
+    // MARK: - Private -
     
     @objc private func updateCounter() {
         self.counter -= 1

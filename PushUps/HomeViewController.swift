@@ -10,25 +10,25 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private var pageViewController: HomePageViewController?
     
-    // MARK: Public
+    // MARK: Internal
     
-    @IBOutlet weak var segmentedControl: SegmentedControl!
-    @IBOutlet weak var startButton: SessionButton!
+    @IBOutlet internal weak var segmentedControl: SegmentedControl!
+    @IBOutlet internal weak var startButton: SessionButton!
     
-    let titleView = NavigationBarView.instanceFromNib()
+    internal let titleView = NavigationBarView.instanceFromNib()
     
-    var proxy: HomeViewControllerProxy?
-    var selectedSessionType: SessionType = .Training
+    internal var proxy: HomeViewControllerProxy?
+    internal var selectedSessionType: SessionType = .Training
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.proxy = HomeViewControllerProxy(delegate: self)
@@ -37,14 +37,14 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
         self.configureUI()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == String(describing: HomePageViewController.self) {
             self.pageViewController = segue.destination as? HomePageViewController
             self.pageViewController?.pageDelegate = self
         }
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
         self.segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged), for: .valueChanged)
     }
     
-    // MARK: Actions -
+    // MARK: - Actions -
     
     @IBAction func startButtonTapped(_ sender: AnyObject) {
         let sessionType = self.selectedSessionType
@@ -71,6 +71,8 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
         
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
+    
+    // MARK: - Private -
     
     @objc private func showProfileViewController() {
         self.performSegue(withIdentifier: String(describing: ProfileViewController.self), sender: nil)

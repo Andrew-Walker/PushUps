@@ -12,32 +12,32 @@ protocol HomeTrainingViewControllerProxyDelegate: class {
 
 class HomeTrainingViewControllerProxy {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private weak var delegate: HomeTrainingViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     /**
      Designated initializer for HomeTrainingViewControllerProxy instance.
      - parameters:
         - delegate: An instance that conforms to HomeTrainingViewControllerProxyDelegate protocol.
      */
-    init(delegate: HomeTrainingViewControllerProxyDelegate) {
+    internal init(delegate: HomeTrainingViewControllerProxyDelegate) {
         self.delegate = delegate
     }
     
-    // MARK: Public -
+    // MARK: - Internal -
     
     /**
      Gets number of stages in current training level.
      - returns: Int value representing number of stages in current level.
      */
-    func currentStageCount() -> Int {
+    internal func currentStageCount() -> Int {
         return SessionController.sharedInstance.getCurrentStageCount()
     }
     
@@ -45,7 +45,7 @@ class HomeTrainingViewControllerProxy {
      Gets index of current stage in training level.
      - returns: Int value representing index of current stage in training level.
      */
-    func currentStageIndex() -> Int {
+    internal func currentStageIndex() -> Int {
         return SessionController.sharedInstance.getCurrentStageIndex()
     }
     
@@ -53,7 +53,7 @@ class HomeTrainingViewControllerProxy {
      Gets sets in current stage.
      - returns: Array of instances conforming to Set protocol.
     */
-    func currentStageSets() -> [Set] {
+    internal func currentStageSets() -> [Set] {
         return SessionController.sharedInstance.getCurrentStageSets()
     }
     

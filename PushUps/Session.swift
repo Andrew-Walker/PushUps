@@ -18,9 +18,9 @@ protocol Session {
 
 extension Session {
     
-    // MARK: - Internal Functions
+    // MARK: - Internal -
     
-    internal func startSession() {
+    internal mutating func startSession() {
         self.date = Date()
     }
     

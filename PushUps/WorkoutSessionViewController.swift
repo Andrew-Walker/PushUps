@@ -10,7 +10,7 @@ import UIKit
 
 class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControllerProxyDelegate {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
@@ -19,14 +19,14 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
     
     private var pushUpCount = 0
     
-    // MARK: Public
+    // MARK: Internal
     
-    var proxy: WorkoutSessionViewControllerProxy?
-    var proximityController: ProximityController?
+    internal var proxy: WorkoutSessionViewControllerProxy?
+    internal var proximityController: ProximityController?
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.proxy = WorkoutSessionViewControllerProxy(delegate: self)
@@ -38,7 +38,7 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
         self.styleUI()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -47,20 +47,13 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
         self.endButton.setTitle("END SESSION", for: [])
     }
     
-    // MARK: Actions -
+    // MARK: - Actions -
     
     @IBAction func endButtonTapped(_ sender: AnyObject) {
         self.endSession()
     }
     
-    // MARK: Private -
-    
-    func updateCounterLabel() {
-        self.pushUpCount += 1
-        self.counterLabel.text = String(self.pushUpCount)
-    }
-    
-    // MARK: Public -
+    // MARK: - Private -
     
     private func endSession() {
         let pushUpCount = self.pushUpCount
@@ -79,11 +72,20 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
         viewController?.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Internal -
+    
+    internal func updateCounterLabel() {
+        self.pushUpCount += 1
+        self.counterLabel.text = String(self.pushUpCount)
+    }
+    
 }
 
 extension WorkoutSessionViewController: ProximityControllerDelegate {
     
-    func objectProximityDetected() {
+    // MARK: - Internal -
+    
+    internal func objectProximityDetected() {
         self.updateCounterLabel()
     }
     

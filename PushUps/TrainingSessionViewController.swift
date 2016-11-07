@@ -10,21 +10,21 @@ import UIKit
 
 class TrainingSessionViewController: UIViewController, TrainingSessionViewControllerProxyDelegate {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     @IBOutlet private weak var endButton: SessionButton!
     @IBOutlet private weak var counterLabel: UILabel!
     
-    // MARK: Public
+    // MARK: Internal
     
-    var proxy: TrainingSessionViewControllerProxy?
-    var proximityController: ProximityController?
+    internal var proxy: TrainingSessionViewControllerProxy?
+    internal var proximityController: ProximityController?
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.proxy = TrainingSessionViewControllerProxy(delegate: self)
@@ -35,7 +35,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         self.styleUI()
     }
     
-    // MARK: UI -
+    // MARK: - UI -
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -44,13 +44,13 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         self.endButton.setTitle("END SESSION", for: [])
     }
     
-    // MARK: Actions -
+    // MARK: - Actions -
     
     @IBAction func endButtonTapped(_ sender: AnyObject) {
         self.endSession()
     }
     
-    // MARK: Public -
+    // MARK: - Public -
     
     private func endSession() {
         self.dismissView()
@@ -70,7 +70,9 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
 
 extension TrainingSessionViewController: ProximityControllerDelegate {
     
-    func objectProximityDetected() {
+    // MARK: - Internal -
+    
+    internal func objectProximityDetected() {
         
     }
     

@@ -12,32 +12,32 @@ protocol WorkoutSessionViewControllerProxyDelegate: class {
 
 class WorkoutSessionViewControllerProxy {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private weak var delegate: WorkoutSessionViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     /**
      Designated initializer for WorkoutSessionViewControllerProxy instance.
      - parameters:
         - delegate: An instance that conforms to WorkoutSessionViewControllerProxyDelegate protocol.
      */
-    init(delegate: WorkoutSessionViewControllerProxyDelegate) {
+    internal init(delegate: WorkoutSessionViewControllerProxyDelegate) {
         self.delegate = delegate
     }
     
-    // MARK: Public -
+    // MARK: - Internal -
     
     /**
      Gets user's current pushup record.
      - returns: Int value representing pushup record.
      */
-    func currentRecord() -> Int {
+    internal func currentRecord() -> Int {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return 0
         }
@@ -48,7 +48,7 @@ class WorkoutSessionViewControllerProxy {
     /**
      Starts new workout session.
      */
-    func startSession() {
+    internal func startSession() {
         SessionController.sharedInstance.startNewWorkoutSession()
     }
     
@@ -57,7 +57,7 @@ class WorkoutSessionViewControllerProxy {
      - parameters:
         - count: Int value representing total pushups completed.
      */
-    func endSession(with count: Int) {
+    internal func endSession(with count: Int) {
         SessionController.sharedInstance.endCurrentWorkoutSession(with: count)
         guard let completedSession = SessionController.sharedInstance.getCurrentSession() else {
             return

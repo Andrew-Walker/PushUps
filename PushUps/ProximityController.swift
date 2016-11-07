@@ -14,23 +14,23 @@ protocol ProximityControllerDelegate {
 
 class ProximityController {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private let device = UIDevice.current
     
-    // MARK: Public
+    // MARK: Internal
     
-    var delegate: ProximityControllerDelegate?
+    internal var delegate: ProximityControllerDelegate?
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    init(delegate: ProximityControllerDelegate) {
+    internal init(delegate: ProximityControllerDelegate) {
         self.delegate = delegate
     }
     
-    // MARK: Actions -
+    // MARK: - Private -
     
     @objc private func proximityChanged(notification: NSNotification) {
         guard let device = notification.object as? UIDevice else {
@@ -42,8 +42,6 @@ class ProximityController {
         }
     }
     
-    // MARK: Private -
-    
     private func configureProximitySensor() {
         self.device.isProximityMonitoringEnabled = true
         
@@ -53,13 +51,13 @@ class ProximityController {
         }
     }
     
-    // MARK: Public -
+    // MARK: - Internal -
     
-    func startProximityDetection() {
+    internal func startProximityDetection() {
         self.configureProximitySensor()
     }
     
-    func endProximityDetection() {
+    internal func endProximityDetection() {
         self.device.isProximityMonitoringEnabled = false
     }
     

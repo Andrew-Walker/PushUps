@@ -10,7 +10,7 @@ import UIKit
 
 class SessionFactory {
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle -
     
     /**
      Restricts ability to create instance. Intended as singleton.
@@ -23,7 +23,7 @@ class SessionFactory {
      Retrieves data from TrainingSessions plist file and passes this array to factory function to create training levels.
      - returns: Array of instances conforming to Level protocol.
      */
-    static func loadAllLevels() -> [Level] {
+    internal static func loadAllLevels() -> [Level] {
         var levels = [Level]()
         
         if let path = Bundle.main.path(forResource: "TrainingSessions", ofType: "plist"), let array = NSArray(contentsOfFile: path) {

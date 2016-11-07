@@ -15,7 +15,11 @@ protocol Training: Session {
 
 class TrainingSession: Training {
     
-    // MARK: - Internal Properties
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
     
     internal var stage: Stage
     internal var date: Date?
@@ -23,9 +27,13 @@ class TrainingSession: Training {
     internal var pushups = 0
     internal var completed = false
     
-    init(stage: Stage) {
+    // MARK: - Lifecycle -
+    
+    internal init(stage: Stage) {
         self.stage = stage
     }
+    
+    // MARK: - Internal -
     
     internal func endSession() {
         self.duration = self.getDuration()

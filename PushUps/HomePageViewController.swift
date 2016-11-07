@@ -14,7 +14,7 @@ protocol HomePageViewControllerDelegate {
 
 class HomePageViewController: UIPageViewController {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
@@ -28,9 +28,9 @@ class HomePageViewController: UIPageViewController {
     internal var pageDelegate: HomePageViewControllerDelegate?
     internal var currentIndex = 0
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dataSource = self
@@ -41,13 +41,13 @@ class HomePageViewController: UIPageViewController {
         }
     }
     
-    // MARK: Private -
+    // MARK: - Private -
     
     private func pageViewController(name: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home\(name)ViewController")
     }
     
-    // MARK: Public -
+    // MARK: - Internal -
     
     internal func setPage(with index: Int) {
         let viewController = self.orderedViewControllers[index]
@@ -59,11 +59,11 @@ class HomePageViewController: UIPageViewController {
     
 }
 
-// MARK: UIPageViewControllerDataSource
-
 extension HomePageViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    // MARK: - Internal -
+    
+    internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = self.orderedViewControllers.index(of: viewController) else {
             return nil
         }
@@ -81,7 +81,7 @@ extension HomePageViewController: UIPageViewControllerDataSource {
         return self.orderedViewControllers[previousIndex]
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = self.orderedViewControllers.index(of: viewController) else {
             return nil
         }

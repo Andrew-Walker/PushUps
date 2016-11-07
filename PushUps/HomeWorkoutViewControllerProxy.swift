@@ -12,32 +12,32 @@ protocol HomeWorkoutViewControllerProxyDelegate: class {
 
 class HomeWorkoutViewControllerProxy {
     
-    // MARK: Properties -
+    // MARK: - Properties -
     
     // MARK: Private
     
     private weak var delegate: HomeWorkoutViewControllerProxyDelegate?
     
-    // MARK: Public
+    // MARK: Internal
     
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle -
     
     /**
      Designated initializer for HomeWorkoutViewControllerProxy instance.
      - parameters:
         - delegate: An instance that conforms to HomeWorkoutViewControllerProxyDelegate protocol.
      */
-    init(delegate: HomeWorkoutViewControllerProxyDelegate) {
+    internal init(delegate: HomeWorkoutViewControllerProxyDelegate) {
         self.delegate = delegate
     }
     
-    // MARK: Public -
+    // MARK: - Internal -
     
     /**
      Gets number of pushups achieved in last session.
      - returns: Int value representing pushup count.
     */
-    func getLastSessionPushupCount() -> Int? {
+    internal func getLastSessionPushupCount() -> Int? {
         let previousSession = UserController.sharedInstance.getPreviousSession()
         return previousSession?.pushups
     }
