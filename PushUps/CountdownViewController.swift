@@ -24,9 +24,9 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
         }
     }
     
-    // MARK: Public
+    // MARK: Internal
     
-    var proxy: CountdownViewControllerProxy?
+    internal var proxy: CountdownViewControllerProxy?
     
     // MARK: Lifecycle -
     
@@ -55,6 +55,13 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
     
     // MARK: Actions -
     
+    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+        self.countdownTimer?.invalidate()
+        self.dismiss(animated: true)
+    }
+    
+    // MARK: Private -
+    
     @objc private func updateCounter() {
         self.counter -= 1
         
@@ -62,13 +69,6 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
             self.continueToSession()
         }
     }
-    
-    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
-        self.countdownTimer?.invalidate()
-        self.dismiss(animated: true)
-    }
-    
-    // MARK: Private -
     
     private func continueToSession() {
         self.countdownTimer?.invalidate()

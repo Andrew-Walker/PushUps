@@ -14,17 +14,20 @@ protocol Training: Session {
 }
 
 class TrainingSession: Training {
-    var stage: Stage
-    var date: Date?
-    var duration = 0
-    var pushups = 0
-    var completed = false
+    
+    // MARK: - Internal Properties
+    
+    internal var stage: Stage
+    internal var date: Date?
+    internal var duration = 0
+    internal var pushups = 0
+    internal var completed = false
     
     init(stage: Stage) {
         self.stage = stage
     }
     
-    func endSession() {
+    internal func endSession() {
         self.duration = self.getDuration()
     }
 }

@@ -13,12 +13,16 @@ protocol Set {
 }
 
 struct TrainingSet: Set {
-    var pushups: Int
-    var interval: Int
-    var isCurrent = false
+    
+    // MARK: - Internal Properties
+    
+    internal var pushups: Int
+    internal var interval: Int
+    internal var isCurrent = false
     
     init(pushups: Int, interval: Int) {
         self.pushups = pushups
         self.interval = interval
     }
+    
 }

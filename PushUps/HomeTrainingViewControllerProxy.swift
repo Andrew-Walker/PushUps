@@ -49,6 +49,10 @@ class HomeTrainingViewControllerProxy {
         return SessionController.sharedInstance.getCurrentStageIndex()
     }
     
+    /**
+     Gets sets in current stage.
+     - returns: Array of instances conforming to Set protocol.
+    */
     func currentStageSets() -> [Set] {
         return SessionController.sharedInstance.getCurrentStageSets()
     }

@@ -11,12 +11,16 @@ import Foundation
 protocol Workout: Session {}
 
 class WorkoutSession: Workout {
-    var date: Date?
-    var duration = 0
-    var pushups = 0
     
-    func endSession(with count: Int) {
+    // MARK: - Internal Properties
+    
+    internal var date: Date?
+    internal var duration = 0
+    internal var pushups = 0
+    
+    internal func endSession(with count: Int) {
         self.pushups = count
         self.duration = self.getDuration()
     }
+    
 }

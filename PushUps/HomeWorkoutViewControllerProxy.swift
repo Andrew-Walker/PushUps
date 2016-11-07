@@ -34,7 +34,8 @@ class HomeWorkoutViewControllerProxy {
     // MARK: Public -
     
     /**
-    
+     Gets number of pushups achieved in last session.
+     - returns: Int value representing pushup count.
     */
     func getLastSessionPushupCount() -> Int? {
         let previousSession = UserController.sharedInstance.getPreviousSession()

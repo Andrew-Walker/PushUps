@@ -12,6 +12,12 @@ protocol Level {
 }
 
 struct TrainingLevel: Level {
-    var id: String
-    var stages: [Stage]
+    
+    // MARK: Properties -
+    
+    // MARK: Internal
+    
+    internal var id: String
+    internal var stages: [Stage]
+    
 }

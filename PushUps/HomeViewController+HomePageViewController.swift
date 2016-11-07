@@ -18,14 +18,14 @@ extension HomeViewController: HomePageViewControllerDelegate {
         }
         
         let titleContent = self.proxy?.titleContent(sessionType: sessionType)
-        self.titleView?.setTitleContent(withText: titleContent)
+        self.titleView?.setTitleContent(with: titleContent)
         
         self.view.backgroundColor = sessionType.backgroundColor()
         self.startButton.backgroundColor = sessionType.backgroundColor()
         self.startButton.setTitle("START \(sessionType.title())", for: [])
         self.segmentedControl.selectedIndex = index
         self.segmentedControl.selectedLabelColor = sessionType.backgroundColor()
-        self.titleView?.setSubtitleContent(withText: sessionType.navigationBarSubtitle())
+        self.titleView?.setSubtitleContent(with: sessionType.navigationBarSubtitle())
         self.selectedSessionType = sessionType
     }
     

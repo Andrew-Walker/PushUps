@@ -31,7 +31,7 @@ class NavigationBarView: UIView {
      - parameters:
         withText: Text for title label content.
      */
-    func setTitleContent(withText text: String?) {
+    func setTitleContent(with text: String?) {
         self.titleLabel?.text = text
     }
     
@@ -40,7 +40,7 @@ class NavigationBarView: UIView {
      - parameters:
         withText: Text for subtitle label content.
      */
-    func setSubtitleContent(withText text: String?) {
+    func setSubtitleContent(with text: String?) {
         self.subtitleLabel?.text = text
     }
     

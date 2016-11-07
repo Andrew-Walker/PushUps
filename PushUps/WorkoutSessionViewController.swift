@@ -64,7 +64,7 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
     
     private func endSession() {
         let pushUpCount = self.pushUpCount
-        self.proxy?.endSession(withCount: pushUpCount)
+        self.proxy?.endSession(with: pushUpCount)
         
         self.dismissView()
     }

@@ -12,6 +12,10 @@ protocol Stage {
 }
 
 struct TrainingStage: Stage {
-    var id: String
-    var sets: [Set]
+    
+    // MARK: - Internal Properties
+    
+    internal var id: String
+    internal var sets: [Set]
+    
 }

@@ -31,6 +31,12 @@ class HomeViewControllerProxy {
         self.delegate = delegate
     }
     
+    /**
+     Gets title content for currently selected SessionType.
+     - parameters:
+        - sessionType: A case value of SessionType.
+     - returns: String value based on passed session type.
+    */
     func titleContent(sessionType: SessionType) -> String {
         guard sessionType == .Session else {
             let levelIndex = SessionController.sharedInstance.getCurrentLevelIndex() 

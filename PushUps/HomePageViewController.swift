@@ -23,10 +23,10 @@ class HomePageViewController: UIPageViewController {
                 self.pageViewController(name: "Workout")]
     }()
     
-    // MARK: Public
+    // MARK: Internal
     
-    var pageDelegate: HomePageViewControllerDelegate?
-    var currentIndex = 0
+    internal var pageDelegate: HomePageViewControllerDelegate?
+    internal var currentIndex = 0
     
     // MARK: Lifecycle -
     
@@ -49,7 +49,7 @@ class HomePageViewController: UIPageViewController {
     
     // MARK: Public -
     
-    func setPage(withIndex index: Int) {
+    internal func setPage(with index: Int) {
         let viewController = self.orderedViewControllers[index]
         let direction: UIPageViewControllerNavigationDirection = index > self.currentIndex ? .forward : .reverse
         self.setViewControllers([viewController], direction: direction, animated: true, completion: nil)

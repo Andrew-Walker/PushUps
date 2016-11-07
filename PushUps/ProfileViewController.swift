@@ -43,8 +43,8 @@ class ProfileViewController: UIViewController {
     
     private func configureUI() {
         let titleView = NavigationBarView.instanceFromNib()
-        titleView?.setTitleContent(withText: "Andrew Walker")
-        titleView?.setSubtitleContent(withText: "joined june 2014")
+        titleView?.setTitleContent(with: "Andrew Walker")
+        titleView?.setSubtitleContent(with: "joined june 2014")
         self.navigationItem.titleView = titleView
         
         let rightNavigationItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissViewController))

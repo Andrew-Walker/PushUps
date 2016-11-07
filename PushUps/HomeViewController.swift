@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     }
     
     private func configureUI() {
-        self.titleView?.setSubtitleContent(withText: "training level")
+        self.titleView?.setSubtitleContent(with: "training level")
         self.navigationItem.titleView = self.titleView
         
         let leftNavigationItem = UIBarButtonItem(image: UIImage(named: "profileIcon"), style: .plain, target: self, action: #selector(self.showProfileViewController))
@@ -82,7 +82,7 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
     @objc private func segmentedControlChanged() {
         let newIndex = self.segmentedControl.selectedIndex
-        self.pageViewController?.setPage(withIndex: newIndex)
+        self.pageViewController?.setPage(with: newIndex)
     }
     
 }

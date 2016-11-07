@@ -31,6 +31,10 @@ class CountdownViewControllerProxy {
         self.delegate = delegate
     }
     
+    /**
+     Gets type of session to start at end of countdown.
+     - returns: SessionType case of upcoming session.
+    */
     func sessionType() -> SessionType? {
         return SessionController.sharedInstance.getCurrentSessionType()
     }

@@ -17,13 +17,17 @@ protocol Session {
 }
 
 extension Session {
-    mutating func startSession() {
+    
+    // MARK: - Internal Functions
+    
+    internal func startSession() {
         self.date = Date()
     }
     
-    func getDuration() -> Int {
+    internal func getDuration() -> Int {
         let endDate = Date()
         
         return 0
     }
+    
 }

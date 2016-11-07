@@ -46,16 +46,18 @@ class WorkoutSessionViewControllerProxy {
     }
     
     /**
-     
+     Starts new workout session.
      */
     func startSession() {
         SessionController.sharedInstance.startNewWorkoutSession()
     }
     
     /**
-     
+     Ends in-progress workout session, adds to current user history and clears currently stored session.
+     - parameters:
+        - count: Int value representing total pushups completed.
      */
-    func endSession(withCount count: Int) {
+    func endSession(with count: Int) {
         SessionController.sharedInstance.endCurrentWorkoutSession(with: count)
         guard let completedSession = SessionController.sharedInstance.getCurrentSession() else {
             return
