@@ -348,6 +348,7 @@
                     <connections>
                         <outlet property="counterLabel" destination="CTt-F1-qFB" id="3WE-Cr-9F0"/>
                         <outlet property="endButton" destination="sFY-H9-20I" id="8eD-Fa-jAT"/>
+                        <outlet property="setsStackView" destination="Rpb-tp-MIm" id="ktN-D8-S4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clV-o0-pfF" userLabel="First Responder" sceneMemberID="firstResponder"/>

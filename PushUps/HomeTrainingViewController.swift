@@ -63,14 +63,14 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
             let setPushups = set.pushups 
             let setLabelText = String(describing: setPushups)
             setLabel.text = setLabelText
-            setLabel.applySetsStackViewStyle()
+            setLabel.applySetsStackViewStandardStyle()
             
             self.setsStackView.addArrangedSubview(setLabel)
             
             if index != (sets.count - 1) {
                 let dividerLabel = UILabel()
                 dividerLabel.text = "-"
-                dividerLabel.applySetsStackViewStyle()
+                dividerLabel.applySetsStackViewStandardStyle()
                 
                 self.setsStackView.addArrangedSubview(dividerLabel)
             }

@@ -11,7 +11,7 @@ protocol Level {
     var stages: [Stage] { get }
 }
 
-struct TrainingLevel: Level {
+class TrainingLevel: Level {
     
     // MARK: - Properties -
     
@@ -21,5 +21,12 @@ struct TrainingLevel: Level {
     
     internal var id: String
     internal var stages: [Stage]
+    
+    // MARK: - Lifecycle -
+    
+    init(id: String, stages: [Stage]) {
+        self.id = id
+        self.stages = stages
+    }
     
 }

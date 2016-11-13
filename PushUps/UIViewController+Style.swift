@@ -9,10 +9,11 @@
 import UIKit
 
 extension UIViewController {
+    
     /**
      Applys background image to view and adds relevant constraints.
      */
-    func applyBackground() {
+    internal func applyBackground() {
         let image = UIImage(named: "background")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
@@ -32,7 +33,7 @@ extension UIViewController {
     /**
      Applys background gradient to view.
      */
-    func applyBackgroundGradient() {
+    internal func applyBackgroundGradient() {
         let viewFrame = self.view.frame
         let heightOffset: CGFloat = 114.0
         
@@ -44,4 +45,5 @@ extension UIViewController {
         gradient.colors = [topColor, bottomColor]
         self.view.layer.insertSublayer(gradient, at: 0)
     }
+    
 }

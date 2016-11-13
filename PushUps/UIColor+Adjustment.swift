@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+    
     /**
      Adjusts values of colour based on a delta ammount.
      - parameters:
@@ -18,10 +19,11 @@ extension UIColor {
         - alpha: CGFloat value for Alpha.
      - returns: Colour with adjusted values based on given delta.
      */
-    func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+    internal func adjust(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         
         return UIColor(red: r + red, green: g + green, blue: b + blue, alpha: a + alpha)
     }
+    
 }

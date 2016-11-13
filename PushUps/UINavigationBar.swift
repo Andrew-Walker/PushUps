@@ -9,12 +9,14 @@
 import UIKit
 
 extension UINavigationBar {
+    
     /**
      Applys global clear navigation bar style.
      */
-    static func applyGlobalNavigationBarStyle() {
+    internal static func applyGlobalNavigationBarStyle() {
         self.appearance().setBackgroundImage(UIImage(), for: .default)
         self.appearance().shadowImage = UIImage()
         self.appearance().isTranslucent = true
     }
+    
 }

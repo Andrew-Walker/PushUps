@@ -11,9 +11,10 @@ import Foundation
 extension TimeInterval {
     
     /**
-     
+     Creates string with formatted minutes and seconds from time interval.
+     - returns: String instance containing minutes and seconds.
     */
-    func toMinutesSeconds() -> String {
+    internal func toMinutesSeconds() -> String {
         let interval = Int(self)
         let seconds = interval % 60
         let minutes = (interval / 60) % 60

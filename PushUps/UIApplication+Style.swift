@@ -9,10 +9,12 @@
 import UIKit
 
 extension UIApplication {
+    
     /**
      Applys global light status bar style.
      */
-    static func applyGlobalStatusBarStyle() {
+    internal static func applyGlobalStatusBarStyle() {
         self.shared.statusBarStyle = .lightContent
     }
+    
 }

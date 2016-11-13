@@ -33,55 +33,75 @@ class SessionController {
     // MARK: - Internal -
     
     /**
-     Sets type of current session.
-     */
-    internal func set(sessionType: SessionType) {
-        self.sessionType = sessionType
-    }
-    
-    /**
-     Gets type of current session.
-     */
-    internal func currentSessionType() -> SessionType? {
-        return self.sessionType
-    }
-    
-    /**
      Gets session currently in progress.
      - returns: Instance conforming to Session.
      */
-    internal func currentSession() -> Session? {
+    internal func activeSession() -> Session? {
         return self.session
     }
     
     /**
-     Populates levels array by calling SessionFactory to load list of levels from local plist file.
+     Gets type of active session.
+     - returns: SessionType case representing active session type.
      */
+    internal func activeSessionType() -> SessionType? {
+        return self.sessionType
+    }
+    
+    /**
+     Populates levels array by calling SessionFactory to load list of levels from local plist file.
+    */
     internal func loadAllLevels() {
         self.allLevels = SessionFactory.loadAllLevels()
     }
     
     /**
-     Starts new workout session.
-     */
-    internal func startNewWorkoutSession() {
-        self.session = WorkoutSession()
-        self.session?.startSession()
+     Sets type of active session.
+    */
+    internal func setActive(sessionType: SessionType) {
+        self.sessionType = sessionType
     }
     
     /**
-     Ends currently running session and sets to nil.
+     Activates new workout session.
+     */
+    internal func activateWorkoutSession() {
+        self.session = WorkoutSession()
+        self.session?.start()
+    }
+    
+    /**
+     Activates new training session.
+     */
+    internal func activateTrainingSession() {
+        guard let stage = self.currentTrainingStage() else {
+            return
+        }
+        
+        self.session = TrainingSession(stage: stage)
+        self.session?.start()
+    }
+    
+    /**
+     Ends currently active workout session.
      - parameters:
         - count: Int value representing total push up count on session completion.
      */
-    internal func endCurrentWorkoutSession(with count: Int) {
-        (self.session as? WorkoutSession)?.endSession(with: count)
+    internal func endActiveWorkoutSession(with count: Int) {
+        (self.session as? WorkoutSession)?.end(with: count)
     }
     
     /**
-     Sets current in-progress stored session to nil.
+     Ends currently active training session.
      */
-    internal func clearCurrentSession() {
+    internal func endActiveTrainingSession() {
+        (self.session as? TrainingSession)?.end()
+    }
+    
+    /**
+     Sets currently active stored session to nil.
+     */
+    internal func clearActiveSession() {
         self.session = nil
     }
     
@@ -197,6 +217,28 @@ class SessionController {
         let sets = stage?.sets ?? []
         
         return sets
+    }
+    
+    /**
+     Gets sets in currently active stage.
+     - returns: Array of instances conforming to Set.
+     */
+    internal func activeStageSets() -> [Set] {
+        let stage = (self.session as? TrainingSession)?.stage
+        let sets = stage?.sets ?? []
+        
+        return sets
+    }
+    
+    /**
+     Gets currently active set in active stage.
+     - returns: Instance conforming to Set.
+    */
+    internal func activeStageActiveSet() -> Set? {
+        let stage = (self.session as? TrainingSession)?.stage
+        let set = stage?.sets.filter({ $0.isCurrent }).first
+        
+        return set
     }
     
 }

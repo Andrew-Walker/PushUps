@@ -14,15 +14,12 @@ protocol Session {
     var pushups: Int { get set }
     
     func totalDuration() -> TimeInterval
+    func start()
 }
 
 extension Session {
     
     // MARK: - Internal -
-    
-    internal mutating func startSession() {
-        self.date = Date()
-    }
     
     internal func totalDuration() -> TimeInterval {
         guard let startDate = self.date else {

@@ -30,7 +30,7 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
         super.viewDidLoad()
         
         self.proxy = WorkoutSessionViewControllerProxy(delegate: self)
-        self.proxy?.startSession()
+        self.proxy?.activateSession()
         
         self.proximityController = ProximityController(delegate: self)
         self.proximityController?.startProximityDetection()

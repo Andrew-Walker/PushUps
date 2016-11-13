@@ -48,8 +48,8 @@ class WorkoutSessionViewControllerProxy {
     /**
      Starts new workout session.
      */
-    internal func startSession() {
-        SessionController.sharedInstance.startNewWorkoutSession()
+    internal func activateSession() {
+        SessionController.sharedInstance.activateWorkoutSession()
     }
     
     /**
@@ -58,14 +58,14 @@ class WorkoutSessionViewControllerProxy {
         - count: Int value representing total pushups completed.
      */
     internal func endSession(with count: Int) {
-        SessionController.sharedInstance.endCurrentWorkoutSession(with: count)
-        guard let completedSession = SessionController.sharedInstance.currentSession() else {
+        SessionController.sharedInstance.endActiveWorkoutSession(with: count)
+        guard let completedSession = SessionController.sharedInstance.activeSession() else {
             return
             
         }
         
         UserController.sharedInstance.add(session: completedSession)
-        SessionController.sharedInstance.clearCurrentSession()
+        SessionController.sharedInstance.clearActiveSession()
     }
     
 }

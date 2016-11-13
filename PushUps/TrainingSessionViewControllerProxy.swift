@@ -31,4 +31,36 @@ class TrainingSessionViewControllerProxy {
         self.delegate = delegate
     }
     
+    // MARK: - Internal -
+    
+    /**
+     Starts new training session.
+     */
+    internal func startSession() {
+        SessionController.sharedInstance.activateTrainingSession()
+    }
+    
+    /**
+     Gets sets in current stage.
+     - returns: Array of instances conforming to Set protocol.
+     */
+    internal func activeStageSets() -> [Set] {
+        return SessionController.sharedInstance.activeStageSets()
+    }
+    
+    /**
+     
+    */
+    internal func activeStageSet() -> Set? {
+        return SessionController.sharedInstance.activeStageActiveSet()
+    }
+    
+    /**
+     
+    */
+    internal func incrementActiveSet() {
+        let activeSession = SessionController.sharedInstance.activeSession() as? TrainingSession
+        activeSession?.setNextSet()
+    }
+    
 }

@@ -9,10 +9,12 @@
 import UIKit
 
 extension UIBarButtonItem {
+    
     /**
      Applys global white tint color style.
      */
-    static func applyGlobalBarButtonStyle() {
+    internal static func applyGlobalBarButtonStyle() {
         self.appearance().tintColor = UIColor.white
     }
+    
 }

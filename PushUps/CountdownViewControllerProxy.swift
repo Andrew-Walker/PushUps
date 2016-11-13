@@ -38,7 +38,7 @@ class CountdownViewControllerProxy {
      - returns: SessionType case of upcoming session.
     */
     internal func sessionType() -> SessionType? {
-        return SessionController.sharedInstance.currentSessionType()
+        return SessionController.sharedInstance.activeSessionType()
     }
     
 }

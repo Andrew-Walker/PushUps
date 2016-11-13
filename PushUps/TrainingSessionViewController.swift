@@ -15,7 +15,13 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     // MARK: Private
     
     @IBOutlet private weak var endButton: SessionButton!
-    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var setsStackView: UIStackView!
+    
+    // MARK: File Private
+    
+    @IBOutlet fileprivate weak var counterLabel: UILabel!
+    
+    fileprivate var currentSetCount = 0
     
     // MARK: Internal
     
@@ -28,11 +34,13 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         super.viewDidLoad()
         
         self.proxy = TrainingSessionViewControllerProxy(delegate: self)
+        self.proxy?.startSession()
         
         self.proximityController = ProximityController(delegate: self)
         self.proximityController?.startProximityDetection()
         
         self.styleUI()
+        self.configureUI()
     }
     
     // MARK: - UI -
@@ -44,13 +52,44 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         self.endButton.setTitle("END SESSION", for: [])
     }
     
+    private func configureUI() {
+        self.updateUI()
+        self.configureSetsStackView()
+    }
+    
+    private func configureSetsStackView() {
+        let sets = self.proxy?.activeStageSets() ?? []
+        
+        for subview in self.setsStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        
+        for (index, set) in sets.enumerated() {
+            let setLabel = UILabel()
+            let setPushups = set.pushups
+            let setLabelText = String(describing: setPushups)
+            setLabel.text = setLabelText
+            set.isCurrent ? setLabel.applySetsStackViewActiveStyle() : setLabel.applySetsStackViewStandardStyle()
+            
+            self.setsStackView.addArrangedSubview(setLabel)
+            
+            if index != (sets.count - 1) {
+                let dividerLabel = UILabel()
+                dividerLabel.text = "-"
+                dividerLabel.applySetsStackViewStandardStyle()
+                
+                self.setsStackView.addArrangedSubview(dividerLabel)
+            }
+        }
+    }
+    
     // MARK: - Actions -
     
     @IBAction func endButtonTapped(_ sender: AnyObject) {
         self.endSession()
     }
     
-    // MARK: - Public -
+    // MARK: - Private -
     
     private func endSession() {
         self.dismissView()
@@ -66,6 +105,28 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         viewController?.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - File Private -
+    
+    fileprivate func updateUI() {
+        guard let activeSet = self.proxy?.activeStageSet() else {
+            return
+        }
+        
+        let pushupsRequired = activeSet.pushups
+        let pushupsComplete = self.currentSetCount
+        let pushupsRemaining = pushupsRequired - pushupsComplete
+        
+        guard pushupsRemaining == 0 else {
+            self.counterLabel.text = String(pushupsRemaining)
+            return
+        }
+        
+        self.currentSetCount = 0
+        self.proxy?.incrementActiveSet()
+        self.configureSetsStackView()
+        self.updateUI()
+    }
+    
 }
 
 extension TrainingSessionViewController: ProximityControllerDelegate {
@@ -73,7 +134,8 @@ extension TrainingSessionViewController: ProximityControllerDelegate {
     // MARK: - Internal -
     
     internal func objectProximityDetected() {
-        
+        self.currentSetCount += 1
+        self.updateUI()
     }
     
 }

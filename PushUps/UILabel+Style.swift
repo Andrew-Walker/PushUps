@@ -9,12 +9,23 @@
 import UIKit
 
 extension UILabel {
+    
     /**
      Applys styling to label when required for displaying sets in a stack view.
      */
-    func applySetsStackViewStyle() {
+    internal func applySetsStackViewStandardStyle() {
         self.textAlignment = .center
         self.font = UIFont.systemFont(ofSize: 24.0)
         self.textColor = UIColor.white
     }
+    
+    /**
+     
+    */
+    internal func applySetsStackViewActiveStyle() {
+        self.textAlignment = .center
+        self.font = UIFont.systemFont(ofSize: 24.0)
+        self.textColor = UIColor.red
+    }
+    
 }

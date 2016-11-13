@@ -24,7 +24,11 @@ class WorkoutSession: Workout {
     
     // MARK: - Internal -
     
-    internal func endSession(with count: Int) {
+    internal func start() {
+        self.date = Date()
+    }
+    
+    internal func end(with count: Int) {
         self.pushups = count
         self.duration = self.totalDuration()
     }

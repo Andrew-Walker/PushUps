@@ -10,7 +10,6 @@ import Foundation
 
 protocol Training: Session {
     var stage: Stage { get }
-    var completed: Bool { get set }
 }
 
 class TrainingSession: Training {
@@ -25,7 +24,6 @@ class TrainingSession: Training {
     internal var date: Date?
     internal var duration: TimeInterval = 0
     internal var pushups = 0
-    internal var completed = false
     
     // MARK: - Lifecycle -
     
@@ -35,7 +33,18 @@ class TrainingSession: Training {
     
     // MARK: - Internal -
     
-    internal func endSession() {
+    internal func start() {
+        self.date = Date()
+        
+        self.stage.start()
+    }
+    
+    internal func setNextSet() {
+        self.stage.setNextSet()
+    }
+    
+    internal func end() {
         self.duration = self.totalDuration()
     }
+    
 }

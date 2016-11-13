@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
     @IBAction func startButtonTapped(_ sender: AnyObject) {
         let sessionType = self.selectedSessionType
-        SessionController.sharedInstance.set(sessionType: sessionType)
+        SessionController.sharedInstance.setActive(sessionType: sessionType)
         
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }

@@ -9,10 +9,11 @@
 protocol Set {
     var pushups: Int { get }
     var interval: Int { get }
+    var isCompleted: Bool { get set }
     var isCurrent: Bool { get set }
 }
 
-struct TrainingSet: Set {
+class TrainingSet: Set {
     
     // MARK: - Properties -
     
@@ -22,6 +23,7 @@ struct TrainingSet: Set {
     
     internal var pushups: Int
     internal var interval: Int
+    internal var isCompleted = false
     internal var isCurrent = false
     
     // MARK: - Lifecycle -

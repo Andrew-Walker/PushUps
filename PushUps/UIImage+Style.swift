@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIImage {
+    
     /**
      Creates image of solid color using specified size.
      - parameters:
@@ -16,7 +17,7 @@ extension UIImage {
         - color: The solid color of the image.
      - returns: UIImage of solid color.
      */
-    static func createImage(ofSize size: CGSize = CGSize(width: 1, height: 1), color: UIColor) -> UIImage {
+    internal static func createImage(ofSize size: CGSize = CGSize(width: 1, height: 1), color: UIColor) -> UIImage {
         UIGraphicsBeginImageContext(size)
         let context = UIGraphicsGetCurrentContext()
         color.setFill()
@@ -26,4 +27,5 @@ extension UIImage {
         
         return image
     }
+    
 }
