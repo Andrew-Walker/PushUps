@@ -45,8 +45,9 @@ class HomeWorkoutViewController: UIViewController, HomeWorkoutViewControllerProx
     }
     
     private func configureUI() {
-        let lastSessionPushupCount = self.proxy?.getLastSessionPushupCount() ?? 0
-        self.pushupCountLabel.text = String(describing: lastSessionPushupCount)
+        self.pushupCountLabel.text = self.proxy?.mostRecentSessionPushupCount()
+        self.differenceLabel.text = self.proxy?.pushUpCountDifference()
+        self.durationLabel.text = self.proxy?.mostRecentSessionDuration()
     }
     
 }

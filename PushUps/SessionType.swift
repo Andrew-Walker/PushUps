@@ -8,6 +8,40 @@
 
 import UIKit
 
+protocol SessionTypeTemp {
+    var title: String { get }
+    var navigationBarSubtitle: String { get }
+    var backgroundColor: UIColor { get }
+}
+
+struct TrainingSessionType: SessionTypeTemp {
+    
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
+    
+    internal let title = "Training"
+    internal let navigationBarSubtitle = "training level"
+    internal let backgroundColor = UIColor.mainBlue()
+    
+}
+
+struct WorkoutSessionType: SessionTypeTemp {
+    
+    // MARK: - Properties -
+    
+    // MARK: Private
+    
+    // MARK: Internal
+    
+    internal let title = "Session"
+    internal let navigationBarSubtitle = "personal best"
+    internal let backgroundColor = UIColor.mainPurple()
+    
+}
+
 enum SessionType: Int {
     case Training
     case Session

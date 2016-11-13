@@ -10,10 +10,10 @@ import Foundation
 
 protocol Session {
     var date: Date? { get set }
-    var duration: Int { get set }
+    var duration: TimeInterval { get set }
     var pushups: Int { get set }
     
-    func getDuration() -> Int
+    func totalDuration() -> TimeInterval
 }
 
 extension Session {
@@ -24,10 +24,14 @@ extension Session {
         self.date = Date()
     }
     
-    internal func getDuration() -> Int {
-        let endDate = Date()
+    internal func totalDuration() -> TimeInterval {
+        guard let startDate = self.date else {
+            return 0
+        }
         
-        return 0
+        let endDate = Date()
+        let duration = endDate.timeIntervalSince(startDate)
+        return duration
     }
     
 }

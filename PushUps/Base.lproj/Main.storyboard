@@ -189,13 +189,24 @@
                     <view key="view" contentMode="scaleToFill" id="h20-kx-QGd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tf9-Xq-F1Z">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qmH-jp-IaM" firstAttribute="top" secondItem="tf9-Xq-F1Z" secondAttribute="bottom" id="T47-An-Fjg"/>
+                            <constraint firstAttribute="trailing" secondItem="tf9-Xq-F1Z" secondAttribute="trailing" id="alz-HL-GUZ"/>
+                            <constraint firstItem="tf9-Xq-F1Z" firstAttribute="top" secondItem="Brr-UZ-2gi" secondAttribute="bottom" id="dqv-vH-usR"/>
+                            <constraint firstItem="tf9-Xq-F1Z" firstAttribute="leading" secondItem="h20-kx-QGd" secondAttribute="leading" id="qBK-sG-Jn1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OYM-Ur-7x6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQr-69-GSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="864"/>
+            <point key="canvasLocation" x="3420" y="863.1184407796103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ed9-QP-wgc">

@@ -10,8 +10,8 @@ import Foundation
 
 protocol User {
     var name: String { get set }
-    var dateJoined: NSDate { get }
-    var profileImage: NSData? { get set }
+    var dateJoined: Date { get }
+    var profileImage: Data? { get set }
     var sessions: [Session] { get set }
     var record: Int { get set }
     var currentSessionIDs: (level: String, stage: String)? { get set }
@@ -26,9 +26,9 @@ class PushUpUser: User {
     // MARK: Internal
     
     internal var name: String
-    internal var dateJoined: NSDate
-    internal var profileImage: NSData? = nil
-    internal var sessions: [Session] = []
+    internal var dateJoined: Date
+    internal var profileImage: Data?
+    internal var sessions = [Session]()
     internal var record = 0
     internal var currentSessionIDs: (level: String, stage: String)?
     
@@ -36,7 +36,7 @@ class PushUpUser: User {
     
     internal init(name: String) {
         self.name = name
-        self.dateJoined = NSDate()
+        self.dateJoined = Date()
     }
     
     // MARK: - Internal -
@@ -49,8 +49,12 @@ class PushUpUser: User {
         self.sessions.append(session)
     }
     
-    internal func getPreviousSession() -> Session? {
+    internal func mostRecentSession() -> Session? {
         return self.sessions.last
+    }
+    
+    internal func session(at index: Int) -> Session? {
+        return self.sessions.object(at: index)
     }
     
 }

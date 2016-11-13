@@ -32,7 +32,7 @@ class UserController {
      - parameters:
         - user: Instance conforming to User protocol representing new user.
      */
-    internal func setUser(user: User?) {
+    internal func set(user: User?) {
         self.user = user
     }
     
@@ -53,11 +53,27 @@ class UserController {
     }
     
     /**
+     Gets total number of completed sessions.
+     - returns: Int value representing total completed sessions.
+    */
+    internal func totalSessionCount() -> Int? {
+        return (self.user as? PushUpUser)?.sessions.count
+    }
+    
+    /**
      Gets most recent PushUpUser session.
      - returns: Instance conforming to Session most recently completed.
      */
-    internal func getPreviousSession() -> Session? {
-        return (self.user as? PushUpUser)?.getPreviousSession()
+    internal func mostRecentSession() -> Session? {
+        return (self.user as? PushUpUser)?.mostRecentSession()
+    }
+    
+    /**
+     Gets session at specified index.
+     - returns: Instance conforming to Session at index path.
+    */
+    internal func session(at index: Int) -> Session? {
+        return (self.user as? PushUpUser)?.session(at: index)
     }
     
     /**

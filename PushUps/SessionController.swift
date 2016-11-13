@@ -16,8 +16,8 @@ class SessionController {
     
     private(set) var allLevels: [Level] = []
     
-    private var currentSession: Session?
-    private var currentSessionType: SessionType?
+    private var session: Session?
+    private var sessionType: SessionType?
     
     // MARK: Internal
     
@@ -36,22 +36,22 @@ class SessionController {
      Sets type of current session.
      */
     internal func set(sessionType: SessionType) {
-        self.currentSessionType = sessionType
+        self.sessionType = sessionType
     }
     
     /**
      Gets type of current session.
      */
-    internal func getCurrentSessionType() -> SessionType? {
-        return self.currentSessionType
+    internal func currentSessionType() -> SessionType? {
+        return self.sessionType
     }
     
     /**
      Gets session currently in progress.
      - returns: Instance conforming to Session.
      */
-    internal func getCurrentSession() -> Session? {
-        return self.currentSession
+    internal func currentSession() -> Session? {
+        return self.session
     }
     
     /**
@@ -65,8 +65,8 @@ class SessionController {
      Starts new workout session.
      */
     internal func startNewWorkoutSession() {
-        self.currentSession = WorkoutSession()
-        self.currentSession?.startSession()
+        self.session = WorkoutSession()
+        self.session?.startSession()
     }
     
     /**
@@ -75,14 +75,14 @@ class SessionController {
         - count: Int value representing total push up count on session completion.
      */
     internal func endCurrentWorkoutSession(with count: Int) {
-        (self.currentSession as? WorkoutSession)?.endSession(with: count)
+        (self.session as? WorkoutSession)?.endSession(with: count)
     }
     
     /**
      Sets current in-progress stored session to nil.
      */
     internal func clearCurrentSession() {
-        self.currentSession = nil
+        self.session = nil
     }
     
     /**
@@ -90,7 +90,7 @@ class SessionController {
      the next level (if available), is searched.
      - returns: Instance conforming to Stage protocol.
      */
-    internal func getNextTrainingStage() -> Stage? {
+    internal func nextTrainingStage() -> Stage? {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
         }
@@ -123,7 +123,7 @@ class SessionController {
      Gets current training level by filtering full list based on level ID.
      - returns: Instance conforming to Level protocol.
      */
-    internal func getCurrentTrainingLevel() -> Level? {
+    internal func currentTrainingLevel() -> Level? {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
         }
@@ -139,8 +139,8 @@ class SessionController {
      Gets current training stage by filtering stages based on stage ID.
      - returns: Instance conforming to Stage protocol.
      */
-    internal func getCurrentTrainingStage() -> Stage? {
-        let level = self.getCurrentTrainingLevel()
+    internal func currentTrainingStage() -> Stage? {
+        let level = self.currentTrainingLevel()
         
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
@@ -158,8 +158,8 @@ class SessionController {
      Gets number of stages in current training level.
      - returns: Int value representing number of stages in current training level.
      */
-    internal func getCurrentStageCount() -> Int {
-        let level = self.getCurrentTrainingLevel()
+    internal func currentStageCount() -> Int {
+        let level = self.currentTrainingLevel()
         let stageCount = level?.stages.count ?? 0
         
         return stageCount
@@ -169,9 +169,9 @@ class SessionController {
      Gets index of current stage in training level.
      - returns: Int value representing index of current stage in training level.
      */
-    internal func getCurrentStageIndex() -> Int {
-        let level = self.getCurrentTrainingLevel()
-        let stage = self.getCurrentTrainingStage()
+    internal func currentStageIndex() -> Int {
+        let level = self.currentTrainingLevel()
+        let stage = self.currentTrainingStage()
         let index = level?.stages.index(where: { $0.id == stage?.id }) ?? 0
         
         return index + 1
@@ -181,8 +181,8 @@ class SessionController {
      Gets index of current training level.
      - returns: Int value representing index of current training level.
     */
-    internal func getCurrentLevelIndex() -> Int {
-        let level = self.getCurrentTrainingLevel()
+    internal func currentLevelIndex() -> Int {
+        let level = self.currentTrainingLevel()
         let index = self.allLevels.index(where: { $0.id == level?.id }) ?? 0
         
         return index + 1
@@ -192,8 +192,8 @@ class SessionController {
      Gets sets in current stage.
      - returns: Array of instances conforming to Set.
      */
-    internal func getCurrentStageSets() -> [Set] {
-        let stage = self.getCurrentTrainingStage()
+    internal func currentStageSets() -> [Set] {
+        let stage = self.currentTrainingStage()
         let sets = stage?.sets ?? []
         
         return sets

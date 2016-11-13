@@ -41,7 +41,7 @@ class HomeViewControllerProxy {
     */
     internal func titleContent(sessionType: SessionType) -> String {
         guard sessionType == .Session else {
-            let levelIndex = SessionController.sharedInstance.getCurrentLevelIndex() 
+            let levelIndex = SessionController.sharedInstance.currentLevelIndex()
             let levelIndexLabelText = "Level \(levelIndex)"
             
             return levelIndexLabelText

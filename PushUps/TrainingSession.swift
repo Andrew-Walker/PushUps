@@ -23,7 +23,7 @@ class TrainingSession: Training {
     
     internal var stage: Stage
     internal var date: Date?
-    internal var duration = 0
+    internal var duration: TimeInterval = 0
     internal var pushups = 0
     internal var completed = false
     
@@ -36,6 +36,6 @@ class TrainingSession: Training {
     // MARK: - Internal -
     
     internal func endSession() {
-        self.duration = self.getDuration()
+        self.duration = self.totalDuration()
     }
 }

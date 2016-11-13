@@ -38,7 +38,7 @@ class HomeTrainingViewControllerProxy {
      - returns: Int value representing number of stages in current level.
      */
     internal func currentStageCount() -> Int {
-        return SessionController.sharedInstance.getCurrentStageCount()
+        return SessionController.sharedInstance.currentStageCount()
     }
     
     /**
@@ -46,7 +46,7 @@ class HomeTrainingViewControllerProxy {
      - returns: Int value representing index of current stage in training level.
      */
     internal func currentStageIndex() -> Int {
-        return SessionController.sharedInstance.getCurrentStageIndex()
+        return SessionController.sharedInstance.currentStageIndex()
     }
     
     /**
@@ -54,7 +54,7 @@ class HomeTrainingViewControllerProxy {
      - returns: Array of instances conforming to Set protocol.
     */
     internal func currentStageSets() -> [Set] {
-        return SessionController.sharedInstance.getCurrentStageSets()
+        return SessionController.sharedInstance.currentStageSets()
     }
     
 }
