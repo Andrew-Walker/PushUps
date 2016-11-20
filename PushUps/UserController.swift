@@ -12,7 +12,7 @@ class UserController {
     
     // MARK: Private
     
-    private(set) var user: User?
+    private var user: User?
     
     // MARK: Internal
     
@@ -50,6 +50,13 @@ class UserController {
      */
     internal func add(session: Session) {
         (self.user as? PushUpUser)?.add(session: session)
+    }
+    
+    /**
+     
+    */
+    internal func set(levelID: String?, stageID: String?) {
+        (self.user as? PushUpUser)?.set(levelID: levelID, stageID: stageID)
     }
     
     /**

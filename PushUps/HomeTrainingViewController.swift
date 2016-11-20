@@ -30,6 +30,11 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
         self.proxy = HomeTrainingViewControllerProxy(delegate: self)
         
         self.styleUI()
+    }
+    
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.configureUI()
     }
     

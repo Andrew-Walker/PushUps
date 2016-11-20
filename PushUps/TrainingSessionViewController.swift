@@ -143,7 +143,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         let pushupsComplete = self.currentSetCount
         let pushupsRemaining = pushupsRequired - pushupsComplete
         
-        guard pushupsRemaining == 0 else {
+        guard pushupsRemaining <= 0 else {
             self.counterLabel.text = String(pushupsRemaining)
             return
         }

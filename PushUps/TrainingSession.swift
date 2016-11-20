@@ -22,7 +22,7 @@ class TrainingSession: Training {
     
     internal var stage: Stage
     internal var date: Date?
-    internal var duration: TimeInterval = 0
+    internal var duration: TimeInterval = 0.0
     internal var pushups = 0
     
     // MARK: - Lifecycle -
@@ -45,6 +45,7 @@ class TrainingSession: Training {
     
     internal func end() {
         self.duration = self.totalDuration()
+        self.pushups = self.stage.sets.flatMap({ $0.pushups }).reduce(0, +)
     }
     
 }

@@ -14,25 +14,25 @@
 				<array>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>3</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>3</integer>
 					</dict>
@@ -51,25 +51,25 @@
 				<array>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>3</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>5</integer>
 					</dict>
 					<dict>
 						<key>interval</key>
-						<integer>90</integer>
+						<integer>5</integer>
 						<key>pushups</key>
 						<integer>3</integer>
 					</dict>

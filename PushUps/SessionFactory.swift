@@ -45,13 +45,13 @@ class SessionFactory {
         
         for levelDictionary in levelDictionaries {
             let levelID = levelDictionary["id"] as? String
-            let stageDictionaries = levelDictionary["stages"] as! [[String: AnyObject]]
+            let stageDictionaries = levelDictionary["stages"] as? [[String: AnyObject]]
             
-            guard let id = levelID else {
+            guard let id = levelID, let dictionaries = stageDictionaries else {
                 continue
             }
             
-            let stages = SessionFactory.createStages(fromArray: stageDictionaries)
+            let stages = SessionFactory.createStages(fromArray: dictionaries)
             let level = TrainingLevel(id: id, stages: stages)
             levels.append(level)
         }
@@ -70,13 +70,13 @@ class SessionFactory {
         
         for stageDictionary in array {
             let stageID = stageDictionary["id"] as? String
-            let stageSetDictionaries = stageDictionary["sets"] as! [[String: AnyObject]]
+            let stageSetDictionaries = stageDictionary["sets"] as? [[String: AnyObject]]
             
-            guard let id = stageID else {
+            guard let id = stageID, let dictionaries = stageSetDictionaries else {
                 continue
             }
             
-            let sets = SessionFactory.createSets(fromArray: stageSetDictionaries)
+            let sets = SessionFactory.createSets(fromArray: dictionaries)
             let stage = TrainingStage(id: id, sets: sets)
             stages.append(stage)
         }

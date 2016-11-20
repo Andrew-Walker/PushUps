@@ -14,8 +14,7 @@ class SessionController {
     
     // MARK: Private
     
-    private(set) var allLevels: [Level] = []
-    
+    private var allLevels: [Level] = []
     private var session: Session?
     private var sessionType: SessionType?
     
@@ -30,7 +29,51 @@ class SessionController {
      */
     private init() {}
     
+    // MARK: - Private -
+    
+    /**
+     Gets current training level by filtering full list based on level ID.
+     - returns: Instance conforming to Level protocol.
+     */
+    private func currentTrainingLevel() -> Level? {
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return nil
+        }
+        
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            return self.allLevels.first
+        }
+        
+        return self.allLevels.filter({ $0.id == currentSessionIDs.level }).first
+    }
+    
+    /**
+     Gets current training stage by filtering stages based on stage ID.
+     - returns: Instance conforming to Stage protocol.
+     */
+    private func currentTrainingStage() -> Stage? {
+        let level = self.currentTrainingLevel()
+        
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return nil
+        }
+        
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            return level?.stages.first
+        }
+        
+        let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
+        return stage
+    }
+    
     // MARK: - Internal -
+    
+    /**
+     Populates levels array by calling SessionFactory to load list of levels from local plist file.
+     */
+    internal func loadAllLevels() {
+        self.allLevels = SessionFactory.loadAllLevels()
+    }
     
     /**
      Gets session currently in progress.
@@ -46,13 +89,6 @@ class SessionController {
      */
     internal func activeSessionType() -> SessionType? {
         return self.sessionType
-    }
-    
-    /**
-     Populates levels array by calling SessionFactory to load list of levels from local plist file.
-    */
-    internal func loadAllLevels() {
-        self.allLevels = SessionFactory.loadAllLevels()
     }
     
     /**
@@ -103,75 +139,6 @@ class SessionController {
      */
     internal func clearActiveSession() {
         self.session = nil
-    }
-    
-    /**
-     Gets next training stage using successor index to current stage. Failing this,
-     the next level (if available), is searched.
-     - returns: Instance conforming to Stage protocol.
-     */
-    internal func nextTrainingStage() -> Stage? {
-        guard let user = UserController.sharedInstance.currentPushUpUser() else {
-            return nil
-        }
-        
-        guard let currentSessionIDs = user.currentSessionIDs else {
-            return self.allLevels.first?.stages.first
-        }
-        
-        guard let currentLevelIndex = self.allLevels.index(where: { $0.id == currentSessionIDs.level }) else {
-            return nil
-        }
-        
-        let currentLevel = self.allLevels.object(at: currentLevelIndex)
-        
-        guard let currentStageIndex = currentLevel?.stages.index(where: { $0.id == currentSessionIDs.stage }) else {
-            return nil
-        }
-        
-        let nextStageIndex = currentStageIndex + 1
-        let nextLevelIndex = currentLevelIndex + 1
-        
-        guard let nextStage = currentLevel?.stages.object(at: nextStageIndex) else {
-            return self.allLevels.object(at: nextLevelIndex)?.stages.first
-        }
-        
-        return nextStage
-    }
-    
-    /**
-     Gets current training level by filtering full list based on level ID.
-     - returns: Instance conforming to Level protocol.
-     */
-    internal func currentTrainingLevel() -> Level? {
-        guard let user = UserController.sharedInstance.currentPushUpUser() else {
-            return nil
-        }
-        
-        guard let currentSessionIDs = user.currentSessionIDs else {
-            return self.allLevels.first
-        }
-        
-        return self.allLevels.filter({ $0.id == currentSessionIDs.level }).first
-    }
-    
-    /**
-     Gets current training stage by filtering stages based on stage ID.
-     - returns: Instance conforming to Stage protocol.
-     */
-    internal func currentTrainingStage() -> Stage? {
-        let level = self.currentTrainingLevel()
-        
-        guard let user = UserController.sharedInstance.currentPushUpUser() else {
-            return nil
-        }
-        
-        guard let currentSessionIDs = user.currentSessionIDs else {
-            return level?.stages.first
-        }
-        
-        let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
-        return stage
     }
     
     /**
@@ -239,6 +206,44 @@ class SessionController {
         let set = stage?.sets.filter({ $0.isCurrent }).first
         
         return set
+    }
+    
+    /**
+     Gets next training stage IDs using successor index to current stage. Failing this,
+     the next level (if available), is searched.
+     - returns: Tuple containing level and stage ID.
+     */
+    internal func nextTrainingStageIDs(for user: User) -> (levelID: String?, stageID: String?)? {
+        guard let currentSessionIDs = user.currentSessionIDs else {
+            let level = self.allLevels.first
+            let stage = level?.stages.first
+            
+            return (level?.id, stage?.id)
+        }
+        
+        guard let currentLevelIndex = self.allLevels.index(where: { $0.id == currentSessionIDs.level }) else {
+            return nil
+        }
+        
+        guard let currentLevel = self.allLevels.object(at: currentLevelIndex) else {
+            return nil
+        }
+        
+        guard let currentStageIndex = currentLevel.stages.index(where: { $0.id == currentSessionIDs.stage }) else {
+            return nil
+        }
+        
+        let nextStageIndex = currentStageIndex + 1
+        let nextLevelIndex = currentLevelIndex + 1
+        
+        guard let nextStage = currentLevel.stages.object(at: nextStageIndex) else {
+            let level = self.allLevels.object(at: nextLevelIndex)
+            let stage = level?.stages.first
+            
+            return (level?.id, stage?.id)
+        }
+        
+        return (currentLevel.id, nextStage.id)
     }
     
 }

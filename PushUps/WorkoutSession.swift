@@ -19,7 +19,7 @@ class WorkoutSession: Workout {
     // MARK: Internal
     
     internal var date: Date?
-    internal var duration: TimeInterval = 0
+    internal var duration: TimeInterval = 0.0
     internal var pushups = 0
     
     // MARK: - Internal -
@@ -29,8 +29,8 @@ class WorkoutSession: Workout {
     }
     
     internal func end(with count: Int) {
-        self.pushups = count
         self.duration = self.totalDuration()
+        self.pushups = count
     }
     
 }

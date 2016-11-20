@@ -41,7 +41,11 @@ class PushUpUser: User {
     
     // MARK: - Internal -
     
-    internal func set(levelID: String, stageID: String) {
+    internal func set(levelID: String?, stageID: String?) {
+        guard let levelID = levelID, let stageID = stageID else {
+            return
+        }
+        
         self.currentSessionIDs = (level: levelID, stage: stageID)
     }
     

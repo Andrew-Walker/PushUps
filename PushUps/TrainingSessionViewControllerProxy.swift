@@ -44,6 +44,8 @@ class TrainingSessionViewControllerProxy {
      
     */
     internal func endSession() {
+        self.prepareNextSession()
+        
         SessionController.sharedInstance.endActiveTrainingSession()
         SessionController.sharedInstance.clearActiveSession()
     }
@@ -70,6 +72,27 @@ class TrainingSessionViewControllerProxy {
     internal func incrementActiveSet() {
         let activeSession = SessionController.sharedInstance.activeSession() as? TrainingSession
         activeSession?.setNextSet()
+    }
+    
+    // MARK: - Private -
+    
+    /**
+     Verifies completed session and configures user for next session.
+    */
+    private func prepareNextSession() {
+        guard let user = UserController.sharedInstance.currentPushUpUser() else {
+            return
+        }
+        
+        guard let session = SessionController.sharedInstance.activeSession() as? TrainingSession, session.stage.isCompleted else {
+            return
+        }
+        
+        guard let nextStageIDs = SessionController.sharedInstance.nextTrainingStageIDs(for: user) else {
+            return
+        }
+        
+        UserController.sharedInstance.set(levelID: nextStageIDs.levelID, stageID: nextStageIDs.stageID)
     }
     
 }
