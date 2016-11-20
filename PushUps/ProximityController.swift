@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProximityControllerDelegate {
-    func objectProximityDetected()
+    func objectProximityEnded()
 }
 
 class ProximityController {
@@ -19,6 +19,8 @@ class ProximityController {
     // MARK: Private
     
     private let device = UIDevice.current
+    
+    private var timeoutTimer = Timer()
     
     // MARK: Internal
     
@@ -38,9 +40,12 @@ class ProximityController {
             return
         }
         
-        if device.proximityState {
-            self.delegate?.objectProximityDetected()
+        guard !device.proximityState && !self.timeoutTimer.isValid else {
+            return
         }
+        
+        self.timeoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.invalidateTimeoutTimer), userInfo: nil, repeats: false)
+        self.delegate?.objectProximityEnded()
     }
     
     private func configureProximitySensor() {
@@ -50,6 +55,10 @@ class ProximityController {
             let notificationName = NSNotification.Name.UIDeviceProximityStateDidChange
             NotificationCenter.default.addObserver(self, selector: #selector(self.proximityChanged), name: notificationName, object: self.device)
         }
+    }
+    
+    @objc private func invalidateTimeoutTimer() {
+        self.timeoutTimer.invalidate()
     }
     
     // MARK: - Internal -

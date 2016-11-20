@@ -17,8 +17,10 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     @IBOutlet private weak var endButton: SessionButton!
     @IBOutlet private weak var backgroundButton: UIButton!
     @IBOutlet private weak var setsStackView: UIStackView!
+    @IBOutlet private weak var subtitleLabel: UILabel!
     
     private var activeSet: Set?
+    private var proximityController: ProximityController?
     
     // MARK: File Private
     
@@ -30,7 +32,6 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     // MARK: Internal
     
     internal var proxy: TrainingSessionViewControllerProxy?
-    internal var proximityController: ProximityController?
     
     // MARK: - Lifecycle -
     
@@ -112,6 +113,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
             return
         }
         
+        self.subtitleLabel.text = "until next set"
         self.timerController = TimerController(interval: activeSet.interval, delegate: self)
         self.timerController?.start()
         self.disableDetection()
@@ -150,6 +152,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     }
     
     fileprivate func incrementSet() {
+        self.subtitleLabel.text = "pushups to go"
         self.currentSetCount = 0
         self.enableDetection()
         self.proxy?.incrementActiveSet()
@@ -163,7 +166,7 @@ extension TrainingSessionViewController: ProximityControllerDelegate {
     
     // MARK: - Internal -
     
-    internal func objectProximityDetected() {
+    internal func objectProximityEnded() {
         self.currentSetCount += 1
         self.updateSetProgress()
     }

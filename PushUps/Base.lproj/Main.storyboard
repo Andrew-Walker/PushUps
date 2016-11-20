@@ -359,6 +359,7 @@
                         <outlet property="counterLabel" destination="CTt-F1-qFB" id="3WE-Cr-9F0"/>
                         <outlet property="endButton" destination="sFY-H9-20I" id="8eD-Fa-jAT"/>
                         <outlet property="setsStackView" destination="Rpb-tp-MIm" id="ktN-D8-S4k"/>
+                        <outlet property="subtitleLabel" destination="Dnn-iL-3LT" id="tRc-Wh-cPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clV-o0-pfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,6 +543,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1y-Rl-4pt">
+                                <connections>
+                                    <action selector="backgroundButtonTapped:" destination="2xG-8s-t5k" eventType="touchUpInside" id="nqa-Lx-RSZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOL-JX-Qur" customClass="SessionButton" customModule="PushUps" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2q2-44-RQa"/>
@@ -564,11 +570,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="npI-uG-XwK" firstAttribute="top" secondItem="e1y-Rl-4pt" secondAttribute="bottom" id="4E8-U5-t4h"/>
+                            <constraint firstAttribute="trailing" secondItem="e1y-Rl-4pt" secondAttribute="trailing" id="5o7-fA-ebz"/>
                             <constraint firstItem="GEV-Ez-bok" firstAttribute="centerX" secondItem="6uI-EU-fnX" secondAttribute="centerX" id="IPo-nJ-vlt"/>
+                            <constraint firstItem="e1y-Rl-4pt" firstAttribute="top" secondItem="6uI-EU-fnX" secondAttribute="top" id="NoZ-jr-61v"/>
                             <constraint firstItem="CnN-77-hRg" firstAttribute="centerX" secondItem="6uI-EU-fnX" secondAttribute="centerX" id="T4e-pq-OlW"/>
                             <constraint firstItem="VOL-JX-Qur" firstAttribute="leading" secondItem="6uI-EU-fnX" secondAttribute="leading" constant="32" id="UUZ-EP-e87"/>
                             <constraint firstItem="GEV-Ez-bok" firstAttribute="top" secondItem="CnN-77-hRg" secondAttribute="bottom" constant="-16" id="Ury-0R-QpB"/>
                             <constraint firstItem="CnN-77-hRg" firstAttribute="top" secondItem="gB0-UO-9zI" secondAttribute="bottom" constant="105" id="dUS-gQ-rBz"/>
+                            <constraint firstItem="e1y-Rl-4pt" firstAttribute="leading" secondItem="6uI-EU-fnX" secondAttribute="leading" id="fby-MF-DuP"/>
                             <constraint firstItem="npI-uG-XwK" firstAttribute="top" secondItem="VOL-JX-Qur" secondAttribute="bottom" constant="32" id="iSW-Vs-XN6"/>
                             <constraint firstAttribute="trailing" secondItem="VOL-JX-Qur" secondAttribute="trailing" constant="32" id="mY9-xr-cC6"/>
                         </constraints>

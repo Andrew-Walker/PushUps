@@ -18,11 +18,11 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
     @IBOutlet private weak var counterLabel: UILabel!
     
     private var pushUpCount = 0
+    private var proximityController: ProximityController?
     
     // MARK: Internal
     
     internal var proxy: WorkoutSessionViewControllerProxy?
-    internal var proximityController: ProximityController?
     
     // MARK: - Lifecycle -
     
@@ -53,6 +53,10 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
         self.endSession()
     }
     
+    @IBAction func backgroundButtonTapped(_ sender: AnyObject) {
+        self.updateCounterLabel()
+    }
+    
     // MARK: - Private -
     
     private func endSession() {
@@ -75,7 +79,7 @@ extension WorkoutSessionViewController: ProximityControllerDelegate {
     
     // MARK: - Internal -
     
-    internal func objectProximityDetected() {
+    internal func objectProximityEnded() {
         self.updateCounterLabel()
     }
     
