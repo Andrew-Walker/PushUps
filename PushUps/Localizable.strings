@@ -5,3 +5,12 @@
   Created by Andrew Walker on 11/08/2016.
   Copyright © 2016 Andrew Walker. All rights reserved.
 */
+
+// MARK: ProfileViewController
+
+"profileViewController.takePhotoActionTitle" = "Take Photo";
+"profileViewController.choosePhotoActionTitle" = "Choose Photo";
+
+// MARK: General
+
+"general.cancel" = "Cancel";

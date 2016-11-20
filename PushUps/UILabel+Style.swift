@@ -11,7 +11,7 @@ import UIKit
 extension UILabel {
     
     /**
-     Applys styling to label when required for displaying sets in a stack view.
+     Applys styling for set labels.
      */
     internal func applySetsStackViewStandardStyle() {
         self.textAlignment = .center
@@ -20,7 +20,7 @@ extension UILabel {
     }
     
     /**
-     
+     Applys styling for active set labels.
     */
     internal func applySetsStackViewActiveStyle() {
         self.textAlignment = .center

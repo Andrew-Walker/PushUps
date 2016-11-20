@@ -6,9 +6,11 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
+import Foundation
+
 protocol Set {
     var pushups: Int { get }
-    var interval: Int { get }
+    var interval: TimeInterval { get }
     var isCompleted: Bool { get set }
     var isCurrent: Bool { get set }
 }
@@ -22,13 +24,13 @@ class TrainingSet: Set {
     // MARK: Internal
     
     internal var pushups: Int
-    internal var interval: Int
+    internal var interval: TimeInterval
     internal var isCompleted = false
     internal var isCurrent = false
     
     // MARK: - Lifecycle -
     
-    internal init(pushups: Int, interval: Int) {
+    internal init(pushups: Int, interval: TimeInterval) {
         self.pushups = pushups
         self.interval = interval
     }

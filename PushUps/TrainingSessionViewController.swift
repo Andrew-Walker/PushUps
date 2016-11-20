@@ -15,12 +15,16 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     // MARK: Private
     
     @IBOutlet private weak var endButton: SessionButton!
+    @IBOutlet private weak var backgroundButton: UIButton!
     @IBOutlet private weak var setsStackView: UIStackView!
+    
+    private var activeSet: Set?
     
     // MARK: File Private
     
     @IBOutlet fileprivate weak var counterLabel: UILabel!
     
+    fileprivate var timerController: TimerController?
     fileprivate var currentSetCount = 0
     
     // MARK: Internal
@@ -37,8 +41,8 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         self.proxy?.startSession()
         
         self.proximityController = ProximityController(delegate: self)
-        self.proximityController?.startProximityDetection()
         
+        self.enableDetection()
         self.styleUI()
         self.configureUI()
     }
@@ -53,7 +57,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     }
     
     private func configureUI() {
-        self.updateUI()
+        self.updateSetProgress()
         self.configureSetsStackView()
     }
     
@@ -89,28 +93,49 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
         self.endSession()
     }
     
+    @IBAction func backgroundButtonTapped(_ sender: AnyObject) {
+        self.currentSetCount += 1
+        self.updateSetProgress()
+    }
+    
     // MARK: - Private -
     
     private func endSession() {
-        self.dismissView()
+        self.proxy?.endSession()
+        self.timerController?.end()
+        self.disableDetection()
+        self.dismissToRoot()
     }
     
-    private func dismissView() {
-        self.proximityController?.endProximityDetection()
-        
-        var viewController = self.presentingViewController
-        while let presentingViewController = viewController?.presentingViewController {
-            viewController = presentingViewController
+    private func startInterval() {
+        guard let activeSet = self.activeSet else {
+            return
         }
-        viewController?.dismiss(animated: true, completion: nil)
+        
+        self.timerController = TimerController(interval: activeSet.interval, delegate: self)
+        self.timerController?.start()
+        self.disableDetection()
+    }
+    
+    private func disableDetection() {
+        self.backgroundButton.isEnabled = false
+        self.proximityController?.endProximityDetection()
+    }
+    
+    private func enableDetection() {
+        self.backgroundButton.isEnabled = true
+        self.proximityController?.startProximityDetection()
     }
     
     // MARK: - File Private -
     
-    fileprivate func updateUI() {
+    fileprivate func updateSetProgress() {
         guard let activeSet = self.proxy?.activeStageSet() else {
+            self.endSession()
             return
         }
+        
+        self.activeSet = activeSet
         
         let pushupsRequired = activeSet.pushups
         let pushupsComplete = self.currentSetCount
@@ -121,10 +146,15 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
             return
         }
         
+        self.startInterval()
+    }
+    
+    fileprivate func incrementSet() {
         self.currentSetCount = 0
+        self.enableDetection()
         self.proxy?.incrementActiveSet()
         self.configureSetsStackView()
-        self.updateUI()
+        self.updateSetProgress()
     }
     
 }
@@ -135,7 +165,25 @@ extension TrainingSessionViewController: ProximityControllerDelegate {
     
     internal func objectProximityDetected() {
         self.currentSetCount += 1
-        self.updateUI()
+        self.updateSetProgress()
+    }
+    
+}
+
+extension TrainingSessionViewController: TimerControllerDelegate {
+    
+    // MARK: - Internal -
+    
+    internal func timerUpdated() {
+        guard let counter = self.timerController?.timeRemaining() else {
+            return
+        }
+        
+        self.counterLabel.text = counter.toMinutesSeconds()
+    }
+    
+    internal func timerEnded() {
+        self.incrementSet()
     }
     
 }

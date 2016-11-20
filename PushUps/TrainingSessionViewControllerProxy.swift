@@ -41,6 +41,14 @@ class TrainingSessionViewControllerProxy {
     }
     
     /**
+     
+    */
+    internal func endSession() {
+        SessionController.sharedInstance.endActiveTrainingSession()
+        SessionController.sharedInstance.clearActiveSession()
+    }
+    
+    /**
      Gets sets in current stage.
      - returns: Array of instances conforming to Set protocol.
      */
@@ -49,14 +57,15 @@ class TrainingSessionViewControllerProxy {
     }
     
     /**
-     
+     Gets currently active set from current stage.
+     - returns: Instance conforming to Set protocol.
     */
     internal func activeStageSet() -> Set? {
         return SessionController.sharedInstance.activeStageActiveSet()
     }
     
     /**
-     
+     Increments active set in current stage.
     */
     internal func incrementActiveSet() {
         let activeSession = SessionController.sharedInstance.activeSession() as? TrainingSession

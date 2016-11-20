@@ -58,18 +58,8 @@ class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControll
     private func endSession() {
         let pushUpCount = self.pushUpCount
         self.proxy?.endSession(with: pushUpCount)
-        
-        self.dismissView()
-    }
-    
-    private func dismissView() {
         self.proximityController?.endProximityDetection()
-        
-        var viewController = self.presentingViewController
-        while let presentingViewController = viewController?.presentingViewController {
-            viewController = presentingViewController
-        }
-        viewController?.dismiss(animated: true, completion: nil)
+        self.dismissToRoot()
     }
     
     // MARK: - Internal -

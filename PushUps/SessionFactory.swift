@@ -95,7 +95,7 @@ class SessionFactory {
         
         for setDictionary in array {
             let pushups = setDictionary["pushups"] as? Int ?? 0
-            let interval = setDictionary["interval"] as? Int ?? 0
+            let interval = setDictionary["interval"] as? TimeInterval ?? 0
             
             let set = TrainingSet(pushups: pushups, interval: interval)
             sets.append(set)

@@ -236,6 +236,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwk-eV-gbX">
+                                <connections>
+                                    <action selector="backgroundButtonTapped:" destination="yaz-r2-cna" eventType="touchUpInside" id="UT4-xg-cdT"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFY-H9-20I" customClass="SessionButton" customModule="PushUps" customModuleProvider="target">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cD1-g6-QE7"/>
@@ -335,7 +340,11 @@
                             <constraint firstItem="56x-9J-WxV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O8o-Rt-ADP" secondAttribute="leading" id="ADy-dj-LOn"/>
                             <constraint firstItem="Dnn-iL-3LT" firstAttribute="centerX" secondItem="O8o-Rt-ADP" secondAttribute="centerX" id="Ebv-bX-TjU"/>
                             <constraint firstItem="CTt-F1-qFB" firstAttribute="top" secondItem="AwX-PQ-nvn" secondAttribute="bottom" constant="105" id="FDU-Z2-vkq"/>
+                            <constraint firstItem="m05-3q-av4" firstAttribute="top" secondItem="Rwk-eV-gbX" secondAttribute="bottom" id="Huw-Rk-Qzk"/>
                             <constraint firstItem="CTt-F1-qFB" firstAttribute="centerX" secondItem="O8o-Rt-ADP" secondAttribute="centerX" id="LeA-zN-vnc"/>
+                            <constraint firstItem="Rwk-eV-gbX" firstAttribute="top" secondItem="O8o-Rt-ADP" secondAttribute="top" id="MtD-Rx-QTI"/>
+                            <constraint firstAttribute="trailing" secondItem="Rwk-eV-gbX" secondAttribute="trailing" id="Sz2-Bq-Sc1"/>
+                            <constraint firstItem="Rwk-eV-gbX" firstAttribute="leading" secondItem="O8o-Rt-ADP" secondAttribute="leading" id="TO9-QK-6Sf"/>
                             <constraint firstItem="sFY-H9-20I" firstAttribute="leading" secondItem="O8o-Rt-ADP" secondAttribute="leading" constant="32" id="TvR-I9-5vm"/>
                             <constraint firstItem="m05-3q-av4" firstAttribute="top" secondItem="sFY-H9-20I" secondAttribute="bottom" constant="32" id="aWU-2m-gfI"/>
                             <constraint firstItem="Dnn-iL-3LT" firstAttribute="top" secondItem="CTt-F1-qFB" secondAttribute="bottom" constant="-16" id="cu5-tV-71C"/>
@@ -346,6 +355,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tDb-RG-rpA"/>
                     <connections>
+                        <outlet property="backgroundButton" destination="Rwk-eV-gbX" id="Wjb-cl-KLf"/>
                         <outlet property="counterLabel" destination="CTt-F1-qFB" id="3WE-Cr-9F0"/>
                         <outlet property="endButton" destination="sFY-H9-20I" id="8eD-Fa-jAT"/>
                         <outlet property="setsStackView" destination="Rpb-tp-MIm" id="ktN-D8-S4k"/>
@@ -353,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clV-o0-pfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5062" y="501"/>
+            <point key="canvasLocation" x="5061.6000000000004" y="500.59970014992507"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kh6-ui-YQC">
@@ -411,6 +421,9 @@
                                     <constraint firstAttribute="height" constant="90" id="atf-mo-vgO"/>
                                 </constraints>
                                 <state key="normal" image="profileImage"/>
+                                <connections>
+                                    <action selector="profileImageButtonTapped:" destination="1xk-Ie-N63" eventType="touchUpInside" id="cgT-lh-9zT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushup Pro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFD-LT-Bth">
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>

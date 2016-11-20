@@ -23,6 +23,7 @@ class ProximityController {
     // MARK: Internal
     
     internal var delegate: ProximityControllerDelegate?
+    internal var isEnabled = false
     
     // MARK: - Lifecycle -
     

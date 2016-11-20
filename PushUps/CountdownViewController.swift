@@ -14,15 +14,15 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
     
     // MARK: Private
     
-    @IBOutlet private weak var countdownLabel: UILabel!
     @IBOutlet private weak var cancelButton: SessionButton!
     
     private var countdownTimer: Timer?
-    private var counter = 5 {
-        didSet {
-            self.countdownLabel.text = String(self.counter)
-        }
-    }
+    
+    // MARK: File Private
+    
+    @IBOutlet fileprivate weak var countdownLabel: UILabel!
+    
+    fileprivate var timerController: TimerController?
     
     // MARK: Internal
     
@@ -34,6 +34,8 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
         super.viewDidLoad()
         
         self.proxy = CountdownViewControllerProxy(delegate: self)
+        self.timerController = TimerController(interval: 5.0, delegate: self)
+        self.timerController?.start()
         
         self.styleUI()
         self.configureUI()
@@ -48,31 +50,19 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
     }
     
     private func configureUI() {
-        self.countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateCounter), userInfo: nil, repeats: true)
-        
         self.cancelButton.setTitle("CANCEL", for: [])
     }
     
     // MARK: - Actions -
     
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
-        self.countdownTimer?.invalidate()
+        self.timerController?.end()
         self.dismiss(animated: true)
     }
     
-    // MARK: - Private -
+    // MARK: - File Private -
     
-    @objc private func updateCounter() {
-        self.counter -= 1
-        
-        if self.counter <= 0 {
-            self.continueToSession()
-        }
-    }
-    
-    private func continueToSession() {
-        self.countdownTimer?.invalidate()
-        
+    fileprivate func continueToSession() {
         guard let sessionType = self.proxy?.sessionType() else {
             return
         }
@@ -83,6 +73,26 @@ class CountdownViewController: UIViewController, CountdownViewControllerProxyDel
         case .Training:
             self.performSegue(withIdentifier: String(describing: TrainingSessionViewController.self), sender: nil)
         }
+    }
+    
+}
+
+extension CountdownViewController: TimerControllerDelegate {
+    
+    // MARK: - Internal -
+    
+    internal func timerUpdated() {
+        guard let counter = self.timerController?.timeRemaining() else {
+            return
+        }
+        
+        let counterInt = Int(counter)
+        let counterString = String(counterInt)
+        self.countdownLabel.text = counterString
+    }
+    
+    internal func timerEnded() {
+        self.continueToSession()
     }
     
 }
