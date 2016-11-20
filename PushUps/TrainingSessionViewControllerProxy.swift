@@ -92,7 +92,7 @@ class TrainingSessionViewControllerProxy {
             return
         }
         
-        UserController.sharedInstance.set(levelID: nextStageIDs.levelID, stageID: nextStageIDs.stageID)
+        user.set(levelID: nextStageIDs.levelID, stageID: nextStageIDs.stageID)
     }
     
 }

@@ -377,6 +377,21 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		6E7EB2691DE25A9A00020792 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		6E7EB26A1DE25A9E00020792 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6ED448301D7E3D6100607ED6 /* SessionController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		6E7ED39E1D7CCD5900ED3B43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +487,7 @@
 		6ED448341D7E43B100607ED6 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				6EEFC3221D8B5DCD00639ABB /* Controllers */,
+				6E7EB26A1DE25A9E00020792 /* Controllers */,
 				6EEFC3211D8B576200639ABB /* Factories */,
 				6EEFC31D1D8B462700639ABB /* Level.swift */,
 				6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */,
@@ -487,7 +502,7 @@
 		6ED448361D7E43DD00607ED6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				6EEFC3241D8B5DED00639ABB /* Managers */,
+				6E7EB2691DE25A9A00020792 /* Managers */,
 				6EEFC3231D8B5DDB00639ABB /* Controllers */,
 				6E7D291C1D7E180B004CC25B /* User.swift */,
 			);
@@ -546,27 +561,12 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
-		6EEFC3221D8B5DCD00639ABB /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				6ED448301D7E3D6100607ED6 /* SessionController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		6EEFC3231D8B5DDB00639ABB /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		6EEFC3241D8B5DED00639ABB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				6E7D291E1D7E1E12004CC25B /* UserController.swift */,
 			);
-			name = Managers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

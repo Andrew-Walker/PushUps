@@ -38,7 +38,8 @@ class HomeWorkoutViewControllerProxy {
      - returns: String representing pushup count.
     */
     internal func mostRecentSessionPushupCount() -> String? {
-        let previousSession = UserController.sharedInstance.mostRecentSession()
+        let user = UserController.sharedInstance.currentPushUpUser()
+        let previousSession = user?.mostRecentSession()
         let pushupCount = previousSession?.pushups ?? 0
         
         return String(pushupCount)
@@ -49,10 +50,11 @@ class HomeWorkoutViewControllerProxy {
      - returns: String representing pushup count difference.
     */
     internal func pushUpCountDifference() -> String {
-        let totalSessionCount = UserController.sharedInstance.totalSessionCount() ?? 0
+        let user = UserController.sharedInstance.currentPushUpUser()
+        let totalSessionCount = user?.sessions.count ?? 0
         let priorSessionIndex = totalSessionCount - 2
-        let previousSession = UserController.sharedInstance.mostRecentSession()
-        let priorSession = UserController.sharedInstance.session(at: priorSessionIndex)
+        let previousSession = user?.mostRecentSession()
+        let priorSession = user?.session(at: priorSessionIndex)
         
         return String.differenceBetween(previousSession: previousSession, priorSession: priorSession)
     }
@@ -62,7 +64,8 @@ class HomeWorkoutViewControllerProxy {
      - returns: String representing duration in minutes and seconds.
     */
     internal func mostRecentSessionDuration() -> String {
-        guard let previousSession = UserController.sharedInstance.mostRecentSession() else {
+        let user = UserController.sharedInstance.currentPushUpUser()
+        guard let previousSession = user?.mostRecentSession() else {
             return "00:00"
         }
         

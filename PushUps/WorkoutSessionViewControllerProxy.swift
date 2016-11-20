@@ -61,11 +61,12 @@ class WorkoutSessionViewControllerProxy {
         SessionController.sharedInstance.endActiveWorkoutSession(with: count)
         guard let completedSession = SessionController.sharedInstance.activeSession() else {
             return
-            
         }
         
-        UserController.sharedInstance.add(session: completedSession)
         SessionController.sharedInstance.clearActiveSession()
+        
+        let user = UserController.sharedInstance.currentPushUpUser()
+        user?.add(session: completedSession)
     }
     
 }
