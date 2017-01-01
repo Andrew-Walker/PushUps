@@ -6,12 +6,12 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-protocol Level {
+internal protocol Level {
     var id: String { get }
     var stages: [Stage] { get }
 }
 
-class TrainingLevel: Level {
+internal final class TrainingLevel: Level {
     
     // MARK: - Properties -
     

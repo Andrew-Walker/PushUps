@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+internal extension UIViewController {
     
     /**
      Dismisses self and any parent view controllers presented modally.

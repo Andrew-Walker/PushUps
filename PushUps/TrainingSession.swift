@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol Training: Session {
+internal protocol Training: Session {
     var stage: Stage { get }
 }
 
-class TrainingSession: Training {
+internal final class TrainingSession: Training {
     
     // MARK: - Properties -
     

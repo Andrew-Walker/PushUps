@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainingSessionViewController: UIViewController, TrainingSessionViewControllerProxyDelegate {
+internal final class TrainingSessionViewController: UIViewController, TrainingSessionViewControllerProxyDelegate {
     
     // MARK: - Properties -
     
@@ -17,7 +17,6 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     @IBOutlet private weak var endButton: SessionButton!
     @IBOutlet private weak var backgroundButton: UIButton!
     @IBOutlet private weak var setsStackView: UIStackView!
-    @IBOutlet private weak var subtitleLabel: UILabel!
     
     private var activeSet: Set?
     private var proximityController: ProximityController?
@@ -25,6 +24,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
     // MARK: File Private
     
     @IBOutlet fileprivate weak var counterLabel: UILabel!
+    @IBOutlet fileprivate weak var subtitleLabel: UILabel!
     
     fileprivate var timerController: TimerController?
     fileprivate var currentSetCount = 0
@@ -74,6 +74,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
             let setPushups = set.pushups
             let setLabelText = String(describing: setPushups)
             setLabel.text = setLabelText
+            setLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 35.0).isActive = true
             set.isCurrent ? setLabel.applySetsStackViewActiveStyle() : setLabel.applySetsStackViewStandardStyle()
             
             self.setsStackView.addArrangedSubview(setLabel)
@@ -81,6 +82,7 @@ class TrainingSessionViewController: UIViewController, TrainingSessionViewContro
             if index != (sets.count - 1) {
                 let dividerLabel = UILabel()
                 dividerLabel.text = "-"
+                dividerLabel.widthAnchor.constraint(equalToConstant: 10.0).isActive = true
                 dividerLabel.applySetsStackViewStandardStyle()
                 
                 self.setsStackView.addArrangedSubview(dividerLabel)
@@ -182,7 +184,17 @@ extension TrainingSessionViewController: TimerControllerDelegate {
             return
         }
         
+        let counterInt = Int(counter)
+        let counterString = String(counterInt)
+        
+        guard counter > 5 else {
+            self.counterLabel.text = counterString
+            self.subtitleLabel.text = "get ready..."
+            return
+        }
+        
         self.counterLabel.text = counter.toMinutesSeconds()
+        self.subtitleLabel.text = "until next set"
     }
     
     internal func timerEnded() {

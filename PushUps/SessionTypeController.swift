@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-class SessionTypeController {
+internal class SessionTypeController {
     
     internal func configure(for index: Int) {
         switch index {

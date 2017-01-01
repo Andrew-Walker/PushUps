@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainingListViewController: UIViewController {
+internal final class TrainingListViewController: UIViewController {
     
     // MARK: - Properties -
     

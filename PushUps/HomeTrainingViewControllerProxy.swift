@@ -6,11 +6,11 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-protocol HomeTrainingViewControllerProxyDelegate: class {
+internal protocol HomeTrainingViewControllerProxyDelegate: class {
     var proxy: HomeTrainingViewControllerProxy? { get set }
 }
 
-class HomeTrainingViewControllerProxy {
+internal final class HomeTrainingViewControllerProxy {
     
     // MARK: - Properties -
     

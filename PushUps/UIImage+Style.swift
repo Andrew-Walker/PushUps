@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+internal extension UIImage {
     
     /**
      Creates image of solid color using specified size.

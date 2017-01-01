@@ -6,11 +6,11 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-protocol WorkoutSessionViewControllerProxyDelegate: class {
+internal protocol WorkoutSessionViewControllerProxyDelegate: class {
     var proxy: WorkoutSessionViewControllerProxy? { get set }
 }
 
-class WorkoutSessionViewControllerProxy {
+internal final class WorkoutSessionViewControllerProxy {
     
     // MARK: - Properties -
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+internal extension UIViewController {
     
     /**
      Applys background image to view and adds relevant constraints.

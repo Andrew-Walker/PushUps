@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol User {
+internal protocol User {
     var name: String { get set }
     var dateJoined: Date { get }
     var profileImage: Data? { get set }
@@ -17,7 +17,7 @@ protocol User {
     var currentSessionIDs: (level: String, stage: String)? { get set }
 }
 
-class PushUpUser: User {
+internal final class PushUpUser: User {
     
     // MARK: - Properties -
     

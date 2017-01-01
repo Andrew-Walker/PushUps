@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountdownViewController: UIViewController, CountdownViewControllerProxyDelegate {
+internal final class CountdownViewController: UIViewController, CountdownViewControllerProxyDelegate {
     
     // MARK: - Properties -
     

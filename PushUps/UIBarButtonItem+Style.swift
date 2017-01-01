@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIBarButtonItem {
+internal extension UIBarButtonItem {
     
     /**
      Applys global white tint color style.

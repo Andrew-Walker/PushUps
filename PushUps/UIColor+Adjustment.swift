@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+internal extension UIColor {
     
     /**
      Adjusts values of colour based on a delta ammount.

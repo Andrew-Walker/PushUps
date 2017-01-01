@@ -9,7 +9,7 @@
 import UIKit
 
 /// Segmented control used for switching between session types.
-@IBDesignable class SegmentedControl: UIControl {
+@IBDesignable internal final class SegmentedControl: UIControl {
     
     // MARK: - Properties -
     

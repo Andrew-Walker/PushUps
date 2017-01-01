@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SessionTypeTemp {
+internal protocol SessionTypeTemp {
     var title: String { get }
     var navigationBarSubtitle: String { get }
     var backgroundColor: UIColor { get }
 }
 
-struct TrainingSessionType: SessionTypeTemp {
+internal struct TrainingSessionType: SessionTypeTemp {
     
     // MARK: - Properties -
     
@@ -28,7 +28,7 @@ struct TrainingSessionType: SessionTypeTemp {
     
 }
 
-struct WorkoutSessionType: SessionTypeTemp {
+internal struct WorkoutSessionType: SessionTypeTemp {
     
     // MARK: - Properties -
     
@@ -42,7 +42,7 @@ struct WorkoutSessionType: SessionTypeTemp {
     
 }
 
-enum SessionType: Int {
+internal enum SessionType: Int {
     case Training
     case Session
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Session {
+internal protocol Session {
     var date: Date? { get set }
     var duration: TimeInterval { get set }
     var pushups: Int { get set }
@@ -17,7 +17,7 @@ protocol Session {
     func start()
 }
 
-extension Session {
+internal extension Session {
     
     // MARK: - Internal -
     

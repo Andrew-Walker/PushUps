@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol HomePageViewControllerDelegate {
+internal protocol HomePageViewControllerDelegate {
     func pageDidChange(toIndex index: Int?)
 }
 
-class HomePageViewController: UIPageViewController {
+internal final class HomePageViewController: UIPageViewController {
     
     // MARK: - Properties -
     

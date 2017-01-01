@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Providing access to photos allows you to select a profile image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Providing access to the camera allows you to take a profile image.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

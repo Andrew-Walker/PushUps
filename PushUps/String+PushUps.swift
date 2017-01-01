@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-extension String {
+internal extension String {
     
     /**
      Creates string representing positive or negative difference in pushup sessions.

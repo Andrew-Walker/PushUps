@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ProximityControllerDelegate {
+internal protocol ProximityControllerDelegate {
     func objectProximityEnded()
 }
 
-class ProximityController {
+internal final class ProximityController {
     
     // MARK: - Properties -
     

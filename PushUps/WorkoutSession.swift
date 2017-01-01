@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol Workout: Session {}
+internal protocol Workout: Session {}
 
-class WorkoutSession: Workout {
+internal final class WorkoutSession: Workout {
     
     // MARK: - Properties -
     

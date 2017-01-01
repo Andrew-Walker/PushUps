@@ -6,11 +6,11 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-protocol CountdownViewControllerProxyDelegate: class {
+internal protocol CountdownViewControllerProxyDelegate: class {
     var proxy: CountdownViewControllerProxy? { get set }
 }
 
-class CountdownViewControllerProxy {
+internal final class CountdownViewControllerProxy {
     
     // MARK: - Properties -
     

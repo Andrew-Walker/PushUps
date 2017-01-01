@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeWorkoutViewController: UIViewController, HomeWorkoutViewControllerProxyDelegate {
+internal final class HomeWorkoutViewController: UIViewController, HomeWorkoutViewControllerProxyDelegate {
     
     // MARK: - Properties -
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionFactory {
+internal final class SessionFactory {
     
     // MARK: - Lifecycle -
     

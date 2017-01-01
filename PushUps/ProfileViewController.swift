@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+internal final class ProfileViewController: UIViewController, ProfileViewControllerProxyDelegate {
     
     // MARK: - Properties -
     
@@ -16,12 +16,17 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var profilePictureBackgroundView: UIView!
     @IBOutlet private weak var profilePictureImageView: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private var contentController = TableViewContentController()
     
     // MARK: File Private
     
     fileprivate let imagePicker = UIImagePickerController()
     
     // MARK: Internal
+    
+    internal var proxy: ProfileViewControllerProxy?
     
     // MARK: - Lifecycle -
     
@@ -31,8 +36,11 @@ class ProfileViewController: UIViewController {
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = .photoLibrary
         
+        self.proxy = ProfileViewControllerProxy(delegate: self)
+        
         self.styleUI()
         self.configureUI()
+        self.configureContent()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,6 +54,8 @@ class ProfileViewController: UIViewController {
     
     private func styleUI() {
         self.applyBackground()
+        
+        self.tableView.backgroundColor = UIColor.clear
     }
     
     private func configureUI() {
@@ -56,6 +66,17 @@ class ProfileViewController: UIViewController {
         
         let rightNavigationItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissViewController))
         self.navigationItem.rightBarButtonItem = rightNavigationItem
+    }
+    
+    private func configureContent() {
+        self.contentController.configure(with: self.tableView, estimatedRowHeight: 66.0)
+        self.contentController.hidesAdditionalCells = true
+        
+        let sessionCount = self.proxy?.numberOfCompletedSessions() ?? 0
+        let section = ProfileCellContentFactory.createHistorySection(with: sessionCount)
+        self.contentController.add(section: section)
+        
+        self.contentController.reload()
     }
     
     // MARK: - Actions -
@@ -72,13 +93,7 @@ class ProfileViewController: UIViewController {
     
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
-    
-}
-
-extension ProfileViewController {
+internal extension ProfileViewController {
     
     // MARK: - Internal -
     
@@ -113,5 +128,9 @@ extension ProfileViewController {
         let action = UIAlertAction(title: title, style: .cancel)
         return action
     }
+    
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 }

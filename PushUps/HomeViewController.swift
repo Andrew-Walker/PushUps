@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
+internal final class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
     // MARK: - Properties -
     

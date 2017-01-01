@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-extension Array {
+internal extension Array {
     
     /**
      Gets object at specified index.

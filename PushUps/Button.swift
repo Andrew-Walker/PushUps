@@ -9,7 +9,7 @@
 import UIKit
 
 /// General button style with highlighting customisation.
-class Button: UIButton {
+internal class Button: UIButton {
     
     // MARK: - Properties -
     
@@ -51,7 +51,7 @@ class Button: UIButton {
 }
 
 /// Main button used in HomeViewController for starting new sessions.
-class SessionButton: Button {
+internal final class SessionButton: Button {
     
     // MARK: - Internal -
     

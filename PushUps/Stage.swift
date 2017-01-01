@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-protocol Stage {
+internal protocol Stage {
     var id: String { get }
     var sets: [Set] { get }
     var isCompleted: Bool { get set }
@@ -15,7 +15,7 @@ protocol Stage {
     func setNextSet()
 }
 
-class TrainingStage: Stage {
+internal final class TrainingStage: Stage {
     
     // MARK: - Properties -
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIColor {
+internal extension UIColor {
     
     /**
      Transparent dark background color for content and controls.

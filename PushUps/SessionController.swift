@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SessionController {
+internal final class SessionController {
     
     // MARK: - Properties -
     

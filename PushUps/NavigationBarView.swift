@@ -9,7 +9,7 @@
 import UIKit
 
 /// View used within navigation bar in most views. Contains title and subtitle labels.
-class NavigationBarView: UIView {
+internal final class NavigationBarView: UIView {
     
     // MARK: - Properties -
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UILabel {
+internal extension UILabel {
     
     /**
      Applys styling for set labels.

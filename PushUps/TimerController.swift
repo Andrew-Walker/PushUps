@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol TimerControllerDelegate {
+internal protocol TimerControllerDelegate {
     func timerUpdated()
     func timerEnded()
 }
 
-class TimerController {
+internal final class TimerController {
     
     // MARK: - Properties -
     

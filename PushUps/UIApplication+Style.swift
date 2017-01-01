@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIApplication {
+internal extension UIApplication {
     
     /**
      Applys global light status bar style.

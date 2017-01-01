@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UINavigationBar {
+internal extension UINavigationBar {
     
     /**
      Applys global clear navigation bar style.

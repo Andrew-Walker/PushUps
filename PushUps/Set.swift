@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol Set {
+internal protocol Set {
     var pushups: Int { get }
     var interval: TimeInterval { get }
     var isCompleted: Bool { get set }
     var isCurrent: Bool { get set }
 }
 
-class TrainingSet: Set {
+internal final class TrainingSet: Set {
     
     // MARK: - Properties -
     

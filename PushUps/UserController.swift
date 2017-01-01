@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
-class UserController {
+internal final class UserController {
     
     // MARK: - Properties -
     
@@ -53,6 +53,10 @@ class UserController {
      */
     internal func removeCurrentUser() {
         self.user = nil
+    }
+    
+    internal func numberOfCompletedSessions() -> Int {
+        return self.user?.sessions.count ?? 0
     }
     
 }

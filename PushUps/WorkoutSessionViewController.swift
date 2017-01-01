@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControllerProxyDelegate {
+internal final class WorkoutSessionViewController: UIViewController, WorkoutSessionViewControllerProxyDelegate {
     
     // MARK: - Properties -
     

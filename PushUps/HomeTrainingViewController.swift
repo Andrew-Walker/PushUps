@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
+internal final class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
     
     // MARK: - Properties -
     
@@ -68,6 +68,7 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
             let setPushups = set.pushups 
             let setLabelText = String(describing: setPushups)
             setLabel.text = setLabelText
+            setLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 35.0).isActive = true
             setLabel.applySetsStackViewStandardStyle()
             
             self.setsStackView.addArrangedSubview(setLabel)
@@ -75,6 +76,7 @@ class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerPr
             if index != (sets.count - 1) {
                 let dividerLabel = UILabel()
                 dividerLabel.text = "-"
+                dividerLabel.widthAnchor.constraint(equalToConstant: 10.0).isActive = true
                 dividerLabel.applySetsStackViewStandardStyle()
                 
                 self.setsStackView.addArrangedSubview(dividerLabel)

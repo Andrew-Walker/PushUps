@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension TimeInterval {
+internal extension TimeInterval {
     
     /**
      Creates string with formatted minutes and seconds from time interval.
