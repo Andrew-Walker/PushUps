@@ -17,6 +17,8 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     @IBOutlet private weak var profilePictureBackgroundView: UIView!
     @IBOutlet private weak var profilePictureImageView: UIButton!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var settingsButton: UIButton!
+    @IBOutlet private weak var shareButton: UIButton!
     
     private var contentController = TableViewContentController()
     
@@ -48,14 +50,19 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         
         self.profilePictureBackgroundView.applyRoundCorners()
         self.profilePictureImageView.applyRoundCorners()
+        self.settingsButton.applyRoundCorners()
+        self.shareButton.applyRoundCorners()
     }
     
     // MARK: - UI -
     
     private func styleUI() {
         self.applyBackground()
-        
         self.tableView.backgroundColor = UIColor.clear
+        self.settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.35)
+        self.settingsButton.tintColor = UIColor.white
+        self.shareButton.backgroundColor = UIColor.white.withAlphaComponent(0.35)
+        self.shareButton.tintColor = UIColor.white
     }
     
     private func configureUI() {

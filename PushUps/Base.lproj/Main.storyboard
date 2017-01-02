@@ -436,7 +436,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfr-Nh-g7K" id="xIq-9z-z58">
-                                            <frame key="frameInset" width="375" height="65"/>
+                                            <frame key="frameInset" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJT-Sy-OZH">
@@ -495,29 +495,49 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-IN-fdi">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="eFf-o8-W8O"/>
+                                    <constraint firstAttribute="height" constant="40" id="iWu-93-DkQ"/>
+                                </constraints>
+                                <state key="normal" image="settingsIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-rX-Xno">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hEs-V3-hFR"/>
+                                    <constraint firstAttribute="width" constant="40" id="hUB-DG-VGD"/>
+                                </constraints>
+                                <state key="normal" image="shareIcon"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0qK-pN-WnP" firstAttribute="centerY" secondItem="jHm-zu-Z3v" secondAttribute="centerY" id="247-1y-SeH"/>
+                            <constraint firstItem="Hi8-IN-fdi" firstAttribute="centerY" secondItem="jHm-zu-Z3v" secondAttribute="centerY" id="5f7-Wp-xL1"/>
                             <constraint firstItem="jHm-zu-Z3v" firstAttribute="top" secondItem="4DK-Vz-4dI" secondAttribute="bottom" constant="8" id="ALy-tf-Sef"/>
                             <constraint firstItem="jHm-zu-Z3v" firstAttribute="leading" secondItem="Etk-So-4f4" secondAttribute="trailing" constant="32" id="BkR-EG-Dx6"/>
-                            <constraint firstItem="LIb-2s-G9d" firstAttribute="leading" secondItem="jHm-zu-Z3v" secondAttribute="trailing" constant="32" id="C7Y-w0-E89"/>
+                            <constraint firstItem="LIb-2s-G9d" firstAttribute="leading" secondItem="jHm-zu-Z3v" secondAttribute="trailing" constant="30" id="C7Y-w0-E89"/>
                             <constraint firstItem="0qK-pN-WnP" firstAttribute="centerX" secondItem="jHm-zu-Z3v" secondAttribute="centerX" id="Fm0-Fi-tt5"/>
+                            <constraint firstItem="jHm-zu-Z3v" firstAttribute="leading" secondItem="lbO-rX-Xno" secondAttribute="trailing" constant="30" id="KNF-D3-t1Y"/>
                             <constraint firstItem="jHm-zu-Z3v" firstAttribute="centerX" secondItem="4Zj-Vu-08c" secondAttribute="centerX" id="U0y-FN-AYp"/>
                             <constraint firstItem="cFD-LT-Bth" firstAttribute="centerX" secondItem="jHm-zu-Z3v" secondAttribute="centerX" id="WPI-am-Wir"/>
                             <constraint firstItem="cFD-LT-Bth" firstAttribute="top" secondItem="jHm-zu-Z3v" secondAttribute="bottom" constant="8" id="ZYZ-b9-gUD"/>
                             <constraint firstItem="KmB-8H-KHc" firstAttribute="leading" secondItem="4Zj-Vu-08c" secondAttribute="leading" id="dim-8p-5M9"/>
+                            <constraint firstItem="lbO-rX-Xno" firstAttribute="centerY" secondItem="jHm-zu-Z3v" secondAttribute="centerY" id="fTu-x7-kHU"/>
                             <constraint firstAttribute="trailing" secondItem="KmB-8H-KHc" secondAttribute="trailing" id="fgw-qb-LjX"/>
                             <constraint firstItem="LIb-2s-G9d" firstAttribute="centerY" secondItem="jHm-zu-Z3v" secondAttribute="centerY" id="k08-12-8GR"/>
                             <constraint firstItem="KmB-8H-KHc" firstAttribute="top" secondItem="cFD-LT-Bth" secondAttribute="bottom" constant="16" id="ksF-Da-TuR"/>
                             <constraint firstItem="Jmc-en-u0v" firstAttribute="top" secondItem="KmB-8H-KHc" secondAttribute="bottom" id="lzD-KG-bS8"/>
                             <constraint firstItem="Etk-So-4f4" firstAttribute="centerY" secondItem="jHm-zu-Z3v" secondAttribute="centerY" id="sOA-WC-vtO"/>
+                            <constraint firstItem="Hi8-IN-fdi" firstAttribute="leading" secondItem="jHm-zu-Z3v" secondAttribute="trailing" constant="30" id="siu-kK-r27"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MN0-dQ-hha"/>
                     <connections>
                         <outlet property="profilePictureBackgroundView" destination="jHm-zu-Z3v" id="qaG-b3-98A"/>
                         <outlet property="profilePictureImageView" destination="0qK-pN-WnP" id="qeM-Rz-TXV"/>
+                        <outlet property="settingsButton" destination="Hi8-IN-fdi" id="wNW-wS-Kcb"/>
+                        <outlet property="shareButton" destination="lbO-rX-Xno" id="Y21-il-d1I"/>
                         <outlet property="tableView" destination="KmB-8H-KHc" id="QbW-62-Uyq"/>
                     </connections>
                 </viewController>
@@ -967,5 +987,7 @@
     </scenes>
     <resources>
         <image name="profileImage" width="100" height="100"/>
+        <image name="settingsIcon" width="25" height="25"/>
+        <image name="shareIcon" width="19" height="25"/>
     </resources>
 </document>

@@ -418,13 +418,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		6E7ED39E1D7CCD5900ED3B43 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6E8C178C1E1956A200934B9F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +606,6 @@
 				6E9709931D53DEB000999AB6 /* Supporting Files */,
 				6E6679211DC6B3DC00E895D1 /* Controllers */,
 				6E0A03191DA7FB28000FDD73 /* Extensions */,
-				6E7ED39E1D7CCD5900ED3B43 /* Frameworks */,
 				6EE7AA151D88BAB5009D11E5 /* Data */,
 				6E3B9A591D78EE1400DF7C27 /* Model */,
 				6E97098F1D53DE5800999AB6 /* UI */,
