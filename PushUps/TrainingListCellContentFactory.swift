@@ -8,14 +8,14 @@
 
 internal final class TrainingListCellContentFactory {
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
 
-    // MARK: - TrainingListCellContentFactory
+    // MARK: - Internal Functions
     
     internal static func createLevelSections(from levels: [Level]) -> [Section] {
         var sections = [Section]()

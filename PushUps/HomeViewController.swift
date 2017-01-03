@@ -10,13 +10,11 @@ import UIKit
 
 internal final class HomeViewController: UIViewController, HomeViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private var pageViewController: HomePageViewController?
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     @IBOutlet internal weak var segmentedControl: SegmentedControl!
     @IBOutlet internal weak var startButton: SessionButton!
@@ -26,7 +24,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     internal var proxy: HomeViewControllerProxy?
     internal var selectedSessionType: SessionType = .Training
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +42,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         }
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -63,16 +61,16 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged), for: .valueChanged)
     }
     
-    // MARK: - Actions -
+    // MARK: - Actions
     
-    @IBAction func startButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func startButtonTapped(_ sender: AnyObject) {
         let sessionType = self.selectedSessionType
         SessionController.sharedInstance.setActive(sessionType: sessionType)
         
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     @objc private func showProfileViewController() {
         self.performSegue(withIdentifier: String(describing: ProfileViewController.self), sender: nil)

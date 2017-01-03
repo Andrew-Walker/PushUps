@@ -69,11 +69,11 @@ class TestViewController: UIViewController {
         }
     }
     
-    @IBAction func backgroundButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func backgroundButtonTapped(_ sender: AnyObject) {
         self.updateCounterLabel()
     }
     
-    @IBAction func openWatchAppButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func openWatchAppButtonTapped(_ sender: AnyObject) {
         guard let workoutConfiguration = self.configuration else { return }
         
         self.getActiveWCSession() { (wcSession) in

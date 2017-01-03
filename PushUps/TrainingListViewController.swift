@@ -10,19 +10,17 @@ import UIKit
 
 internal final class TrainingListViewController: UIViewController, TrainingListViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var tableView: UITableView!
     
     private var contentController = TableViewContentController()
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: TrainingListViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +32,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
         self.configureContent()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.applyBackground()
@@ -57,7 +55,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
         self.contentController.reload()
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     @objc private func dismissViewController() {
         self.dismiss(animated: true)

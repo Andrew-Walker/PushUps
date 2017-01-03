@@ -13,18 +13,14 @@ internal protocol Level {
 
 internal final class TrainingLevel: Level {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var id: String
     internal var stages: [Stage]
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
-    init(id: String, stages: [Stage]) {
+    internal init(id: String, stages: [Stage]) {
         self.id = id
         self.stages = stages
     }

@@ -14,21 +14,19 @@ internal protocol HomePageViewControllerDelegate {
 
 internal final class HomePageViewController: UIPageViewController {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.pageViewController(name: "Training"),
                 self.pageViewController(name: "Workout")]
     }()
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var pageDelegate: HomePageViewControllerDelegate?
     internal var currentIndex = 0
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +39,13 @@ internal final class HomePageViewController: UIPageViewController {
         }
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     private func pageViewController(name: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home\(name)ViewController")
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func setPage(with index: Int) {
         let viewController = self.orderedViewControllers[index]
@@ -61,7 +59,7 @@ internal final class HomePageViewController: UIPageViewController {
 
 extension HomePageViewController: UIPageViewControllerDataSource {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = self.orderedViewControllers.index(of: viewController) else {

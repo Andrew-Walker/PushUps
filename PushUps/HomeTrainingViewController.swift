@@ -10,19 +10,17 @@ import UIKit
 
 internal final class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Properties Properties
     
     @IBOutlet private weak var stageIndexLabel: UILabel!
     @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var setsStackView: UIStackView!
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: HomeTrainingViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +36,7 @@ internal final class HomeTrainingViewController: UIViewController, HomeTrainingV
         self.configureUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.view.backgroundColor = UIColor.clear

@@ -8,68 +8,58 @@
 
 import UIKit
 
-/// Segmented control used for switching between session types.
 @IBDesignable internal final class SegmentedControl: UIControl {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private var labels = [UILabel]()
     private var thumbView = UIView()
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
-    /// Selectable segment titles. Defaults to three placeholder items.
     internal var items: [SessionType] = [.Training, .Session] {
         didSet {
             self.setupLabels()
         }
     }
     
-    /// Current selected segment index. Defaults to 0.
     internal var selectedIndex = 0 {
         didSet {
             self.updateSelectedIndex()
         }
     }
     
-    /// Color of currently selected segment label. Defaults to white.
     @IBInspectable internal var selectedLabelColor = UIColor.white {
         didSet {
             self.setSelectedColors(toDefault: false)
         }
     }
     
-    /// Color of unselected segment label. Defaults to black.
     @IBInspectable internal var unselectedLabelColor = UIColor.black {
         didSet {
             self.setSelectedColors(toDefault: true)
         }
     }
     
-    /// Background color of thumb. Defaults to black.
     @IBInspectable internal var thumbColor = UIColor.black {
         didSet {
             self.setSelectedColors(toDefault: true)
         }
     }
     
-    /// Color of border color. Defaults to clear.
     @IBInspectable internal var borderColor = UIColor.clear {
         didSet {
             self.layer.borderColor = borderColor.cgColor
         }
     }
     
-    /// Font used in segment labels. Defaults to system font of size 12.
     @IBInspectable internal var font = UIFont.systemFont(ofSize: 10) {
         didSet {
             self.setFont()
         }
     }
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,9 +81,7 @@ import UIKit
         self.updateSelectedIndex()
     }
     
-    // MARK: - UI -
-    
-    // MARK: Appearance
+    // MARK: - UI
     
     private func styleUI() {
         self.backgroundColor = UIColor.darkBackground()
@@ -145,7 +133,7 @@ import UIKit
         }
     }
     
-    // MARK: Layout
+    // MARK: - Layout
     
     private func addConstraints(forItems items: [UIView]) {
         for (index, button) in items.enumerated() {
@@ -186,7 +174,7 @@ import UIKit
         self.thumbView.applyRoundCorners()
     }
     
-    // MARK: - Touch Events -
+    // MARK: - Touch Events
     
     private func updateSelectedIndex() {
         self.setSelectedColors(toDefault: false)
@@ -197,7 +185,7 @@ import UIKit
         }, completion: nil)
     }
     
-    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    internal override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         super.beginTracking(touch, with: event)
         
         guard let index = self.calculateCurrentIndex(atTouch: touch) else {

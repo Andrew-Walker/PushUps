@@ -12,15 +12,11 @@ internal protocol ProfileViewControllerProxyDelegate: class {
 
 internal final class ProfileViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: ProfileViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      
@@ -29,7 +25,7 @@ internal final class ProfileViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      

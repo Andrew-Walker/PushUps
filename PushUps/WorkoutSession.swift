@@ -12,17 +12,13 @@ internal protocol Workout: Session {}
 
 internal final class WorkoutSession: Workout {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var date: Date?
     internal var duration: TimeInterval = 0.0
     internal var pushups = 0
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func start() {
         self.date = Date()

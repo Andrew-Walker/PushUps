@@ -8,14 +8,14 @@
 
 internal final class ProfileCellContentFactory {
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
     
-    // MARK: - ProfileCellContentFactory
+    // MARK: - Internal Functions
     
     internal static func createHistorySection(from sessionCount: Int) -> Section {
         let section = Section()

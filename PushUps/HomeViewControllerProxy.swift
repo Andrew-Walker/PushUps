@@ -12,15 +12,11 @@ internal protocol HomeViewControllerProxyDelegate: class {
 
 internal final class HomeViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: HomeViewControllerProxyDelegate?
     
-    // MARK: Internal
-        
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Designated initializer for HomeViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class HomeViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets title content for currently selected SessionType.

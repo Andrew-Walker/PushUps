@@ -21,7 +21,7 @@ internal protocol ContentController {
 
 internal extension ContentController {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func numberOfSections() -> Int {
         return self.sections.count

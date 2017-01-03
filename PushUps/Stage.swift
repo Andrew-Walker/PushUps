@@ -17,24 +17,20 @@ internal protocol Stage {
 
 internal final class TrainingStage: Stage {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var id: String
     internal var sets: [Set]
     internal var isCompleted = false
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
-    init(id: String, sets: [Set]) {
+    internal init(id: String, sets: [Set]) {
         self.id = id
         self.sets = sets
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func start() {
         self.setNextSet()

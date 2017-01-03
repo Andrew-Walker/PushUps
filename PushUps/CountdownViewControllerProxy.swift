@@ -12,15 +12,11 @@ internal protocol CountdownViewControllerProxyDelegate: class {
 
 internal final class CountdownViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: CountdownViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Internal Properties
     
     /**
      Designated initializer for CountdownViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class CountdownViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets type of session to start at end of countdown.

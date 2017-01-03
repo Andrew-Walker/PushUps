@@ -12,15 +12,11 @@ internal protocol WorkoutSessionViewControllerProxyDelegate: class {
 
 internal final class WorkoutSessionViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: WorkoutSessionViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Designated initializer for WorkoutSessionViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class WorkoutSessionViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets user's current pushup record.

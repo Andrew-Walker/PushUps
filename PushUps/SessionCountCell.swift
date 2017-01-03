@@ -10,26 +10,24 @@ import UIKit
 
 internal final class SessionCountCell: UITableViewCell, Cell {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var content: CellContent?
     
     // MARK: - Lifecycle
     
-    override func awakeFromNib() {
+    internal override func awakeFromNib() {
         super.awakeFromNib()
         
         self.styleUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.accessoryType = .disclosureIndicator
@@ -38,7 +36,7 @@ internal final class SessionCountCell: UITableViewCell, Cell {
         self.iconImageView.tintColor = UIColor.white
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func configure(with content: CellContent) {
         guard let content = content as? SessionCountCellContent else {

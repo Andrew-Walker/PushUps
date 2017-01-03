@@ -14,24 +14,20 @@ internal protocol Training: Session {
 
 internal final class TrainingSession: Training {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var stage: Stage
     internal var date: Date?
     internal var duration: TimeInterval = 0.0
     internal var pushups = 0
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal init(stage: Stage) {
         self.stage = stage
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func start() {
         self.date = Date()

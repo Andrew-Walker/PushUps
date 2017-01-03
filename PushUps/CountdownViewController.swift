@@ -10,25 +10,23 @@ import UIKit
 
 internal final class CountdownViewController: UIViewController, CountdownViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var cancelButton: SessionButton!
     
     private var countdownTimer: Timer?
     
-    // MARK: File Private
+    // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var countdownLabel: UILabel!
     
     fileprivate var timerController: TimerController?
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: CountdownViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +39,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
         self.configureUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -53,14 +51,14 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
         self.cancelButton.setTitle("CANCEL", for: [])
     }
     
-    // MARK: - Actions -
+    // MARK: - Actions
     
-    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func cancelButtonTapped(_ sender: AnyObject) {
         self.timerController?.end()
         self.dismiss(animated: true)
     }
     
-    // MARK: - File Private -
+    // MARK: - File Private Functions
     
     fileprivate func continueToSession() {
         guard let sessionType = self.proxy?.sessionType() else {
@@ -79,7 +77,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
 
 extension CountdownViewController: TimerControllerDelegate {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func timerUpdated() {
         guard let counter = self.timerController?.timeRemaining() else {

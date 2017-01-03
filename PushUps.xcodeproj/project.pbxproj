@@ -478,13 +478,6 @@
 			name = Constraints;
 			sourceTree = "<group>";
 		};
-		6E925D4C1E1C275F00F8DAD5 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		6E925D551E1C4E0A00F8DAD5 /* NavigationBarView */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,7 +512,6 @@
 		6E9709901D53DE6200999AB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E925D4C1E1C275F00F8DAD5 /* New Group */,
 				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
 				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
 				6E3B9A511D78EC7A00DF7C27 /* HomeWorkoutViewController */,

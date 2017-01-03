@@ -19,11 +19,7 @@ internal protocol User {
 
 internal final class PushUpUser: User {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var name: String
     internal var dateJoined: Date
@@ -32,14 +28,14 @@ internal final class PushUpUser: User {
     internal var record = 0
     internal var currentSessionIDs: (level: String, stage: String)?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal init(name: String) {
         self.name = name
         self.dateJoined = Date()
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func set(levelID: String?, stageID: String?) {
         guard let levelID = levelID, let stageID = stageID else {

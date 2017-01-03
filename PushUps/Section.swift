@@ -14,15 +14,13 @@ internal protocol SectionHeaderFooterView: class {
 
 internal final class Section {
     
-    // MARK: - Properties -
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var content = [CellContent]()
     internal var headerView: SectionHeaderFooterView?
     internal var footerView: SectionHeaderFooterView?
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func add(content: CellContent) {
         self.content.append(content)

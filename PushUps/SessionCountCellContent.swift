@@ -10,9 +10,7 @@ import UIKit
 
 internal final class SessionCountCellContent: CellContent {
     
-    // MARK: - Properties -
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal let cellIdentifier = "sessionCountCell"
     

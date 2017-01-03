@@ -19,7 +19,7 @@ internal protocol Session {
 
 internal extension Session {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func totalDuration() -> TimeInterval {
         guard let startDate = self.date else {

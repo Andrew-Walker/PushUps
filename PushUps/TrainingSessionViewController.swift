@@ -10,9 +10,7 @@ import UIKit
 
 internal final class TrainingSessionViewController: UIViewController, TrainingSessionViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var endButton: SessionButton!
     @IBOutlet private weak var backgroundButton: UIButton!
@@ -21,7 +19,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     private var activeSet: Set?
     private var proximityController: ProximityController?
     
-    // MARK: File Private
+    // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var counterLabel: UILabel!
     @IBOutlet fileprivate weak var subtitleLabel: UILabel!
@@ -29,11 +27,11 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     fileprivate var timerController: TimerController?
     fileprivate var currentSetCount = 0
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: TrainingSessionViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +46,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
         self.configureUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.applyBackgroundGradient()
@@ -90,18 +88,18 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
         }
     }
     
-    // MARK: - Actions -
+    // MARK: - Actions
     
-    @IBAction func endButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func endButtonTapped(_ sender: AnyObject) {
         self.endSession()
     }
     
-    @IBAction func backgroundButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func backgroundButtonTapped(_ sender: AnyObject) {
         self.currentSetCount += 1
         self.updateSetProgress()
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     private func endSession() {
         self.proxy?.endSession()
@@ -131,7 +129,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
         self.proximityController?.startProximityDetection()
     }
     
-    // MARK: - File Private -
+    // MARK: - File Private Functions
     
     fileprivate func updateSetProgress() {
         guard let activeSet = self.proxy?.activeStageSet() else {
@@ -166,7 +164,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
 
 extension TrainingSessionViewController: ProximityControllerDelegate {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func objectProximityEnded() {
         self.currentSetCount += 1
@@ -177,7 +175,7 @@ extension TrainingSessionViewController: ProximityControllerDelegate {
 
 extension TrainingSessionViewController: TimerControllerDelegate {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func timerUpdated() {
         guard let counter = self.timerController?.timeRemaining() else {

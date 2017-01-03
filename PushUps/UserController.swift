@@ -8,24 +8,22 @@
 
 internal final class UserController {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private var user: User?
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal static let sharedInstance = UserController()
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets PushUpUser instance representing current user.
@@ -55,6 +53,9 @@ internal final class UserController {
         self.user = nil
     }
     
+    /**
+     
+    */
     internal func numberOfCompletedSessions() -> Int {
         return self.user?.sessions.count ?? 0
     }

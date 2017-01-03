@@ -12,15 +12,11 @@ internal protocol HomeTrainingViewControllerProxyDelegate: class {
 
 internal final class HomeTrainingViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: HomeTrainingViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Designated initializer for HomeTrainingViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class HomeTrainingViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets number of stages in current training level.

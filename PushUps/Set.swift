@@ -17,18 +17,14 @@ internal protocol Set {
 
 internal final class TrainingSet: Set {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var pushups: Int
     internal var interval: TimeInterval
     internal var isCompleted = false
     internal var isCurrent = false
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal init(pushups: Int, interval: TimeInterval) {
         self.pushups = pushups

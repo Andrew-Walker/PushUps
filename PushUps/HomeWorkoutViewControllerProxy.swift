@@ -12,15 +12,11 @@ internal protocol HomeWorkoutViewControllerProxyDelegate: class {
 
 internal final class HomeWorkoutViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: HomeWorkoutViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Designated initializer for HomeWorkoutViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class HomeWorkoutViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Gets number of pushups achieved in last session.

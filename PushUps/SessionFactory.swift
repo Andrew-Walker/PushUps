@@ -10,14 +10,14 @@ import UIKit
 
 internal final class SessionFactory {
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
     
-    // MARK: - SessionFactory
+    // MARK: - Internal Functions
     
     /**
      Retrieves data from TrainingSessions plist file and passes this array to factory function to create training levels.

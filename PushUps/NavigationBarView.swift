@@ -8,19 +8,14 @@
 
 import UIKit
 
-/// View used within navigation bar in most views. Contains title and subtitle labels.
 internal final class NavigationBarView: UIView {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var subtitleLabel: UILabel?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +25,7 @@ internal final class NavigationBarView: UIView {
         self.subtitleLabel?.textColor = UIColor.white.withAlphaComponent(0.5)
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal class func instanceFromNib() -> NavigationBarView? {
         return Bundle.main.loadNibNamed("NavigationBarView", owner: nil, options: nil)?.first as? NavigationBarView

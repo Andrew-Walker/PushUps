@@ -10,26 +10,24 @@ import Foundation
 
 internal final class SessionController {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private(set) var allLevels: [Level] = []
     private(set) var activeSessionType: SessionType?
     private(set) var activeSession: Session?
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal static let sharedInstance = SessionController()
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     /**
      Gets current training level by filtering full list based on level ID.
@@ -66,7 +64,7 @@ internal final class SessionController {
         return stage
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Populates levels array by calling SessionFactory to load list of levels from local plist file.

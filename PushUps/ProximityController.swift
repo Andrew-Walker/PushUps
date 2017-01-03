@@ -14,26 +14,24 @@ internal protocol ProximityControllerDelegate {
 
 internal final class ProximityController {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private let device = UIDevice.current
     
     private var timeoutTimer = Timer()
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var delegate: ProximityControllerDelegate?
     internal var isEnabled = false
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal init(delegate: ProximityControllerDelegate) {
         self.delegate = delegate
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     @objc private func proximityChanged(notification: NSNotification) {
         guard let device = notification.object as? UIDevice else {
@@ -61,7 +59,7 @@ internal final class ProximityController {
         self.timeoutTimer.invalidate()
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func startProximityDetection() {
         self.configureProximitySensor()

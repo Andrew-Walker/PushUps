@@ -10,9 +10,7 @@ import UIKit
 
 internal final class TableViewContentController: NSObject, ContentController {
     
-    // MARK: - Properties -
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var sections = [Section]()
     internal var tableView: UITableView?
@@ -24,7 +22,7 @@ internal final class TableViewContentController: NSObject, ContentController {
         }
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func configure(with tableView: UITableView?, estimatedRowHeight: CGFloat? = nil) {
         tableView?.delegate = self
@@ -47,7 +45,7 @@ internal final class TableViewContentController: NSObject, ContentController {
 
 extension TableViewContentController: UITableViewDataSource {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func numberOfSections(in tableView: UITableView) -> Int {
         return self.numberOfSections()
@@ -81,7 +79,7 @@ extension TableViewContentController: UITableViewDataSource {
         return self.sections[section].footerView?.height ?? 0.0
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     private func configure(cell: UITableViewCell, with content: CellContent) {
         guard let cell = cell as? Cell else {

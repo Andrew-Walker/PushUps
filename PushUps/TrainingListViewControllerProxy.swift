@@ -12,15 +12,11 @@ internal protocol TrainingListViewControllerProxyDelegate: class {
 
 internal final class TrainingListViewControllerProxy {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: TrainingListViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      
@@ -29,7 +25,7 @@ internal final class TrainingListViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      

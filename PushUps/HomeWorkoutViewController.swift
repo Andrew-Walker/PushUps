@@ -10,19 +10,17 @@ import UIKit
 
 internal final class HomeWorkoutViewController: UIViewController, HomeWorkoutViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var pushupCountLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var differenceLabel: UILabel!
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: HomeWorkoutViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +36,7 @@ internal final class HomeWorkoutViewController: UIViewController, HomeWorkoutVie
         self.configureUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.view.backgroundColor = UIColor.clear

@@ -12,15 +12,11 @@ internal protocol TrainingSessionViewControllerProxyDelegate: class {
 
 internal final class TrainingSessionViewControllerProxy {
     
-    // MARK: Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private weak var delegate: TrainingSessionViewControllerProxyDelegate?
     
-    // MARK: Internal
-    
-    // MARK: Lifecycle -
+    // MARK: - Lifecycle
     
     /**
      Designated initializer for TrainingSessionViewControllerProxy instance.
@@ -31,7 +27,7 @@ internal final class TrainingSessionViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     /**
      Starts new training session.
@@ -74,7 +70,7 @@ internal final class TrainingSessionViewControllerProxy {
         activeSession?.setNextSet()
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     /**
      Verifies completed session and configures user for next session.

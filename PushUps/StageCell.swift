@@ -10,32 +10,30 @@ import UIKit
 
 internal final class StageCell: UITableViewCell, Cell {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var label: UILabel!
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var content: CellContent?
     
     // MARK: - Lifecycle
     
-    override func awakeFromNib() {
+    internal override func awakeFromNib() {
         super.awakeFromNib()
         
         self.styleUI()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.backgroundColor = UIColor.clear
         self.label.textColor = UIColor.white
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func configure(with content: CellContent) {
         guard let content = content as? StageCellContent else {

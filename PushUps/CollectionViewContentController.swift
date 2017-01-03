@@ -10,14 +10,12 @@ import UIKit
 
 internal final class CollectionViewContentController: NSObject, ContentController {
     
-    // MARK: - Properties -
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var sections = [Section]()
     internal var collectionView: UICollectionView?
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func configure(with collectionView: UICollectionView?) {
         collectionView?.delegate = self
@@ -34,7 +32,7 @@ internal final class CollectionViewContentController: NSObject, ContentControlle
 
 extension CollectionViewContentController: UICollectionViewDataSource {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.numberOfSections()

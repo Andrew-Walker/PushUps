@@ -15,9 +15,7 @@ internal protocol TimerControllerDelegate {
 
 internal final class TimerController {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     private var countdownTimer: Timer?
     private var interval: TimeInterval = 0.0
@@ -27,18 +25,18 @@ internal final class TimerController {
         }
     }
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var delegate: TimerControllerDelegate?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
     internal init(interval: TimeInterval, delegate: TimerControllerDelegate) {
         self.interval = interval
         self.delegate = delegate
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     @objc private func updateCounter() {
         self.counter += 1
@@ -56,7 +54,7 @@ internal final class TimerController {
         self.end()
     }
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func start() {
         self.countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateCounter), userInfo: nil, repeats: true)

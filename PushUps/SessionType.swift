@@ -16,11 +16,7 @@ internal protocol SessionTypeTemp {
 
 internal struct TrainingSessionType: SessionTypeTemp {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal let title = "Training"
     internal let navigationBarSubtitle = "training level"
@@ -30,11 +26,7 @@ internal struct TrainingSessionType: SessionTypeTemp {
 
 internal struct WorkoutSessionType: SessionTypeTemp {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
-    
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal let title = "Session"
     internal let navigationBarSubtitle = "personal best"

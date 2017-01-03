@@ -10,9 +10,7 @@ import UIKit
 
 internal final class ProfileViewController: UIViewController, ProfileViewControllerProxyDelegate {
     
-    // MARK: - Properties -
-    
-    // MARK: Private
+    // MARK: - Private Properties
     
     @IBOutlet private weak var profilePictureBackgroundView: UIView!
     @IBOutlet private weak var profilePictureImageView: UIButton!
@@ -22,17 +20,17 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     
     private var contentController = TableViewContentController()
     
-    // MARK: File Private
+    // MARK: - File Private Properties
     
     fileprivate let imagePicker = UIImagePickerController()
     
-    // MARK: Internal
+    // MARK: - Internal Properties
     
     internal var proxy: ProfileViewControllerProxy?
     
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         
         self.imagePicker.delegate = self
@@ -45,7 +43,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.configureContent()
     }
     
-    override func viewDidLayoutSubviews() {
+    internal override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.profilePictureBackgroundView.applyRoundCorners()
@@ -54,7 +52,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.shareButton.applyRoundCorners()
     }
     
-    // MARK: - UI -
+    // MARK: - UI
     
     private func styleUI() {
         self.applyBackground()
@@ -86,13 +84,13 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.contentController.reload()
     }
     
-    // MARK: - Actions -
+    // MARK: - Actions
     
-    @IBAction func profileImageButtonTapped(_ sender: AnyObject) {
+    @IBAction internal func profileImageButtonTapped(_ sender: AnyObject) {
         self.presentProfileImageActionSheet()
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     @objc private func dismissViewController() {
         self.dismiss(animated: true)
@@ -102,7 +100,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
 
 internal extension ProfileViewController {
     
-    // MARK: - Internal -
+    // MARK: - Internal Functions
     
     internal func presentProfileImageActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -112,7 +110,7 @@ internal extension ProfileViewController {
         self.present(actionSheet, animated: true)
     }
     
-    // MARK: - Private -
+    // MARK: - Private Functions
     
     private func takePhotoAction() -> UIAlertAction {
         let title = NSLocalizedString("profileViewController.takePhotoActionTitle", comment: "")
