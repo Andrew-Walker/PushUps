@@ -14,9 +14,9 @@ internal final class SessionController {
     
     // MARK: Private
     
-    private var allLevels: [Level] = []
-    private var session: Session?
-    private var sessionType: SessionType?
+    private(set) var allLevels: [Level] = []
+    private(set) var activeSessionType: SessionType?
+    private(set) var activeSession: Session?
     
     // MARK: Internal
     
@@ -76,34 +76,18 @@ internal final class SessionController {
     }
     
     /**
-     Gets session currently in progress.
-     - returns: Instance conforming to Session.
-     */
-    internal func activeSession() -> Session? {
-        return self.session
-    }
-    
-    /**
-     Gets type of active session.
-     - returns: SessionType case representing active session type.
-     */
-    internal func activeSessionType() -> SessionType? {
-        return self.sessionType
-    }
-    
-    /**
      Sets type of active session.
     */
     internal func setActive(sessionType: SessionType) {
-        self.sessionType = sessionType
+        self.activeSessionType = sessionType
     }
     
     /**
      Activates new workout session.
      */
     internal func activateWorkoutSession() {
-        self.session = WorkoutSession()
-        self.session?.start()
+        self.activeSession = WorkoutSession()
+        self.activeSession?.start()
     }
     
     /**
@@ -114,8 +98,8 @@ internal final class SessionController {
             return
         }
         
-        self.session = TrainingSession(stage: stage)
-        self.session?.start()
+        self.activeSession = TrainingSession(stage: stage)
+        self.activeSession?.start()
     }
     
     /**
@@ -124,21 +108,21 @@ internal final class SessionController {
         - count: Int value representing total push up count on session completion.
      */
     internal func endActiveWorkoutSession(with count: Int) {
-        (self.session as? WorkoutSession)?.end(with: count)
+        (self.activeSession as? WorkoutSession)?.end(with: count)
     }
     
     /**
      Ends currently active training session.
      */
     internal func endActiveTrainingSession() {
-        (self.session as? TrainingSession)?.end()
+        (self.activeSession as? TrainingSession)?.end()
     }
     
     /**
      Sets currently active stored session to nil.
      */
     internal func clearActiveSession() {
-        self.session = nil
+        self.activeSession = nil
     }
     
     /**
@@ -191,7 +175,7 @@ internal final class SessionController {
      - returns: Array of instances conforming to Set.
      */
     internal func activeStageSets() -> [Set] {
-        let stage = (self.session as? TrainingSession)?.stage
+        let stage = (self.activeSession as? TrainingSession)?.stage
         let sets = stage?.sets ?? []
         
         return sets
@@ -202,7 +186,7 @@ internal final class SessionController {
      - returns: Instance conforming to Set.
     */
     internal func activeStageActiveSet() -> Set? {
-        let stage = (self.session as? TrainingSession)?.stage
+        let stage = (self.activeSession as? TrainingSession)?.stage
         let set = stage?.sets.filter({ $0.isCurrent }).first
         
         return set

@@ -17,17 +17,17 @@ internal final class ProfileCellContentFactory {
     
     // MARK: - ProfileCellContentFactory
     
-    internal static func createHistorySection(with sessionCount: Int) -> Section {
+    internal static func createHistorySection(from sessionCount: Int) -> Section {
         let section = Section()
         let headerView = TitleHeaderFooterView(text: "History")
-        let content = ProfileCellContentFactory.createSessionCountCellContent(with: sessionCount)
+        let content = ProfileCellContentFactory.createSessionCountCellContent(from: sessionCount)
         section.add(content: content)
         section.add(headerView: headerView)
         return section
     }
     
-    internal static func createSessionCountCellContent(with sessionCount: Int) -> CellContent {
-        let content = SessionCountTappableCellContent(count: sessionCount)
+    internal static func createSessionCountCellContent(from sessionCount: Int) -> CellContent {
+        let content = SessionCountCellContent(count: sessionCount)
         return content
     }
     

@@ -76,11 +76,11 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     }
     
     private func configureContent() {
-        self.contentController.configure(with: self.tableView, estimatedRowHeight: 66.0)
+        self.contentController.configure(with: self.tableView, estimatedRowHeight: 67.0)
         self.contentController.hidesAdditionalCells = true
         
         let sessionCount = self.proxy?.numberOfCompletedSessions() ?? 0
-        let section = ProfileCellContentFactory.createHistorySection(with: sessionCount)
+        let section = ProfileCellContentFactory.createHistorySection(from: sessionCount)
         self.contentController.add(section: section)
         
         self.contentController.reload()

@@ -59,7 +59,7 @@ internal final class WorkoutSessionViewControllerProxy {
      */
     internal func endSession(with count: Int) {
         SessionController.sharedInstance.endActiveWorkoutSession(with: count)
-        guard let completedSession = SessionController.sharedInstance.activeSession() else {
+        guard let completedSession = SessionController.sharedInstance.activeSession else {
             return
         }
         

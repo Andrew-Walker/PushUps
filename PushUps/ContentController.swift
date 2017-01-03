@@ -43,4 +43,8 @@ internal extension ContentController {
         self.sections.append(section)
     }
     
+    internal mutating func add(sections: [Section]) {
+        self.sections.append(contentsOf: sections)
+    }
+    
 }

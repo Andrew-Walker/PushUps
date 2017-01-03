@@ -41,7 +41,7 @@ internal final class TrainingSessionViewControllerProxy {
     }
     
     /**
-     
+     Configures user for next session, clears and ends current active session.
     */
     internal func endSession() {
         self.prepareNextSession()
@@ -70,7 +70,7 @@ internal final class TrainingSessionViewControllerProxy {
      Increments active set in current stage.
     */
     internal func incrementActiveSet() {
-        let activeSession = SessionController.sharedInstance.activeSession() as? TrainingSession
+        let activeSession = SessionController.sharedInstance.activeSession as? TrainingSession
         activeSession?.setNextSet()
     }
     
@@ -84,7 +84,7 @@ internal final class TrainingSessionViewControllerProxy {
             return
         }
         
-        guard let session = SessionController.sharedInstance.activeSession() as? TrainingSession, session.stage.isCompleted else {
+        guard let session = SessionController.sharedInstance.activeSession as? TrainingSession, session.stage.isCompleted else {
             return
         }
         

@@ -1,5 +1,5 @@
 //
-//  SessionHistoryTappableCellContent.swift
+//  SessionCountCellContent.swift
 //  PushUps
 //
 //  Created by Andrew Walker on 01/01/2017.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-internal final class SessionCountTappableCellContent: CellContent {
+internal final class SessionCountCellContent: CellContent {
     
     // MARK: - Properties -
     
     // MARK: Internal
     
-    internal let cellIdentifier = "sessionCountTappableCell"
+    internal let cellIdentifier = "sessionCountCell"
     
     internal var count: Int
     internal var icon = UIImage(named: "historyIcon")
