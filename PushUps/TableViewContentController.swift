@@ -59,7 +59,7 @@ extension TableViewContentController: UITableViewDataSource {
         let cellIdentifier = self.cellIdentifier(for: indexPath)
         let cell = self.tableView?.dequeueReusableCell(withIdentifier: cellIdentifier) ?? UITableViewCell()
         let content = self.sections[indexPath.section].content[indexPath.row]
-        self.configure(cell: cell, with: content)
+        (cell as? Cell)?.configure(with: content)
         return cell
     }
     
@@ -79,18 +79,58 @@ extension TableViewContentController: UITableViewDataSource {
         return self.sections[section].footerView?.height ?? 0.0
     }
     
-    // MARK: - Private Functions
-    
-    private func configure(cell: UITableViewCell, with content: CellContent) {
-        guard let cell = cell as? Cell else {
-            return
-        }
-        
-        cell.configure(with: content)
-    }
-    
 }
 
 extension TableViewContentController: UITableViewDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performAction(for: indexPath)
+        self.tableView?.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Private Functions
+    
+    private func performAction(for indexPath: IndexPath) {
+        let content = self.content(for: indexPath)
+        switch content {
+        case let selectableContent as Selectable:
+            self.select(content: selectableContent, at: indexPath)
+        default:
+            return
+        }
+    }
+    
+    private func select(content: Selectable, at indexPath: IndexPath) {
+        switch content {
+        case let selectableSingleContent as SelectableSingle:
+            self.select(content: selectableSingleContent, at: indexPath)
+        default:
+            return
+        }
+    }
+    
+    private func select(content: SelectableSingle, at indexPath: IndexPath) {
+        let sectionContent = self.sections.filter({ $0.content.contains(where: { $0 is SelectableSingle }) })
+        let selectableContent = sectionContent.flatMap({ $0 as? SelectableSingle })
+        let contentForDeselection = selectableContent.filter({ $0 !== content })
+        let _ = contentForDeselection.map({ $0.isSelected = false })
+        content.isSelected = true
+        
+        let reloadIndex = IndexSet(integer: indexPath.section)
+        self.tableView?.reloadSections(reloadIndex, with: .automatic)
+    }
+    
+    private func select(content: SelectableSectionSingle, at indexPath: IndexPath) {
+        let sectionContent = self.sections[indexPath.section].content
+        let selectableContent = sectionContent.flatMap({ $0 as? SelectableSingle })
+        let contentForDeselection = selectableContent.filter({ $0 !== content })
+        let _ = contentForDeselection.map({ $0.isSelected = false })
+        content.isSelected = true
+        
+        let reloadIndex = IndexSet(integer: indexPath.section)
+        self.tableView?.reloadSections(reloadIndex, with: .automatic)
+    }
     
 }

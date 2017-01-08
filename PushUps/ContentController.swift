@@ -35,6 +35,10 @@ internal extension ContentController {
         return self.sections[indexPath.section].content[indexPath.row].cellIdentifier
     }
     
+    internal func content(for indexPath: IndexPath) -> CellContent {
+        return self.sections[indexPath.section].content[indexPath.row]
+    }
+    
     internal mutating func removeAllContent() {
         self.sections.removeAll()
     }

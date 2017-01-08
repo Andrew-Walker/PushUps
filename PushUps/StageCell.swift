@@ -31,6 +31,7 @@ internal final class StageCell: UITableViewCell, Cell {
     private func styleUI() {
         self.backgroundColor = UIColor.clear
         self.label.textColor = UIColor.white
+        self.tintColor = UIColor.white
     }
     
     // MARK: - Internal Functions
@@ -41,6 +42,7 @@ internal final class StageCell: UITableViewCell, Cell {
         }
         
         self.label.text = "Stage \(content.number)"
+        self.accessoryType = content.isSelected ? .checkmark : .none
     }
     
 }

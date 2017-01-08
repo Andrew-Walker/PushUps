@@ -8,12 +8,21 @@
 
 import UIKit
 
-internal final class StageCellContent: CellContent {
+internal protocol Selectable: class {
+    var isSelected: Bool { get set }
+}
+
+internal protocol SelectableSingle: class, Selectable {}
+
+internal protocol SelectableSectionSingle: class, Selectable {}
+
+internal final class StageCellContent: CellContent, SelectableSingle {
     
     // MARK: - Internal Properties
     
     internal let cellIdentifier = "stageCell"
     
+    internal var isSelected = false
     internal var stage: Stage
     internal var number: Int
     
