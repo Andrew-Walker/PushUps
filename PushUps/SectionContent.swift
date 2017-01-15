@@ -1,5 +1,5 @@
 //
-//  Section.swift
+//  SectionContent.swift
 //  PushUps
 //
 //  Created by Andrew Walker on 01/01/2017.
@@ -8,17 +8,19 @@
 
 import UIKit
 
-internal protocol SectionHeaderFooterView: class {
-    var height: CGFloat { get set }
+internal protocol SectionContent: class {
+    var content: [CellContent] { get set }
+    var headerView: SectionHeaderFooterView? { get set }
+    var footerView: SectionHeaderFooterView? { get set }
 }
 
-internal final class Section {
+internal extension SectionContent {
     
-    // MARK: - Internal Properties
+    // MARK: - Lifecycle
     
-    internal var content = [CellContent]()
-    internal var headerView: SectionHeaderFooterView?
-    internal var footerView: SectionHeaderFooterView?
+    internal init() {
+        self.init()
+    }
     
     // MARK: - Internal Functions
     

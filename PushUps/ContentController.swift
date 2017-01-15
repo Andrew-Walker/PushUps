@@ -9,13 +9,13 @@
 import UIKit
 
 internal protocol ContentController {
-    var sections: [Section] { get set }
+    var sections: [SectionContent] { get set }
     
     func reload()
     func numberOfSections() -> Int
     func numberOfItems(in section: Int) -> Int
     func cellIdentifier(for indexPath: IndexPath) -> String
-    mutating func add(section: Section)
+    mutating func add(section: SectionContent)
     mutating func removeAllContent()
 }
 
@@ -43,12 +43,23 @@ internal extension ContentController {
         self.sections.removeAll()
     }
     
-    internal mutating func add(section: Section) {
+    internal mutating func add(section: SectionContent) {
         self.sections.append(section)
     }
     
-    internal mutating func add(sections: [Section]) {
+    internal mutating func add(sections: [SectionContent]) {
         self.sections.append(contentsOf: sections)
+    }
+    
+    internal func selectedContent() -> [Selectable] {
+        let selectableContent = self.sections.flatMap({ $0.content.flatMap({ $0 as? Selectable }) })
+        let selectedContent = selectableContent.filter({ $0.isSelected })
+        return selectedContent
+    }
+    
+    internal func selectedContentSections() -> [SectionContent] {
+        let selectableContent = self.sections.filter({ $0.content.contains(where: { ($0 as? Selectable)?.isSelected == true }) })
+        return selectableContent
     }
     
 }

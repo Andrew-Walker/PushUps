@@ -17,35 +17,37 @@ internal final class TrainingListCellContentFactory {
 
     // MARK: - Internal Functions
     
-    internal static func createLevelSections(from levels: [Level]) -> [Section] {
-        var sections = [Section]()
+    internal static func createLevelSections(from levels: [Level], selectedStage: Stage?) -> [SectionContent] {
+        var sections = [SectionContent]()
         
         for (index, level) in levels.enumerated() {
-            let section = TrainingListCellContentFactory.createLevelSection(from: level, index: index)
+            let section = TrainingListCellContentFactory.createLevelSection(from: level, index: index, selectedStage: selectedStage)
             sections.append(section)
         }
         
         return sections
     }
     
-    private static func createLevelSection(from level: Level, index: Int) -> Section {
-        let section = Section()
+    private static func createLevelSection(from level: Level, index: Int, selectedStage: Stage?) -> SectionContent {
+        let section = LevelSectionContent(level: level)
         let levelNumber = index + 1
         let headerText = "Level \(levelNumber)"
         let headerView = TitleHeaderFooterView(text: headerText)
         section.add(headerView: headerView)
         
         for (index, stage) in level.stages.enumerated() {
-            let content = TrainingListCellContentFactory.createStageCellContent(from: stage, index: index)
+            let isSelected = stage.id == selectedStage?.id
+            let content = TrainingListCellContentFactory.createStageCellContent(from: stage, index: index, isSelected: isSelected)
             section.add(content: content)
         }
         
         return section
     }
     
-    private static func createStageCellContent(from stage: Stage, index: Int) -> CellContent {
+    private static func createStageCellContent(from stage: Stage, index: Int, isSelected: Bool) -> CellContent {
         let stageNumber = index + 1
         let content = StageCellContent(stage: stage, number: stageNumber)
+        content.isSelected = isSelected
         return content
     }
     

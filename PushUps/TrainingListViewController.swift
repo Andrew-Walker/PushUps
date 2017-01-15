@@ -49,7 +49,8 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
         self.contentController.hidesAdditionalCells = true
         
         let levels = self.proxy?.levels() ?? []
-        let sections = TrainingListCellContentFactory.createLevelSections(from: levels)
+        let currentStage = self.proxy?.currentStage()
+        let sections = TrainingListCellContentFactory.createLevelSections(from: levels, selectedStage: currentStage)
         self.contentController.add(sections: sections)
         
         self.contentController.reload()
@@ -58,6 +59,13 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     // MARK: - Private Functions
     
     @objc private func dismissViewController() {
+        let selectedContentSections = self.contentController.selectedContentSections()
+        let selectedLevel = (selectedContentSections.first as? LevelSectionContent)?.level
+        
+        let selectedContent = self.contentController.selectedContent()
+        let selectedStage = (selectedContent.first as? StageCellContent)?.stage
+        
+        self.proxy?.set(currentLevel: selectedLevel, currentStage: selectedStage)
         self.dismiss(animated: true)
     }
     

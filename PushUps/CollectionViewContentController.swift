@@ -12,7 +12,7 @@ internal final class CollectionViewContentController: NSObject, ContentControlle
     
     // MARK: - Internal Properties
     
-    internal var sections = [Section]()
+    internal var sections = [SectionContent]()
     internal var collectionView: UICollectionView?
     
     // MARK: - Internal Functions

@@ -12,7 +12,7 @@ internal final class TableViewContentController: NSObject, ContentController {
     
     // MARK: - Internal Properties
     
-    internal var sections = [Section]()
+    internal var sections = [SectionContent]()
     internal var tableView: UITableView?
     
     internal var hidesAdditionalCells = false {
@@ -106,25 +106,29 @@ extension TableViewContentController: UITableViewDelegate {
         switch content {
         case let selectableSingleContent as SelectableSingle:
             self.select(content: selectableSingleContent, at: indexPath)
+        case let selectableSectionSingleContent as SelectableSectionSingle:
+            self.select(content: selectableSectionSingleContent, at: indexPath)
         default:
             return
         }
     }
     
     private func select(content: SelectableSingle, at indexPath: IndexPath) {
-        let sectionContent = self.sections.filter({ $0.content.contains(where: { $0 is SelectableSingle }) })
-        let selectableContent = sectionContent.flatMap({ $0 as? SelectableSingle })
+        let selectableContent = self.sections.flatMap({ $0.content.flatMap({ $0 as? SelectableSingle }) })
         let contentForDeselection = selectableContent.filter({ $0 !== content })
         let _ = contentForDeselection.map({ $0.isSelected = false })
         content.isSelected = true
         
-        let reloadIndex = IndexSet(integer: indexPath.section)
-        self.tableView?.reloadSections(reloadIndex, with: .automatic)
+        let upperRangeBound = self.sections.count
+        let range = Range(uncheckedBounds: (0, upperRangeBound))
+        let indexSet = IndexSet(integersIn: range)
+        
+        self.tableView?.reloadSections(indexSet, with: .automatic)
     }
     
     private func select(content: SelectableSectionSingle, at indexPath: IndexPath) {
         let sectionContent = self.sections[indexPath.section].content
-        let selectableContent = sectionContent.flatMap({ $0 as? SelectableSingle })
+        let selectableContent = sectionContent.flatMap({ $0 as? SelectableSectionSingle })
         let contentForDeselection = selectableContent.filter({ $0 !== content })
         let _ = contentForDeselection.map({ $0.isSelected = false })
         content.isSelected = true

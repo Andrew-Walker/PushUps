@@ -27,13 +27,13 @@ internal final class SessionController {
      */
     private init() {}
     
-    // MARK: - Private Functions
+    // MARK: - Internal Functions
     
     /**
      Gets current training level by filtering full list based on level ID.
      - returns: Instance conforming to Level protocol.
      */
-    private func currentTrainingLevel() -> Level? {
+    internal func currentTrainingLevel() -> Level? {
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
             return nil
         }
@@ -49,7 +49,7 @@ internal final class SessionController {
      Gets current training stage by filtering stages based on stage ID.
      - returns: Instance conforming to Stage protocol.
      */
-    private func currentTrainingStage() -> Stage? {
+    internal func currentTrainingStage() -> Stage? {
         let level = self.currentTrainingLevel()
         
         guard let user = UserController.sharedInstance.currentPushUpUser() else {
@@ -63,8 +63,6 @@ internal final class SessionController {
         let stage = level?.stages.filter({ $0.id == currentSessionIDs.stage }).first
         return stage
     }
-    
-    // MARK: - Internal Functions
     
     /**
      Populates levels array by calling SessionFactory to load list of levels from local plist file.
