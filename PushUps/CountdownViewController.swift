@@ -44,7 +44,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
     private func styleUI() {
         self.applyBackgroundGradient()
         
-        self.cancelButton.backgroundColor = UIColor.mainBlue()
+        self.cancelButton.backgroundColor = UIColor.mainBlue
     }
     
     private func configureUI() {

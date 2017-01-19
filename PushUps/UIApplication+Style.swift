@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIApplication {
     
+    // MARK: - Internal Functions
+    
     /**
      Applys global light status bar style.
      */

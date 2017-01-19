@@ -47,6 +47,16 @@ internal final class UserController {
     }
     
     /**
+     Sets user's current level and stage based on ID.
+     - parameters:
+        - levelID: Unique string ID representing level.
+        - stageID: Unique string ID representing stage.
+    */
+    internal func set(levelID: String, stageID: String) {
+        (self.user as? PushUpUser)?.set(levelID: levelID, stageID: stageID)
+    }
+    
+    /**
      Removes currently stored user.
      */
     internal func removeCurrentUser() {
@@ -54,7 +64,8 @@ internal final class UserController {
     }
     
     /**
-     
+     Gets total number of sessions completed by user.
+     - returns: Int value representing number of completed sessions.
     */
     internal func numberOfCompletedSessions() -> Int {
         return self.user?.sessions.count ?? 0

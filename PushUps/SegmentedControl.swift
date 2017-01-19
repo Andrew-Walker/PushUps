@@ -84,7 +84,7 @@ import UIKit
     // MARK: - UI
     
     private func styleUI() {
-        self.backgroundColor = UIColor.darkBackground()
+        self.backgroundColor = UIColor.darkBackground
         self.applyRoundCorners()
     }
     

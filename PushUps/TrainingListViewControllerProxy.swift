@@ -58,8 +58,7 @@ internal final class TrainingListViewControllerProxy {
             return
         }
         
-        let user = UserController.sharedInstance.currentPushUpUser()
-        user?.set(levelID: level.id, stageID: stage.id)
+        UserController.sharedInstance.set(levelID: level.id, stageID: stage.id)
     }
     
 }

@@ -20,7 +20,7 @@ internal struct TrainingSessionType: SessionTypeTemp {
     
     internal let title = "Training"
     internal let navigationBarSubtitle = "training level"
-    internal let backgroundColor = UIColor.mainBlue()
+    internal let backgroundColor = UIColor.mainBlue
     
 }
 
@@ -30,7 +30,7 @@ internal struct WorkoutSessionType: SessionTypeTemp {
     
     internal let title = "Session"
     internal let navigationBarSubtitle = "personal best"
-    internal let backgroundColor = UIColor.mainPurple()
+    internal let backgroundColor = UIColor.mainPurple
     
 }
 
@@ -68,9 +68,9 @@ internal enum SessionType: Int {
     func backgroundColor() -> UIColor {
         switch self {
         case .Training:
-            return UIColor.mainBlue()
+            return UIColor.mainBlue
         case .Session:
-            return UIColor.mainPurple()
+            return UIColor.mainPurple
         }
     }
 }

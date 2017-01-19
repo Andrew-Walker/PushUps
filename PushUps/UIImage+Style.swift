@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIImage {
     
+    // MARK: - Internal Functions
+    
     /**
      Creates image of solid color using specified size.
      - parameters:

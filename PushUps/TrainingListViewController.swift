@@ -42,6 +42,8 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     private func configureUI() {
         let rightNavigationItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissViewController))
         self.navigationItem.rightBarButtonItem = rightNavigationItem
+        
+        self.navigationItem.title = "Training Levels"
     }
     
     private func configureContent() {

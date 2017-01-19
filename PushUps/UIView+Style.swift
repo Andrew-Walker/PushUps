@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIView {
     
+    // MARK: - Internal Functions
+    
     /**
      Applys rounded corner radius calculated based on width or height.
      */

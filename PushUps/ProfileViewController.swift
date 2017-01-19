@@ -115,7 +115,7 @@ internal extension ProfileViewController {
     private func takePhotoAction() -> UIAlertAction {
         let title = NSLocalizedString("profileViewController.takePhotoActionTitle", comment: "")
         let action = UIAlertAction(title: title, style: .default) { (action) in
-            
+            self.performSegue(withIdentifier: String(describing: CaptureViewController.self), sender: nil)
         }
         return action
     }

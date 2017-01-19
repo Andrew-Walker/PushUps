@@ -16,6 +16,10 @@
 		6E1642671E2B07A700404D39 /* BasicSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1642661E2B07A700404D39 /* BasicSectionContent.swift */; };
 		6E1642691E2B07DB00404D39 /* LevelSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1642681E2B07DB00404D39 /* LevelSectionContent.swift */; };
 		6E16426B1E2B082500404D39 /* SectionHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16426A1E2B082500404D39 /* SectionHeaderFooterView.swift */; };
+		6E1D67E21E2C33DB00C5AEEF /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D67E11E2C33DB00C5AEEF /* CaptureViewController.swift */; };
+		6E1D67E41E2C3B4300C5AEEF /* DeviceAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D67E31E2C3B4300C5AEEF /* DeviceAbilities.swift */; };
+		6E1D67E71E2C3B8400C5AEEF /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */; };
+		6E1D67E91E2C4D4600C5AEEF /* UIViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D67E81E2C4D4600C5AEEF /* UIViewController+Configuration.swift */; };
 		6E1F3E5B1D3ADA4A002BDE9D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1F3E591D3ADA4A002BDE9D /* Interface.storyboard */; };
 		6E1F3E5D1D3ADA4A002BDE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E1F3E5C1D3ADA4A002BDE9D /* Assets.xcassets */; };
 		6E1F3E641D3ADA4A002BDE9D /* PushUpsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6E1F3E631D3ADA4A002BDE9D /* PushUpsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -67,6 +71,7 @@
 		6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */; };
 		6EB3A6F31DD7E9610087072F /* TimeInterval+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */; };
 		6EB3A6F51DD808E80087072F /* SessionTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F41DD808E80087072F /* SessionTypeController.swift */; };
+		6ED4115C1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */; };
 		6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* SessionController.swift */; };
 		6ED448331D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */; };
 		6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */; };
@@ -146,6 +151,10 @@
 		6E1642661E2B07A700404D39 /* BasicSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSectionContent.swift; sourceTree = "<group>"; };
 		6E1642681E2B07DB00404D39 /* LevelSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSectionContent.swift; sourceTree = "<group>"; };
 		6E16426A1E2B082500404D39 /* SectionHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterView.swift; sourceTree = "<group>"; };
+		6E1D67E11E2C33DB00C5AEEF /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		6E1D67E31E2C3B4300C5AEEF /* DeviceAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceAbilities.swift; sourceTree = "<group>"; };
+		6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		6E1D67E81E2C4D4600C5AEEF /* UIViewController+Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Configuration.swift"; sourceTree = "<group>"; };
 		6E1F3E571D3ADA4A002BDE9D /* PushUpsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushUpsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1F3E5A1D3ADA4A002BDE9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		6E1F3E5C1D3ADA4A002BDE9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +211,7 @@
 		6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+PushUps.swift"; sourceTree = "<group>"; };
 		6EB3A6F41DD808E80087072F /* SessionTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTypeController.swift; sourceTree = "<group>"; };
+		6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAuthorizationStatus+PushUps.swift"; sourceTree = "<group>"; };
 		6ED448301D7E3D6100607ED6 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Adjustment.swift"; sourceTree = "<group>"; };
@@ -256,6 +266,7 @@
 				6E0266E31DD7E42A00BD6A70 /* String+PushUps.swift */,
 				6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */,
 				6E01790B1DE11FA800707D7A /* UIVIewController+PushUps.swift */,
+				6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +279,23 @@
 				6E1642681E2B07DB00404D39 /* LevelSectionContent.swift */,
 			);
 			name = SectionContent;
+			sourceTree = "<group>";
+		};
+		6E1D67E01E2C33B700C5AEEF /* CaptureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E1D67E11E2C33DB00C5AEEF /* CaptureViewController.swift */,
+				6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */,
+			);
+			name = CaptureViewController;
+			sourceTree = "<group>";
+		};
+		6E1D67E51E2C3B5300C5AEEF /* Misc. */ = {
+			isa = PBXGroup;
+			children = (
+				6E1D67E31E2C3B4300C5AEEF /* DeviceAbilities.swift */,
+			);
+			name = Misc.;
 			sourceTree = "<group>";
 		};
 		6E1F3E581D3ADA4A002BDE9D /* PushUpsWatchApp */ = {
@@ -529,6 +557,7 @@
 		6E9709901D53DE6200999AB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E1D67E01E2C33B700C5AEEF /* CaptureViewController */,
 				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
 				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
 				6E3B9A511D78EC7A00DF7C27 /* HomeWorkoutViewController */,
@@ -585,6 +614,7 @@
 				6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */,
 				6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */,
 				6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */,
+				6E1D67E81E2C4D4600C5AEEF /* UIViewController+Configuration.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -654,6 +684,7 @@
 				6EE7AA151D88BAB5009D11E5 /* Data */,
 				6E3B9A591D78EE1400DF7C27 /* Model */,
 				6E97098F1D53DE5800999AB6 /* UI */,
+				6E1D67E51E2C3B5300C5AEEF /* Misc. */,
 			);
 			path = PushUps;
 			sourceTree = "<group>";
@@ -853,6 +884,7 @@
 				6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */,
 				6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */,
 				6E97099A1D53FDC800999AB6 /* HomeViewController.swift in Sources */,
+				6E1D67E21E2C33DB00C5AEEF /* CaptureViewController.swift in Sources */,
 				6E69AF371DB57F090092A1E0 /* HomeViewControllerProxy.swift in Sources */,
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
@@ -897,6 +929,8 @@
 				6E048DE71D62843200678AFE /* UIBarButtonItem+Style.swift in Sources */,
 				6E66791E1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift in Sources */,
 				6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */,
+				6E1D67E71E2C3B8400C5AEEF /* CameraController.swift in Sources */,
+				6ED4115C1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift in Sources */,
 				6EE5BCC81D344EC100C093CD /* AppDelegate.swift in Sources */,
 				6E8C17921E195A7700934B9F /* ContentController.swift in Sources */,
 				6E8C179E1E196B2D00934B9F /* SessionCountCell.swift in Sources */,
@@ -907,6 +941,7 @@
 				6E8C17901E195A5100934B9F /* CollectionViewContentController.swift in Sources */,
 				6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */,
 				6E16426B1E2B082500404D39 /* SectionHeaderFooterView.swift in Sources */,
+				6E1D67E41E2C3B4300C5AEEF /* DeviceAbilities.swift in Sources */,
 				6EDD99F71D5BE7CE00E6BF19 /* ProfileViewController.swift in Sources */,
 				6E9506A51DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift in Sources */,
 				6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */,
@@ -914,6 +949,7 @@
 				6E8C179C1E195E3600934B9F /* Cell.swift in Sources */,
 				6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */,
 				6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */,
+				6E1D67E91E2C4D4600C5AEEF /* UIViewController+Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

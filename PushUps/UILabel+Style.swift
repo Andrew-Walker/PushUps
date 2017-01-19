@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UILabel {
     
+    // MARK: - Internal Functions
+    
     /**
      Applys styling for set labels.
      */

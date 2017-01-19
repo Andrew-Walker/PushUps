@@ -41,7 +41,7 @@ internal final class WorkoutSessionViewController: UIViewController, WorkoutSess
     private func styleUI() {
         self.applyBackgroundGradient()
         
-        self.endButton.backgroundColor = UIColor.mainBlue()
+        self.endButton.backgroundColor = UIColor.mainBlue
         self.endButton.setTitle("END SESSION", for: [])
     }
     

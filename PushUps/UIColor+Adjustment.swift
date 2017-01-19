@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIColor {
     
+    // MARK: - Internal Functions
+    
     /**
      Adjusts values of colour based on a delta ammount.
      - parameters:

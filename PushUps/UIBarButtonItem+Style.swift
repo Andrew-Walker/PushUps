@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIBarButtonItem {
     
+    // MARK: - Internal Functions
+    
     /**
      Applys global white tint color style.
      */

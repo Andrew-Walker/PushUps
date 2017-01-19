@@ -10,6 +10,8 @@ import UIKit
 
 internal extension UIViewController {
     
+    // MARK: - Internal Functions
+    
     /**
      Applys background image to view and adds relevant constraints.
      */

@@ -51,7 +51,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     private func styleUI() {
         self.applyBackgroundGradient()
         
-        self.endButton.backgroundColor = UIColor.mainBlue()
+        self.endButton.backgroundColor = UIColor.mainBlue
         self.endButton.setTitle("END SESSION", for: [])
     }
     
