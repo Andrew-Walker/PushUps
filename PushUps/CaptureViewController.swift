@@ -24,17 +24,17 @@ internal final class CaptureViewController: UIViewController {
     
     // MARK: - File Private Properties
     
-    @IBOutlet fileprivate weak var noAccessLabel: UILabel!
+    @IBOutlet fileprivate weak var noAccessDescriptionLabel: UILabel!
+    @IBOutlet fileprivate weak var noAccessTitleLabel: UILabel!
+    @IBOutlet fileprivate weak var noAccessLabelContainerView: UIView!
     
     fileprivate var cameraController: CameraController?
+    fileprivate var capturedImage: UIImage?
     
     // MARK: - Lifecycle
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.cameraController = CameraController(previewView: self.previewView, delegate: self)
-        self.cameraController?.authorizeIfRequired()
         
         self.styleUI()
         self.configureUI()
@@ -52,6 +52,20 @@ internal final class CaptureViewController: UIViewController {
         self.animateStatusBarTo(isHidden: false)
     }
     
+    internal override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.cameraController = CameraController(previewView: self.previewView, delegate: self)
+        self.cameraController?.authorizeIfRequired()
+    }
+    
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: CapturePreviewViewController.self) {
+            let capturePreviewViewController = segue.destination as? CapturePreviewViewController
+            capturePreviewViewController?.image = self.capturedImage
+        }
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -66,8 +80,7 @@ internal final class CaptureViewController: UIViewController {
     }
     
     private func configureUI() {
-        self.noAccessLabel?.isHidden = true
-        self.noAccessLabel?.text = "Unable to connect to camera\n\nPlease allow access to the camera from your device settings."
+        self.setNoAccessDescriptionLabel(to: nil)
         self.cancelButton?.titleLabel?.text = "Cancel"
     }
     
@@ -81,19 +94,31 @@ internal final class CaptureViewController: UIViewController {
         self.cameraController?.capture()
     }
     
+    // MARK: - File Private Functions
+    
+    fileprivate func setNoAccessDescriptionLabel(to message: String?) {
+        self.noAccessDescriptionLabel.text = message
+        self.noAccessLabelContainerView.isHidden = message == nil
+    }
+    
 }
 
-extension CaptureViewController: CameraControllerAuthorizationDelegate {
+extension CaptureViewController: CameraControllerDelegate {
     
     // MARK: - Internal Functions
     
     internal func authorizationCompleted(with status: AVAuthorizationStatus) {
         guard status == .authorized else {
-            self.noAccessLabel.text = status.message()
+            self.setNoAccessDescriptionLabel(to: status.message())
             return
         }
         
         self.cameraController?.configure()
+    }
+    
+    internal func captured(image: UIImage) {
+        self.capturedImage = image
+        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: nil)
     }
     
 }

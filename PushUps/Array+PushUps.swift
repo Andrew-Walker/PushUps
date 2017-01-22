@@ -8,6 +8,8 @@
 
 internal extension Array {
     
+    // MARK: - Internal Functions
+    
     /**
      Gets object at specified index.
      - parameters:

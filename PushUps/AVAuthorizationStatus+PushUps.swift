@@ -15,9 +15,9 @@ internal extension AVAuthorizationStatus {
     internal func message() -> String? {
         switch self {
         case .denied:
-            return "Unable to access camera. Please adjust your device privacy settings to allow PushUps to use the camera."
+            return "Please adjust your device privacy settings to allow PushUps to use the camera."
         case .restricted:
-            return "Unable to access camera. Your current device permissions do not allow PushUps to use the camera."
+            return "Your current device permissions do not allow PushUps to use the camera."
         default:
             return nil
         }

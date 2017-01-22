@@ -9,8 +9,9 @@
 import AVFoundation
 import UIKit
 
-internal protocol CameraControllerAuthorizationDelegate: class {
+internal protocol CameraControllerDelegate: class {
     func authorizationCompleted(with status: AVAuthorizationStatus)
+    func captured(image: UIImage)
 }
 
 internal final class CameraController: NSObject {
@@ -21,7 +22,10 @@ internal final class CameraController: NSObject {
     private let imageOutput = AVCapturePhotoOutput()
     
     private weak var previewView: UIView?
-    private weak var delegate: CameraControllerAuthorizationDelegate?
+    
+    // MARK: - File Private Properties
+    
+    fileprivate weak var delegate: CameraControllerDelegate?
     
     // MARK: - Internal Properties
     
@@ -29,7 +33,7 @@ internal final class CameraController: NSObject {
     
     // MARK: - Lifecycle
     
-    internal init(previewView: UIView, delegate: CameraControllerAuthorizationDelegate) {
+    internal init(previewView: UIView, delegate: CameraControllerDelegate) {
         self.previewView = previewView
         self.delegate = delegate
     }
@@ -147,8 +151,12 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
             return
         }
         
-        var image = UIImage(data: imageData)
-        print(image)
+        guard let image = UIImage(data: imageData) else {
+            return
+        }
+        
+        let flippedImage = image.flipHorizontally()
+        self.delegate?.captured(image: flippedImage)
     }
     
 }

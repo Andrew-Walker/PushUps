@@ -61,6 +61,8 @@
 		6E925D501E1C3E7300F8DAD5 /* StageCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E925D4F1E1C3E7300F8DAD5 /* StageCellContent.swift */; };
 		6E925D521E1C42E400F8DAD5 /* TrainingListCellContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E925D511E1C42E400F8DAD5 /* TrainingListCellContentFactory.swift */; };
 		6E925D541E1C468F00F8DAD5 /* TrainingListViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E925D531E1C468F00F8DAD5 /* TrainingListViewControllerProxy.swift */; };
+		6E929B091E35184D0067686A /* CapturePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E929B081E35184D0067686A /* CapturePreviewViewController.swift */; };
+		6E929B0B1E3552CE0067686A /* UIImage+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E929B0A1E3552CE0067686A /* UIImage+PushUps.swift */; };
 		6E9506A51DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9506A41DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift */; };
 		6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709941D53DF6400999AB6 /* SegmentedControl.swift */; };
 		6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709971D53FB8000999AB6 /* UIView+Style.swift */; };
@@ -201,6 +203,8 @@
 		6E925D4F1E1C3E7300F8DAD5 /* StageCellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCellContent.swift; sourceTree = "<group>"; };
 		6E925D511E1C42E400F8DAD5 /* TrainingListCellContentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingListCellContentFactory.swift; sourceTree = "<group>"; };
 		6E925D531E1C468F00F8DAD5 /* TrainingListViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingListViewControllerProxy.swift; sourceTree = "<group>"; };
+		6E929B081E35184D0067686A /* CapturePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreviewViewController.swift; sourceTree = "<group>"; };
+		6E929B0A1E3552CE0067686A /* UIImage+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+PushUps.swift"; sourceTree = "<group>"; };
 		6E9506A41DCFED4A009E0111 /* HomeWorkoutViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E9709941D53DF6400999AB6 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		6E9709971D53FB8000999AB6 /* UIView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */,
 				6E01790B1DE11FA800707D7A /* UIVIewController+PushUps.swift */,
 				6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */,
+				6E929B0A1E3552CE0067686A /* UIImage+PushUps.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -285,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				6E1D67E11E2C33DB00C5AEEF /* CaptureViewController.swift */,
-				6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */,
 			);
 			name = CaptureViewController;
 			sourceTree = "<group>";
@@ -453,6 +457,7 @@
 			children = (
 				6E6679221DC6B3FC00E895D1 /* ProximityController.swift */,
 				6E01790D1DE1278A00707D7A /* TimerController.swift */,
+				6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -540,6 +545,14 @@
 			name = TitleHeaderFooterView;
 			sourceTree = "<group>";
 		};
+		6E929B071E3518370067686A /* CapturePreviewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E929B081E35184D0067686A /* CapturePreviewViewController.swift */,
+			);
+			name = CapturePreviewViewController;
+			sourceTree = "<group>";
+		};
 		6E97098F1D53DE5800999AB6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +570,7 @@
 		6E9709901D53DE6200999AB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E929B071E3518370067686A /* CapturePreviewViewController */,
 				6E1D67E01E2C33B700C5AEEF /* CaptureViewController */,
 				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
 				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
@@ -921,6 +935,7 @@
 				6E1642691E2B07DB00404D39 /* LevelSectionContent.swift in Sources */,
 				6EDD9A031D5D2C2C00E6BF19 /* SessionType.swift in Sources */,
 				6E8C17A01E196B7100934B9F /* SessionCountCellContent.swift in Sources */,
+				6E929B0B1E3552CE0067686A /* UIImage+PushUps.swift in Sources */,
 				6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */,
 				6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */,
 				6E925D521E1C42E400F8DAD5 /* TrainingListCellContentFactory.swift in Sources */,
@@ -947,6 +962,7 @@
 				6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */,
 				6E01790E1DE1278A00707D7A /* TimerController.swift in Sources */,
 				6E8C179C1E195E3600934B9F /* Cell.swift in Sources */,
+				6E929B091E35184D0067686A /* CapturePreviewViewController.swift in Sources */,
 				6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */,
 				6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */,
 				6E1D67E91E2C4D4600C5AEEF /* UIViewController+Configuration.swift in Sources */,

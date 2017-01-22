@@ -10,10 +10,12 @@ import UIKit
 
 internal extension UIViewController {
     
+    // MARK: - Internal Functions
+    
     /**
      Dismisses self and any parent view controllers presented modally.
     */
-    func dismissToRoot() {
+    internal func dismissToRoot() {
         var viewController = self.presentingViewController
         while let presentingViewController = viewController?.presentingViewController {
             viewController = presentingViewController

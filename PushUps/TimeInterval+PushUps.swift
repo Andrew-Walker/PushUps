@@ -10,6 +10,8 @@ import Foundation
 
 internal extension TimeInterval {
     
+    // MARK: - Internal Functions
+    
     /**
      Creates string with formatted minutes and seconds from time interval.
      - returns: String instance containing minutes and seconds.

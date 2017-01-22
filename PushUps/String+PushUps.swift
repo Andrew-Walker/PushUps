@@ -8,6 +8,8 @@
 
 internal extension String {
     
+    // MARK: - Internal Functions
+    
     /**
      Creates string representing positive or negative difference in pushup sessions.
      - parameters:
