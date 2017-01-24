@@ -622,6 +622,7 @@
                         <outlet property="shareButton" destination="lbO-rX-Xno" id="Y21-il-d1I"/>
                         <outlet property="tableView" destination="KmB-8H-KHc" id="QbW-62-Uyq"/>
                         <segue destination="IOd-po-yPl" kind="presentation" identifier="CaptureViewController" id="km3-iD-mfI"/>
+                        <segue destination="e9e-qo-QhD" kind="presentation" identifier="CapturePreviewViewController" modalTransitionStyle="crossDissolve" id="syQ-6k-MOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE6-yg-agw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1156,8 +1157,8 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="cameraSwitchIcon"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-YG-IjO">
-                                        <rect key="frame" x="165" y="0.0" width="46" height="51"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAPTURE TYPE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt1-YG-IjO">
+                                        <rect key="frame" x="140" y="0.0" width="96" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="RdC-qK-Owl"/>
                                         </constraints>
@@ -1244,16 +1245,16 @@
                                         <blurEffect style="light"/>
                                     </visualEffectView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRF-4Z-lEZ">
-                                        <rect key="frame" x="20" y="202" width="335" height="78"/>
+                                        <rect key="frame" x="20" y="212.5" width="335" height="57.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unable to connect to camera" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-le-dPC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-le-dPC">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please allow access to the camera from your device settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7g-ji-Zzh">
-                                                <rect key="frame" x="0.0" y="37" width="335" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7g-ji-Zzh">
+                                                <rect key="frame" x="0.0" y="37" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1370,9 +1371,9 @@
                                 <rect key="frame" x="0.0" y="527" width="375" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-lb-Vdc">
-                                        <rect key="frame" x="15" y="87" width="53" height="33"/>
+                                        <rect key="frame" x="15" y="87" width="114" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Retake">
+                                        <state key="normal" title="Discard Button">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -1380,9 +1381,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPF-hD-nbS">
-                                        <rect key="frame" x="280" y="87" width="80" height="33"/>
+                                        <rect key="frame" x="240" y="87" width="120" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Use Photo">
+                                        <state key="normal" title="Proceed Button">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -1536,4 +1537,7 @@
         <image name="settingsIcon" width="25" height="25"/>
         <image name="shareIcon" width="19" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="syQ-6k-MOo"/>
+    </inferredMetricsTieBreakers>
 </document>

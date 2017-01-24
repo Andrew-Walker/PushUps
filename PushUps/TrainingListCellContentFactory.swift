@@ -6,7 +6,13 @@
 //  Copyright © 2017 Andrew Walker. All rights reserved.
 //
 
+import Foundation
+
 internal final class TrainingListCellContentFactory {
+    
+    // MARK: - Private Properties
+    
+    private static let levelText = NSLocalizedString("general.level", comment: "")
     
     // MARK: - Lifecycle
     
@@ -14,7 +20,7 @@ internal final class TrainingListCellContentFactory {
      Restricts ability to create instance. Intended as singleton.
      */
     private init() {}
-
+    
     // MARK: - Internal Functions
     
     internal static func createLevelSections(from levels: [Level], selectedStage: Stage?) -> [SectionContent] {
@@ -31,7 +37,7 @@ internal final class TrainingListCellContentFactory {
     private static func createLevelSection(from level: Level, index: Int, selectedStage: Stage?) -> SectionContent {
         let section = LevelSectionContent(level: level)
         let levelNumber = index + 1
-        let headerText = "Level \(levelNumber)"
+        let headerText = "\(self.levelText) \(levelNumber)"
         let headerView = TitleHeaderFooterView(text: headerText)
         section.add(headerView: headerView)
         

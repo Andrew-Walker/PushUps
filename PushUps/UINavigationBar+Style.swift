@@ -1,5 +1,5 @@
 //
-//  UINavigationBar.swift
+//  UINavigationBar+Style.swift
 //  PushUps
 //
 //  Created by Andrew Walker on 10/08/2016.
@@ -15,7 +15,7 @@ internal extension UINavigationBar {
     /**
      Applys global clear navigation bar style.
      */
-    internal static func applyGlobalNavigationBarStyle() {
+    internal static func applyGlobalStyle() {
         self.appearance().setBackgroundImage(UIImage(), for: .default)
         self.appearance().shadowImage = UIImage()
         self.appearance().isTranslucent = true

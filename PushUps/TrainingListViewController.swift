@@ -14,6 +14,8 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let trainingLevelsText = NSLocalizedString("trainingListViewController.trainingLevels", comment: "")
+    
     private var contentController = TableViewContentController()
     
     // MARK: - Internal Properties
@@ -43,7 +45,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
         let rightNavigationItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissViewController))
         self.navigationItem.rightBarButtonItem = rightNavigationItem
         
-        self.navigationItem.title = "Training Levels"
+        self.navigationItem.title = self.trainingLevelsText
     }
     
     private func configureContent() {

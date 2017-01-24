@@ -71,6 +71,7 @@
 		6E97099E1D56897B00999AB6 /* UIImage+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099D1D56897B00999AB6 /* UIImage+Style.swift */; };
 		6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */; };
 		6E9709A31D569FEA00999AB6 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */; };
+		6E9B13B91E358EBE00605FD6 /* UIImagePickerController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9B13B81E358EBE00605FD6 /* UIImagePickerController+Style.swift */; };
 		6EB3A6F31DD7E9610087072F /* TimeInterval+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */; };
 		6EB3A6F51DD808E80087072F /* SessionTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F41DD808E80087072F /* SessionTypeController.swift */; };
 		6ED4115C1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */; };
@@ -78,7 +79,7 @@
 		6ED448331D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */; };
 		6EDD99F11D5BCE3700E6BF19 /* UIColor+Adjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */; };
 		6EDD99F31D5BD63400E6BF19 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */; };
-		6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */; };
+		6EDD99F51D5BE60900E6BF19 /* UINavigationBar+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F41D5BE60900E6BF19 /* UINavigationBar+Style.swift */; };
 		6EDD99F71D5BE7CE00E6BF19 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F61D5BE7CE00E6BF19 /* ProfileViewController.swift */; };
 		6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */; };
 		6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDD99FA1D5BF18A00E6BF19 /* CountdownViewController.swift */; };
@@ -213,6 +214,7 @@
 		6E97099D1D56897B00999AB6 /* UIImage+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Style.swift"; sourceTree = "<group>"; };
 		6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Style.swift"; sourceTree = "<group>"; };
 		6E9709A21D569FEA00999AB6 /* NavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		6E9B13B81E358EBE00605FD6 /* UIImagePickerController+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Style.swift"; sourceTree = "<group>"; };
 		6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+PushUps.swift"; sourceTree = "<group>"; };
 		6EB3A6F41DD808E80087072F /* SessionTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTypeController.swift; sourceTree = "<group>"; };
 		6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAuthorizationStatus+PushUps.swift"; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Adjustment.swift"; sourceTree = "<group>"; };
 		6EDD99F21D5BD63400E6BF19 /* NavigationBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
-		6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		6EDD99F41D5BE60900E6BF19 /* UINavigationBar+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Style.swift"; sourceTree = "<group>"; };
 		6EDD99F61D5BE7CE00E6BF19 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Style.swift"; sourceTree = "<group>"; };
 		6EDD99FA1D5BF18A00E6BF19 /* CountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		6E6679211DC6B3DC00E895D1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E8C17931E195A7D00934B9F /* ContentController */,
 				6E6679221DC6B3FC00E895D1 /* ProximityController.swift */,
 				6E01790D1DE1278A00707D7A /* TimerController.swift */,
 				6E1D67E61E2C3B8400C5AEEF /* CameraController.swift */,
@@ -480,8 +483,7 @@
 		6E8C178C1E1956A200934B9F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6E8C17A31E19935900934B9F /* Constraints */,
-				6E8C17931E195A7D00934B9F /* ContentController */,
+				6E8C17A31E19935900934B9F /* ConstraintHelper */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -519,12 +521,12 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		6E8C17A31E19935900934B9F /* Constraints */ = {
+		6E8C17A31E19935900934B9F /* ConstraintHelper */ = {
 			isa = PBXGroup;
 			children = (
 				6E8C17A41E19937400934B9F /* ConstraintHelper.swift */,
 			);
-			name = Constraints;
+			name = ConstraintHelper;
 			sourceTree = "<group>";
 		};
 		6E925D551E1C4E0A00F8DAD5 /* NavigationBarView */ = {
@@ -622,13 +624,14 @@
 				6EDD99F01D5BCE3700E6BF19 /* UIColor+Adjustment.swift */,
 				6E97099B1D56753F00999AB6 /* UIColor+Style.swift */,
 				6E97099D1D56897B00999AB6 /* UIImage+Style.swift */,
-				6EDD99F41D5BE60900E6BF19 /* UINavigationBar.swift */,
+				6EDD99F41D5BE60900E6BF19 /* UINavigationBar+Style.swift */,
 				6E9709971D53FB8000999AB6 /* UIView+Style.swift */,
 				6E97099F1D568B9A00999AB6 /* UIViewController+Style.swift */,
 				6EDD99F81D5BE9D900E6BF19 /* UIApplication+Style.swift */,
 				6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */,
 				6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */,
 				6E1D67E81E2C4D4600C5AEEF /* UIViewController+Configuration.swift */,
+				6E9B13B81E358EBE00605FD6 /* UIImagePickerController+Style.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -920,7 +923,7 @@
 				6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */,
 				6EE5BCCA1D344EC100C093CD /* TestViewController.swift in Sources */,
 				6E66791C1DC6AD5000E895D1 /* TrainingSessionViewController.swift in Sources */,
-				6EDD99F51D5BE60900E6BF19 /* UINavigationBar.swift in Sources */,
+				6EDD99F51D5BE60900E6BF19 /* UINavigationBar+Style.swift in Sources */,
 				6E01790C1DE11FA800707D7A /* UIVIewController+PushUps.swift in Sources */,
 				6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */,
 				6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */,
@@ -964,6 +967,7 @@
 				6E8C179C1E195E3600934B9F /* Cell.swift in Sources */,
 				6E929B091E35184D0067686A /* CapturePreviewViewController.swift in Sources */,
 				6E3B9A611D78F6F100DF7C27 /* WorkoutSession.swift in Sources */,
+				6E9B13B91E358EBE00605FD6 /* UIImagePickerController+Style.swift in Sources */,
 				6E593DCE1D5BCCD500C9C2CE /* Button.swift in Sources */,
 				6E1D67E91E2C4D4600C5AEEF /* UIViewController+Configuration.swift in Sources */,
 			);

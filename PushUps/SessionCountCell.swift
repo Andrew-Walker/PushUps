@@ -15,6 +15,8 @@ internal final class SessionCountCell: UITableViewCell, Cell {
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var iconImageView: UIImageView!
     
+    private let sessionsText = NSLocalizedString("general.sessions", comment: "")
+    
     // MARK: - Internal Properties
     
     internal var content: CellContent?
@@ -44,7 +46,7 @@ internal final class SessionCountCell: UITableViewCell, Cell {
         }
         
         let sessionCount = content.count 
-        self.label.text = "\(sessionCount) Sessions"
+        self.label.text = "\(sessionCount) \(self.sessionsText)"
         self.iconImageView.image = content.icon
     }
     

@@ -22,6 +22,9 @@ internal final class CaptureViewController: UIViewController {
     @IBOutlet private weak var visualEffectView: UIVisualEffectView!
     @IBOutlet private var maskImageViews: NSArray!
     
+    private let photoText = NSLocalizedString("captureViewController.photo", comment: "")
+    private let cancelText = NSLocalizedString("general.cancel", comment: "")
+    
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var noAccessDescriptionLabel: UILabel!
@@ -72,16 +75,17 @@ internal final class CaptureViewController: UIViewController {
         self.visualEffectView?.effect = UIBlurEffect(style: .dark)
         self.visualEffectView?.alpha = 0.0
         self.captureTypeLabel?.textColor = UIColor.captureTypeYellow
+        self.captureTypeLabel?.text = self.photoText.uppercased()
         self.captureButton?.tintColor = UIColor.white
         
-        for maskBorder in maskImageViews {
+        for maskBorder in self.maskImageViews {
             (maskBorder as? UIImageView)?.tintColor = UIColor.black.withAlphaComponent(0.6)
         }
     }
     
     private func configureUI() {
         self.setNoAccessDescriptionLabel(to: nil)
-        self.cancelButton?.titleLabel?.text = "Cancel"
+        self.cancelButton?.titleLabel?.text = self.cancelText
     }
     
     // MARK: - Actions
@@ -101,6 +105,12 @@ internal final class CaptureViewController: UIViewController {
         self.noAccessLabelContainerView.isHidden = message == nil
     }
     
+    fileprivate func setControlsEnabled(to enabled: Bool) {
+        self.captureButton.isEnabled = false
+        self.switchCameraButton.isEnabled = false
+        self.captureTypeLabel?.textColor = UIColor.captureTypeYellow.withAlphaComponent(0.5)
+    }
+    
 }
 
 extension CaptureViewController: CameraControllerDelegate {
@@ -110,6 +120,7 @@ extension CaptureViewController: CameraControllerDelegate {
     internal func authorizationCompleted(with status: AVAuthorizationStatus) {
         guard status == .authorized else {
             self.setNoAccessDescriptionLabel(to: status.message())
+            self.setControlsEnabled(to: false)
             return
         }
         

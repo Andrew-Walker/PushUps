@@ -6,11 +6,30 @@
   Copyright © 2016 Andrew Walker. All rights reserved.
 */
 
-// MARK: ProfileViewController
+// MARK: - CaptureViewController
 
-"profileViewController.takePhotoActionTitle" = "Take Photo";
-"profileViewController.choosePhotoActionTitle" = "Choose Photo";
+"captureViewController.photo" = "Photo";
 
-// MARK: General
+// MARK: - ProfileViewController
+
+"profileViewController.takePhoto" = "Take Photo";
+"profileViewController.choosePhoto" = "Choose Photo";
+
+// MARK: - TrainingListViewController
+
+"trainingListViewController.traningLevels" = "training levels";
+
+// MARK: - TrainingSessionViewController
+
+"trainingSessionViewController.untilNextSet" = "until next set";
+"trainingSessionViewController.pushupsToGo" = "pushups to go";
+"trainingSessionViewController.getReady" = "get ready...";
+
+// MARK: - General
 
 "general.cancel" = "Cancel";
+"general.level" = "Level";
+"general.stage" = "Stage";
+"general.session" = "Session";
+"general.sessions" = "Sessions";
+"general.of" = "of";

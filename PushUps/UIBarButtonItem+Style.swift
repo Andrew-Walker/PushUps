@@ -15,7 +15,7 @@ internal extension UIBarButtonItem {
     /**
      Applys global white tint color style.
      */
-    internal static func applyGlobalBarButtonStyle() {
+    internal static func applyGlobalStyle() {
         self.appearance().tintColor = UIColor.white
     }
     

@@ -22,7 +22,9 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     
     // MARK: - File Private Properties
     
-    fileprivate let imagePicker = UIImagePickerController()
+    fileprivate let imagePickerController = UIImagePickerController()
+    
+    fileprivate var pickedImage: UIImage?
     
     // MARK: - Internal Properties
     
@@ -33,8 +35,8 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = .photoLibrary
+        self.imagePickerController.delegate = self
+        self.imagePickerController.sourceType = .photoLibrary
         
         self.proxy = ProfileViewControllerProxy(delegate: self)
         
@@ -52,6 +54,13 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.shareButton.applyRoundCorners()
     }
     
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: CapturePreviewViewController.self) {
+            let capturePreviewViewController = segue.destination as? CapturePreviewViewController
+            capturePreviewViewController?.image = self.pickedImage
+        }
+    }
+    
     // MARK: - UI
     
     private func styleUI() {
@@ -61,6 +70,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.settingsButton.tintColor = UIColor.white
         self.shareButton.backgroundColor = UIColor.white.withAlphaComponent(0.35)
         self.shareButton.tintColor = UIColor.white
+        self.imagePickerController.applyGlobalStyle()
     }
     
     private func configureUI() {
@@ -105,7 +115,7 @@ internal extension ProfileViewController {
     internal func presentProfileImageActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(self.takePhotoAction())
-        actionSheet.addAction(self.selectPhotoAction())
+        actionSheet.addAction(self.choosePhotoAction())
         actionSheet.addAction(self.cancelAction())
         self.present(actionSheet, animated: true)
     }
@@ -113,29 +123,39 @@ internal extension ProfileViewController {
     // MARK: - Private Functions
     
     private func takePhotoAction() -> UIAlertAction {
-        let title = NSLocalizedString("profileViewController.takePhotoActionTitle", comment: "")
-        let action = UIAlertAction(title: title, style: .default) { (action) in
+        let takePhotoText = NSLocalizedString("profileViewController.takePhoto", comment: "")
+        let action = UIAlertAction(title: takePhotoText, style: .default) { (action) in
             self.performSegue(withIdentifier: String(describing: CaptureViewController.self), sender: nil)
         }
         return action
     }
     
-    private func selectPhotoAction() -> UIAlertAction {
-        let title = NSLocalizedString("profileViewController.choosePhotoActionTitle", comment: "")
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            self.present(self.imagePicker, animated: true)
+    private func choosePhotoAction() -> UIAlertAction {
+        let choosePhotoText = NSLocalizedString("profileViewController.choosePhoto", comment: "")
+        let action = UIAlertAction(title: choosePhotoText, style: .default) { (action) in
+            self.present(self.imagePickerController, animated: true)
         }
         return action
     }
     
     private func cancelAction() -> UIAlertAction {
-        let title = NSLocalizedString("general.cancel", comment: "")
-        let action = UIAlertAction(title: title, style: .cancel)
+        let cancelText = NSLocalizedString("general.cancel", comment: "")
+        let action = UIAlertAction(title: cancelText, style: .cancel)
         return action
     }
     
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
+        }
+        
+        self.pickedImage = pickedImage
+        self.dismiss(animated: true)
+        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: nil)
+    }
     
 }

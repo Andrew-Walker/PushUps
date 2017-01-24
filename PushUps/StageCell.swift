@@ -14,6 +14,8 @@ internal final class StageCell: UITableViewCell, Cell {
     
     @IBOutlet private weak var label: UILabel!
     
+    private let stageText = NSLocalizedString("general.stage", comment: "")
+    
     // MARK: - Internal Properties
     
     internal var content: CellContent?
@@ -41,7 +43,7 @@ internal final class StageCell: UITableViewCell, Cell {
             return
         }
         
-        self.label.text = "Stage \(content.number)"
+        self.label.text = "\(self.stageText) \(content.number)"
         self.accessoryType = content.isSelected ? .checkmark : .none
     }
     

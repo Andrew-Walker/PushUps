@@ -16,6 +16,8 @@ internal final class HomeTrainingViewController: UIViewController, HomeTrainingV
     @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var setsStackView: UIStackView!
     
+    private let ofText = NSLocalizedString("general.of", comment: "")
+    
     // MARK: - Internal Properties
     
     internal var proxy: HomeTrainingViewControllerProxy?
@@ -44,7 +46,7 @@ internal final class HomeTrainingViewController: UIViewController, HomeTrainingV
     
     private func configureUI() {
         let stageCount = self.proxy?.currentStageCount() ?? 0
-        let stageCountLabelText = "of \(stageCount)"
+        let stageCountLabelText =  "\(self.ofText) \(stageCount)"
         self.stageCountLabel.text = stageCountLabelText
         
         let stageIndex = self.proxy?.currentStageIndex() ?? 0

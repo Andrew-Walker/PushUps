@@ -16,6 +16,8 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     @IBOutlet private weak var backgroundButton: UIButton!
     @IBOutlet private weak var setsStackView: UIStackView!
     
+    private let pushupsToGoText = NSLocalizedString("trainingSessionViewController.pushupsToGo", comment: "")
+    
     private var activeSet: Set?
     private var proximityController: ProximityController?
     
@@ -23,6 +25,9 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     
     @IBOutlet fileprivate weak var counterLabel: UILabel!
     @IBOutlet fileprivate weak var subtitleLabel: UILabel!
+    
+    fileprivate let untilNextSetText = NSLocalizedString("trainingSessionViewController.untilNextSet", comment: "")
+    fileprivate let getReadyText = NSLocalizedString("trainingSessionViewController.getReady", comment: "")
     
     fileprivate var timerController: TimerController?
     fileprivate var currentSetCount = 0
@@ -113,7 +118,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
             return
         }
         
-        self.subtitleLabel.text = "until next set"
+        self.subtitleLabel.text = self.untilNextSetText
         self.timerController = TimerController(interval: activeSet.interval, delegate: self)
         self.timerController?.start()
         self.disableDetection()
@@ -152,7 +157,7 @@ internal final class TrainingSessionViewController: UIViewController, TrainingSe
     }
     
     fileprivate func incrementSet() {
-        self.subtitleLabel.text = "pushups to go"
+        self.subtitleLabel.text = self.pushupsToGoText
         self.currentSetCount = 0
         self.enableDetection()
         self.proxy?.incrementActiveSet()
@@ -187,12 +192,12 @@ extension TrainingSessionViewController: TimerControllerDelegate {
         
         guard counter > 5 else {
             self.counterLabel.text = counterString
-            self.subtitleLabel.text = "get ready..."
+            self.subtitleLabel.text = self.getReadyText
             return
         }
         
         self.counterLabel.text = counter.toMinutesSeconds()
-        self.subtitleLabel.text = "until next set"
+        self.subtitleLabel.text = self.untilNextSetText
     }
     
     internal func timerEnded() {

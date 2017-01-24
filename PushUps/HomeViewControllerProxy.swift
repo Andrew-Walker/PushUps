@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
+import Foundation
+
 internal protocol HomeViewControllerProxyDelegate: class {
     var proxy: HomeViewControllerProxy? { get set }
 }
@@ -15,6 +17,8 @@ internal final class HomeViewControllerProxy {
     // MARK: - Private Properties
     
     private weak var delegate: HomeViewControllerProxyDelegate?
+    
+    private let levelText = NSLocalizedString("general.level", comment: "")
     
     // MARK: - Lifecycle
     
@@ -38,7 +42,7 @@ internal final class HomeViewControllerProxy {
     internal func titleContent(sessionType: SessionType) -> String {
         guard sessionType == .Session else {
             let levelIndex = SessionController.sharedInstance.currentLevelIndex()
-            let levelIndexLabelText = "Level \(levelIndex)"
+            let levelIndexLabelText = "\(self.levelText) \(levelIndex)"
             
             return levelIndexLabelText
         }

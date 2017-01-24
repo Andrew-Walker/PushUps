@@ -42,9 +42,9 @@ internal final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func styleUI() {
-        UIApplication.applyGlobalStatusBarStyle()
-        UINavigationBar.applyGlobalNavigationBarStyle()
-        UIBarButtonItem.applyGlobalBarButtonStyle()
+        UIApplication.applyGlobalStyle()
+        UINavigationBar.applyGlobalStyle()
+        UIBarButtonItem.applyGlobalStyle()
     }
     
     private func configureTemporaryUser() {
