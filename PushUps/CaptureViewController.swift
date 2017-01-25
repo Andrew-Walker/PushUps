@@ -25,6 +25,8 @@ internal final class CaptureViewController: UIViewController {
     private let photoText = NSLocalizedString("captureViewController.photo", comment: "")
     private let cancelText = NSLocalizedString("general.cancel", comment: "")
     
+    private let captureToCapturePreviewMediator = CaptureToCapturePreviewMediator()
+    
     // MARK: - File Private Properties
     
     @IBOutlet fileprivate weak var noAccessDescriptionLabel: UILabel!
@@ -32,7 +34,6 @@ internal final class CaptureViewController: UIViewController {
     @IBOutlet fileprivate weak var noAccessLabelContainerView: UIView!
     
     fileprivate var cameraController: CameraController?
-    fileprivate var capturedImage: UIImage?
     
     // MARK: - Lifecycle
     
@@ -63,9 +64,15 @@ internal final class CaptureViewController: UIViewController {
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let image = sender as? UIImage else {
+            return
+        }
+        
         if segue.identifier == String(describing: CapturePreviewViewController.self) {
             let capturePreviewViewController = segue.destination as? CapturePreviewViewController
-            capturePreviewViewController?.image = self.capturedImage
+            capturePreviewViewController?.imageToCapturePreviewMediator = self.captureToCapturePreviewMediator
+            self.captureToCapturePreviewMediator.assign(leftViewController: self, rightViewController: capturePreviewViewController)
+            self.captureToCapturePreviewMediator.image = image
         }
     }
     
@@ -128,8 +135,7 @@ extension CaptureViewController: CameraControllerDelegate {
     }
     
     internal func captured(image: UIImage) {
-        self.capturedImage = image
-        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: nil)
+        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: image)
     }
     
 }

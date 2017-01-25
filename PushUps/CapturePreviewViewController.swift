@@ -20,6 +20,7 @@ internal final class CapturePreviewViewController: UIViewController {
     // MARK: - Internal Properties
     
     internal var image: UIImage?
+    internal var imageToCapturePreviewMediator: ImageToCapturePreviewMediator?
     
     // MARK: - Lifecycle
     
@@ -32,7 +33,13 @@ internal final class CapturePreviewViewController: UIViewController {
     // MARK: - UI
     
     private func configureUI() {
-        self.previewImageView.image = self.image
+        let discardButtonText = self.imageToCapturePreviewMediator?.discardButtonText
+        self.discardButton.setTitle(discardButtonText, for: .normal)
+        
+        let proceedButtonText = self.imageToCapturePreviewMediator?.proceedButtonText
+        self.proceedButton.setTitle(proceedButtonText, for: .normal)
+        
+        self.previewImageView.image = self.imageToCapturePreviewMediator?.image
     }
     
     // MARK: - Actions
@@ -42,6 +49,7 @@ internal final class CapturePreviewViewController: UIViewController {
     }
     
     @IBAction func proceedButtonTapped(_ sender: Any) {
+
     }
     
 }

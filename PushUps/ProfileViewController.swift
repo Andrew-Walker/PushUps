@@ -18,13 +18,13 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     @IBOutlet private weak var settingsButton: UIButton!
     @IBOutlet private weak var shareButton: UIButton!
     
+    private let profileToCapturePreviewMediator = ProfileToCapturePreviewMediator()
+    
     private var contentController = TableViewContentController()
     
     // MARK: - File Private Properties
     
     fileprivate let imagePickerController = UIImagePickerController()
-    
-    fileprivate var pickedImage: UIImage?
     
     // MARK: - Internal Properties
     
@@ -55,9 +55,15 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let image = sender as? UIImage else {
+            return
+        }
+        
         if segue.identifier == String(describing: CapturePreviewViewController.self) {
             let capturePreviewViewController = segue.destination as? CapturePreviewViewController
-            capturePreviewViewController?.image = self.pickedImage
+            capturePreviewViewController?.imageToCapturePreviewMediator = self.profileToCapturePreviewMediator
+            self.profileToCapturePreviewMediator.assign(leftViewController: self, rightViewController: capturePreviewViewController)
+            self.profileToCapturePreviewMediator.image = image
         }
     }
     
@@ -153,9 +159,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             return
         }
         
-        self.pickedImage = pickedImage
         self.dismiss(animated: true)
-        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: nil)
+        self.performSegue(withIdentifier: String(describing: CapturePreviewViewController.self), sender: pickedImage)
     }
     
 }

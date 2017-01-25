@@ -17,13 +17,19 @@
 
 // MARK: - TrainingListViewController
 
-"trainingListViewController.traningLevels" = "training levels";
+"trainingListViewController.trainingLevels" = "Training Levels";
 
 // MARK: - TrainingSessionViewController
 
 "trainingSessionViewController.untilNextSet" = "until next set";
 "trainingSessionViewController.pushupsToGo" = "pushups to go";
 "trainingSessionViewController.getReady" = "get ready...";
+
+// MARK: - CapturePreviewViewController
+
+"cameraPreviewViewController.choose" = "Choose";
+"cameraPreviewViewController.retake" = "Retake";
+"cameraPreviewViewController.usePhoto" = "Use Photo";
 
 // MARK: - General
 
