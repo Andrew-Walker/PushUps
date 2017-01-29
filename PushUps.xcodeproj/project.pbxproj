@@ -30,8 +30,7 @@
 		6E1F3E751D3ADA4A002BDE9D /* PushUpsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6E1F3E571D3ADA4A002BDE9D /* PushUpsWatchApp.app */; };
 		6E1F3E801D3AE12D002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E7F1D3AE12D002BDE9D /* HealthKit.framework */; };
 		6E1F3E841D3AEA1E002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */; };
-		6E3B9A561D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */; };
-		6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A571D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift */; };
+		6E3386B61E3EAE5800D5A225 /* TransitionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */; };
 		6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */; };
 		6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5C1D78F3F400DF7C27 /* Set.swift */; };
 		6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */; };
@@ -41,6 +40,7 @@
 		6E66791E1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66791D1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift */; };
 		6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66791F1DC6AE1900E895D1 /* CountdownViewControllerProxy.swift */; };
 		6E6679231DC6B3FC00E895D1 /* ProximityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6679221DC6B3FC00E895D1 /* ProximityController.swift */; };
+		6E67AFBE1E3D704200FE7EC7 /* TransitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E67AFBD1E3D704200FE7EC7 /* TransitionHelper.swift */; };
 		6E69AF351DAB33470092A1E0 /* UILabel+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */; };
 		6E69AF371DB57F090092A1E0 /* HomeViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */; };
 		6E7D291D1D7E180B004CC25B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D291C1D7E180B004CC25B /* User.swift */; };
@@ -102,7 +102,6 @@
 		6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31F1D8B46C600639ABB /* Stage.swift */; };
 		6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
-		6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,8 +176,7 @@
 		6E1F3E811D3AE12D002BDE9D /* PushUpsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PushUpsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		6E1F3E821D3AEA1E002BDE9D /* PushUps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PushUps.entitlements; sourceTree = "<group>"; };
 		6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeViewController+HomePageViewController.swift"; sourceTree = "<group>"; };
-		6E3B9A571D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+UIPageViewController.swift"; sourceTree = "<group>"; };
+		6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionalViewController.swift; sourceTree = "<group>"; };
 		6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		6E3B9A5C1D78F3F400DF7C27 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
@@ -188,6 +186,7 @@
 		6E66791D1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSessionViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E66791F1DC6AE1900E895D1 /* CountdownViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E6679221DC6B3FC00E895D1 /* ProximityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityController.swift; sourceTree = "<group>"; };
+		6E67AFBD1E3D704200FE7EC7 /* TransitionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionHelper.swift; sourceTree = "<group>"; };
 		6E69AF341DAB33470092A1E0 /* UILabel+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Style.swift"; sourceTree = "<group>"; };
 		6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerProxy.swift; sourceTree = "<group>"; };
 		6E7D291C1D7E180B004CC25B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -250,7 +249,6 @@
 		6EEFC31F1D8B46C600639ABB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
-		6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,11 +351,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E3386B41E3EAE4900D5A225 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		6E3B9A4C1D78EC4100DF7C27 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
 				6E9709991D53FDC800999AB6 /* HomeViewController.swift */,
-				6E3B9A551D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift */,
 				6E69AF361DB57F090092A1E0 /* HomeViewControllerProxy.swift */,
 			);
 			name = HomeViewController;
@@ -419,15 +424,6 @@
 			name = HomeTrainingViewController;
 			sourceTree = "<group>";
 		};
-		6E3B9A531D78EC8900DF7C27 /* HomePageViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6EFD433B1D5E7F09006D8E51 /* HomePageViewController.swift */,
-				6E3B9A571D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift */,
-			);
-			name = HomePageViewController;
-			sourceTree = "<group>";
-		};
 		6E3B9A541D78EC9400DF7C27 /* TestViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +469,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		6E67AFBC1E3D6FFE00FE7EC7 /* TransitionHelper */ = {
+			isa = PBXGroup;
+			children = (
+				6E67AFBD1E3D704200FE7EC7 /* TransitionHelper.swift */,
+			);
+			name = TransitionHelper;
+			sourceTree = "<group>";
+		};
 		6E7EB2691DE25A9A00020792 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +495,7 @@
 		6E8C178C1E1956A200934B9F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6E67AFBC1E3D6FFE00FE7EC7 /* TransitionHelper */,
 				6E8C17A31E19935900934B9F /* ConstraintHelper */,
 			);
 			name = Helpers;
@@ -580,11 +585,11 @@
 		6E9709901D53DE6200999AB6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E3386B41E3EAE4900D5A225 /* Protocols */,
 				6EB344541E38B75400DC9590 /* Mediators */,
 				6E929B071E3518370067686A /* CapturePreviewViewController */,
 				6E1D67E01E2C33B700C5AEEF /* CaptureViewController */,
 				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
-				6E3B9A531D78EC8900DF7C27 /* HomePageViewController */,
 				6E3B9A511D78EC7A00DF7C27 /* HomeWorkoutViewController */,
 				6E3B9A521D78EC8100DF7C27 /* HomeTrainingViewController */,
 				6E3B9A4C1D78EC4100DF7C27 /* HomeViewController */,
@@ -922,7 +927,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E3B9A561D78ED0D00DF7C27 /* HomeViewController+HomePageViewController.swift in Sources */,
 				6EB3445B1E38B7A300DC9590 /* ProfileToCapturePreviewMediator.swift in Sources */,
 				6EE7AA181D88C0A5009D11E5 /* SessionFactory.swift in Sources */,
 				6E8C17A21E1991F900934B9F /* TitleHeaderFooterView.swift in Sources */,
@@ -938,12 +942,12 @@
 				6E1642671E2B07A700404D39 /* BasicSectionContent.swift in Sources */,
 				6E0A031B1DA7FB76000FDD73 /* Array+PushUps.swift in Sources */,
 				6EEFC31E1D8B462700639ABB /* Level.swift in Sources */,
-				6E3B9A581D78ED5300DF7C27 /* HomePageViewController+UIPageViewController.swift in Sources */,
 				6EB3A6F51DD808E80087072F /* SessionTypeController.swift in Sources */,
 				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
 				6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */,
 				6EB3A6F31DD7E9610087072F /* TimeInterval+PushUps.swift in Sources */,
 				6EDD99FD1D5BF1AE00E6BF19 /* TrainingListViewController.swift in Sources */,
+				6E3386B61E3EAE5800D5A225 /* TransitionalViewController.swift in Sources */,
 				6EDD99FF1D5D1F2900E6BF19 /* WorkoutSessionViewController.swift in Sources */,
 				6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */,
 				6E0A031D1DA7FFB1000FDD73 /* HomeTrainingViewControllerProxy.swift in Sources */,
@@ -952,6 +956,7 @@
 				6E8C17A51E19937400934B9F /* ConstraintHelper.swift in Sources */,
 				6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */,
 				6EE5BCCA1D344EC100C093CD /* TestViewController.swift in Sources */,
+				6E67AFBE1E3D704200FE7EC7 /* TransitionHelper.swift in Sources */,
 				6E66791C1DC6AD5000E895D1 /* TrainingSessionViewController.swift in Sources */,
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar+Style.swift in Sources */,
 				6E01790C1DE11FA800707D7A /* UIVIewController+PushUps.swift in Sources */,
@@ -987,7 +992,6 @@
 				6E8C17A91E19B4A400934B9F /* ProfileViewControllerProxy.swift in Sources */,
 				6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */,
 				6E8C17901E195A5100934B9F /* CollectionViewContentController.swift in Sources */,
-				6EFD433C1D5E7F09006D8E51 /* HomePageViewController.swift in Sources */,
 				6EB3445D1E38B7BC00DC9590 /* CaptureToCapturePreviewMediator.swift in Sources */,
 				6E16426B1E2B082500404D39 /* SectionHeaderFooterView.swift in Sources */,
 				6E1D67E41E2C3B4300C5AEEF /* DeviceAbilities.swift in Sources */,

@@ -127,12 +127,9 @@
                                     <constraint firstAttribute="trailing" secondItem="Hf5-ED-EY0" secondAttribute="trailing" constant="16" id="x0K-Cx-Etw"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xm7-GV-fq7">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkm-vG-gTc">
                                 <rect key="frame" x="0.0" y="114" width="375" height="553"/>
-                                <connections>
-                                    <segue destination="ONR-Ik-o8A" kind="embed" identifier="HomePageViewController" id="zhf-DD-0rh"/>
-                                </connections>
-                            </containerView>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXs-aW-w3s" customClass="SessionButton" customModule="PushUps" customModuleProvider="target">
                                 <rect key="frame" x="32" y="585" width="311" height="50"/>
                                 <constraints>
@@ -146,14 +143,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.31764705882352939" green="0.83137254901960778" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="eMk-ew-ejY" firstAttribute="top" secondItem="xm7-GV-fq7" secondAttribute="bottom" id="2LA-71-ecF"/>
                             <constraint firstAttribute="trailing" secondItem="oXs-aW-w3s" secondAttribute="trailing" constant="32" id="2OP-aW-qqo"/>
                             <constraint firstItem="eMk-ew-ejY" firstAttribute="top" secondItem="oXs-aW-w3s" secondAttribute="bottom" constant="32" id="4px-yc-vU5"/>
+                            <constraint firstItem="Gkm-vG-gTc" firstAttribute="top" secondItem="Szd-KI-5yM" secondAttribute="bottom" id="6Jd-7S-ToT"/>
+                            <constraint firstItem="Gkm-vG-gTc" firstAttribute="leading" secondItem="Uuy-Ya-GPJ" secondAttribute="leading" id="EOA-Dd-qVh"/>
+                            <constraint firstAttribute="trailing" secondItem="Gkm-vG-gTc" secondAttribute="trailing" id="EQH-0l-TWT"/>
                             <constraint firstAttribute="trailing" secondItem="Szd-KI-5yM" secondAttribute="trailing" id="Maz-eq-7os"/>
-                            <constraint firstAttribute="trailing" secondItem="xm7-GV-fq7" secondAttribute="trailing" id="Mtg-tF-xuS"/>
-                            <constraint firstItem="xm7-GV-fq7" firstAttribute="leading" secondItem="Uuy-Ya-GPJ" secondAttribute="leading" id="PdE-lc-aYE"/>
                             <constraint firstItem="Szd-KI-5yM" firstAttribute="top" secondItem="005-hW-UoJ" secondAttribute="bottom" id="RcZ-Iy-Mbx"/>
-                            <constraint firstItem="xm7-GV-fq7" firstAttribute="top" secondItem="Szd-KI-5yM" secondAttribute="bottom" id="V73-jS-yul"/>
+                            <constraint firstItem="eMk-ew-ejY" firstAttribute="top" secondItem="Gkm-vG-gTc" secondAttribute="bottom" id="f0N-Hh-jhh"/>
                             <constraint firstItem="oXs-aW-w3s" firstAttribute="leading" secondItem="Uuy-Ya-GPJ" secondAttribute="leading" constant="32" id="hAY-Al-KAH"/>
                             <constraint firstItem="Szd-KI-5yM" firstAttribute="leading" secondItem="Uuy-Ya-GPJ" secondAttribute="leading" id="ki9-6f-JNl"/>
                         </constraints>
@@ -162,6 +159,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="scrollView" destination="Gkm-vG-gTc" id="tgG-jM-ULL"/>
                         <outlet property="segmentedControl" destination="Hf5-ED-EY0" id="Jcd-ZC-4VA"/>
                         <outlet property="startButton" destination="oXs-aW-w3s" id="y8D-Ws-Z8J"/>
                         <segue destination="zyl-sR-0dj" kind="presentation" identifier="ProfileViewController" id="awM-M8-UUd"/>
@@ -784,14 +782,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoi-mx-Eq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4247" y="-224"/>
-        </scene>
-        <!--Home Page View Controller-->
-        <scene sceneID="bgV-oV-Kx7">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ONR-Ik-o8A" customClass="HomePageViewController" customModule="PushUps" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nmm-lb-xj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1830" y="-490"/>
         </scene>
         <!--Home Workout View Controller-->
         <scene sceneID="wat-dN-sgr">

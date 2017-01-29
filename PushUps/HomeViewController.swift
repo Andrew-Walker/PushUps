@@ -12,7 +12,11 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     
     // MARK: - Private Properties
     
-    private var pageViewController: HomePageViewController?
+    @IBOutlet private weak var scrollView: UIScrollView!
+    
+    // MARK: - File Private Properties
+    
+    fileprivate var transitionHelper: TransitionHelper?
     
     // MARK: - Internal Properties
     
@@ -35,11 +39,10 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.configureUI()
     }
     
-    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == String(describing: HomePageViewController.self) {
-            self.pageViewController = segue.destination as? HomePageViewController
-            self.pageViewController?.pageDelegate = self
-        }
+    internal override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.configureTest()
     }
     
     // MARK: - UI
@@ -59,6 +62,38 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.navigationItem.rightBarButtonItem = rightNavigationItem
         
         self.segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged), for: .valueChanged)
+        self.scrollView.isPagingEnabled = true
+        self.scrollView.showsHorizontalScrollIndicator = false
+        self.scrollView.delegate = self
+    }
+    
+    private func configureTest() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeTrainingViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeTrainingViewController.self)) as! HomeTrainingViewController
+        let homeWorkoutViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeWorkoutViewController.self)) as! HomeWorkoutViewController
+        
+        let viewControllers = [homeTrainingViewController, homeWorkoutViewController]
+        let scrollViewFrame = self.scrollView.frame
+        let height = scrollViewFrame.height
+        let width = scrollViewFrame.width * CGFloat(viewControllers.count)
+        let contentSize = CGSize(width: width, height: height)
+        self.scrollView.contentSize = contentSize
+        self.transitionHelper = TransitionHelper(contentSize: contentSize)
+        
+        for (index, viewController) in viewControllers.enumerated() {
+            let xOrigin = scrollViewFrame.width * CGFloat(index)
+            let yOrigin = CGFloat(0.0)
+            let origin = CGPoint(x: xOrigin, y: yOrigin)
+            let size = CGSize(width: scrollViewFrame.width, height: scrollViewFrame.height)
+            viewController.view.frame = CGRect(origin: origin, size: size)
+            (viewController as? TransitionalViewController)?.contentOffsetRange = xOrigin...(xOrigin + scrollViewFrame.width)
+            self.addChildViewController(viewController)
+            self.scrollView.addSubview(viewController.view)
+            viewController.didMove(toParentViewController: self)
+            self.transitionHelper?.add(viewController: viewController as! TransitionalViewController)
+        }
+        
+        self.transitionHelper?.configure()
     }
     
     // MARK: - Actions
@@ -82,7 +117,28 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     
     @objc private func segmentedControlChanged() {
         let newIndex = self.segmentedControl.selectedIndex
-        self.pageViewController?.setPage(with: newIndex)
+    }
+    
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let color = self.transitionHelper?.color(for: scrollView.contentOffset) else {
+            return
+        }
+        
+        self.updateView(with: color)
+    }
+    
+    // MARK: - Private Functions
+    
+    private func updateView(with color: UIColor) {
+        self.view.backgroundColor = color
+        self.startButton.backgroundColor = color
+        self.segmentedControl.selectedLabelColor = color
     }
     
 }

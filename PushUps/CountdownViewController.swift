@@ -48,7 +48,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
     }
     
     private func configureUI() {
-        self.cancelButton.setTitle("CANCEL", for: [])
+        self.cancelButton.setTitle("CANCEL", for: .normal)
     }
     
     // MARK: - Actions

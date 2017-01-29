@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal final class HomeWorkoutViewController: UIViewController, HomeWorkoutViewControllerProxyDelegate {
+internal final class HomeWorkoutViewController: UIViewController, TransitionalViewController,  HomeWorkoutViewControllerProxyDelegate {
     
     // MARK: - Private Properties
     
@@ -18,7 +18,10 @@ internal final class HomeWorkoutViewController: UIViewController, HomeWorkoutVie
     
     // MARK: - Internal Properties
     
+    internal let themeColor = UIColor.mainPurple
+    
     internal var proxy: HomeWorkoutViewControllerProxy?
+    internal var contentOffsetRange: ClosedRange<CGFloat> = 0.0...0.0
     
     // MARK: - Lifecycle
     

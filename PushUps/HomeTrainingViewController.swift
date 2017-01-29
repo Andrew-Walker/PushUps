@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal final class HomeTrainingViewController: UIViewController, HomeTrainingViewControllerProxyDelegate {
+internal final class HomeTrainingViewController: UIViewController, TransitionalViewController,  HomeTrainingViewControllerProxyDelegate {
     
     // MARK: - Properties Properties
     
@@ -20,7 +20,10 @@ internal final class HomeTrainingViewController: UIViewController, HomeTrainingV
     
     // MARK: - Internal Properties
     
+    internal let themeColor = UIColor.mainBlue
+    
     internal var proxy: HomeTrainingViewControllerProxy?
+    internal var contentOffsetRange: ClosedRange<CGFloat> = 0.0...0.0
     
     // MARK: - Lifecycle
     
