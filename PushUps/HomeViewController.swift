@@ -42,7 +42,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.configureTest()
+        self.configureChildViewControllers()
     }
     
     // MARK: - UI
@@ -67,7 +67,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.scrollView.delegate = self
     }
     
-    private func configureTest() {
+    private func configureChildViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeTrainingViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeTrainingViewController.self)) as! HomeTrainingViewController
         let homeWorkoutViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeWorkoutViewController.self)) as! HomeWorkoutViewController
@@ -78,7 +78,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         let width = scrollViewFrame.width * CGFloat(viewControllers.count)
         let contentSize = CGSize(width: width, height: height)
         self.scrollView.contentSize = contentSize
-        self.transitionHelper = TransitionHelper(contentSize: contentSize)
+        self.transitionHelper = TransitionHelper(contentSize: contentSize, delegate: self)
         
         for (index, viewController) in viewControllers.enumerated() {
             let xOrigin = scrollViewFrame.width * CGFloat(index)
@@ -86,7 +86,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
             let origin = CGPoint(x: xOrigin, y: yOrigin)
             let size = CGSize(width: scrollViewFrame.width, height: scrollViewFrame.height)
             viewController.view.frame = CGRect(origin: origin, size: size)
-            (viewController as? TransitionalViewController)?.contentOffsetRange = xOrigin...(xOrigin + scrollViewFrame.width)
+            (viewController as? TransitionalViewController)?.contentOffsetRange = xOrigin..<(xOrigin + scrollViewFrame.width)
             self.addChildViewController(viewController)
             self.scrollView.addSubview(viewController.view)
             viewController.didMove(toParentViewController: self)
@@ -126,19 +126,54 @@ extension HomeViewController: UIScrollViewDelegate {
     // MARK: - Internal Functions
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let color = self.transitionHelper?.color(for: scrollView.contentOffset) else {
-            return
-        }
-        
-        self.updateView(with: color)
+        let contentOffset = scrollView.contentOffset
+        self.transitionHelper?.getColor(for: contentOffset)
+        self.transitionHelper?.getBalancedPercentage(for: contentOffset)
+        self.transitionHelper?.getPercentage(for: contentOffset)
+        self.transitionHelper?.getNearestIndex(for: contentOffset)
     }
     
-    // MARK: - Private Functions
+    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset
+//        self.transitionHelper?.getSectionIndex(for: contentOffset)
+    }
     
-    private func updateView(with color: UIColor) {
+}
+
+extension HomeViewController: TransitionHelperDelegate {
+    
+    // MARK: - Internal Functions
+    
+    internal func update(forColor color: UIColor) {
         self.view.backgroundColor = color
         self.startButton.backgroundColor = color
         self.segmentedControl.selectedLabelColor = color
+    }
+    
+    internal func update(forNearestIndex index: Int) {
+        guard let sessionType = SessionType(rawValue: index) else {
+            return
+        }
+        
+        let titleContent = self.proxy?.titleContent(sessionType: sessionType)
+        self.titleView?.setTitleContent(with: titleContent)
+        self.titleView?.setSubtitleContent(with: sessionType.navigationBarSubtitle())
+        self.startButton.setTitle("START \(sessionType.title())", for: .normal)
+        self.segmentedControl.selectedIndex = index
+        self.selectedSessionType = sessionType
+    }
+    
+    internal func update(forBalancedPercentage percentage: CGFloat) {
+        self.startButton.alpha = percentage
+        self.titleView?.alpha = percentage
+    }
+    
+    internal func update(forIndex index: Int) {
+        
+    }
+    
+    internal func update(forPercentage percentage: CGFloat) {
+        
     }
     
 }

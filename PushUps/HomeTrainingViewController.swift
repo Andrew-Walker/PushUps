@@ -23,7 +23,7 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
     internal let themeColor = UIColor.mainBlue
     
     internal var proxy: HomeTrainingViewControllerProxy?
-    internal var contentOffsetRange: ClosedRange<CGFloat> = 0.0...0.0
+    internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
     
     // MARK: - Lifecycle
     

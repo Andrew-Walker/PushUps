@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E01790C1DE11FA800707D7A /* UIVIewController+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E01790B1DE11FA800707D7A /* UIVIewController+PushUps.swift */; };
+		6E01790C1DE11FA800707D7A /* UIViewController+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E01790B1DE11FA800707D7A /* UIViewController+PushUps.swift */; };
 		6E01790E1DE1278A00707D7A /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E01790D1DE1278A00707D7A /* TimerController.swift */; };
 		6E0266E41DD7E42A00BD6A70 /* String+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0266E31DD7E42A00BD6A70 /* String+PushUps.swift */; };
 		6E048DE71D62843200678AFE /* UIBarButtonItem+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */; };
@@ -31,6 +31,7 @@
 		6E1F3E801D3AE12D002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E7F1D3AE12D002BDE9D /* HealthKit.framework */; };
 		6E1F3E841D3AEA1E002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */; };
 		6E3386B61E3EAE5800D5A225 /* TransitionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */; };
+		6E3386B81E3EC65E00D5A225 /* CGFloat+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */; };
 		6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */; };
 		6E3B9A5D1D78F3F400DF7C27 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5C1D78F3F400DF7C27 /* Set.swift */; };
 		6E3B9A5F1D78F6CF00DF7C27 /* TrainingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */; };
@@ -147,7 +148,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6E01790B1DE11FA800707D7A /* UIVIewController+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIewController+PushUps.swift"; sourceTree = "<group>"; };
+		6E01790B1DE11FA800707D7A /* UIViewController+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PushUps.swift"; sourceTree = "<group>"; };
 		6E01790D1DE1278A00707D7A /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		6E0266E31DD7E42A00BD6A70 /* String+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+PushUps.swift"; sourceTree = "<group>"; };
 		6E048DE61D62843200678AFE /* UIBarButtonItem+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Style.swift"; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		6E1F3E821D3AEA1E002BDE9D /* PushUps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PushUps.entitlements; sourceTree = "<group>"; };
 		6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionalViewController.swift; sourceTree = "<group>"; };
+		6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+PushUps.swift"; sourceTree = "<group>"; };
 		6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		6E3B9A5C1D78F3F400DF7C27 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingSession.swift; sourceTree = "<group>"; };
@@ -277,9 +279,10 @@
 				6E0A031A1DA7FB76000FDD73 /* Array+PushUps.swift */,
 				6E0266E31DD7E42A00BD6A70 /* String+PushUps.swift */,
 				6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */,
-				6E01790B1DE11FA800707D7A /* UIVIewController+PushUps.swift */,
+				6E01790B1DE11FA800707D7A /* UIViewController+PushUps.swift */,
 				6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */,
 				6E929B0A1E3552CE0067686A /* UIImage+PushUps.swift */,
+				6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -959,7 +962,7 @@
 				6E67AFBE1E3D704200FE7EC7 /* TransitionHelper.swift in Sources */,
 				6E66791C1DC6AD5000E895D1 /* TrainingSessionViewController.swift in Sources */,
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar+Style.swift in Sources */,
-				6E01790C1DE11FA800707D7A /* UIVIewController+PushUps.swift in Sources */,
+				6E01790C1DE11FA800707D7A /* UIViewController+PushUps.swift in Sources */,
 				6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */,
 				6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */,
 				6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */,
@@ -985,6 +988,7 @@
 				6E1D67E71E2C3B8400C5AEEF /* CameraController.swift in Sources */,
 				6ED4115C1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift in Sources */,
 				6EE5BCC81D344EC100C093CD /* AppDelegate.swift in Sources */,
+				6E3386B81E3EC65E00D5A225 /* CGFloat+PushUps.swift in Sources */,
 				6E8C17921E195A7700934B9F /* ContentController.swift in Sources */,
 				6E8C179E1E196B2D00934B9F /* SessionCountCell.swift in Sources */,
 				6E8C17961E195A9B00934B9F /* SectionContent.swift in Sources */,

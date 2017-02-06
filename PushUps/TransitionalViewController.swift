@@ -10,5 +10,5 @@ import UIKit
 
 internal protocol TransitionalViewController: class {
     var themeColor: UIColor { get }
-    var contentOffsetRange: ClosedRange<CGFloat> { get set }
+    var contentOffsetRange: Range<CGFloat> { get set }
 }

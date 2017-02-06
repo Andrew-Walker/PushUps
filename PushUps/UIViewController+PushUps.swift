@@ -1,5 +1,5 @@
 //
-//  UIVIewController+PushUps.swift
+//  UIViewController+PushUps.swift
 //  PushUps
 //
 //  Created by Andrew Walker on 20/11/2016.

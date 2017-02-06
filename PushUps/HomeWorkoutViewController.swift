@@ -21,7 +21,7 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     internal let themeColor = UIColor.mainPurple
     
     internal var proxy: HomeWorkoutViewControllerProxy?
-    internal var contentOffsetRange: ClosedRange<CGFloat> = 0.0...0.0
+    internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
     
     // MARK: - Lifecycle
     
