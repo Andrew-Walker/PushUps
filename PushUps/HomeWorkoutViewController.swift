@@ -19,9 +19,12 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     // MARK: - Internal Properties
     
     internal let themeColor = UIColor.mainPurple
+    internal let subtitleText = NSLocalizedString("homeWorkoutViewController.personalBest", comment: "")
     
     internal var proxy: HomeWorkoutViewControllerProxy?
     internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
+    internal var titleText: String?
+    internal var startButtonText = NSLocalizedString("homeWorkoutViewController.startSession", comment: "")
     
     // MARK: - Lifecycle
     
@@ -29,6 +32,7 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
         super.viewDidLoad()
         
         self.proxy = HomeWorkoutViewControllerProxy(delegate: self)
+        self.titleText = self.proxy?.titleString()
         
         self.styleUI()
     }
@@ -49,6 +53,8 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
         self.pushupCountLabel.text = self.proxy?.mostRecentSessionPushupCount()
         self.differenceLabel.text = self.proxy?.pushUpCountDifference()
         self.durationLabel.text = self.proxy?.mostRecentSessionDuration()
+        
+        self.startButtonText = self.startButtonText.uppercased()
     }
     
 }

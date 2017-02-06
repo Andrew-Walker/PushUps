@@ -21,9 +21,12 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
     // MARK: - Internal Properties
     
     internal let themeColor = UIColor.mainBlue
+    internal let subtitleText = NSLocalizedString("homeTrainingViewController.trainingLevel", comment: "")
     
     internal var proxy: HomeTrainingViewControllerProxy?
     internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
+    internal var titleText: String?
+    internal var startButtonText = NSLocalizedString("homeTrainingViewController.startTraining", comment: "")
     
     // MARK: - Lifecycle
     
@@ -31,6 +34,7 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
         super.viewDidLoad()
         
         self.proxy = HomeTrainingViewControllerProxy(delegate: self)
+        self.titleText = self.proxy?.titleString()
         
         self.styleUI()
     }
@@ -55,6 +59,8 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
         let stageIndex = self.proxy?.currentStageIndex() ?? 0
         let stageIndexLabelText = String(describing: stageIndex)
         self.stageIndexLabel.text = stageIndexLabelText
+        
+        self.startButtonText = self.startButtonText.uppercased()
         
         self.configureSetsStackView()
     }

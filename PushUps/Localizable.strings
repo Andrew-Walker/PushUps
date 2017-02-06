@@ -31,6 +31,16 @@
 "cameraPreviewViewController.retake" = "Retake";
 "cameraPreviewViewController.usePhoto" = "Use Photo";
 
+// MARK: - HomeWorkoutViewController
+
+"homeWorkoutViewController.startSession" = "Start Session";
+"homeWorkoutViewController.personalBest" = "personalBest";
+
+// MARK: - HomeTrainingViewController
+
+"homeTrainingViewController.startTraining" = "Start Training";
+"homeTrainingViewController.trainingLevel" = "training level";
+
 // MARK: - General
 
 "general.cancel" = "Cancel";

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Walker. All rights reserved.
 //
 
+import Foundation
+
 internal protocol HomeTrainingViewControllerProxyDelegate: class {
     var proxy: HomeTrainingViewControllerProxy? { get set }
 }
@@ -13,6 +15,8 @@ internal protocol HomeTrainingViewControllerProxyDelegate: class {
 internal final class HomeTrainingViewControllerProxy {
     
     // MARK: - Private Properties
+    
+    private let levelText = NSLocalizedString("general.level", comment: "")
     
     private weak var delegate: HomeTrainingViewControllerProxyDelegate?
     
@@ -51,6 +55,15 @@ internal final class HomeTrainingViewControllerProxy {
     */
     internal func currentStageSets() -> [Set] {
         return SessionController.sharedInstance.currentStageSets()
+    }
+    
+    /**
+     
+     */
+    internal func titleString() -> String {
+        let levelIndex = SessionController.sharedInstance.currentLevelIndex()
+        let levelIndexLabelText = "\(self.levelText) \(levelIndex)"
+        return levelIndexLabelText
     }
     
 }

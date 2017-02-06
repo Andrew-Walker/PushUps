@@ -69,4 +69,11 @@ internal final class HomeWorkoutViewControllerProxy {
         return durationString
     }
     
+    /**
+     
+    */
+    internal func titleString() -> String {
+        return "Record Goes Here"
+    }
+    
 }

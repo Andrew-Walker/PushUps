@@ -16,8 +16,6 @@ internal enum Side {
 internal protocol TransitionHelperDelegate: class {
     func update(forColor color: UIColor)
     func update(forNearestIndex index: Int)
-    func update(forIndex index: Int)
-    func update(forPercentage percentage: CGFloat)
     func update(forBalancedPercentage percentage: CGFloat)
 }
 
@@ -48,10 +46,6 @@ internal final class TransitionHelper {
     
     // MARK: - Internal Functions
     
-    internal func add(viewController: TransitionalViewController) {
-        self.viewControllers.append(viewController)
-    }
-    
     internal func configure() {
         let backgroundSectionCount = ceil(Double(self.viewControllers.count) / Double(2))
         let backgroundSectionCountInt = Int(backgroundSectionCount)
@@ -64,12 +58,20 @@ internal final class TransitionHelper {
         }
     }
     
-    internal func getPercentage(for contentOffset: CGPoint) {
-        guard let percentage = self.calculatePercentage(for: contentOffset) else {
-            return
-        }
-        
-        self.delegate?.update(forPercentage: percentage)
+    internal func add(viewController: TransitionalViewController) {
+        self.viewControllers.append(viewController)
+    }
+    
+    internal func titleText(forIndex index: Int) -> String? {
+        return self.viewControllers[index].titleText
+    }
+    
+    internal func startButtonText(forIndex index: Int) -> String? {
+        return self.viewControllers[index].startButtonText
+    }
+    
+    internal func subtitleText(forIndex index: Int) -> String {
+        return self.viewControllers[index].subtitleText
     }
     
     internal func getBalancedPercentage(for contentOffset: CGPoint) {
@@ -79,14 +81,6 @@ internal final class TransitionHelper {
         
         let balancedPercentage = percentage.balanced()
         self.delegate?.update(forBalancedPercentage: balancedPercentage)
-    }
-    
-    internal func getSectionIndex(for contentOffset: CGPoint) {
-        guard let index = self.calculateIndex(for: contentOffset) else {
-            return
-        }
-        
-        self.delegate?.update(forIndex: index)
     }
     
     internal func getColor(for contentOffset: CGPoint) {

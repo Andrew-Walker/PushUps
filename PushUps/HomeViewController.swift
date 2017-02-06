@@ -129,13 +129,7 @@ extension HomeViewController: UIScrollViewDelegate {
         let contentOffset = scrollView.contentOffset
         self.transitionHelper?.getColor(for: contentOffset)
         self.transitionHelper?.getBalancedPercentage(for: contentOffset)
-        self.transitionHelper?.getPercentage(for: contentOffset)
         self.transitionHelper?.getNearestIndex(for: contentOffset)
-    }
-    
-    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let contentOffset = scrollView.contentOffset
-//        self.transitionHelper?.getSectionIndex(for: contentOffset)
     }
     
 }
@@ -155,10 +149,13 @@ extension HomeViewController: TransitionHelperDelegate {
             return
         }
         
-        let titleContent = self.proxy?.titleContent(sessionType: sessionType)
-        self.titleView?.setTitleContent(with: titleContent)
-        self.titleView?.setSubtitleContent(with: sessionType.navigationBarSubtitle())
-        self.startButton.setTitle("START \(sessionType.title())", for: .normal)
+        let titleText = self.transitionHelper?.titleText(forIndex: index)
+        let subtitleText = self.transitionHelper?.subtitleText(forIndex: index)
+        let startButtonText = self.transitionHelper?.startButtonText(forIndex: index)
+        self.titleView?.setTitleContent(with: titleText)
+        self.titleView?.setSubtitleContent(with: subtitleText)
+        self.startButton.setTitle(startButtonText, for: .normal)
+        
         self.segmentedControl.selectedIndex = index
         self.selectedSessionType = sessionType
     }
@@ -166,14 +163,6 @@ extension HomeViewController: TransitionHelperDelegate {
     internal func update(forBalancedPercentage percentage: CGFloat) {
         self.startButton.alpha = percentage
         self.titleView?.alpha = percentage
-    }
-    
-    internal func update(forIndex index: Int) {
-        
-    }
-    
-    internal func update(forPercentage percentage: CGFloat) {
-        
     }
     
 }
