@@ -17,6 +17,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     // MARK: - File Private Properties
     
     fileprivate var transitionHelper: TransitionHelper?
+    fileprivate var viewControllers = [UIViewController]()
     
     // MARK: - Internal Properties
     
@@ -26,7 +27,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     internal let titleView = NavigationBarView.instanceFromNib()
     
     internal var proxy: HomeViewControllerProxy?
-    internal var selectedSessionType: SessionType = .Training
+    internal var selectedSessionType: SessionType?
     
     // MARK: - Lifecycle
     
@@ -34,6 +35,12 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         super.viewDidLoad()
         
         self.proxy = HomeViewControllerProxy(delegate: self)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeTrainingViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeTrainingViewController.self))
+        self.viewControllers.append(homeTrainingViewController)
+        let homeWorkoutViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeWorkoutViewController.self))
+        self.viewControllers.append(homeWorkoutViewController)
         
         self.styleUI()
         self.configureUI()
@@ -68,11 +75,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     }
     
     private func configureChildViewControllers() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeTrainingViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeTrainingViewController.self)) as! HomeTrainingViewController
-        let homeWorkoutViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeWorkoutViewController.self)) as! HomeWorkoutViewController
-        
-        let viewControllers = [homeTrainingViewController, homeWorkoutViewController]
+        let viewControllers = self.viewControllers
         let scrollViewFrame = self.scrollView.frame
         let height = scrollViewFrame.height
         let width = scrollViewFrame.width * CGFloat(viewControllers.count)
@@ -90,7 +93,12 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
             self.addChildViewController(viewController)
             self.scrollView.addSubview(viewController.view)
             viewController.didMove(toParentViewController: self)
-            self.transitionHelper?.add(viewController: viewController as! TransitionalViewController)
+            
+            guard let viewController = viewController as? TransitionalViewController else {
+                return
+            }
+            
+            self.transitionHelper?.add(viewController: viewController)
         }
         
         self.transitionHelper?.configure()
@@ -99,9 +107,11 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     // MARK: - Actions
     
     @IBAction internal func startButtonTapped(_ sender: AnyObject) {
-        let sessionType = self.selectedSessionType
-        SessionController.sharedInstance.setActive(sessionType: sessionType)
+        guard let selectedSessionType = self.selectedSessionType else {
+            return
+        }
         
+        SessionController.sharedInstance.setActive(sessionType: selectedSessionType)
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
     
@@ -130,6 +140,7 @@ extension HomeViewController: UIScrollViewDelegate {
         self.transitionHelper?.getColor(for: contentOffset)
         self.transitionHelper?.getBalancedPercentage(for: contentOffset)
         self.transitionHelper?.getNearestIndex(for: contentOffset)
+        self.transitionHelper?.getOverallPercentage(for: contentOffset)
     }
     
 }
@@ -145,17 +156,10 @@ extension HomeViewController: TransitionHelperDelegate {
     }
     
     internal func update(forNearestIndex index: Int) {
-        guard let sessionType = SessionType(rawValue: index) else {
-            return
-        }
-        
-        let titleText = self.transitionHelper?.titleText(forIndex: index)
-        let subtitleText = self.transitionHelper?.subtitleText(forIndex: index)
-        let startButtonText = self.transitionHelper?.startButtonText(forIndex: index)
-        self.titleView?.setTitleContent(with: titleText)
-        self.titleView?.setSubtitleContent(with: subtitleText)
-        self.startButton.setTitle(startButtonText, for: .normal)
-        
+        let sessionType = (self.viewControllers[index] as? TransitionalViewController)?.sessionType
+        self.titleView?.setTitleContent(with: sessionType?.titleText)
+        self.titleView?.setSubtitleContent(with: sessionType?.subtitleText)
+        self.startButton.setTitle(sessionType?.startButtonText, for: .normal)
         self.segmentedControl.selectedIndex = index
         self.selectedSessionType = sessionType
     }
@@ -163,6 +167,10 @@ extension HomeViewController: TransitionHelperDelegate {
     internal func update(forBalancedPercentage percentage: CGFloat) {
         self.startButton.alpha = percentage
         self.titleView?.alpha = percentage
+    }
+    
+    internal func update(forOverallPercentage percentage: CGFloat) {
+        print(percentage)
     }
     
 }

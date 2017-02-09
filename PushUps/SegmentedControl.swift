@@ -17,7 +17,7 @@ import UIKit
     
     // MARK: - Internal Properties
     
-    internal var items: [SessionType] = [.Training, .Session] {
+    internal var items = ["TRAINING", "WORKOUT"] {
         didSet {
             self.setupLabels()
         }
@@ -106,7 +106,7 @@ import UIKit
             let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: defaultWidth, height: defaultHeight))
             label.textAlignment = .center
             label.textColor = index == 0 ? self.selectedLabelColor : self.unselectedLabelColor
-            label.text = self.items[index].title()
+            label.text = self.items[index]
             label.font = self.font
             label.translatesAutoresizingMaskIntoConstraints = false
             

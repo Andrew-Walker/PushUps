@@ -31,15 +31,15 @@
 "cameraPreviewViewController.retake" = "Retake";
 "cameraPreviewViewController.usePhoto" = "Use Photo";
 
-// MARK: - HomeWorkoutViewController
+// MARK: - WorkoutSessionType
 
-"homeWorkoutViewController.startSession" = "Start Session";
-"homeWorkoutViewController.personalBest" = "personalBest";
+"workoutSessionType.startSession" = "Start Session";
+"workoutSessionType.personalBest" = "personal best";
 
-// MARK: - HomeTrainingViewController
+// MARK: - TrainingSessionType
 
-"homeTrainingViewController.startTraining" = "Start Training";
-"homeTrainingViewController.trainingLevel" = "training level";
+"trainingSessionType.startTraining" = "Start Training";
+"trainingSessionType.trainingLevel" = "training level";
 
 // MARK: - General
 

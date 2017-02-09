@@ -31,23 +31,4 @@ internal final class HomeViewControllerProxy {
         self.delegate = delegate
     }
     
-    // MARK: - Internal Functions
-    
-    /**
-     Gets title content for currently selected SessionType.
-     - parameters:
-        - sessionType: A case value of SessionType.
-     - returns: String value based on passed session type.
-    */
-    internal func titleContent(sessionType: SessionType) -> String {
-        guard sessionType == .Session else {
-            let levelIndex = SessionController.sharedInstance.currentLevelIndex()
-            let levelIndexLabelText = "\(self.levelText) \(levelIndex)"
-            
-            return levelIndexLabelText
-        }
-        
-        return "Record goes here"
-    }
-    
 }

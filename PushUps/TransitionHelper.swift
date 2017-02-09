@@ -8,15 +8,11 @@
 
 import UIKit
 
-internal enum Side {
-    case Left
-    case Right
-}
-
 internal protocol TransitionHelperDelegate: class {
     func update(forColor color: UIColor)
     func update(forNearestIndex index: Int)
     func update(forBalancedPercentage percentage: CGFloat)
+    func update(forOverallPercentage percentage: CGFloat)
 }
 
 fileprivate struct TransitionSection {
@@ -50,8 +46,9 @@ internal final class TransitionHelper {
         let backgroundSectionCount = ceil(Double(self.viewControllers.count) / Double(2))
         let backgroundSectionCountInt = Int(backgroundSectionCount)
         for index in 0..<backgroundSectionCountInt {
-            let fromColor = self.viewControllers[index].themeColor
-            let toColor = self.viewControllers.object(at: index + 1)?.themeColor ?? fromColor
+            let defaultColor = UIColor.mainBlue
+            let fromColor = self.viewControllers[index].sessionType?.themeColor ?? defaultColor
+            let toColor = self.viewControllers.object(at: index + 1)?.sessionType?.themeColor ?? defaultColor
             let contentOffsetRange = self.viewControllers[index].contentOffsetRange
             let transitionSection = TransitionSection(fromColor: fromColor, toColor: toColor, contentOffsetRange: contentOffsetRange)
             self.transitionSections.append(transitionSection)
@@ -62,18 +59,6 @@ internal final class TransitionHelper {
         self.viewControllers.append(viewController)
     }
     
-    internal func titleText(forIndex index: Int) -> String? {
-        return self.viewControllers[index].titleText
-    }
-    
-    internal func startButtonText(forIndex index: Int) -> String? {
-        return self.viewControllers[index].startButtonText
-    }
-    
-    internal func subtitleText(forIndex index: Int) -> String {
-        return self.viewControllers[index].subtitleText
-    }
-    
     internal func getBalancedPercentage(for contentOffset: CGPoint) {
         guard let percentage = self.calculatePercentage(for: contentOffset) else {
             return
@@ -81,6 +66,11 @@ internal final class TransitionHelper {
         
         let balancedPercentage = percentage.balanced()
         self.delegate?.update(forBalancedPercentage: balancedPercentage)
+    }
+    
+    internal func getOverallPercentage(for contentOffset: CGPoint) {
+        let overallPercentage = self.calculateOverallPercentage(for: contentOffset)
+        self.delegate?.update(forOverallPercentage: overallPercentage)
     }
     
     internal func getColor(for contentOffset: CGPoint) {
@@ -115,6 +105,10 @@ internal final class TransitionHelper {
         let upperBound = CGFloat(section.contentOffsetRange.upperBound)
         let percentage = (contentOffset.x - lowerBound) / (upperBound - lowerBound)
         return percentage
+    }
+    
+    private func calculateOverallPercentage(for contentOffset: CGPoint) -> CGFloat {
+        return contentOffset.x / self.contentSize.width
     }
     
     private func calculateIndex(for contentOffset: CGPoint) -> Int? {

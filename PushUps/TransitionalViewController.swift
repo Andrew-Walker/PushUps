@@ -9,9 +9,6 @@
 import UIKit
 
 internal protocol TransitionalViewController: class {
-    var themeColor: UIColor { get }
+    var sessionType: SessionType? { get }
     var contentOffsetRange: Range<CGFloat> { get set }
-    var titleText: String? { get }
-    var subtitleText: String { get }
-    var startButtonText: String { get }
 }

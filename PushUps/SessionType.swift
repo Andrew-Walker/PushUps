@@ -8,69 +8,31 @@
 
 import UIKit
 
-internal protocol SessionTypeTemp {
-    var title: String { get }
-    var navigationBarSubtitle: String { get }
-    var backgroundColor: UIColor { get }
+internal protocol SessionType {
+    var themeColor: UIColor { get }
+    var titleText: String? { get }
+    var subtitleText: String { get }
+    var startButtonText: String { get }
 }
 
-internal struct TrainingSessionType: SessionTypeTemp {
+internal struct TrainingSessionType: SessionType {
     
     // MARK: - Internal Properties
     
-    internal let title = "Training"
-    internal let navigationBarSubtitle = "training level"
-    internal let backgroundColor = UIColor.mainBlue
+    internal let titleText: String?
+    internal let subtitleText = NSLocalizedString("workoutSessionType.personalBest", comment: "")
+    internal let themeColor = UIColor.mainBlue
+    internal let startButtonText = NSLocalizedString("workoutSessionType.startSession", comment: "").uppercased()
     
 }
 
-internal struct WorkoutSessionType: SessionTypeTemp {
+internal struct WorkoutSessionType: SessionType {
     
     // MARK: - Internal Properties
     
-    internal let title = "Session"
-    internal let navigationBarSubtitle = "personal best"
-    internal let backgroundColor = UIColor.mainPurple
+    internal let titleText: String?
+    internal let subtitleText = NSLocalizedString("trainingSessionType.trainingLevel", comment: "")
+    internal let themeColor = UIColor.mainPurple
+    internal let startButtonText = NSLocalizedString("trainingSessionType.startTraining", comment: "").uppercased()
     
-}
-
-internal enum SessionType: Int {
-    case Training
-    case Session
-    
-    func title() -> String {
-        switch self {
-        case .Training:
-            return "TRAINING"
-        case .Session:
-            return "SESSION"
-        }
-    }
-    
-    func navigationBarTitle() -> String {
-        switch self {
-        case .Training:
-            return "Level 2"
-        case .Session:
-            return "60 Pushups"
-        }
-    }
-    
-    func navigationBarSubtitle() -> String {
-        switch self {
-        case .Training:
-            return "training level"
-        case .Session:
-            return "personal best"
-        }
-    }
-    
-    func backgroundColor() -> UIColor {
-        switch self {
-        case .Training:
-            return UIColor.mainBlue
-        case .Session:
-            return UIColor.mainPurple
-        }
-    }
 }

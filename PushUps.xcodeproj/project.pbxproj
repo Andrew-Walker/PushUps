@@ -30,6 +30,7 @@
 		6E1F3E751D3ADA4A002BDE9D /* PushUpsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6E1F3E571D3ADA4A002BDE9D /* PushUpsWatchApp.app */; };
 		6E1F3E801D3AE12D002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E7F1D3AE12D002BDE9D /* HealthKit.framework */; };
 		6E1F3E841D3AEA1E002BDE9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */; };
+		6E3001D51E4D2602002A4F24 /* SliderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3001D41E4D2601002A4F24 /* SliderControl.swift */; };
 		6E3386B61E3EAE5800D5A225 /* TransitionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */; };
 		6E3386B81E3EC65E00D5A225 /* CGFloat+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */; };
 		6E3B9A5B1D78EE2A00DF7C27 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */; };
@@ -78,7 +79,6 @@
 		6EB3445B1E38B7A300DC9590 /* ProfileToCapturePreviewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3445A1E38B7A300DC9590 /* ProfileToCapturePreviewMediator.swift */; };
 		6EB3445D1E38B7BC00DC9590 /* CaptureToCapturePreviewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3445C1E38B7BC00DC9590 /* CaptureToCapturePreviewMediator.swift */; };
 		6EB3A6F31DD7E9610087072F /* TimeInterval+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */; };
-		6EB3A6F51DD808E80087072F /* SessionTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3A6F41DD808E80087072F /* SessionTypeController.swift */; };
 		6ED4115C1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */; };
 		6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448301D7E3D6100607ED6 /* SessionController.swift */; };
 		6ED448331D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */; };
@@ -177,6 +177,7 @@
 		6E1F3E811D3AE12D002BDE9D /* PushUpsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PushUpsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		6E1F3E821D3AEA1E002BDE9D /* PushUps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PushUps.entitlements; sourceTree = "<group>"; };
 		6E1F3E831D3AEA1E002BDE9D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		6E3001D41E4D2601002A4F24 /* SliderControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderControl.swift; sourceTree = "<group>"; };
 		6E3386B51E3EAE5800D5A225 /* TransitionalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionalViewController.swift; sourceTree = "<group>"; };
 		6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+PushUps.swift"; sourceTree = "<group>"; };
 		6E3B9A5A1D78EE2A00DF7C27 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -225,7 +226,6 @@
 		6EB3445A1E38B7A300DC9590 /* ProfileToCapturePreviewMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileToCapturePreviewMediator.swift; sourceTree = "<group>"; };
 		6EB3445C1E38B7BC00DC9590 /* CaptureToCapturePreviewMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureToCapturePreviewMediator.swift; sourceTree = "<group>"; };
 		6EB3A6F21DD7E9610087072F /* TimeInterval+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+PushUps.swift"; sourceTree = "<group>"; };
-		6EB3A6F41DD808E80087072F /* SessionTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTypeController.swift; sourceTree = "<group>"; };
 		6ED4115B1E3124BF00637D0A /* AVAuthorizationStatus+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAuthorizationStatus+PushUps.swift"; sourceTree = "<group>"; };
 		6ED448301D7E3D6100607ED6 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		6ED448321D7E3F5400607ED6 /* WorkoutSessionViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewControllerProxy.swift; sourceTree = "<group>"; };
@@ -352,6 +352,14 @@
 				6E1F3E7F1D3AE12D002BDE9D /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E3001D31E4D25E3002A4F24 /* SliderControl */ = {
+			isa = PBXGroup;
+			children = (
+				6E3001D41E4D2601002A4F24 /* SliderControl.swift */,
+			);
+			name = SliderControl;
 			sourceTree = "<group>";
 		};
 		6E3386B41E3EAE4900D5A225 /* Protocols */ = {
@@ -608,6 +616,7 @@
 		6E9709911D53DE6A00999AB6 /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
+				6E3001D31E4D25E3002A4F24 /* SliderControl */,
 				6E593DCC1D5BCCCA00C9C2CE /* Button */,
 				6E9709921D53DE8E00999AB6 /* SegmentedControl */,
 			);
@@ -618,8 +627,6 @@
 			isa = PBXGroup;
 			children = (
 				6E9709941D53DF6400999AB6 /* SegmentedControl.swift */,
-				6EDD9A021D5D2C2C00E6BF19 /* SessionType.swift */,
-				6EB3A6F41DD808E80087072F /* SessionTypeController.swift */,
 			);
 			name = SegmentedControl;
 			sourceTree = "<group>";
@@ -692,6 +699,7 @@
 				6EEFC31F1D8B46C600639ABB /* Stage.swift */,
 				6E3B9A5E1D78F6CF00DF7C27 /* TrainingSession.swift */,
 				6E3B9A601D78F6F100DF7C27 /* WorkoutSession.swift */,
+				6EDD9A021D5D2C2C00E6BF19 /* SessionType.swift */,
 			);
 			name = Session;
 			sourceTree = "<group>";
@@ -945,7 +953,6 @@
 				6E1642671E2B07A700404D39 /* BasicSectionContent.swift in Sources */,
 				6E0A031B1DA7FB76000FDD73 /* Array+PushUps.swift in Sources */,
 				6EEFC31E1D8B462700639ABB /* Level.swift in Sources */,
-				6EB3A6F51DD808E80087072F /* SessionTypeController.swift in Sources */,
 				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
 				6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */,
 				6EB3A6F31DD7E9610087072F /* TimeInterval+PushUps.swift in Sources */,
@@ -964,6 +971,7 @@
 				6EDD99F51D5BE60900E6BF19 /* UINavigationBar+Style.swift in Sources */,
 				6E01790C1DE11FA800707D7A /* UIViewController+PushUps.swift in Sources */,
 				6E6679201DC6AE1900E895D1 /* CountdownViewControllerProxy.swift in Sources */,
+				6E3001D51E4D2602002A4F24 /* SliderControl.swift in Sources */,
 				6ED448311D7E3D6100607ED6 /* SessionController.swift in Sources */,
 				6E9709951D53DF6400999AB6 /* SegmentedControl.swift in Sources */,
 				6E925D541E1C468F00F8DAD5 /* TrainingListViewControllerProxy.swift in Sources */,
