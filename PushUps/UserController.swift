@@ -71,4 +71,14 @@ internal final class UserController {
         return self.user?.sessions.count ?? 0
     }
     
+    /**
+     
+    */
+    internal func personalBest() -> Int {
+        let sessions = self.user?.sessions.flatMap({ $0 as? WorkoutSession })
+        let sortedSessions = sessions?.sorted(by: { $0.pushups < $1.pushups })
+        let personalBest = sortedSessions?.last?.pushups ?? 0
+        return personalBest
+    }
+    
 }

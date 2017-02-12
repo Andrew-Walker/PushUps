@@ -29,9 +29,6 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
         
         self.proxy = HomeWorkoutViewControllerProxy(delegate: self)
         
-        let titleText = self.proxy?.titleString()
-        self.sessionType = WorkoutSessionType(titleText: titleText)
-        
         self.styleUI()
     }
     
@@ -39,6 +36,7 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
         super.viewWillAppear(animated)
         
         self.configureUI()
+        self.configureContent()
     }
     
     // MARK: - UI
@@ -51,6 +49,11 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
         self.pushupCountLabel.text = self.proxy?.mostRecentSessionPushupCount()
         self.differenceLabel.text = self.proxy?.pushUpCountDifference()
         self.durationLabel.text = self.proxy?.mostRecentSessionDuration()        
+    }
+    
+    private func configureContent() {
+        let titleText = self.proxy?.titleString()
+        self.sessionType = WorkoutSessionType(titleText: titleText)
     }
     
 }

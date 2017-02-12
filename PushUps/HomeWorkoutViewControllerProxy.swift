@@ -73,7 +73,8 @@ internal final class HomeWorkoutViewControllerProxy {
      
     */
     internal func titleString() -> String {
-        return "Record Goes Here"
+        let personalBest = UserController.sharedInstance.personalBest()
+        return "\(personalBest) pushups"
     }
     
 }

@@ -33,7 +33,7 @@
 
 // MARK: - WorkoutSessionType
 
-"workoutSessionType.startSession" = "Start Session";
+"workoutSessionType.startWorkout" = "Start Workout";
 "workoutSessionType.personalBest" = "personal best";
 
 // MARK: - TrainingSessionType

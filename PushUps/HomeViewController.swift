@@ -49,7 +49,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     internal override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.configureChildViewControllers()
+        self.transitionHelper == nil ? self.configureTransitionalViewControllers() : self.updateTransitionalViewControllers()
     }
     
     // MARK: - UI
@@ -74,12 +74,14 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.scrollView.delegate = self
     }
     
-    private func configureChildViewControllers() {
+    private func configureTransitionalViewControllers() {
         let viewControllers = self.viewControllers
         let scrollViewFrame = self.scrollView.frame
-        let height = scrollViewFrame.height
-        let width = scrollViewFrame.width * CGFloat(viewControllers.count)
-        let contentSize = CGSize(width: width, height: height)
+        
+        let contentHeight = scrollViewFrame.height
+        let contentWidth = scrollViewFrame.width * CGFloat(viewControllers.count)
+        let contentSize = CGSize(width: contentWidth, height: contentHeight)
+        
         self.scrollView.contentSize = contentSize
         self.transitionHelper = TransitionHelper(contentSize: contentSize, delegate: self)
         
@@ -93,15 +95,27 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
             self.addChildViewController(viewController)
             self.scrollView.addSubview(viewController.view)
             viewController.didMove(toParentViewController: self)
-            
-            guard let viewController = viewController as? TransitionalViewController else {
-                return
-            }
-            
-            self.transitionHelper?.add(viewController: viewController)
+            self.configure(viewController: viewController)
         }
         
         self.transitionHelper?.configure()
+        self.scrollView?.fadeIn()
+    }
+    
+    private func configure(viewController: UIViewController) {
+        guard let transitionalViewController = viewController as? TransitionalViewController else {
+            return
+        }
+        
+        self.transitionHelper?.add(viewController: transitionalViewController)
+    }
+    
+    private func updateTransitionalViewControllers() {
+        guard let index = self.transitionHelper?.nearestIndex else {
+            return
+        }
+        
+        self.update(forNearestIndex: index)
     }
     
     // MARK: - Actions

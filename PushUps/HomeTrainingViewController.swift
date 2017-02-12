@@ -31,9 +31,6 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
         
         self.proxy = HomeTrainingViewControllerProxy(delegate: self)
         
-        let titleText = self.proxy?.titleString()
-        self.sessionType = TrainingSessionType(titleText: titleText)
-        
         self.styleUI()
     }
     
@@ -41,6 +38,7 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
         super.viewWillAppear(animated)
         
         self.configureUI()
+        self.configureContent()
     }
     
     // MARK: - UI
@@ -59,6 +57,11 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
         self.stageIndexLabel.text = stageIndexLabelText
         
         self.configureSetsStackView()
+    }
+    
+    private func configureContent() {
+        let titleText = self.proxy?.titleString()
+        self.sessionType = TrainingSessionType(titleText: titleText)
     }
     
     private func configureSetsStackView() {

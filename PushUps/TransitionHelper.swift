@@ -32,6 +32,7 @@ internal final class TransitionHelper {
     
     internal var viewControllers = [TransitionalViewController]()
     internal var contentSize: CGSize
+    internal var nearestIndex = 0
     
     // MARK: - Lifecycle
     
@@ -52,7 +53,7 @@ internal final class TransitionHelper {
             let contentOffsetRange = self.viewControllers[index].contentOffsetRange
             let transitionSection = TransitionSection(fromColor: fromColor, toColor: toColor, contentOffsetRange: contentOffsetRange)
             self.transitionSections.append(transitionSection)
-        }
+        }        
     }
     
     internal func add(viewController: TransitionalViewController) {
@@ -91,6 +92,7 @@ internal final class TransitionHelper {
             return
         }
         
+        self.nearestIndex = index
         self.delegate?.update(forNearestIndex: index)
     }
     
@@ -109,14 +111,6 @@ internal final class TransitionHelper {
     
     private func calculateOverallPercentage(for contentOffset: CGPoint) -> CGFloat {
         return contentOffset.x / self.contentSize.width
-    }
-    
-    private func calculateIndex(for contentOffset: CGPoint) -> Int? {
-        guard let index = self.viewControllers.index(where: { $0.contentOffsetRange.contains(contentOffset.x) }) else {
-            return nil
-        }
-        
-        return index
     }
     
     private func calculateNearestIndex(for contentOffset: CGPoint) -> Int? {
