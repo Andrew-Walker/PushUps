@@ -56,6 +56,8 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     
     private func styleUI() {
         self.applyBackgroundGradient()
+        self.startButton.alpha = 0.0
+        self.titleView?.alpha = 0.0
     }
     
     private func configureUI() {
@@ -81,6 +83,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         let contentHeight = scrollViewFrame.height
         let contentWidth = scrollViewFrame.width * CGFloat(viewControllers.count)
         let contentSize = CGSize(width: contentWidth, height: contentHeight)
+        let defaultContentOffset = CGPoint(x: 0.0, y: 0.0)
         
         self.scrollView.contentSize = contentSize
         self.transitionHelper = TransitionHelper(contentSize: contentSize, delegate: self)
@@ -99,7 +102,10 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         }
         
         self.transitionHelper?.configure()
+        self.getContent(for: defaultContentOffset, shouldUpdateIndex: true)
         self.scrollView?.fadeIn()
+        self.startButton.fadeIn()
+        self.titleView?.fadeIn()
     }
     
     private func configure(viewController: UIViewController) {
@@ -115,7 +121,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
             return
         }
         
-        self.update(forNearestIndex: index)
+        self.update(forNearestIndex: index, shouldUpdate: true)
     }
     
     // MARK: - Actions
@@ -127,6 +133,15 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         
         SessionController.sharedInstance.setActive(sessionType: selectedSessionType)
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
+    }
+    
+    // MARK: - File Private Functions
+    
+    fileprivate func getContent(for contentOffset: CGPoint, shouldUpdateIndex: Bool) {
+        self.transitionHelper?.getColor(for: contentOffset)
+        self.transitionHelper?.getBalancedPercentage(for: contentOffset)
+        self.transitionHelper?.getNearestIndex(for: contentOffset, shouldUpdate: shouldUpdateIndex)
+        self.transitionHelper?.getOverallPercentage(for: contentOffset)
     }
     
     // MARK: - Private Functions
@@ -141,6 +156,9 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     
     @objc private func segmentedControlChanged() {
         let newIndex = self.segmentedControl.selectedIndex
+        let contentOffsetX = self.transitionHelper?.contentOffset(for: newIndex) ?? 0.0
+        let rect = CGRect(x: contentOffsetX, y: 0.0, width: 320.0, height: 454.0)
+        self.scrollView.scrollRectToVisible(rect, animated: true)
     }
     
 }
@@ -151,10 +169,8 @@ extension HomeViewController: UIScrollViewDelegate {
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffset = scrollView.contentOffset
-        self.transitionHelper?.getColor(for: contentOffset)
-        self.transitionHelper?.getBalancedPercentage(for: contentOffset)
-        self.transitionHelper?.getNearestIndex(for: contentOffset)
-        self.transitionHelper?.getOverallPercentage(for: contentOffset)
+        let shouldUpdateIndex = scrollView.isDragging
+        self.getContent(for: contentOffset, shouldUpdateIndex: shouldUpdateIndex)
     }
     
 }
@@ -169,13 +185,16 @@ extension HomeViewController: TransitionHelperDelegate {
         self.segmentedControl.selectedLabelColor = color
     }
     
-    internal func update(forNearestIndex index: Int) {
+    internal func update(forNearestIndex index: Int, shouldUpdate: Bool) {
         let sessionType = (self.viewControllers[index] as? TransitionalViewController)?.sessionType
         self.titleView?.setTitleContent(with: sessionType?.titleText)
         self.titleView?.setSubtitleContent(with: sessionType?.subtitleText)
         self.startButton.setTitle(sessionType?.startButtonText, for: .normal)
-        self.segmentedControl.selectedIndex = index
         self.selectedSessionType = sessionType
+        
+        if shouldUpdate {
+            self.segmentedControl.selectedIndex = index
+        }
     }
     
     internal func update(forBalancedPercentage percentage: CGFloat) {

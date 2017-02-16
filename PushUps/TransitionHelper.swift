@@ -10,7 +10,7 @@ import UIKit
 
 internal protocol TransitionHelperDelegate: class {
     func update(forColor color: UIColor)
-    func update(forNearestIndex index: Int)
+    func update(forNearestIndex index: Int, shouldUpdate: Bool)
     func update(forBalancedPercentage percentage: CGFloat)
     func update(forOverallPercentage percentage: CGFloat)
 }
@@ -60,6 +60,10 @@ internal final class TransitionHelper {
         self.viewControllers.append(viewController)
     }
     
+    internal func contentOffset(for index: Int) -> CGFloat {
+        return self.viewControllers[index].contentOffsetRange.lowerBound
+    }
+    
     internal func getBalancedPercentage(for contentOffset: CGPoint) {
         guard let percentage = self.calculatePercentage(for: contentOffset) else {
             return
@@ -87,13 +91,13 @@ internal final class TransitionHelper {
         self.delegate?.update(forColor: color)
     }
     
-    internal func getNearestIndex(for contentOffset: CGPoint) {
+    internal func getNearestIndex(for contentOffset: CGPoint, shouldUpdate: Bool) {
         guard let index = self.calculateNearestIndex(for: contentOffset) else {
             return
         }
         
         self.nearestIndex = index
-        self.delegate?.update(forNearestIndex: index)
+        self.delegate?.update(forNearestIndex: index, shouldUpdate: shouldUpdate)
     }
     
     // MARK: - Private Functions
