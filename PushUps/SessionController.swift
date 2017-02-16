@@ -13,7 +13,7 @@ internal final class SessionController {
     // MARK: - Private Properties
     
     private(set) var allLevels: [Level] = []
-    private(set) var activeSessionType: SessionType?
+    private(set) var selectedSessionType: SessionType?
     private(set) var activeSession: Session?
     
     // MARK: - Internal Properties
@@ -74,8 +74,8 @@ internal final class SessionController {
     /**
      Sets type of active session.
     */
-    internal func setActive(sessionType: SessionType) {
-        self.activeSessionType = sessionType
+    internal func setSelected(sessionType: SessionType) {
+        self.selectedSessionType = sessionType
     }
     
     /**

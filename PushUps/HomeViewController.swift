@@ -61,19 +61,19 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     }
     
     private func configureUI() {
-        self.titleView?.setSubtitleContent(with: "training level")
         self.navigationItem.titleView = self.titleView
-        
-        let leftNavigationItem = UIBarButtonItem(image: UIImage(named: "profileIcon"), style: .plain, target: self, action: #selector(self.showProfileViewController))
-        self.navigationItem.leftBarButtonItem = leftNavigationItem
-        
-        let rightNavigationItem = UIBarButtonItem(image: UIImage(named: "setsIcon"), style: .plain, target: self, action: #selector(self.showTrainingListViewController))
-        self.navigationItem.rightBarButtonItem = rightNavigationItem
-        
         self.segmentedControl.addTarget(self, action: #selector(self.segmentedControlChanged), for: .valueChanged)
         self.scrollView.isPagingEnabled = true
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.delegate = self
+        
+        let leftNavigationItemImage = UIImage(named: "profileIcon")
+        let leftNavigationItem = UIBarButtonItem(image: leftNavigationItemImage, style: .plain, target: self, action: #selector(self.showProfileViewController))
+        self.navigationItem.leftBarButtonItem = leftNavigationItem
+        
+        let rightNavigationItemImage = UIImage(named: "setsIcon")
+        let rightNavigationItem = UIBarButtonItem(image: rightNavigationItemImage, style: .plain, target: self, action: #selector(self.showTrainingListViewController))
+        self.navigationItem.rightBarButtonItem = rightNavigationItem
     }
     
     private func configureTransitionalViewControllers() {
@@ -83,7 +83,6 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         let contentHeight = scrollViewFrame.height
         let contentWidth = scrollViewFrame.width * CGFloat(viewControllers.count)
         let contentSize = CGSize(width: contentWidth, height: contentHeight)
-        let defaultContentOffset = CGPoint(x: 0.0, y: 0.0)
         
         self.scrollView.contentSize = contentSize
         self.transitionHelper = TransitionHelper(contentSize: contentSize, delegate: self)
@@ -102,10 +101,7 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         }
         
         self.transitionHelper?.configure()
-        self.getContent(for: defaultContentOffset, shouldUpdateIndex: true)
-        self.scrollView?.fadeIn()
-        self.startButton.fadeIn()
-        self.titleView?.fadeIn()
+        self.animateContentAppearance()
     }
     
     private func configure(viewController: UIViewController) {
@@ -124,14 +120,18 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.update(forNearestIndex: index, shouldUpdate: true)
     }
     
+    private func animateContentAppearance() {
+        let defaultContentOffset = CGPoint(x: 0.0, y: 0.0)
+        self.getContent(for: defaultContentOffset, shouldUpdateIndex: true)
+        
+        self.scrollView?.fadeIn()
+        self.startButton.fadeIn()
+        self.titleView?.fadeIn()
+    }
+    
     // MARK: - Actions
     
     @IBAction internal func startButtonTapped(_ sender: AnyObject) {
-        guard let selectedSessionType = self.selectedSessionType else {
-            return
-        }
-        
-        SessionController.sharedInstance.setActive(sessionType: selectedSessionType)
         self.performSegue(withIdentifier: String(describing: CountdownViewController.self), sender: nil)
     }
     
@@ -141,7 +141,6 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         self.transitionHelper?.getColor(for: contentOffset)
         self.transitionHelper?.getBalancedPercentage(for: contentOffset)
         self.transitionHelper?.getNearestIndex(for: contentOffset, shouldUpdate: shouldUpdateIndex)
-        self.transitionHelper?.getOverallPercentage(for: contentOffset)
     }
     
     // MARK: - Private Functions
@@ -186,24 +185,26 @@ extension HomeViewController: TransitionHelperDelegate {
     }
     
     internal func update(forNearestIndex index: Int, shouldUpdate: Bool) {
-        let sessionType = (self.viewControllers[index] as? TransitionalViewController)?.sessionType
-        self.titleView?.setTitleContent(with: sessionType?.titleText)
-        self.titleView?.setSubtitleContent(with: sessionType?.subtitleText)
-        self.startButton.setTitle(sessionType?.startButtonText, for: .normal)
-        self.selectedSessionType = sessionType
+        guard let selectedViewController = self.viewControllers[index] as? TransitionalViewController else {
+            return
+        }
+        
+        let selectedSessionType = selectedViewController.sessionType
         
         if shouldUpdate {
             self.segmentedControl.selectedIndex = index
         }
+        
+        SessionController.sharedInstance.setSelected(sessionType: selectedSessionType)
+        self.titleView?.setTitleContent(with: selectedViewController.titleText)
+        self.titleView?.setSubtitleContent(with: selectedViewController.subtitleText)
+        self.startButton.setTitle(selectedViewController.startButtonText, for: .normal)
+        self.selectedSessionType = selectedSessionType
     }
     
     internal func update(forBalancedPercentage percentage: CGFloat) {
         self.startButton.alpha = percentage
         self.titleView?.alpha = percentage
-    }
-    
-    internal func update(forOverallPercentage percentage: CGFloat) {
-        print(percentage)
     }
     
 }

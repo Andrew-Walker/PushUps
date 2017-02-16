@@ -30,11 +30,11 @@ internal final class CountdownViewControllerProxy {
     // MARK: - Internal Functions
     
     /**
-     Gets type of session to start at end of countdown.
-     - returns: SessionType case of upcoming session.
-    */
-    internal func sessionType() -> SessionType? {
-        return SessionController.sharedInstance.activeSessionType
+     Gets type of selected session to start at end of countdown.
+     - returns: Struct conforming to SessionType representing selected session.
+     */
+    internal func selectedSessionType() -> SessionType? {
+        return SessionController.sharedInstance.selectedSessionType
     }
     
 }

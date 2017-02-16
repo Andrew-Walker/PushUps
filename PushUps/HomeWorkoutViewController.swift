@@ -18,9 +18,13 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     
     // MARK: - Internal Properties
     
+    internal let subtitleText = NSLocalizedString("workoutSessionType.personalBest", comment: "")
+    internal let startButtonText = NSLocalizedString("workoutSessionType.startWorkout", comment: "").uppercased()
+    
     internal var proxy: HomeWorkoutViewControllerProxy?
     internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
-    internal var sessionType: SessionType?
+    internal var sessionType: SessionType = WorkoutSessionType()
+    internal var titleText: String?
     
     // MARK: - Lifecycle
     
@@ -52,8 +56,7 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     }
     
     private func configureContent() {
-        let titleText = self.proxy?.titleString()
-        self.sessionType = WorkoutSessionType(titleText: titleText)
+        self.titleText = self.proxy?.titleString()
     }
     
 }

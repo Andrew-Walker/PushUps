@@ -25,7 +25,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
     // MARK: - Internal Properties
     
     internal var proxy: CountdownViewControllerProxy?
-    internal var sessionType: SessionType?
+    internal var selectedSessionType: SessionType?
     
     // MARK: - Lifecycle
     
@@ -33,7 +33,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
         super.viewDidLoad()
         
         self.proxy = CountdownViewControllerProxy(delegate: self)
-        self.sessionType = self.proxy?.sessionType()
+        self.selectedSessionType = self.proxy?.selectedSessionType()
         self.timerController = TimerController(interval: 5.0, delegate: self)
         self.timerController?.start()
         
@@ -46,7 +46,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
     private func styleUI() {
         self.applyBackgroundGradient()
         
-        let themeColor = self.sessionType?.themeColor
+        let themeColor = self.selectedSessionType?.themeColor
         self.cancelButton.backgroundColor = themeColor
         self.view.backgroundColor = themeColor
     }
@@ -65,7 +65,7 @@ internal final class CountdownViewController: UIViewController, CountdownViewCon
     // MARK: - File Private Functions
     
     fileprivate func continueToSession() {
-        switch self.sessionType.self {
+        switch self.selectedSessionType.self {
         case is WorkoutSessionType:
             self.performSegue(withIdentifier: String(describing: WorkoutSessionViewController.self), sender: nil)
         case is TrainingSessionType:

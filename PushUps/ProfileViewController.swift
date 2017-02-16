@@ -29,6 +29,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     // MARK: - Internal Properties
     
     internal var proxy: ProfileViewControllerProxy?
+    internal var selectedSessionType: SessionType?
     
     // MARK: - Lifecycle
     
@@ -39,6 +40,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
         self.imagePickerController.sourceType = .photoLibrary
         
         self.proxy = ProfileViewControllerProxy(delegate: self)
+        self.selectedSessionType = self.proxy?.selectedSessionType()
         
         self.styleUI()
         self.configureUI()
@@ -70,7 +72,9 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     // MARK: - UI
     
     private func styleUI() {
-        self.applyBackground()
+        let themeColor = self.selectedSessionType?.themeColor
+        self.view.backgroundColor = themeColor
+        self.applyBackgroundGradient()
         self.tableView.backgroundColor = UIColor.clear
         self.settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.35)
         self.settingsButton.tintColor = UIColor.white

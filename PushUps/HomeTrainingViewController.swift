@@ -20,9 +20,14 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
     
     // MARK: - Internal Properties
     
+    internal let subtitleText = NSLocalizedString("trainingSessionType.trainingLevel", comment: "")
+    internal let startButtonText = NSLocalizedString("trainingSessionType.startTraining", comment: "").uppercased()
+    
     internal var proxy: HomeTrainingViewControllerProxy?
     internal var contentOffsetRange: Range<CGFloat> = 0.0..<0.0
-    internal var sessionType: SessionType?
+    internal let sessionType: SessionType = TrainingSessionType()
+    internal var titleText: String?
+    internal var rightNavigationBarItem: UIBarButtonItem?
     
     // MARK: - Lifecycle
     
@@ -60,8 +65,8 @@ internal final class HomeTrainingViewController: UIViewController, TransitionalV
     }
     
     private func configureContent() {
-        let titleText = self.proxy?.titleString()
-        self.sessionType = TrainingSessionType(titleText: titleText)
+        self.titleText = self.proxy?.titleString()
+        self.rightNavigationBarItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
     }
     
     private func configureSetsStackView() {

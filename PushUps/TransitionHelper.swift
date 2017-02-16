@@ -12,7 +12,6 @@ internal protocol TransitionHelperDelegate: class {
     func update(forColor color: UIColor)
     func update(forNearestIndex index: Int, shouldUpdate: Bool)
     func update(forBalancedPercentage percentage: CGFloat)
-    func update(forOverallPercentage percentage: CGFloat)
 }
 
 fileprivate struct TransitionSection {
@@ -25,8 +24,8 @@ internal final class TransitionHelper {
  
     // MARK: - Private Properties
     
+    private weak var delegate: TransitionHelperDelegate?
     private var transitionSections = [TransitionSection]()
-    private var delegate: TransitionHelperDelegate?
     
     // MARK: - Internal Properties
     
@@ -47,9 +46,8 @@ internal final class TransitionHelper {
         let backgroundSectionCount = ceil(Double(self.viewControllers.count) / Double(2))
         let backgroundSectionCountInt = Int(backgroundSectionCount)
         for index in 0..<backgroundSectionCountInt {
-            let defaultColor = UIColor.mainBlue
-            let fromColor = self.viewControllers[index].sessionType?.themeColor ?? defaultColor
-            let toColor = self.viewControllers.object(at: index + 1)?.sessionType?.themeColor ?? defaultColor
+            let fromColor = self.viewControllers[index].sessionType.themeColor
+            let toColor = self.viewControllers.object(at: index + 1)?.sessionType.themeColor ?? fromColor
             let contentOffsetRange = self.viewControllers[index].contentOffsetRange
             let transitionSection = TransitionSection(fromColor: fromColor, toColor: toColor, contentOffsetRange: contentOffsetRange)
             self.transitionSections.append(transitionSection)
@@ -71,11 +69,6 @@ internal final class TransitionHelper {
         
         let balancedPercentage = percentage.balanced()
         self.delegate?.update(forBalancedPercentage: balancedPercentage)
-    }
-    
-    internal func getOverallPercentage(for contentOffset: CGPoint) {
-        let overallPercentage = self.calculateOverallPercentage(for: contentOffset)
-        self.delegate?.update(forOverallPercentage: overallPercentage)
     }
     
     internal func getColor(for contentOffset: CGPoint) {
@@ -111,10 +104,6 @@ internal final class TransitionHelper {
         let upperBound = CGFloat(section.contentOffsetRange.upperBound)
         let percentage = (contentOffset.x - lowerBound) / (upperBound - lowerBound)
         return percentage
-    }
-    
-    private func calculateOverallPercentage(for contentOffset: CGPoint) -> CGFloat {
-        return contentOffset.x / self.contentSize.width
     }
     
     private func calculateNearestIndex(for contentOffset: CGPoint) -> Int? {

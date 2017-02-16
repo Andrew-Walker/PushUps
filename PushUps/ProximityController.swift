@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal protocol ProximityControllerDelegate {
+internal protocol ProximityControllerDelegate: class {
     func objectProximityEnded()
 }
 
@@ -22,7 +22,7 @@ internal final class ProximityController {
     
     // MARK: - Internal Properties
     
-    internal var delegate: ProximityControllerDelegate?
+    internal weak var delegate: ProximityControllerDelegate?
     internal var isEnabled = false
     
     // MARK: - Lifecycle

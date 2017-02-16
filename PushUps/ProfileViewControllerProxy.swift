@@ -34,4 +34,12 @@ internal final class ProfileViewControllerProxy {
         return UserController.sharedInstance.numberOfCompletedSessions()
     }
     
+    /**
+     Gets type of selected session.
+     - returns: Struct conforming to SessionType representing selected session.
+     */
+    internal func selectedSessionType() -> SessionType? {
+        return SessionController.sharedInstance.selectedSessionType
+    }
+    
 }
