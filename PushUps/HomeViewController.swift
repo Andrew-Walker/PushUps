@@ -172,6 +172,16 @@ extension HomeViewController: UIScrollViewDelegate {
         self.getContent(for: contentOffset, shouldUpdateIndex: shouldUpdateIndex)
     }
     
+    internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset
+        self.getContent(for: contentOffset, shouldUpdateIndex: true)
+    }
+    
+    internal func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let contentOffset = scrollView.contentOffset
+        self.getContent(for: contentOffset, shouldUpdateIndex: true)
+    }
+    
 }
 
 extension HomeViewController: TransitionHelperDelegate {
