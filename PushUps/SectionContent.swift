@@ -10,8 +10,8 @@ import UIKit
 
 internal protocol SectionContent: class {
     var content: [CellContent] { get set }
-    var headerView: SectionHeaderFooterView? { get set }
-    var footerView: SectionHeaderFooterView? { get set }
+    var headerViewContent: SectionHeaderFooterViewContent? { get set }
+    var footerViewContent: SectionHeaderFooterViewContent? { get set }
 }
 
 internal extension SectionContent {
@@ -28,12 +28,12 @@ internal extension SectionContent {
         self.content.append(content)
     }
     
-    internal func add(headerView: SectionHeaderFooterView?) {
-        self.headerView = headerView
+    internal func add(headerViewContent: SectionHeaderFooterViewContent?) {
+        self.headerViewContent = headerViewContent
     }
     
-    internal func add(footerView: SectionHeaderFooterView?) {
-        self.footerView = footerView
+    internal func add(footerViewContent: SectionHeaderFooterViewContent?) {
+        self.footerViewContent = footerViewContent
     }
     
 }

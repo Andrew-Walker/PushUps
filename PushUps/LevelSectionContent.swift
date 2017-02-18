@@ -11,8 +11,8 @@ internal final class LevelSectionContent: SectionContent {
     // MARK: - Internal Properties
     
     internal var content = [CellContent]()
-    internal var headerView: SectionHeaderFooterView?
-    internal var footerView: SectionHeaderFooterView?
+    internal var headerViewContent: SectionHeaderFooterViewContent?
+    internal var footerViewContent: SectionHeaderFooterViewContent?
     internal var level: Level
     
     // MARK: - Lifecycle

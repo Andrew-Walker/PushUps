@@ -50,6 +50,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     
     private func configureContent() {
         self.contentController.configure(with: self.tableView, estimatedRowHeight: 44.0)
+        self.contentController.register(headerFooterViewClass: TitleSectionHeaderFooterView.self, reuseIdentifier: "TitleSectionHeaderFooterView")
         self.contentController.hidesAdditionalCells = true
         
         let levels = self.proxy?.levels() ?? []

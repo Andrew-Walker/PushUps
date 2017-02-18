@@ -38,8 +38,8 @@ internal final class TrainingListCellContentFactory {
         let section = LevelSectionContent(level: level)
         let levelNumber = index + 1
         let headerText = "\(self.levelText) \(levelNumber)"
-        let headerView = TitleHeaderFooterView(text: headerText)
-        section.add(headerView: headerView)
+        let headerViewContent = TitleSectionHeaderFooterViewContent(text: headerText)
+        section.add(headerViewContent: headerViewContent)
         
         for (index, stage) in level.stages.enumerated() {
             let isSelected = stage.id == selectedStage?.id

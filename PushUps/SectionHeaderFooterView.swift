@@ -9,5 +9,7 @@
 import UIKit
 
 internal protocol SectionHeaderFooterView: class {
-    var height: CGFloat { get set }
+    var content: SectionHeaderFooterViewContent? { get set }
+    
+    func configure(with content: SectionHeaderFooterViewContent)
 }

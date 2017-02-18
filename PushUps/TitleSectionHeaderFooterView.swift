@@ -1,5 +1,5 @@
 //
-//  TitleHeaderFooterView.swift
+//  TitleSectionHeaderFooterView.swift
 //  PushUps
 //
 //  Created by Andrew Walker on 01/01/2017.
@@ -8,30 +8,23 @@
 
 import UIKit
 
-internal final class TitleHeaderFooterView: UITableViewHeaderFooterView, SectionHeaderFooterView {
+internal final class TitleSectionHeaderFooterView: UITableViewHeaderFooterView, SectionHeaderFooterView {
     
     // MARK: - Private Properties
     
     private var titleLabel = UILabel()
-    private var text: String?
     
     // MARK: - Internal Properties
     
-    internal var height: CGFloat = 30.0
+    internal var content: SectionHeaderFooterViewContent?
     
     // MARK: - Lifecycle
     
-    internal init(text: String) {
-        super.init(reuseIdentifier: "tableViewSectionHeaderView")
-        
-        self.text = text
+    internal override func layoutSubviews() {
+        super.layoutSubviews()
         
         self.configureUI()
         self.styleUI()
-    }
-    
-    internal required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     // MARK: - UI
@@ -44,12 +37,19 @@ internal final class TitleHeaderFooterView: UITableViewHeaderFooterView, Section
     private func configureUI() {
         self.backgroundView = UIView()
         
-        self.titleLabel.text = self.text
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.titleLabel)
+        self.addSubview(self.titleLabel)
         
         let edgeInsets = UIEdgeInsets(top: 0.0, left: 18.0, bottom: 0.0, right: 18.0)
-        ConstraintHelper.applyMarginConstraints(subview: self.titleLabel, edgeInsets: edgeInsets, superview: self.contentView)
+        ConstraintHelper.applyMarginConstraints(subview: self.titleLabel, edgeInsets: edgeInsets, superview: self)
+    }
+    
+    // MARK: - Internal Functions
+    
+    internal func configure(with content: SectionHeaderFooterViewContent) {
+        self.content = content
+        
+        self.titleLabel.text = (content as? TitleSectionHeaderFooterViewContent)?.text
     }
     
 }

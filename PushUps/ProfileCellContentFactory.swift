@@ -19,10 +19,10 @@ internal final class ProfileCellContentFactory {
     
     internal static func createHistorySection(from sessionCount: Int) -> SectionContent {
         let section = BasicSectionContent()
-        let headerView = TitleHeaderFooterView(text: "History")
+        let headerViewContent = TitleSectionHeaderFooterViewContent(text: "History")
         let content = ProfileCellContentFactory.createSessionCountCellContent(from: sessionCount)
         section.add(content: content)
-        section.add(headerView: headerView)
+        section.add(headerViewContent: headerViewContent)
         return section
     }
     

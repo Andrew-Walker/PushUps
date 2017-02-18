@@ -41,6 +41,10 @@ internal final class TableViewContentController: NSObject, ContentController {
         self.tableView?.reloadData()
     }
     
+    internal func register(headerFooterViewClass: AnyClass?, reuseIdentifier: String) {
+        self.tableView?.register(headerFooterViewClass, forHeaderFooterViewReuseIdentifier: reuseIdentifier)
+    }
+    
 }
 
 extension TableViewContentController: UITableViewDataSource {
@@ -64,19 +68,39 @@ extension TableViewContentController: UITableViewDataSource {
     }
     
     internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.sections[section].headerView as? UIView
+        guard let headerFooterViewIdentifier = self.sections[section].headerViewContent?.headerFooterViewIdentifier else {
+            return nil
+        }
+        
+        guard let headerViewContent = self.sections[section].headerViewContent else {
+            return nil
+        }
+        
+        let headerFooterView = self.tableView?.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewIdentifier)
+        (headerFooterView as? SectionHeaderFooterView)?.configure(with: headerViewContent)
+        return headerFooterView
     }
     
     internal func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return self.sections[section].footerView as? UIView
+        guard let headerFooterViewIdentifier = self.sections[section].footerViewContent?.headerFooterViewIdentifier else {
+            return nil
+        }
+        
+        guard let footerViewContent = self.sections[section].footerViewContent else {
+            return nil
+        }
+        
+        let headerFooterView = self.tableView?.dequeueReusableHeaderFooterView(withIdentifier: headerFooterViewIdentifier)
+        (headerFooterView as? SectionHeaderFooterView)?.configure(with: footerViewContent)
+        return headerFooterView
     }
     
     internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return self.sections[section].headerView?.height ?? 0.0
+        return self.sections[section].headerViewContent?.height ?? 0.0
     }
     
     internal func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return self.sections[section].footerView?.height ?? 0.0
+        return self.sections[section].footerViewContent?.height ?? 0.0
     }
     
 }
