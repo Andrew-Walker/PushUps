@@ -104,6 +104,7 @@
 		6EE7AA181D88C0A5009D11E5 /* SessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0EA8391D875EA2009E0541 /* SessionFactory.swift */; };
 		6EEFC31E1D8B462700639ABB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31D1D8B462700639ABB /* Level.swift */; };
 		6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31F1D8B46C600639ABB /* Stage.swift */; };
+		6EEFC3CA1E5865F400A8E2D4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEFC3C51E5865D700A8E2D4 /* Charts.framework */; };
 		6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E1F3E561D3ADA4A002BDE9D;
 			remoteInfo = PushUpsWatchApp;
+		};
+		6EEFC3C41E5865D700A8E2D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		6EEFC3C61E5865D700A8E2D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		6EEFC3C81E5865D700A8E2D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -255,6 +277,7 @@
 		6EE7AA131D88BAAA009D11E5 /* TrainingSessions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrainingSessions.plist; sourceTree = "<group>"; };
 		6EEFC31D1D8B462700639ABB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		6EEFC31F1D8B46C600639ABB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Vendor/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EEFC3CA1E5865F400A8E2D4 /* Charts.framework in Frameworks */,
 				6E1F3E841D3AEA1E002BDE9D /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,11 +758,12 @@
 		6EE5BCBB1D344EC100C093CD = {
 			isa = PBXGroup;
 			children = (
+				6E1F3E7E1D3AE12D002BDE9D /* Frameworks */,
+				6EE5BCC51D344EC100C093CD /* Products */,
 				6EE5BCC61D344EC100C093CD /* PushUps */,
 				6E1F3E581D3ADA4A002BDE9D /* PushUpsWatchApp */,
 				6E1F3E671D3ADA4A002BDE9D /* PushUpsWatchApp Extension */,
-				6EE5BCC51D344EC100C093CD /* Products */,
-				6E1F3E7E1D3AE12D002BDE9D /* Frameworks */,
+				6EEFC3BD1E58659C00A8E2D4 /* Vendor */,
 			);
 			sourceTree = "<group>";
 		};
@@ -789,6 +814,24 @@
 				6E7D291E1D7E1E12004CC25B /* UserController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6EEFC3BD1E58659C00A8E2D4 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		6EEFC3BF1E5865D600A8E2D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EEFC3C51E5865D700A8E2D4 /* Charts.framework */,
+				6EEFC3C71E5865D700A8E2D4 /* ChartsRealm.framework */,
+				6EEFC3C91E5865D700A8E2D4 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -898,6 +941,12 @@
 			mainGroup = 6EE5BCBB1D344EC100C093CD;
 			productRefGroup = 6EE5BCC51D344EC100C093CD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6EEFC3BF1E5865D600A8E2D4 /* Products */;
+					ProjectRef = 6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6EE5BCC31D344EC100C093CD /* PushUps */,
@@ -906,6 +955,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6EEFC3C51E5865D700A8E2D4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 6EEFC3C41E5865D700A8E2D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EEFC3C71E5865D700A8E2D4 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 6EEFC3C61E5865D700A8E2D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6EEFC3C91E5865D700A8E2D4 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 6EEFC3C81E5865D700A8E2D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6E1F3E551D3ADA4A002BDE9D /* Resources */ = {
