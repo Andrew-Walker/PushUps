@@ -508,7 +508,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfr-Nh-g7K" id="xIq-9z-z58">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJT-Sy-OZH">
@@ -889,16 +889,28 @@
                                     <constraint firstItem="DYh-LJ-zyb" firstAttribute="leading" secondItem="9hH-PF-0DJ" secondAttribute="trailing" constant="16" id="zV6-3m-ydG"/>
                                 </constraints>
                             </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJY-rb-ani">
+                                <rect key="frame" x="0.0" y="294" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="H6U-ur-7mT"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="FTP-rU-qFg" kind="embed" id="Xf8-SF-4Uc"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3ET-yn-ppz" secondAttribute="trailing" id="2Il-Sn-JkS"/>
+                            <constraint firstItem="xJY-rb-ani" firstAttribute="top" secondItem="3ET-yn-ppz" secondAttribute="bottom" constant="40" id="4HH-4I-RVe"/>
                             <constraint firstItem="r9d-qw-04f" firstAttribute="centerX" secondItem="r38-5R-sez" secondAttribute="centerX" id="FaG-zS-MXY"/>
                             <constraint firstItem="r9d-qw-04f" firstAttribute="top" secondItem="wnC-AB-zCL" secondAttribute="bottom" constant="-16" id="KC9-ID-Zk7"/>
+                            <constraint firstItem="xJY-rb-ani" firstAttribute="leading" secondItem="r38-5R-sez" secondAttribute="leading" id="T04-68-Wk3"/>
                             <constraint firstItem="3ET-yn-ppz" firstAttribute="top" secondItem="r9d-qw-04f" secondAttribute="bottom" constant="40" id="THR-Me-fSh"/>
                             <constraint firstItem="3ET-yn-ppz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r38-5R-sez" secondAttribute="leading" id="aVd-mm-v1m"/>
                             <constraint firstItem="wnC-AB-zCL" firstAttribute="centerX" secondItem="r38-5R-sez" secondAttribute="centerX" id="cEH-uq-lXF"/>
                             <constraint firstItem="3ET-yn-ppz" firstAttribute="centerX" secondItem="r38-5R-sez" secondAttribute="centerX" id="pnK-My-YLy"/>
+                            <constraint firstAttribute="trailing" secondItem="xJY-rb-ani" secondAttribute="trailing" id="tVO-pe-k2v"/>
                             <constraint firstItem="wnC-AB-zCL" firstAttribute="top" secondItem="khR-8V-EiP" secondAttribute="bottom" constant="40" id="yxO-B9-7QV"/>
                         </constraints>
                     </view>
@@ -1515,6 +1527,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GD-Qb-YIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4246" y="-1290"/>
+        </scene>
+        <!--Workout Chart View Controller-->
+        <scene sceneID="mPc-Qa-zWf">
+            <objects>
+                <viewController id="FTP-rU-qFg" customClass="WorkoutChartViewController" customModule="PushUps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="47k-i2-KHf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fdc-EB-m0L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Hv-yW-mdi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-Qb-tWB" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <color key="backgroundColor" red="0.52670717590000005" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3kE-Qb-tWB" secondAttribute="trailing" id="DCI-KS-kpK"/>
+                            <constraint firstAttribute="bottom" secondItem="3kE-Qb-tWB" secondAttribute="bottom" id="bQv-qy-bJI"/>
+                            <constraint firstItem="3kE-Qb-tWB" firstAttribute="top" secondItem="4Hv-yW-mdi" secondAttribute="top" id="cRS-aN-K0P"/>
+                            <constraint firstItem="3kE-Qb-tWB" firstAttribute="leading" secondItem="4Hv-yW-mdi" secondAttribute="leading" id="dqo-MI-Klf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="3kE-Qb-tWB" id="Iru-xp-N0J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abE-6a-dH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="-576"/>
         </scene>
     </scenes>
     <resources>

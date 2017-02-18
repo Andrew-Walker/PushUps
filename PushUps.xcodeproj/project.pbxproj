@@ -105,6 +105,9 @@
 		6EEFC31E1D8B462700639ABB /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31D1D8B462700639ABB /* Level.swift */; };
 		6EEFC3201D8B46C600639ABB /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC31F1D8B46C600639ABB /* Stage.swift */; };
 		6EEFC3CA1E5865F400A8E2D4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEFC3C51E5865D700A8E2D4 /* Charts.framework */; };
+		6EEFC3CD1E5867B300A8E2D4 /* WorkoutChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC3CC1E5867B300A8E2D4 /* WorkoutChartViewController.swift */; };
+		6EF341CF1E58A68700F684C9 /* WorkoutChartViewControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341CE1E58A68700F684C9 /* WorkoutChartViewControllerProxy.swift */; };
+		6EF341D41E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341D31E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift */; };
 		6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -278,6 +281,9 @@
 		6EEFC31D1D8B462700639ABB /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		6EEFC31F1D8B46C600639ABB /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6EEFC3BE1E5865D600A8E2D4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Vendor/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		6EEFC3CC1E5867B300A8E2D4 /* WorkoutChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutChartViewController.swift; sourceTree = "<group>"; };
+		6EF341CE1E58A68700F684C9 /* WorkoutChartViewControllerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutChartViewControllerProxy.swift; sourceTree = "<group>"; };
+		6EF341D31E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutChartChartDataSetFactory.swift; sourceTree = "<group>"; };
 		6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -621,6 +627,7 @@
 			children = (
 				6E3386B41E3EAE4900D5A225 /* Protocols */,
 				6EB344541E38B75400DC9590 /* Mediators */,
+				6EEFC3CB1E58678200A8E2D4 /* WorkoutChartViewController */,
 				6E929B071E3518370067686A /* CapturePreviewViewController */,
 				6E1D67E01E2C33B700C5AEEF /* CaptureViewController */,
 				6E3B9A4E1D78EC5C00DF7C27 /* CountdownViewController */,
@@ -834,6 +841,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6EEFC3CB1E58678200A8E2D4 /* WorkoutChartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6EEFC3CC1E5867B300A8E2D4 /* WorkoutChartViewController.swift */,
+				6EF341CE1E58A68700F684C9 /* WorkoutChartViewControllerProxy.swift */,
+				6EF341D31E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift */,
+			);
+			name = WorkoutChartViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1041,6 +1058,7 @@
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
 				6E1642671E2B07A700404D39 /* BasicSectionContent.swift in Sources */,
+				6EF341D41E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift in Sources */,
 				6E0A031B1DA7FB76000FDD73 /* Array+PushUps.swift in Sources */,
 				6EEFC31E1D8B462700639ABB /* Level.swift in Sources */,
 				6E7D291D1D7E180B004CC25B /* User.swift in Sources */,
@@ -1079,9 +1097,11 @@
 				6E9709A01D568B9A00999AB6 /* UIViewController+Style.swift in Sources */,
 				6E925D521E1C42E400F8DAD5 /* TrainingListCellContentFactory.swift in Sources */,
 				6ED4B0641E57C4A10024474A /* SectionHeaderFooterViewContent.swift in Sources */,
+				6EF341CF1E58A68700F684C9 /* WorkoutChartViewControllerProxy.swift in Sources */,
 				6E8C178E1E1956B100934B9F /* TableViewContentController.swift in Sources */,
 				6E6679231DC6B3FC00E895D1 /* ProximityController.swift in Sources */,
 				6E048DE71D62843200678AFE /* UIBarButtonItem+Style.swift in Sources */,
+				6EEFC3CD1E5867B300A8E2D4 /* WorkoutChartViewController.swift in Sources */,
 				6E66791E1DC6AD6100E895D1 /* TrainingSessionViewControllerProxy.swift in Sources */,
 				6E9709981D53FB8000999AB6 /* UIView+Style.swift in Sources */,
 				6E1D67E71E2C3B8400C5AEEF /* CameraController.swift in Sources */,

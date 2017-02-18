@@ -81,4 +81,11 @@ internal final class UserController {
         return personalBest
     }
     
+    /**
+     
+    */
+    internal func completedWorkoutSessions() -> [WorkoutSession] {
+        return self.user?.sessions.flatMap({ $0 as? WorkoutSession }) ?? []
+    }
+    
 }
