@@ -156,7 +156,9 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
     @objc private func segmentedControlChanged() {
         let newIndex = self.segmentedControl.selectedIndex
         let contentOffsetX = self.transitionHelper?.contentOffset(for: newIndex) ?? 0.0
-        let rect = CGRect(x: contentOffsetX, y: 0.0, width: 320.0, height: 454.0)
+        let size = self.scrollView.frame.size
+        let origin = CGPoint(x: contentOffsetX, y: 0.0)
+        let rect = CGRect(origin: origin, size: size)
         self.scrollView.scrollRectToVisible(rect, animated: true)
     }
     

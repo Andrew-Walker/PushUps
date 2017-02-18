@@ -15,6 +15,7 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     @IBOutlet private weak var pushupCountLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var differenceLabel: UILabel!
+    @IBOutlet private weak var lineChartContainerView: UIView!
     
     // MARK: - Internal Properties
     
