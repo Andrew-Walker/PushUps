@@ -20,9 +20,15 @@ internal final class NavigationBarView: UIView {
     internal override func awakeFromNib() {
         super.awakeFromNib()
                 
+        self.styleUI()
+    }
+    
+    // MARK: - UI
+    
+    private func styleUI() {
         self.backgroundColor = UIColor.clear
         self.titleLabel?.textColor = UIColor.white
-        self.subtitleLabel?.textColor = UIColor.white.withAlphaComponent(0.5)
+        self.subtitleLabel?.textColor = UIColor.white.withAlphaComponent(0.75)
     }
     
     // MARK: - Internal Functions

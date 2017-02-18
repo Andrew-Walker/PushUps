@@ -95,6 +95,7 @@ internal final class ProfileViewController: UIViewController, ProfileViewControl
     
     private func configureContent() {
         self.contentController.configure(with: self.tableView, estimatedRowHeight: 67.0)
+        self.contentController.register(headerFooterViewClass: TitleSectionHeaderFooterView.self, reuseIdentifier: "TitleSectionHeaderFooterView")
         self.contentController.hidesAdditionalCells = true
         
         let sessionCount = self.proxy?.numberOfCompletedSessions() ?? 0
