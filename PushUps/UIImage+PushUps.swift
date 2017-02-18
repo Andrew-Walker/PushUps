@@ -12,6 +12,9 @@ internal extension UIImage {
     
     // MARK: - Internal Functions
     
+    /**
+     
+     */
     internal func flipHorizontally() -> UIImage {
         guard let originalImage = self.cgImage else {
             return self

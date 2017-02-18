@@ -797,6 +797,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-xv-05Q">
                                 <rect key="frame" x="155.5" y="144" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="W0m-SD-r0e"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1397,7 +1400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-Qb-tWB" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <color key="backgroundColor" red="0.52670717590000005" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -1433,7 +1436,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVU-h2-p22">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSV-Vo-HN9">
                                                 <rect key="frame" x="155.5" y="40" width="65.5" height="120"/>
@@ -1446,6 +1449,9 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-81-MN3">
                                                 <rect key="frame" x="120.5" y="144" width="134.5" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="xVO-Ls-eGK"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1537,21 +1543,33 @@
                                             <constraint firstItem="eq0-81-MN3" firstAttribute="top" secondItem="kSV-Vo-HN9" secondAttribute="bottom" constant="-16" id="Kcz-Wc-1V0"/>
                                             <constraint firstItem="nhO-Dt-1Ws" firstAttribute="centerX" secondItem="KVU-h2-p22" secondAttribute="centerX" id="MfE-VA-yWk"/>
                                             <constraint firstItem="kSV-Vo-HN9" firstAttribute="centerX" secondItem="KVU-h2-p22" secondAttribute="centerX" id="RjY-gu-Vcq"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nhO-Dt-1Ws" secondAttribute="bottom" constant="40" id="SLS-j5-z96"/>
+                                            <constraint firstAttribute="bottom" secondItem="nhO-Dt-1Ws" secondAttribute="bottom" constant="40" id="SLS-j5-z96"/>
                                             <constraint firstItem="kSV-Vo-HN9" firstAttribute="top" secondItem="KVU-h2-p22" secondAttribute="top" constant="40" id="f7V-Kx-MEa"/>
                                             <constraint firstItem="eq0-81-MN3" firstAttribute="centerX" secondItem="KVU-h2-p22" secondAttribute="centerX" id="m67-RJ-jOP"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nhO-Dt-1Ws" secondAttribute="trailing" id="rzH-as-B1i"/>
                                         </constraints>
                                     </view>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leF-d3-9ux">
-                                        <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxx-xe-Kkc">
+                                        <rect key="frame" x="0.0" y="294" width="375" height="373"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hdl-BC-0h0">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="750" constant="150" id="raf-ao-F0g"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="FTP-rU-qFg" kind="embed" id="2vx-lG-8HG"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="750" constant="150" id="oYl-ib-eKs"/>
+                                            <constraint firstItem="Hdl-BC-0h0" firstAttribute="top" secondItem="qxx-xe-Kkc" secondAttribute="top" id="6SD-QC-hFF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hdl-BC-0h0" secondAttribute="trailing" id="UzY-di-N1L"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="150" id="wN3-SZ-H4t"/>
+                                            <constraint firstItem="Hdl-BC-0h0" firstAttribute="leading" secondItem="qxx-xe-Kkc" secondAttribute="leading" id="zBR-oz-Efp"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="FTP-rU-qFg" kind="embed" id="4P0-bL-HVm"/>
-                                        </connections>
-                                    </containerView>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -1569,7 +1587,7 @@
                     <connections>
                         <outlet property="differenceLabel" destination="Fhh-R8-srm" id="v7u-7f-2AR"/>
                         <outlet property="durationLabel" destination="ln7-Lg-1dz" id="Vqg-YR-eLN"/>
-                        <outlet property="lineChartContainerView" destination="leF-d3-9ux" id="JYm-sH-6ua"/>
+                        <outlet property="lineChartContainerView" destination="Hdl-BC-0h0" id="26g-xD-Boi"/>
                         <outlet property="pushupCountLabel" destination="kSV-Vo-HN9" id="FNw-FS-xM9"/>
                     </connections>
                 </viewController>

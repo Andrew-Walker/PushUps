@@ -53,7 +53,8 @@ internal final class HomeWorkoutViewController: UIViewController, TransitionalVi
     private func configureUI() {
         self.pushupCountLabel.text = self.proxy?.mostRecentSessionPushupCount()
         self.differenceLabel.text = self.proxy?.pushUpCountDifference()
-        self.durationLabel.text = self.proxy?.mostRecentSessionDuration()        
+        self.durationLabel.text = self.proxy?.mostRecentSessionDuration()
+        self.lineChartContainerView.isHidden = UIScreen.isCompactHeight()
     }
     
     private func configureContent() {

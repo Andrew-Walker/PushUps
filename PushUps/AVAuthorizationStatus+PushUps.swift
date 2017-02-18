@@ -12,6 +12,9 @@ internal extension AVAuthorizationStatus {
     
     // MARK: - Internal Functions
     
+    /**
+     
+     */
     internal func message() -> String? {
         switch self {
         case .denied:
