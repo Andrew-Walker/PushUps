@@ -21,6 +21,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     // MARK: - Internal Properties
     
     internal var proxy: TrainingListViewControllerProxy?
+    internal var selectedSessionType: SessionType?
     
     // MARK: - Lifecycle
     
@@ -28,6 +29,7 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
         super.viewDidLoad()
         
         self.proxy = TrainingListViewControllerProxy(delegate: self)
+        self.selectedSessionType = self.proxy?.selectedSessionType()
         
         self.styleUI()
         self.configureUI()
@@ -37,8 +39,11 @@ internal final class TrainingListViewController: UIViewController, TrainingListV
     // MARK: - UI
     
     private func styleUI() {
-        self.applyBackground()
+        self.applyBackgroundGradient()
         self.tableView.backgroundColor = UIColor.clear
+        
+        let themeColor = self.selectedSessionType?.themeColor
+        self.view.backgroundColor = themeColor
     }
     
     private func configureUI() {

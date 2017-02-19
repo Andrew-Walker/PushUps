@@ -40,17 +40,7 @@ internal final class WorkoutChartViewController: UIViewController, WorkoutChartV
     
     private func styleUI() {
         self.view.backgroundColor = UIColor.clear
-        self.lineChartView.backgroundColor = UIColor.clear
-        self.lineChartView.drawGridBackgroundEnabled = false
-        self.lineChartView.rightAxis.enabled = false
-        self.lineChartView.leftAxis.enabled = false
-        self.lineChartView.xAxis.enabled = false
-        self.lineChartView.doubleTapToZoomEnabled = false
-        self.lineChartView.dragEnabled = false
-        self.lineChartView.noDataText = ""
-        self.lineChartView.legend.enabled = false
-        self.lineChartView.chartDescription = nil
-        self.lineChartView.highlighter = nil
+        self.lineChartView.applyGlobalStyle()
     }
     
     private func configureUI() {
@@ -64,7 +54,7 @@ internal final class WorkoutChartViewController: UIViewController, WorkoutChartV
         }
         
         self.lineChartView.isHidden = false
-        self.lineChartView.data = WorkoutChartChartDataSetFactory.createWorkoutChartData(from: completedWorkoutSessions)
+        self.lineChartView.data = WorkoutChartChartDataSetFactory.createLineChartData(from: completedWorkoutSessions)
     }
     
 }

@@ -19,7 +19,7 @@ internal final class WorkoutChartChartDataSetFactory {
 
     // MARK: - Internal Functions
     
-    internal static func createWorkoutChartData(from workoutSessions: [WorkoutSession]) -> LineChartData? {
+    internal static func createLineChartData(from workoutSessions: [WorkoutSession]) -> LineChartData? {
         guard !workoutSessions.isEmpty else {
             return nil
         }
@@ -32,13 +32,20 @@ internal final class WorkoutChartChartDataSetFactory {
             dataEntries.append(workoutSessionDataEntry)
         }
         
-        let workoutSessionDataSet = LineChartDataSet(values: dataEntries, label: nil)
-        workoutSessionDataSet.lineWidth = 3.0
-        workoutSessionDataSet.drawCirclesEnabled = false
-        workoutSessionDataSet.setColor(UIColor.white)
-        workoutSessionDataSet.drawValuesEnabled = false
-        
-        let workoutSessionData = LineChartData(dataSets: [workoutSessionDataSet])
+        let lineChartDataSet = WorkoutChartChartDataSetFactory.createLineChartDataSet(from: dataEntries)
+        let workoutSessionData = LineChartData(dataSets: [lineChartDataSet])
         return workoutSessionData
     }
+    
+    // MARK: - Private Functions
+    
+    private static func createLineChartDataSet(from dataEntries: [ChartDataEntry]) -> LineChartDataSet {
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: nil)
+        lineChartDataSet.lineWidth = 3.0
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.setColor(UIColor.white)
+        lineChartDataSet.drawValuesEnabled = false
+        return lineChartDataSet
+    }
+    
 }

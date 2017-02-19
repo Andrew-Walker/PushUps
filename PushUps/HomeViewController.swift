@@ -42,8 +42,8 @@ internal final class HomeViewController: UIViewController, HomeViewControllerPro
         let homeWorkoutViewController = storyboard.instantiateViewController(withIdentifier: String(describing: HomeWorkoutViewController.self))
         self.viewControllers.append(homeWorkoutViewController)
         
-        self.styleUI()
         self.configureUI()
+        self.styleUI()
     }
     
     internal override func viewDidAppear(_ animated: Bool) {

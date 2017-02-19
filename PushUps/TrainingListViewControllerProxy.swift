@@ -48,6 +48,14 @@ internal final class TrainingListViewControllerProxy {
     }
     
     /**
+     Gets type of selected session.
+     - returns: Struct conforming to SessionType representing selected session.
+     */
+    internal func selectedSessionType() -> SessionType? {
+        return SessionController.sharedInstance.selectedSessionType
+    }
+    
+    /**
      Updates user's current training stage and level.
      - parameters:
         - currentLevel: Instance conforming to Level protocol.
