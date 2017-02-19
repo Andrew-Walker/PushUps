@@ -24,6 +24,7 @@ internal extension LineChartView {
         self.legend.enabled = false
         self.chartDescription = nil
         self.highlighter = nil
+        self.setViewPortOffsets(left: 20.0, top: 20.0, right: 20.0, bottom: 20.0)
     }
     
 }

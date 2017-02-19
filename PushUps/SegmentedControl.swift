@@ -53,7 +53,7 @@ import UIKit
         }
     }
     
-    @IBInspectable internal var font = UIFont.systemFont(ofSize: 10) {
+    @IBInspectable internal var font = UIFont.regularFont(ofSize: 10) {
         didSet {
             self.setFont()
         }

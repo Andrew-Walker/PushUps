@@ -17,7 +17,7 @@ internal extension UILabel {
      */
     internal func applySetsStackViewStandardStyle() {
         self.textAlignment = .center
-        self.font = UIFont.systemFont(ofSize: 24.0)
+        self.font = UIFont.regularFont(ofSize: 24.0)
         self.textColor = UIColor.white
     }
     
@@ -26,7 +26,7 @@ internal extension UILabel {
     */
     internal func applySetsStackViewActiveStyle() {
         self.textAlignment = .center
-        self.font = UIFont.systemFont(ofSize: 24.0)
+        self.font = UIFont.regularFont(ofSize: 24.0)
         self.textColor = UIColor.red
     }
     

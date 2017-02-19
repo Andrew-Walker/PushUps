@@ -48,7 +48,7 @@ internal final class WorkoutChartViewController: UIViewController, WorkoutChartV
     }
     
     private func configureLineChartView() {
-        guard let completedWorkoutSessions = self.proxy?.completedWorkoutSessions(), !completedWorkoutSessions.isEmpty else {
+        guard let completedWorkoutSessions = self.proxy?.completedWorkoutSessions(), completedWorkoutSessions.count > 1 else {
             self.lineChartView.isHidden = true
             return
         }

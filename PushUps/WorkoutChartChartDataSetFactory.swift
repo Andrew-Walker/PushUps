@@ -44,7 +44,14 @@ internal final class WorkoutChartChartDataSetFactory {
         lineChartDataSet.lineWidth = 3.0
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.setColor(UIColor.white)
-        lineChartDataSet.drawValuesEnabled = false
+        lineChartDataSet.drawValuesEnabled = true
+        lineChartDataSet.valueTextColor = UIColor.white.withAlphaComponent(0.75)
+        lineChartDataSet.valueFont = UIFont.boldFont(ofSize: 12.0)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.generatesDecimalNumbers = false
+        lineChartDataSet.valueFormatter = DefaultValueFormatter(formatter: numberFormatter)
+        
         return lineChartDataSet
     }
     

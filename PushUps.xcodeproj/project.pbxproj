@@ -110,6 +110,7 @@
 		6EF341D41E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341D31E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift */; };
 		6EF341D61E590DE500F684C9 /* UIScreen+Pushups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341D51E590DE500F684C9 /* UIScreen+Pushups.swift */; };
 		6EF341D81E59196400F684C9 /* LineChartView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341D71E59196400F684C9 /* LineChartView+Style.swift */; };
+		6EF341DA1E59504200F684C9 /* UIFont+PushUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF341D91E59504100F684C9 /* UIFont+PushUps.swift */; };
 		6EFD43361D5E7A98006D8E51 /* HomeWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */; };
 		6EFD433A1D5E7AB9006D8E51 /* HomeTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */; };
 /* End PBXBuildFile section */
@@ -288,6 +289,7 @@
 		6EF341D31E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutChartChartDataSetFactory.swift; sourceTree = "<group>"; };
 		6EF341D51E590DE500F684C9 /* UIScreen+Pushups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Pushups.swift"; sourceTree = "<group>"; };
 		6EF341D71E59196400F684C9 /* LineChartView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LineChartView+Style.swift"; sourceTree = "<group>"; };
+		6EF341D91E59504100F684C9 /* UIFont+PushUps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+PushUps.swift"; sourceTree = "<group>"; };
 		6EFD43351D5E7A98006D8E51 /* HomeWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWorkoutViewController.swift; sourceTree = "<group>"; };
 		6EFD43391D5E7AB9006D8E51 /* HomeTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTrainingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +326,7 @@
 				6E929B0A1E3552CE0067686A /* UIImage+PushUps.swift */,
 				6E3386B71E3EC65E00D5A225 /* CGFloat+PushUps.swift */,
 				6EF341D51E590DE500F684C9 /* UIScreen+Pushups.swift */,
+				6EF341D91E59504100F684C9 /* UIFont+PushUps.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				6E69AF371DB57F090092A1E0 /* HomeViewControllerProxy.swift in Sources */,
 				6EDD99F91D5BE9D900E6BF19 /* UIApplication+Style.swift in Sources */,
 				6EDD99FB1D5BF18A00E6BF19 /* CountdownViewController.swift in Sources */,
+				6EF341DA1E59504200F684C9 /* UIFont+PushUps.swift in Sources */,
 				6E1642671E2B07A700404D39 /* BasicSectionContent.swift in Sources */,
 				6EF341D41E58A97500F684C9 /* WorkoutChartChartDataSetFactory.swift in Sources */,
 				6E0A031B1DA7FB76000FDD73 /* Array+PushUps.swift in Sources */,
