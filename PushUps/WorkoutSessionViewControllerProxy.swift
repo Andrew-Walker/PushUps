@@ -61,6 +61,10 @@ internal final class WorkoutSessionViewControllerProxy {
         
         SessionController.sharedInstance.clearActiveSession()
         
+        guard count > 0 else {
+            return
+        }
+        
         let user = UserController.sharedInstance.currentPushUpUser()
         user?.add(session: completedSession)
     }

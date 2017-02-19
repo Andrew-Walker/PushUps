@@ -58,8 +58,7 @@ internal final class WorkoutSessionViewController: UIViewController, WorkoutSess
     // MARK: - Private Functions
     
     private func endSession() {
-        let pushUpCount = self.pushUpCount
-        self.proxy?.endSession(with: pushUpCount)
+        self.proxy?.endSession(with: self.pushUpCount)
         self.proximityController?.endProximityDetection()
         self.dismissToRoot()
     }
