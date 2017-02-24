@@ -13,6 +13,8 @@ internal final class WorkoutChartViewController: UIViewController, WorkoutChartV
     
     // MARK: - Private Properties
     
+    @IBOutlet private weak var personalBestLabel: UILabel!
+    @IBOutlet private weak var dashedLineView: UIView!
     @IBOutlet private weak var lineChartView: LineChartView!
     
     // MARK: - Internal Properties
@@ -41,6 +43,10 @@ internal final class WorkoutChartViewController: UIViewController, WorkoutChartV
     private func styleUI() {
         self.view.backgroundColor = UIColor.clear
         self.lineChartView.applyGlobalStyle()
+        
+        let personalBestIndicatorColor = UIColor.black.withAlphaComponent(0.15)
+        self.personalBestLabel.textColor = personalBestIndicatorColor
+        self.dashedLineView.addDashedLine(color: personalBestIndicatorColor)
     }
     
     private func configureUI() {

@@ -207,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jbw-ao-T59" id="Ul7-Na-v3D">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uq-KG-7Rn">
@@ -508,7 +508,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfr-Nh-g7K" id="xIq-9z-z58">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJT-Sy-OZH">
@@ -1399,6 +1399,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0H-FE-rqR">
+                                <rect key="frame" x="98.5" y="29.5" width="276.5" height="3"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="P5Y-DI-0QW"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personal best" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN6-DV-Oe7">
+                                <rect key="frame" x="8" y="18" width="82.5" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="fVb-do-gGs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kE-Qb-tWB" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                             </view>
@@ -1406,18 +1422,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3kE-Qb-tWB" secondAttribute="trailing" id="DCI-KS-kpK"/>
+                            <constraint firstItem="v0H-FE-rqR" firstAttribute="centerY" secondItem="LN6-DV-Oe7" secondAttribute="centerY" constant="2" id="DDs-2w-6OK"/>
+                            <constraint firstItem="LN6-DV-Oe7" firstAttribute="top" secondItem="47k-i2-KHf" secondAttribute="bottom" constant="18" id="NMi-C4-aUS"/>
                             <constraint firstAttribute="bottom" secondItem="3kE-Qb-tWB" secondAttribute="bottom" id="bQv-qy-bJI"/>
                             <constraint firstItem="3kE-Qb-tWB" firstAttribute="top" secondItem="4Hv-yW-mdi" secondAttribute="top" id="cRS-aN-K0P"/>
                             <constraint firstItem="3kE-Qb-tWB" firstAttribute="leading" secondItem="4Hv-yW-mdi" secondAttribute="leading" id="dqo-MI-Klf"/>
+                            <constraint firstItem="LN6-DV-Oe7" firstAttribute="leading" secondItem="4Hv-yW-mdi" secondAttribute="leading" constant="8" id="gag-lW-FlE"/>
+                            <constraint firstAttribute="trailing" secondItem="v0H-FE-rqR" secondAttribute="trailing" id="iB9-Jj-Rsh"/>
+                            <constraint firstItem="v0H-FE-rqR" firstAttribute="leading" secondItem="LN6-DV-Oe7" secondAttribute="trailing" constant="8" id="oMB-gF-hgV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dashedLineView" destination="v0H-FE-rqR" id="4IW-VT-pj2"/>
                         <outlet property="lineChartView" destination="3kE-Qb-tWB" id="Iru-xp-N0J"/>
+                        <outlet property="personalBestLabel" destination="LN6-DV-Oe7" id="byU-iK-LP1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abE-6a-dH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="-576"/>
+            <point key="canvasLocation" x="1004" y="-576.1619190404798"/>
         </scene>
         <!--Home Workout View Controller-->
         <scene sceneID="sCH-9I-yRO">
